@@ -1,0 +1,1 @@
+cp -Rp ~/Desktop/Tommy\ SF/*.[jJ][pP][gG] ./photos
