@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 pillow = "*"
+arcgis = "*"
+python-dotenv = "*"
+black = "*"
+pylint = "*"
 
 [dev-packages]
 

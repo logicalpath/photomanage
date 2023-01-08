@@ -15,6 +15,14 @@ def get_exif(filename):
 
     print(exif_table)
 
+def getAddress(lat, Long):
+    # given signed decimal degress determine an address using ARCGis API
+    # http://resources.esri.com/help/9.3/arcgisserver/apis/rest/geocode.html
+    print("hello")
+
+
+    
+
 
 
 def main(args=None):
