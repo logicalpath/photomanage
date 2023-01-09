@@ -10,7 +10,7 @@ api_key = s.apiKey
 portal = GIS("https://www.arcgis.com", api_key=api_key)
 
 location = {
-     'Y': 37.7918055555556,                 # `Y` is latitude
+     'Y': 37.7918055555556,                # `Y` is latitude
      'X': -122.413277777778,               # `X` is longitude
      'spatialReference': {
          'wkid':4326
@@ -18,4 +18,7 @@ location = {
 }
 unknown_pt = Point(location)
 reverse_results = reverse_geocode(location=unknown_pt)
-print (reverse_results)
+
+print("\nAddress: \n")
+print (reverse_results['address'])
+

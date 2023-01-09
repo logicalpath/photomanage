@@ -4,6 +4,7 @@ import sys
 
 def get_exif(filename):
     image = Image.open(filename)
+    image.show()
     print(image._getexif())
 
     print('\nEXIF dictionary:\n')
