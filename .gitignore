@@ -3,3 +3,6 @@ photos/*
 
 # Secrets
 .env
+
+# Data
+*.csv
