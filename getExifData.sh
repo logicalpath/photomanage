@@ -26,13 +26,6 @@ fi
 echo "Full Directory = $TOP_DIR"
 echo "exif_file = $exif_file"
 
-# # This works where '.' is the current directory
-# # -r means recursive
-
-# exiftool -csv -"*GPS*" -"Date*" -r --ext json $TOP_DIR > $exif_file
-
-# find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext ^json {} + > $exif_file
-
 # Decide which exiftool command to run based on the first argument
 if [ "$1" == "folder" ]; then
     exiftool -csv -"*GPS*" -"Date*" -r --ext json $TOP_DIR > $exif_file
