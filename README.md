@@ -29,3 +29,7 @@ For an apple photolibrary:
 
 For a regular folder with media:
 ``` getExifData.py photolib foldername```
+
+
+Sort the output file by size:
+`sort -t',' -k3 -n -r Movies-output.csv -o sorted_movies.csv`
