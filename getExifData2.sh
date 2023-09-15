@@ -30,10 +30,10 @@ echo "exif_file = $exif_file"
 if [ "$1" == "folder" ]; then
     exiftool -csv -"*GPS*" -"Date*" -r --ext json "$TOP_DIR" > "$exif_file"
 elif [ "$1" == "photolib" ]; then
-    find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext ^json {} + > "$exif_file"
+    find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext json {} + > "$exif_file"
 else
     # find "$TOP_DIR" -type d -name '.fcpbundle' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext ^json {} + > "$exif_file"
-    find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext ^json {} + > "$exif_file"
+    # find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"*GPS*" -"Create*Date" -r --ext ^plist --ext ^json {} + > "$exif_file"
+    find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"*GPS*" -"Create*Date" -r --ext plist {} + > "$exif_file"
 
-    
 fi
