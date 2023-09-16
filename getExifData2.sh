@@ -28,7 +28,7 @@ echo "exif_file = $exif_file"
 
 # Decide which exiftool command to run based on the first argument
 if [ "$1" == "folder" ]; then
-    exiftool -csv -"*GPS*" -"Date*" -r --ext json "$TOP_DIR" > "$exif_file"
+    exiftool -csv -"*GPS*" -"Create*Date" -r --ext json "$TOP_DIR" > "$exif_file"
 elif [ "$1" == "photolib" ]; then
     find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext json {} + > "$exif_file"
 else
