@@ -3,8 +3,12 @@
 # Ensure the first argument is 'folder' or 'photolib' or fcpbundle
 if [ "$1" != "folder" ] && [ "$1" != "photolib" ] && [ "$1" != "fcpbundle" ]; then
     echo "Error: First argument should be either 'folder' or 'photolib' or 'fcpbundle'"
+    echo "Usage: ./getExifData2.sh folder ~/Feb2020/Movie-files"
+    echo "Usage: ./getExifData2.sh photolib ~/Photos"
+    echo "Usage: ./getExifData2.sh fcpbundle ~/Feb2020/Movies"
     exit 1
 fi
+
 
 # Path to the top-level directory
 TOP_DIR=$2
@@ -32,10 +36,10 @@ if [ "$1" == "folder" ]; then
     exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -r --ext json "$TOP_DIR" > "$exif_file"
 
 elif [ "$1" == "photolib" ]; then
-    find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext json {} + > "$exif_file"
+    find "$TOP_DIR" -type d -name 'originals' -exec exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -r --ext json {} + > "$exif_file"
 else
     # find "$TOP_DIR" -type d -name '.fcpbundle' -exec exiftool -csv -"*GPS*" -"Date*" -r --ext ^json {} + > "$exif_file"
     # find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"*GPS*" -"Create*Date" -r --ext ^plist --ext ^json {} + > "$exif_file"
-    find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"*GPS*" -"Create*Date" -r --ext plist {} + > "$exif_file"
+    find "$TOP_DIR" -type d -name '*.fcpbundle' -exec exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -r --ext plist {} + > "$exif_file"
 
 fi
