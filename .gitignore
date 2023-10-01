@@ -6,3 +6,6 @@ photos/*
 
 # Data
 
+/exifs
+/outputs
+/scripts/*.log
