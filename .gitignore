@@ -9,3 +9,6 @@ photos/*
 /exifs
 /outputs
 /scripts/*.log
+/json
+
+

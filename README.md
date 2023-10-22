@@ -33,3 +33,10 @@ For a regular folder with media:
 
 Sort the output file by size:
 `sort -t',' -k3 -n -r Movies-output.csv -o sorted_movies.csv`
+
+### Download files with the CLI
+
+`b2 authorize-account`
+
+`b2 download-file-by-name b2-snapshots-b00f0a6e6ad7 Aperture2016.zip ~/Downloads/Aperture2016.zip`
+
