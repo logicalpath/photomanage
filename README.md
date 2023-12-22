@@ -38,5 +38,5 @@ Sort the output file by size:
 
 `b2 authorize-account`
 
-`b2 download-file-by-name b2-snapshots-b00f0a6e6ad7 Aperture2016.zip ~/Downloads/Aperture2016.zip`
+`b2 download-file-by-name b2-snapshots-xxxxxxxxx Aperture2016.zip ~/Downloads/Aperture2016.zip`
 
