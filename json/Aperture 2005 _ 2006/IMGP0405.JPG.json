@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0405.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562365985",
+    "formatted": "Jul 5, 2019, 10:33:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820245",
+    "formatted": "Dec 31, 2019, 7:24:05 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1128870989",
+    "formatted": "Oct 9, 2005, 3:16:29 PM UTC"
+  }
+}

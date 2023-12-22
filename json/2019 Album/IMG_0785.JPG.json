@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0785.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113944",
+    "formatted": "Apr 5, 2020, 7:12:24 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115966",
+    "formatted": "Apr 5, 2020, 7:46:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.91576388888889,
+    "longitude": -122.50826388888889,
+    "altitude": 4.55316162109375,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.91576388888889,
+    "longitude": -122.50826388888889,
+    "altitude": 4.55316162109375,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1560021284",
+    "formatted": "Jun 8, 2019, 7:14:44 PM UTC"
+  }
+}

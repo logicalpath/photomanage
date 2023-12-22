@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2622_1.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562380971",
+    "formatted": "Jul 6, 2019, 2:42:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585110507",
+    "formatted": "Mar 25, 2020, 4:28:27 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1154135600",
+    "formatted": "Jul 29, 2006, 1:13:20 AM UTC"
+  }
+}

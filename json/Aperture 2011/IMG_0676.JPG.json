@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0676.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196366",
+    "formatted": "Sep 22, 2019, 11:52:46 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820472",
+    "formatted": "Dec 31, 2019, 7:27:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.85666666666667,
+    "longitude": -122.41433333333333,
+    "altitude": 66.86343612334802,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.85666666666667,
+    "longitude": -122.41433333333333,
+    "altitude": 66.86343612334802,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1296664842",
+    "formatted": "Feb 2, 2011, 4:40:42 PM UTC"
+  }
+}

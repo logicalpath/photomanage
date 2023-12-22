@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1413.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401998",
+    "formatted": "Oct 30, 2019, 2:19:58 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820497",
+    "formatted": "Dec 31, 2019, 7:28:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.972325000000005,
+    "longitude": -122.51726666666667,
+    "altitude": 3.8021295474711625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.972325000000005,
+    "longitude": -122.51726666666667,
+    "altitude": 3.8021295474711625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1444583765",
+    "formatted": "Oct 11, 2015, 5:16:05 PM UTC"
+  }
+}

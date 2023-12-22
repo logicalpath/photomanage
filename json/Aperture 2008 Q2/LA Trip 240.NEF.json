@@ -1,0 +1,31 @@
+{
+  "title": "LA Trip 240.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562549788",
+    "formatted": "Jul 8, 2019, 1:36:28 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820383",
+    "formatted": "Dec 31, 2019, 7:26:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1207874285",
+    "formatted": "Apr 11, 2008, 12:38:05 AM UTC"
+  }
+}

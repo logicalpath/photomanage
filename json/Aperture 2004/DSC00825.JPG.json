@@ -1,0 +1,31 @@
+{
+  "title": "DSC00825.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562364895",
+    "formatted": "Jul 5, 2019, 10:14:55 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584765382",
+    "formatted": "Mar 21, 2020, 4:36:22 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1104008140",
+    "formatted": "Dec 25, 2004, 8:55:40 PM UTC"
+  }
+}

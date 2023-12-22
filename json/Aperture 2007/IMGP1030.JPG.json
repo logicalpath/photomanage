@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1030.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562458154",
+    "formatted": "Jul 7, 2019, 12:09:14 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776334",
+    "formatted": "Jan 23, 2020, 10:45:34 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1193546174",
+    "formatted": "Oct 28, 2007, 4:36:14 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1271.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711823",
+    "formatted": "Nov 14, 2019, 6:10:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205702",
+    "formatted": "Dec 1, 2019, 1:08:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.93269722222222,
+    "longitude": -122.551575,
+    "altitude": 108.37595419847328,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.93269722222222,
+    "longitude": -122.551575,
+    "altitude": 108.37595419847328,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1441586364",
+    "formatted": "Sep 7, 2015, 12:39:24 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0052.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569554",
+    "formatted": "Aug 12, 2019, 12:25:54 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820451",
+    "formatted": "Dec 31, 2019, 7:27:31 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.879,
+    "longitude": -122.292,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.879,
+    "longitude": -122.292,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1284244181",
+    "formatted": "Sep 11, 2010, 10:29:41 PM UTC"
+  }
+}

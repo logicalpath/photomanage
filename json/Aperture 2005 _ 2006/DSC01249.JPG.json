@@ -1,0 +1,31 @@
+{
+  "title": "DSC01249.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562366096",
+    "formatted": "Jul 5, 2019, 10:34:56 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584775562",
+    "formatted": "Mar 21, 2020, 7:26:02 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1117161740",
+    "formatted": "May 27, 2005, 2:42:20 AM UTC"
+  }
+}

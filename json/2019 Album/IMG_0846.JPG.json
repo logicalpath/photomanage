@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0846.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113913",
+    "formatted": "Apr 5, 2020, 7:11:53 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115941",
+    "formatted": "Apr 5, 2020, 7:45:41 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.91155555555555,
+    "longitude": -122.4915,
+    "altitude": 159.0310707456979,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.91155555555555,
+    "longitude": -122.4915,
+    "altitude": 159.0310707456979,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1562534595",
+    "formatted": "Jul 7, 2019, 9:23:15 PM UTC"
+  }
+}

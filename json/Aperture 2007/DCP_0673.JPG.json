@@ -1,0 +1,31 @@
+{
+  "title": "DCP_0673.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562445300",
+    "formatted": "Jul 6, 2019, 8:35:00 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776331",
+    "formatted": "Jan 23, 2020, 10:45:31 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1176076492",
+    "formatted": "Apr 8, 2007, 11:54:52 PM UTC"
+  }
+}

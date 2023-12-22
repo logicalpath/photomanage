@@ -1,0 +1,31 @@
+{
+  "title": "2015-06-10 20.03.12 HDR.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569205545",
+    "formatted": "Sep 23, 2019, 2:25:45 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820484",
+    "formatted": "Dec 31, 2019, 7:28:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.03035833333333,
+    "longitude": -122.54665277777778,
+    "altitude": 20.212218649517684,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.03035833333333,
+    "longitude": -122.54665277777778,
+    "altitude": 20.212218649517684,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1433991792",
+    "formatted": "Jun 11, 2015, 3:03:12 AM UTC"
+  }
+}

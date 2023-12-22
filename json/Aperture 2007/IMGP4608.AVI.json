@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4608.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562452257",
+    "formatted": "Jul 6, 2019, 10:30:57 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1187049102",
+    "formatted": "Aug 13, 2007, 11:51:42 PM UTC"
+  }
+}

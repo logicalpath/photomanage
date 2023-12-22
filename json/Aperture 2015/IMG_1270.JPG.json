@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1270.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711823",
+    "formatted": "Nov 14, 2019, 6:10:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205702",
+    "formatted": "Dec 1, 2019, 1:08:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.93266388888889,
+    "longitude": -122.55149166666666,
+    "altitude": 107.33096085409252,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.93266388888889,
+    "longitude": -122.55149166666666,
+    "altitude": 107.33096085409252,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1441585699",
+    "formatted": "Sep 7, 2015, 12:28:19 AM UTC"
+  }
+}

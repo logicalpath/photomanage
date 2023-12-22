@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1685.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562393471",
+    "formatted": "Jul 6, 2019, 6:11:11 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820288",
+    "formatted": "Dec 31, 2019, 7:24:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1148840922",
+    "formatted": "May 28, 2006, 6:28:42 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111209_171910.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195188",
+    "formatted": "Sep 22, 2019, 11:33:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820467",
+    "formatted": "Dec 31, 2019, 7:27:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79611766666667,
+    "longitude": -122.39266275000001,
+    "altitude": -22.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79611766666667,
+    "longitude": -122.39266275000001,
+    "altitude": -22.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1323479950",
+    "formatted": "Dec 10, 2011, 1:19:10 AM UTC"
+  }
+}

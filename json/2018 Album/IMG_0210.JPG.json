@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0210.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115988",
+    "formatted": "Apr 5, 2020, 7:46:28 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116764",
+    "formatted": "Apr 5, 2020, 7:59:24 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.467105555555555,
+    "longitude": -121.8481361111111,
+    "altitude": 24.69933698472182,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.467105555555555,
+    "longitude": -121.8481361111111,
+    "altitude": 24.69933698472182,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1539551119",
+    "formatted": "Oct 14, 2018, 9:05:19 PM UTC"
+  }
+}

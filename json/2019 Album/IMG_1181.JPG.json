@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1181.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114288",
+    "formatted": "Apr 5, 2020, 7:18:08 PM UTC"
+  },
+  "geoData": {
+    "latitude": 34.56158333333333,
+    "longitude": -120.1409,
+    "altitude": 144.2857932559425,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 34.56158333333333,
+    "longitude": -120.1409,
+    "altitude": 144.2857932559425,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1571615478",
+    "formatted": "Oct 20, 2019, 11:51:18 PM UTC"
+  }
+}

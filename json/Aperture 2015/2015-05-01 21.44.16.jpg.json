@@ -1,0 +1,31 @@
+{
+  "title": "2015-05-01 21.44.16.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569207507",
+    "formatted": "Sep 23, 2019, 2:58:27 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117294",
+    "formatted": "Apr 5, 2020, 8:08:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.96664444444445,
+    "longitude": -119.9487,
+    "altitude": 1898.6829268292684,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.96664444444445,
+    "longitude": -119.9487,
+    "altitude": 1898.6829268292684,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1430541856",
+    "formatted": "May 2, 2015, 4:44:16 AM UTC"
+  }
+}

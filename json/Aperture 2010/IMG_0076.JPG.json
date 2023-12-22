@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0076.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569554",
+    "formatted": "Aug 12, 2019, 12:25:54 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820451",
+    "formatted": "Dec 31, 2019, 7:27:31 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.01716666666667,
+    "longitude": -122.54616666666666,
+    "altitude": 75.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.01716666666667,
+    "longitude": -122.54616666666666,
+    "altitude": 75.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1284610834",
+    "formatted": "Sep 16, 2010, 4:20:34 AM UTC"
+  }
+}

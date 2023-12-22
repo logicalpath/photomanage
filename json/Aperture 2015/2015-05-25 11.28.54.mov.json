@@ -1,0 +1,31 @@
+{
+  "title": "2015-05-25 11.28.54.mov",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569206662",
+    "formatted": "Sep 23, 2019, 2:44:22 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.9054,
+    "longitude": -122.5475,
+    "altitude": 44.66,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.9054,
+    "longitude": -122.5475,
+    "altitude": 44.66,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1432578503",
+    "formatted": "May 25, 2015, 6:28:23 PM UTC"
+  }
+}

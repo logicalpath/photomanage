@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1476.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114058",
+    "formatted": "Apr 5, 2020, 7:14:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.791694444444445,
+    "longitude": -122.41336944444446,
+    "altitude": 89.86237332461589,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.791694444444445,
+    "longitude": -122.41336944444446,
+    "altitude": 89.86237332461589,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1577060250",
+    "formatted": "Dec 23, 2019, 12:17:30 AM UTC"
+  }
+}

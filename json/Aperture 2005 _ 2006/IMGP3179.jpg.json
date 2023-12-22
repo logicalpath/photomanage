@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3179.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562398036",
+    "formatted": "Jul 6, 2019, 7:27:16 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820295",
+    "formatted": "Dec 31, 2019, 7:24:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1162357404",
+    "formatted": "Nov 1, 2006, 5:03:24 AM UTC"
+  }
+}

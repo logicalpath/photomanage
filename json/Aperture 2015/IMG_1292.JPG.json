@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1292.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711722",
+    "formatted": "Nov 14, 2019, 6:08:42 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205702",
+    "formatted": "Dec 1, 2019, 1:08:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 34.05558055555555,
+    "longitude": -118.24913055555555,
+    "altitude": 109.21989528795811,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 34.05558055555555,
+    "longitude": -118.24913055555555,
+    "altitude": 109.21989528795811,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1442102634",
+    "formatted": "Sep 13, 2015, 12:03:54 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1047.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114363",
+    "formatted": "Apr 5, 2020, 7:19:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.95330833333334,
+    "longitude": -122.49343055555556,
+    "altitude": 8.838840492640433,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.95330833333334,
+    "longitude": -122.49343055555556,
+    "altitude": 8.838840492640433,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1567974686",
+    "formatted": "Sep 8, 2019, 8:31:26 PM UTC"
+  }
+}

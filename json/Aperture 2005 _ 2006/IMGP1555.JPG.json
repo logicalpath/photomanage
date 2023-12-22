@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1555.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562389377",
+    "formatted": "Jul 6, 2019, 5:02:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1581813189",
+    "formatted": "Feb 16, 2020, 12:33:09 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1148079022",
+    "formatted": "May 19, 2006, 10:50:22 PM UTC"
+  }
+}

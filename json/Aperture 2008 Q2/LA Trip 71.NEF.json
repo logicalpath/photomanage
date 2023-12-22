@@ -1,0 +1,31 @@
+{
+  "title": "LA Trip 71.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562548534",
+    "formatted": "Jul 8, 2019, 1:15:34 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776341",
+    "formatted": "Jan 23, 2020, 10:45:41 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1207705532",
+    "formatted": "Apr 9, 2008, 1:45:32 AM UTC"
+  }
+}

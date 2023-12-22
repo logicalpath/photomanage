@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0573.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114115",
+    "formatted": "Apr 5, 2020, 7:15:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116523",
+    "formatted": "Apr 5, 2020, 7:55:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.3708,
+    "longitude": -120.26158055555555,
+    "altitude": 2093.3043154761904,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.3708,
+    "longitude": -120.26158055555555,
+    "altitude": 2093.3043154761904,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1553369669",
+    "formatted": "Mar 23, 2019, 7:34:29 PM UTC"
+  }
+}

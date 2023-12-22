@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1086.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562523054",
+    "formatted": "Jul 7, 2019, 6:10:54 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820366",
+    "formatted": "Dec 31, 2019, 7:26:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1194731804",
+    "formatted": "Nov 10, 2007, 9:56:44 PM UTC"
+  }
+}

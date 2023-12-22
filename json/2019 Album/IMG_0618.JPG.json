@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0618.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114070",
+    "formatted": "Apr 5, 2020, 7:14:30 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116375",
+    "formatted": "Apr 5, 2020, 7:52:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 36.029980555555554,
+    "longitude": -95.86380833333332,
+    "altitude": 202.6976012583563,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 36.029980555555554,
+    "longitude": -95.86380833333332,
+    "altitude": 202.6976012583563,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1555200611",
+    "formatted": "Apr 14, 2019, 12:10:11 AM UTC"
+  }
+}

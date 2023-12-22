@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0375.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562366890",
+    "formatted": "Jul 5, 2019, 10:48:10 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584780129",
+    "formatted": "Mar 21, 2020, 8:42:09 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1128792003",
+    "formatted": "Oct 8, 2005, 5:20:03 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0991.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113854",
+    "formatted": "Apr 5, 2020, 7:10:54 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114388",
+    "formatted": "Apr 5, 2020, 7:19:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.067438888888894,
+    "longitude": -122.54243333333334,
+    "altitude": 10.481960296424514,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.067438888888894,
+    "longitude": -122.54243333333334,
+    "altitude": 10.481960296424514,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1564955471",
+    "formatted": "Aug 4, 2019, 9:51:11 PM UTC"
+  }
+}

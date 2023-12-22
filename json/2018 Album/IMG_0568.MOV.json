@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0568.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117053",
+    "formatted": "Apr 5, 2020, 8:04:13 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.671,
+    "longitude": -156.02609999999999,
+    "altitude": 15.75,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.671,
+    "longitude": -156.02609999999999,
+    "altitude": 15.75,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1521239410",
+    "formatted": "Mar 16, 2018, 10:30:10 PM UTC"
+  }
+}

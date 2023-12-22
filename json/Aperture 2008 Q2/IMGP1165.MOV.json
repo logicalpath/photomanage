@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1165.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562595271",
+    "formatted": "Jul 8, 2019, 2:14:31 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820390",
+    "formatted": "Dec 31, 2019, 7:26:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1207756871",
+    "formatted": "Apr 9, 2008, 4:01:11 PM UTC"
+  }
+}

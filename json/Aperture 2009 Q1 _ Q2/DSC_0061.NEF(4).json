@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0061.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565495575",
+    "formatted": "Aug 11, 2019, 3:52:55 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820438",
+    "formatted": "Dec 31, 2019, 7:27:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1237744426",
+    "formatted": "Mar 22, 2009, 5:53:46 PM UTC"
+  }
+}

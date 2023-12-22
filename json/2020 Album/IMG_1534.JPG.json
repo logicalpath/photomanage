@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1534.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113155",
+    "formatted": "Apr 5, 2020, 6:59:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115787",
+    "formatted": "Apr 5, 2020, 7:43:07 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78625833333333,
+    "longitude": -122.40030555555556,
+    "altitude": 22.374538420960086,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78625833333333,
+    "longitude": -122.40030555555556,
+    "altitude": 22.374538420960086,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1580067362",
+    "formatted": "Jan 26, 2020, 7:36:02 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1699.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518901",
+    "formatted": "Oct 19, 2019, 9:01:41 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776375",
+    "formatted": "Jan 23, 2020, 10:46:15 AM UTC"
+  },
+  "geoData": {
+    "latitude": 39.642808333333335,
+    "longitude": -106.60443055555555,
+    "altitude": 2258.078125,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.642808333333335,
+    "longitude": -106.60443055555555,
+    "altitude": 2258.078125,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451169511",
+    "formatted": "Dec 26, 2015, 10:38:31 PM UTC"
+  }
+}

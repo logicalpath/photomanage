@@ -1,0 +1,31 @@
+{
+  "title": "1539471359230489.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115988",
+    "formatted": "Apr 5, 2020, 7:46:28 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116771",
+    "formatted": "Apr 5, 2020, 7:59:31 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1539471359",
+    "formatted": "Oct 13, 2018, 10:55:59 PM UTC"
+  }
+}

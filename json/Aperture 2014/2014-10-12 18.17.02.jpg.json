@@ -1,0 +1,31 @@
+{
+  "title": "2014-10-12 18.17.02.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569201809",
+    "formatted": "Sep 23, 2019, 1:23:29 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820478",
+    "formatted": "Dec 31, 2019, 7:27:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.96018611111111,
+    "longitude": -122.51491666666666,
+    "altitude": 25.84064665127021,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.96018611111111,
+    "longitude": -122.51491666666666,
+    "altitude": 25.84064665127021,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1413163022",
+    "formatted": "Oct 13, 2014, 1:17:02 AM UTC"
+  }
+}

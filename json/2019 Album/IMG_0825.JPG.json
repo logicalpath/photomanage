@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0825.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113944",
+    "formatted": "Apr 5, 2020, 7:12:24 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115946",
+    "formatted": "Apr 5, 2020, 7:45:46 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1561750144",
+    "formatted": "Jun 28, 2019, 7:29:04 PM UTC"
+  }
+}

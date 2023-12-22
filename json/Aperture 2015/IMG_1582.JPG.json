@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1582.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518901",
+    "formatted": "Oct 19, 2019, 9:01:41 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820494",
+    "formatted": "Dec 31, 2019, 7:28:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.13816388888889,
+    "longitude": -120.46411944444445,
+    "altitude": 656.4977973568282,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.13816388888889,
+    "longitude": -120.46411944444445,
+    "altitude": 656.4977973568282,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1448766405",
+    "formatted": "Nov 29, 2015, 3:06:45 AM UTC"
+  }
+}

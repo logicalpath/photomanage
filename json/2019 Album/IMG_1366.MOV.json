@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1366.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114195",
+    "formatted": "Apr 5, 2020, 7:16:35 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.2277,
+    "longitude": -122.62020000000001,
+    "altitude": 9.18,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.2277,
+    "longitude": -122.62020000000001,
+    "altitude": 9.18,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1574547860",
+    "formatted": "Nov 23, 2019, 10:24:20 PM UTC"
+  }
+}

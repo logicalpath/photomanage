@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0383.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115816",
+    "formatted": "Apr 5, 2020, 7:43:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116681",
+    "formatted": "Apr 5, 2020, 7:58:01 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.6454,
+    "longitude": -106.33405277777777,
+    "altitude": 2531.1055555555554,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.6454,
+    "longitude": -106.33405277777777,
+    "altitude": 2531.1055555555554,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1545937384",
+    "formatted": "Dec 27, 2018, 7:03:04 PM UTC"
+  }
+}

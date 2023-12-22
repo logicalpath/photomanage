@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0005.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569198686",
+    "formatted": "Sep 23, 2019, 12:31:26 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820475",
+    "formatted": "Dec 31, 2019, 7:27:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1336241192",
+    "formatted": "May 5, 2012, 6:06:32 PM UTC"
+  }
+}

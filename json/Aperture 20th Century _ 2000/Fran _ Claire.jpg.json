@@ -1,0 +1,31 @@
+{
+  "title": "Fran \u0026 Claire.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562352643",
+    "formatted": "Jul 5, 2019, 6:50:43 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820233",
+    "formatted": "Dec 31, 2019, 7:23:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "968088980",
+    "formatted": "Sep 4, 2000, 5:36:20 PM UTC"
+  }
+}

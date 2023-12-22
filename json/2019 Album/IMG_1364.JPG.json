@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1364.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114195",
+    "formatted": "Apr 5, 2020, 7:16:35 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.22784444444444,
+    "longitude": -122.62021666666666,
+    "altitude": 4.172664643252879,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.22784444444444,
+    "longitude": -122.62021666666666,
+    "altitude": 4.172664643252879,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1574546074",
+    "formatted": "Nov 23, 2019, 9:54:34 PM UTC"
+  }
+}

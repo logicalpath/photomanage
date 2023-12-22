@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0675.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196366",
+    "formatted": "Sep 22, 2019, 11:52:46 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.87283333333333,
+    "longitude": -122.42216666666667,
+    "altitude": 60.84317718940937,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.87283333333333,
+    "longitude": -122.42216666666667,
+    "altitude": 60.84317718940937,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1296664731",
+    "formatted": "Feb 2, 2011, 4:38:51 PM UTC"
+  }
+}

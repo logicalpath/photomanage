@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111204_152052.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195188",
+    "formatted": "Sep 22, 2019, 11:33:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820467",
+    "formatted": "Dec 31, 2019, 7:27:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.83400119444445,
+    "longitude": -122.47514069444445,
+    "altitude": -34.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.83400119444445,
+    "longitude": -122.47514069444445,
+    "altitude": -34.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1323040851",
+    "formatted": "Dec 4, 2011, 11:20:51 PM UTC"
+  }
+}

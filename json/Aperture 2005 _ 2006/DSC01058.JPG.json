@@ -1,0 +1,31 @@
+{
+  "title": "DSC01058.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562367229",
+    "formatted": "Jul 5, 2019, 10:53:49 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820250",
+    "formatted": "Dec 31, 2019, 7:24:10 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1116199928",
+    "formatted": "May 15, 2005, 11:32:08 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "LA 1.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562550433",
+    "formatted": "Jul 8, 2019, 1:47:13 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820384",
+    "formatted": "Dec 31, 2019, 7:26:24 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1207796522",
+    "formatted": "Apr 10, 2008, 3:02:02 AM UTC"
+  }
+}

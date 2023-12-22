@@ -1,0 +1,31 @@
+{
+  "title": "Events - 024.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569168541",
+    "formatted": "Sep 22, 2019, 4:09:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820464",
+    "formatted": "Dec 31, 2019, 7:27:44 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.891333333333336,
+    "longitude": -122.28166666666667,
+    "altitude": 30.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.891333333333336,
+    "longitude": -122.28166666666667,
+    "altitude": 30.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1284322678",
+    "formatted": "Sep 12, 2010, 8:17:58 PM UTC"
+  }
+}

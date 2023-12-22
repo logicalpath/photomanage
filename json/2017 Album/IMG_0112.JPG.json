@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0112.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586117735",
+    "formatted": "Apr 5, 2020, 8:15:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117989",
+    "formatted": "Apr 5, 2020, 8:19:49 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.827025000000006,
+    "longitude": -122.49134166666667,
+    "altitude": 18.110625909752546,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.827025000000006,
+    "longitude": -122.49134166666667,
+    "altitude": 18.110625909752546,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1510982334",
+    "formatted": "Nov 18, 2017, 5:18:54 AM UTC"
+  }
+}

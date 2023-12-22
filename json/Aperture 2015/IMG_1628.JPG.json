@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1628.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518519",
+    "formatted": "Oct 19, 2019, 8:55:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820494",
+    "formatted": "Dec 31, 2019, 7:28:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.90723055555556,
+    "longitude": -122.5495611111111,
+    "altitude": 37.48453608247423,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.90723055555556,
+    "longitude": -122.5495611111111,
+    "altitude": 37.48453608247423,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1450056400",
+    "formatted": "Dec 14, 2015, 1:26:40 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0309.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562437182",
+    "formatted": "Jul 6, 2019, 6:19:42 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820304",
+    "formatted": "Dec 31, 2019, 7:25:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1153552277",
+    "formatted": "Jul 22, 2006, 7:11:17 AM UTC"
+  }
+}

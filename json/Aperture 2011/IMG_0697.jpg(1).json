@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0697.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196776",
+    "formatted": "Sep 22, 2019, 11:59:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.022666666666666,
+    "longitude": -122.55,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.022666666666666,
+    "longitude": -122.55,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1296952181",
+    "formatted": "Feb 6, 2011, 12:29:41 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "DCP_0254.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562373926",
+    "formatted": "Jul 6, 2019, 12:45:26 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820266",
+    "formatted": "Dec 31, 2019, 7:24:26 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1155958858",
+    "formatted": "Aug 19, 2006, 3:40:58 AM UTC"
+  }
+}

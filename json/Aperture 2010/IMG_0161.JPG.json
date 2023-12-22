@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0161.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569437",
+    "formatted": "Aug 12, 2019, 12:23:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820450",
+    "formatted": "Dec 31, 2019, 7:27:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1286840480",
+    "formatted": "Oct 11, 2010, 11:41:20 PM UTC"
+  }
+}

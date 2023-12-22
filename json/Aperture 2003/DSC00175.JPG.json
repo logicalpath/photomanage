@@ -1,0 +1,31 @@
+{
+  "title": "DSC00175.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562359955",
+    "formatted": "Jul 5, 2019, 8:52:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584692567",
+    "formatted": "Mar 20, 2020, 8:22:47 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1045943540",
+    "formatted": "Feb 22, 2003, 7:52:20 PM UTC"
+  }
+}

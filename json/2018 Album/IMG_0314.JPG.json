@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0314.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115816",
+    "formatted": "Apr 5, 2020, 7:43:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116721",
+    "formatted": "Apr 5, 2020, 7:58:41 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1543977028",
+    "formatted": "Dec 5, 2018, 2:30:28 AM UTC"
+  }
+}

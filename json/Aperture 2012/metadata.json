@@ -1,0 +1,19 @@
+{
+  "albumData": {
+    "title": "Aperture 2012",
+    "description": "",
+    "access": "protected",
+    "location": "",
+    "date": {
+      "timestamp": "1569197381",
+      "formatted": "Sep 23, 2019, 12:09:41 AM UTC"
+    },
+    "geoData": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 0.0,
+      "latitudeSpan": 0.0,
+      "longitudeSpan": 0.0
+    }
+  }
+}

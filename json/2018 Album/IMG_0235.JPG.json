@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0235.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115988",
+    "formatted": "Apr 5, 2020, 7:46:28 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116756",
+    "formatted": "Apr 5, 2020, 7:59:16 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.937530555555554,
+    "longitude": -122.51500833333333,
+    "altitude": -8.493499755859375,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.937530555555554,
+    "longitude": -122.51500833333333,
+    "altitude": -8.493499755859375,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1540344899",
+    "formatted": "Oct 24, 2018, 1:34:59 AM UTC"
+  }
+}

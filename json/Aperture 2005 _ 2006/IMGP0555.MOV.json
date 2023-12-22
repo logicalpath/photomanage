@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0555.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562382461",
+    "formatted": "Jul 6, 2019, 3:07:41 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585164714",
+    "formatted": "Mar 25, 2020, 7:31:54 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1164304380",
+    "formatted": "Nov 23, 2006, 5:53:00 PM UTC"
+  }
+}

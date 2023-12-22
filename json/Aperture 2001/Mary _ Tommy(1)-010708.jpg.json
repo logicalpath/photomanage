@@ -1,0 +1,31 @@
+{
+  "title": "Mary \u0026 Tommy(1)-010708.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562354873",
+    "formatted": "Jul 5, 2019, 7:27:53 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584659102",
+    "formatted": "Mar 19, 2020, 11:05:02 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "995202778",
+    "formatted": "Jul 15, 2001, 1:12:58 PM UTC"
+  }
+}

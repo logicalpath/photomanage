@@ -1,0 +1,31 @@
+{
+  "title": "2014-07-13 16.56.14.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569202223",
+    "formatted": "Sep 23, 2019, 1:30:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820479",
+    "formatted": "Dec 31, 2019, 7:27:59 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.96581166666667,
+    "longitude": -122.49289722222223,
+    "altitude": 2.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.96581166666667,
+    "longitude": -122.49289722222223,
+    "altitude": 2.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1405295774",
+    "formatted": "Jul 13, 2014, 11:56:14 PM UTC"
+  }
+}

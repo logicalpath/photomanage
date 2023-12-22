@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0632.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562366315",
+    "formatted": "Jul 5, 2019, 10:38:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776321",
+    "formatted": "Jan 23, 2020, 10:45:21 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1133746015",
+    "formatted": "Dec 5, 2005, 1:26:55 AM UTC"
+  }
+}

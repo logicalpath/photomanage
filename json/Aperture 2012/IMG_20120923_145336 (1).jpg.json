@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120923_145336 (1).jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569197759",
+    "formatted": "Sep 23, 2019, 12:15:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.03787944444444,
+    "longitude": -122.54355166666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.03787944444444,
+    "longitude": -122.54355166666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1348437216",
+    "formatted": "Sep 23, 2012, 9:53:36 PM UTC"
+  }
+}

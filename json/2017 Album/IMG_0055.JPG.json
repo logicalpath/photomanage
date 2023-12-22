@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0055.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586117735",
+    "formatted": "Apr 5, 2020, 8:15:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586118005",
+    "formatted": "Apr 5, 2020, 8:20:05 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.87934166666667,
+    "longitude": -122.29617222222222,
+    "altitude": 13.538200339558573,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.87934166666667,
+    "longitude": -122.29617222222222,
+    "altitude": 13.538200339558573,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1509821392",
+    "formatted": "Nov 4, 2017, 6:49:52 PM UTC"
+  }
+}

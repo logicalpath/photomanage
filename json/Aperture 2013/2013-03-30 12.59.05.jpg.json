@@ -1,0 +1,31 @@
+{
+  "title": "2013-03-30 12.59.05.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200317",
+    "formatted": "Sep 23, 2019, 12:58:37 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.00508361111111,
+    "longitude": -122.52267888888889,
+    "altitude": 24.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.00508361111111,
+    "longitude": -122.52267888888889,
+    "altitude": 24.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1364673545",
+    "formatted": "Mar 30, 2013, 7:59:05 PM UTC"
+  }
+}

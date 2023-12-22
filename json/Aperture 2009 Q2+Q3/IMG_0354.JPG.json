@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0354.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565566200",
+    "formatted": "Aug 11, 2019, 11:30:00 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820447",
+    "formatted": "Dec 31, 2019, 7:27:27 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.003166666666665,
+    "longitude": -122.5335,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.003166666666665,
+    "longitude": -122.5335,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1246838494",
+    "formatted": "Jul 6, 2009, 12:01:34 AM UTC"
+  }
+}

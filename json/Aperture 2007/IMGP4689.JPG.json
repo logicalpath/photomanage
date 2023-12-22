@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4689.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562476766",
+    "formatted": "Jul 7, 2019, 5:19:26 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1581813189",
+    "formatted": "Feb 16, 2020, 12:33:09 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1191287092",
+    "formatted": "Oct 2, 2007, 1:04:52 AM UTC"
+  }
+}

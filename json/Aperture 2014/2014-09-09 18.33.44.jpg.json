@@ -1,0 +1,31 @@
+{
+  "title": "2014-09-09 18.33.44.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569201809",
+    "formatted": "Sep 23, 2019, 1:23:29 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820478",
+    "formatted": "Dec 31, 2019, 7:27:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.001669444444445,
+    "longitude": -122.5469311111111,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.001669444444445,
+    "longitude": -122.5469311111111,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1410312824",
+    "formatted": "Sep 10, 2014, 1:33:44 AM UTC"
+  }
+}

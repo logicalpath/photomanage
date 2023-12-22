@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4100.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562469855",
+    "formatted": "Jul 7, 2019, 3:24:15 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820345",
+    "formatted": "Dec 31, 2019, 7:25:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1179702957",
+    "formatted": "May 20, 2007, 11:15:57 PM UTC"
+  }
+}

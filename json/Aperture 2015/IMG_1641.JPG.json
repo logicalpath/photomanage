@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1641.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518519",
+    "formatted": "Oct 19, 2019, 8:55:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776375",
+    "formatted": "Jan 23, 2020, 10:46:15 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1450412723",
+    "formatted": "Dec 18, 2015, 4:25:23 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2015-01-31 17.55.48.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569203623",
+    "formatted": "Sep 23, 2019, 1:53:43 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.85998166666667,
+    "longitude": -122.4851338888889,
+    "altitude": 16.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.85998166666667,
+    "longitude": -122.4851338888889,
+    "altitude": 16.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1422755748",
+    "formatted": "Feb 1, 2015, 1:55:48 AM UTC"
+  }
+}

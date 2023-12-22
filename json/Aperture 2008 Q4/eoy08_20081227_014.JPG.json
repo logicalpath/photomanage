@@ -1,0 +1,31 @@
+{
+  "title": "eoy08_20081227_014.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565462062",
+    "formatted": "Aug 10, 2019, 6:34:22 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820433",
+    "formatted": "Dec 31, 2019, 7:27:13 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1230425526",
+    "formatted": "Dec 28, 2008, 12:52:06 AM UTC"
+  }
+}

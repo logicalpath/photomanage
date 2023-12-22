@@ -1,0 +1,31 @@
+{
+  "title": "2013-06-02 14.52.50.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200317",
+    "formatted": "Sep 23, 2019, 12:58:37 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.005095,
+    "longitude": -122.52309722222222,
+    "altitude": 21.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.005095,
+    "longitude": -122.52309722222222,
+    "altitude": 21.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1370209970",
+    "formatted": "Jun 2, 2013, 9:52:50 PM UTC"
+  }
+}

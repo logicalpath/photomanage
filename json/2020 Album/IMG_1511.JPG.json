@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1511.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113155",
+    "formatted": "Apr 5, 2020, 6:59:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115792",
+    "formatted": "Apr 5, 2020, 7:43:12 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.917830555555554,
+    "longitude": -122.49323333333334,
+    "altitude": 39.028537735849056,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.917830555555554,
+    "longitude": -122.49323333333334,
+    "altitude": 39.028537735849056,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1577902785",
+    "formatted": "Jan 1, 2020, 6:19:45 PM UTC"
+  }
+}

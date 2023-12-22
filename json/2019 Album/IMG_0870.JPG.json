@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0870.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113913",
+    "formatted": "Apr 5, 2020, 7:11:53 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115937",
+    "formatted": "Apr 5, 2020, 7:45:37 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.94172777777778,
+    "longitude": -155.87205555555556,
+    "altitude": -9.622991566799822,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.94172777777778,
+    "longitude": -155.87205555555556,
+    "altitude": -9.622991566799822,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1563497570",
+    "formatted": "Jul 19, 2019, 12:52:50 AM UTC"
+  }
+}

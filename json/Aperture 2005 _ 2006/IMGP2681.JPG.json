@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2681.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562397324",
+    "formatted": "Jul 6, 2019, 7:15:24 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820293",
+    "formatted": "Dec 31, 2019, 7:24:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1154307456",
+    "formatted": "Jul 31, 2006, 12:57:36 AM UTC"
+  }
+}

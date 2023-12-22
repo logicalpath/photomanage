@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3435.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562374356",
+    "formatted": "Jul 6, 2019, 12:52:36 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585080916",
+    "formatted": "Mar 24, 2020, 8:15:16 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1166982924",
+    "formatted": "Dec 24, 2006, 5:55:24 PM UTC"
+  }
+}

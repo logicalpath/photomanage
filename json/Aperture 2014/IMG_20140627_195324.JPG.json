@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20140627_195324.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569202223",
+    "formatted": "Sep 23, 2019, 1:30:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820478",
+    "formatted": "Dec 31, 2019, 7:27:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1403924004",
+    "formatted": "Jun 28, 2014, 2:53:24 AM UTC"
+  }
+}

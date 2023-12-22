@@ -1,0 +1,31 @@
+{
+  "title": "DSC00755.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562364026",
+    "formatted": "Jul 5, 2019, 10:00:26 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584765238",
+    "formatted": "Mar 21, 2020, 4:33:58 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1097338835",
+    "formatted": "Oct 9, 2004, 4:20:35 PM UTC"
+  }
+}

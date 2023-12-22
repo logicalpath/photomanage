@@ -1,0 +1,31 @@
+{
+  "title": "2015-06-07 13.15.05.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569205545",
+    "formatted": "Sep 23, 2019, 2:25:45 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820484",
+    "formatted": "Dec 31, 2019, 7:28:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.90703333333333,
+    "longitude": -122.55103333333334,
+    "altitude": 56.29007633587786,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.90703333333333,
+    "longitude": -122.55103333333334,
+    "altitude": 56.29007633587786,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1433708105",
+    "formatted": "Jun 7, 2015, 8:15:05 PM UTC"
+  }
+}

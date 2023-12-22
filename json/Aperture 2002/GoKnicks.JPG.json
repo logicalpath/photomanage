@@ -1,0 +1,31 @@
+{
+  "title": "GoKnicks.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562356605",
+    "formatted": "Jul 5, 2019, 7:56:45 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584659127",
+    "formatted": "Mar 19, 2020, 11:05:27 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1023675032",
+    "formatted": "Jun 10, 2002, 2:10:32 AM UTC"
+  }
+}

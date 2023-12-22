@@ -1,0 +1,31 @@
+{
+  "title": "DSC00650.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562364733",
+    "formatted": "Jul 5, 2019, 10:12:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584765322",
+    "formatted": "Mar 21, 2020, 4:35:22 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1094916649",
+    "formatted": "Sep 11, 2004, 3:30:49 PM UTC"
+  }
+}

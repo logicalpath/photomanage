@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1149.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562374484",
+    "formatted": "Jul 6, 2019, 12:54:44 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820267",
+    "formatted": "Dec 31, 2019, 7:24:27 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1145815950",
+    "formatted": "Apr 23, 2006, 6:12:30 PM UTC"
+  }
+}

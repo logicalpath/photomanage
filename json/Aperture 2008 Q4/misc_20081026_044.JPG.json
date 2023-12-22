@@ -1,0 +1,31 @@
+{
+  "title": "misc_20081026_044.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565415880",
+    "formatted": "Aug 10, 2019, 5:44:40 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820415",
+    "formatted": "Dec 31, 2019, 7:26:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0285,
+    "longitude": -122.55316666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0285,
+    "longitude": -122.55316666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1225058842",
+    "formatted": "Oct 26, 2008, 10:07:22 PM UTC"
+  }
+}

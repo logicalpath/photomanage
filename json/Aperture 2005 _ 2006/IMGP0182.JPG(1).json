@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0182.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562396125",
+    "formatted": "Jul 6, 2019, 6:55:25 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585196780",
+    "formatted": "Mar 26, 2020, 4:26:20 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1154747947",
+    "formatted": "Aug 5, 2006, 3:19:07 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0529.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114115",
+    "formatted": "Apr 5, 2020, 7:15:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116532",
+    "formatted": "Apr 5, 2020, 7:55:32 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.022675,
+    "longitude": -122.55051388888889,
+    "altitude": 24.96105574012551,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.022675,
+    "longitude": -122.55051388888889,
+    "altitude": 24.96105574012551,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1552960489",
+    "formatted": "Mar 19, 2019, 1:54:49 AM UTC"
+  }
+}

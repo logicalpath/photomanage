@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1236.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114257",
+    "formatted": "Apr 5, 2020, 7:17:37 PM UTC"
+  },
+  "geoData": {
+    "latitude": 34.54463611111111,
+    "longitude": -120.11781944444444,
+    "altitude": 196.1067771818625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 34.54463611111111,
+    "longitude": -120.11781944444444,
+    "altitude": 196.1067771818625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1571761156",
+    "formatted": "Oct 22, 2019, 4:19:16 PM UTC"
+  }
+}

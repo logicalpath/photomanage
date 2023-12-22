@@ -1,0 +1,31 @@
+{
+  "title": "hike1.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562357111",
+    "formatted": "Jul 5, 2019, 8:05:11 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820236",
+    "formatted": "Dec 31, 2019, 7:23:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1036358620",
+    "formatted": "Nov 3, 2002, 9:23:40 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1488.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401843",
+    "formatted": "Oct 30, 2019, 2:17:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820497",
+    "formatted": "Dec 31, 2019, 7:28:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.97489166666667,
+    "longitude": -122.5196611111111,
+    "altitude": 10.308111380145279,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.97489166666667,
+    "longitude": -122.5196611111111,
+    "altitude": 10.308111380145279,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1447083969",
+    "formatted": "Nov 9, 2015, 3:46:09 PM UTC"
+  }
+}

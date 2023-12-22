@@ -1,0 +1,31 @@
+{
+  "title": "100_0203.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562455652",
+    "formatted": "Jul 6, 2019, 11:27:32 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820322",
+    "formatted": "Dec 31, 2019, 7:25:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1177802604",
+    "formatted": "Apr 28, 2007, 11:23:24 PM UTC"
+  }
+}

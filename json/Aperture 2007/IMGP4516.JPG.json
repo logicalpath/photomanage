@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4516.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562460591",
+    "formatted": "Jul 7, 2019, 12:49:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820332",
+    "formatted": "Dec 31, 2019, 7:25:32 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1185059420",
+    "formatted": "Jul 21, 2007, 11:10:20 PM UTC"
+  }
+}

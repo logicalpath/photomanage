@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0789.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116219",
+    "formatted": "Apr 5, 2020, 7:50:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116937",
+    "formatted": "Apr 5, 2020, 8:02:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.90725833333333,
+    "longitude": -122.55133888888889,
+    "altitude": 49.78599221789883,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.90725833333333,
+    "longitude": -122.55133888888889,
+    "altitude": 49.78599221789883,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1528724754",
+    "formatted": "Jun 11, 2018, 1:45:54 PM UTC"
+  }
+}

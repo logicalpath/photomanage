@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1358.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711722",
+    "formatted": "Nov 14, 2019, 6:08:42 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205677",
+    "formatted": "Dec 1, 2019, 1:07:57 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.89503888888889,
+    "longitude": -122.63953333333335,
+    "altitude": -7.334415584415584,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.89503888888889,
+    "longitude": -122.63953333333335,
+    "altitude": -7.334415584415584,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1443301167",
+    "formatted": "Sep 26, 2015, 8:59:27 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1663.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518519",
+    "formatted": "Oct 19, 2019, 8:55:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820494",
+    "formatted": "Dec 31, 2019, 7:28:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.90455277777777,
+    "longitude": -119.98269722222223,
+    "altitude": 1949.7435897435898,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.90455277777777,
+    "longitude": -119.98269722222223,
+    "altitude": 1949.7435897435898,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1450584989",
+    "formatted": "Dec 20, 2015, 4:16:29 AM UTC"
+  }
+}

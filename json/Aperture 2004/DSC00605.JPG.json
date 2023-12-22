@@ -1,0 +1,31 @@
+{
+  "title": "DSC00605.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562364662",
+    "formatted": "Jul 5, 2019, 10:11:02 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820244",
+    "formatted": "Dec 31, 2019, 7:24:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1089507097",
+    "formatted": "Jul 11, 2004, 12:51:37 AM UTC"
+  }
+}

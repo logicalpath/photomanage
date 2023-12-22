@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1032.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114371",
+    "formatted": "Apr 5, 2020, 7:19:31 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79755,
+    "longitude": -122.44835555555557,
+    "altitude": 23.737911238684035,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79755,
+    "longitude": -122.44835555555557,
+    "altitude": 23.737911238684035,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1567453673",
+    "formatted": "Sep 2, 2019, 7:47:53 PM UTC"
+  }
+}

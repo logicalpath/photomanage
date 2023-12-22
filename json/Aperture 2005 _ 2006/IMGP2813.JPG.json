@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2813.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562372822",
+    "formatted": "Jul 6, 2019, 12:27:02 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585028746",
+    "formatted": "Mar 24, 2020, 5:45:46 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1156016613",
+    "formatted": "Aug 19, 2006, 7:43:33 PM UTC"
+  }
+}

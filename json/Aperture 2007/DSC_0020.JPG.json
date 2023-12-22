@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0020.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562443319",
+    "formatted": "Jul 6, 2019, 8:01:59 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820306",
+    "formatted": "Dec 31, 2019, 7:25:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1171834941",
+    "formatted": "Feb 18, 2007, 9:42:21 PM UTC"
+  }
+}

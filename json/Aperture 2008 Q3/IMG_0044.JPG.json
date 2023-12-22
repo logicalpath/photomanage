@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0044.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1564446009",
+    "formatted": "Jul 30, 2019, 12:20:09 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820396",
+    "formatted": "Dec 31, 2019, 7:26:36 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.12,
+    "longitude": -122.30133333333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.12,
+    "longitude": -122.30133333333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1222633916",
+    "formatted": "Sep 28, 2008, 8:31:56 PM UTC"
+  }
+}

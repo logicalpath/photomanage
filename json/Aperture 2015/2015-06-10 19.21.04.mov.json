@@ -1,0 +1,31 @@
+{
+  "title": "2015-06-10 19.21.04.mov",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569207124",
+    "formatted": "Sep 23, 2019, 2:52:04 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0303,
+    "longitude": -122.54700000000001,
+    "altitude": 31.32,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0303,
+    "longitude": -122.54700000000001,
+    "altitude": 31.32,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1433989196",
+    "formatted": "Jun 11, 2015, 2:19:56 AM UTC"
+  }
+}

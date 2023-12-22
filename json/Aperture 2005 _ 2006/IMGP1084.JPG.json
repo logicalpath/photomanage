@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1084.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562388670",
+    "formatted": "Jul 6, 2019, 4:51:10 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585187273",
+    "formatted": "Mar 26, 2020, 1:47:53 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1143322644",
+    "formatted": "Mar 25, 2006, 9:37:24 PM UTC"
+  }
+}

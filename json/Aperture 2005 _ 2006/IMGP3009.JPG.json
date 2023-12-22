@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3009.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562372577",
+    "formatted": "Jul 6, 2019, 12:22:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585004262",
+    "formatted": "Mar 23, 2020, 10:57:42 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1159409360",
+    "formatted": "Sep 28, 2006, 2:09:20 AM UTC"
+  }
+}

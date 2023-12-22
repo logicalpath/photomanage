@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1407.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114178",
+    "formatted": "Apr 5, 2020, 7:16:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 40.43192222222222,
+    "longitude": -122.28744444444445,
+    "altitude": 157.03231441048035,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 40.43192222222222,
+    "longitude": -122.28744444444445,
+    "altitude": 157.03231441048035,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1575223857",
+    "formatted": "Dec 1, 2019, 6:10:57 PM UTC"
+  }
+}

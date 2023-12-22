@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0023.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562524745",
+    "formatted": "Jul 7, 2019, 6:39:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820370",
+    "formatted": "Dec 31, 2019, 7:26:10 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1198600148",
+    "formatted": "Dec 25, 2007, 4:29:08 PM UTC"
+  }
+}

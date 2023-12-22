@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0477.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562368436",
+    "formatted": "Jul 5, 2019, 11:13:56 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820251",
+    "formatted": "Dec 31, 2019, 7:24:11 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1131225482",
+    "formatted": "Nov 5, 2005, 9:18:02 PM UTC"
+  }
+}

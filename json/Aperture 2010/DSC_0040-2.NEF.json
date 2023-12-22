@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0040-2.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565571278",
+    "formatted": "Aug 12, 2019, 12:54:38 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776365",
+    "formatted": "Jan 23, 2020, 10:46:05 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1289077457",
+    "formatted": "Nov 6, 2010, 9:04:17 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2015-03-18 19.09.52.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569212701",
+    "formatted": "Sep 23, 2019, 4:25:01 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117347",
+    "formatted": "Apr 5, 2020, 8:09:07 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.00938361111111,
+    "longitude": -122.54977472222222,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.00938361111111,
+    "longitude": -122.54977472222222,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1426730992",
+    "formatted": "Mar 19, 2015, 2:09:52 AM UTC"
+  }
+}

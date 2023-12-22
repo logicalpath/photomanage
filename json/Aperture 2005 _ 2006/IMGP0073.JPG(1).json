@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0073.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562369358",
+    "formatted": "Jul 5, 2019, 11:29:18 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820257",
+    "formatted": "Dec 31, 2019, 7:24:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1120357157",
+    "formatted": "Jul 3, 2005, 2:19:17 AM UTC"
+  }
+}

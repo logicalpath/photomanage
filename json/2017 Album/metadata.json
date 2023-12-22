@@ -1,0 +1,19 @@
+{
+  "albumData": {
+    "title": "2017 Album",
+    "description": "",
+    "access": "protected",
+    "location": "",
+    "date": {
+      "timestamp": "1586116505",
+      "formatted": "Apr 5, 2020, 7:55:05 PM UTC"
+    },
+    "geoData": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 0.0,
+      "latitudeSpan": 0.0,
+      "longitudeSpan": 0.0
+    }
+  }
+}

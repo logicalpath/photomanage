@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0347.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565566200",
+    "formatted": "Aug 11, 2019, 11:30:00 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820447",
+    "formatted": "Dec 31, 2019, 7:27:27 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0025,
+    "longitude": -122.53183333333334,
+    "altitude": 42.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0025,
+    "longitude": -122.53183333333334,
+    "altitude": 42.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1246838183",
+    "formatted": "Jul 5, 2009, 11:56:23 PM UTC"
+  }
+}

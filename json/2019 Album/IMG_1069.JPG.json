@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1069.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114357",
+    "formatted": "Apr 5, 2020, 7:19:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.186413888888886,
+    "longitude": -122.68903333333334,
+    "altitude": 599.6898192197907,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.186413888888886,
+    "longitude": -122.68903333333334,
+    "altitude": 599.6898192197907,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1569521526",
+    "formatted": "Sep 26, 2019, 6:12:06 PM UTC"
+  }
+}

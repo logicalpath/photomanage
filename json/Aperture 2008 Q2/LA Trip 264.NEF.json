@@ -1,0 +1,31 @@
+{
+  "title": "LA Trip 264.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562549855",
+    "formatted": "Jul 8, 2019, 1:37:35 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820383",
+    "formatted": "Dec 31, 2019, 7:26:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1207879971",
+    "formatted": "Apr 11, 2008, 2:12:51 AM UTC"
+  }
+}

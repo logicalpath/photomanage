@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0371.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115816",
+    "formatted": "Apr 5, 2020, 7:43:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116689",
+    "formatted": "Apr 5, 2020, 7:58:09 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.60398611111111,
+    "longitude": -106.51632777777778,
+    "altitude": 2464.3356211393275,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.60398611111111,
+    "longitude": -106.51632777777778,
+    "altitude": 2464.3356211393275,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1545862919",
+    "formatted": "Dec 26, 2018, 10:21:59 PM UTC"
+  }
+}

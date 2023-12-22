@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0661.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117002",
+    "formatted": "Apr 5, 2020, 8:03:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.80528333333333,
+    "longitude": -122.46860555555556,
+    "altitude": 7.764125560538116,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.80528333333333,
+    "longitude": -122.46860555555556,
+    "altitude": 7.764125560538116,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1522539154",
+    "formatted": "Mar 31, 2018, 11:32:34 PM UTC"
+  }
+}

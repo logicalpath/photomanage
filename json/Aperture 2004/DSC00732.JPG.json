@@ -1,0 +1,31 @@
+{
+  "title": "DSC00732.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562363825",
+    "formatted": "Jul 5, 2019, 9:57:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584752748",
+    "formatted": "Mar 21, 2020, 1:05:48 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1096831398",
+    "formatted": "Oct 3, 2004, 7:23:18 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0808.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562460130",
+    "formatted": "Jul 7, 2019, 12:42:10 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820330",
+    "formatted": "Dec 31, 2019, 7:25:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1184288076",
+    "formatted": "Jul 13, 2007, 12:54:36 AM UTC"
+  }
+}

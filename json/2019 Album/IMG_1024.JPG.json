@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1024.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114371",
+    "formatted": "Apr 5, 2020, 7:19:31 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.396927777777776,
+    "longitude": -122.83476388888889,
+    "altitude": 86.08248527048741,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.396927777777776,
+    "longitude": -122.83476388888889,
+    "altitude": 86.08248527048741,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1567369431",
+    "formatted": "Sep 1, 2019, 8:23:51 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1399.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114178",
+    "formatted": "Apr 5, 2020, 7:16:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 40.642894444444444,
+    "longitude": -111.28482777777778,
+    "altitude": 1975.5306091215182,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 40.642894444444444,
+    "longitude": -111.28482777777778,
+    "altitude": 1975.5306091215182,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1575074830",
+    "formatted": "Nov 30, 2019, 12:47:10 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4204.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562462292",
+    "formatted": "Jul 7, 2019, 1:18:12 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820337",
+    "formatted": "Dec 31, 2019, 7:25:37 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1181598105",
+    "formatted": "Jun 11, 2007, 9:41:45 PM UTC"
+  }
+}

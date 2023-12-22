@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2872.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562373275",
+    "formatted": "Jul 6, 2019, 12:34:35 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820264",
+    "formatted": "Dec 31, 2019, 7:24:24 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1156383892",
+    "formatted": "Aug 24, 2006, 1:44:52 AM UTC"
+  }
+}

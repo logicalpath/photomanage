@@ -1,0 +1,31 @@
+{
+  "title": "2015-06-20 15.26.28.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569205309",
+    "formatted": "Sep 23, 2019, 2:21:49 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.778330555555556,
+    "longitude": -122.39006666666667,
+    "altitude": 5.940001004167295,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.778330555555556,
+    "longitude": -122.39006666666667,
+    "altitude": 5.940001004167295,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1434839188",
+    "formatted": "Jun 20, 2015, 10:26:28 PM UTC"
+  }
+}

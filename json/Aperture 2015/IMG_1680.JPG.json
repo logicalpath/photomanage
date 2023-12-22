@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1680.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518519",
+    "formatted": "Oct 19, 2019, 8:55:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820494",
+    "formatted": "Dec 31, 2019, 7:28:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.642608333333335,
+    "longitude": -106.60402777777777,
+    "altitude": 2230.581818181818,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.642608333333335,
+    "longitude": -106.60402777777777,
+    "altitude": 2230.581818181818,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451097517",
+    "formatted": "Dec 26, 2015, 2:38:37 AM UTC"
+  }
+}

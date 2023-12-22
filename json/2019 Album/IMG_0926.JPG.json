@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0926.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113913",
+    "formatted": "Apr 5, 2020, 7:11:53 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115815",
+    "formatted": "Apr 5, 2020, 7:43:35 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.950777777777777,
+    "longitude": -155.86242777777778,
+    "altitude": 2.5539188384643454,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.950777777777777,
+    "longitude": -155.86242777777778,
+    "altitude": 2.5539188384643454,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1563932589",
+    "formatted": "Jul 24, 2019, 1:43:09 AM UTC"
+  }
+}

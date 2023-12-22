@@ -1,0 +1,31 @@
+{
+  "title": "CARRIE+EDDIE_314.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586117924",
+    "formatted": "Apr 5, 2020, 8:18:44 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586118519",
+    "formatted": "Apr 5, 2020, 8:28:39 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1500758069",
+    "formatted": "Jul 22, 2017, 9:14:29 PM UTC"
+  }
+}

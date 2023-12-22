@@ -1,0 +1,31 @@
+{
+  "title": "2015-03-29 16.32.47.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569210269",
+    "formatted": "Sep 23, 2019, 3:44:29 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117331",
+    "formatted": "Apr 5, 2020, 8:08:51 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.003372222222225,
+    "longitude": -122.4621361111111,
+    "altitude": 7.225618631732169,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.003372222222225,
+    "longitude": -122.4621361111111,
+    "altitude": 7.225618631732169,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1427671967",
+    "formatted": "Mar 29, 2015, 11:32:47 PM UTC"
+  }
+}

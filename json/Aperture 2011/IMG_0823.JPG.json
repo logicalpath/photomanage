@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0823.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196234",
+    "formatted": "Sep 22, 2019, 11:50:34 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0225,
+    "longitude": -122.55033333333333,
+    "altitude": 67.71167883211679,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0225,
+    "longitude": -122.55033333333333,
+    "altitude": 67.71167883211679,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1300573230",
+    "formatted": "Mar 19, 2011, 10:20:30 PM UTC"
+  }
+}

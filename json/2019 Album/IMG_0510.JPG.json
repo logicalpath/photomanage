@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0510.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114115",
+    "formatted": "Apr 5, 2020, 7:15:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116537",
+    "formatted": "Apr 5, 2020, 7:55:37 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.328811111111115,
+    "longitude": -120.25401388888889,
+    "altitude": 1808.5748218527317,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.328811111111115,
+    "longitude": -120.25401388888889,
+    "altitude": 1808.5748218527317,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1551575988",
+    "formatted": "Mar 3, 2019, 1:19:48 AM UTC"
+  }
+}

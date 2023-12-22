@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4283.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562466997",
+    "formatted": "Jul 7, 2019, 2:36:37 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1182547008",
+    "formatted": "Jun 22, 2007, 9:16:48 PM UTC"
+  }
+}

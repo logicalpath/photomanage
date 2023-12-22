@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1324.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711722",
+    "formatted": "Nov 14, 2019, 6:08:42 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205702",
+    "formatted": "Dec 1, 2019, 1:08:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.77856944444444,
+    "longitude": -122.38986111111112,
+    "altitude": 7.103088299260548,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.77856944444444,
+    "longitude": -122.38986111111112,
+    "altitude": 7.103088299260548,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1442693335",
+    "formatted": "Sep 19, 2015, 8:08:55 PM UTC"
+  }
+}

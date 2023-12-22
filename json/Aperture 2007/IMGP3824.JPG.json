@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3824.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562467978",
+    "formatted": "Jul 7, 2019, 2:52:58 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820345",
+    "formatted": "Dec 31, 2019, 7:25:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1175379450",
+    "formatted": "Mar 31, 2007, 10:17:30 PM UTC"
+  }
+}

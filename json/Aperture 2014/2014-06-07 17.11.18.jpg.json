@@ -1,0 +1,31 @@
+{
+  "title": "2014-06-07 17.11.18.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569202589",
+    "formatted": "Sep 23, 2019, 1:36:29 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820479",
+    "formatted": "Dec 31, 2019, 7:27:59 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.915169166666665,
+    "longitude": -122.49277944444445,
+    "altitude": 74.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.915169166666665,
+    "longitude": -122.49277944444445,
+    "altitude": 74.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1402186278",
+    "formatted": "Jun 8, 2014, 12:11:18 AM UTC"
+  }
+}

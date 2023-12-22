@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0654.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117008",
+    "formatted": "Apr 5, 2020, 8:03:28 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.908969444444445,
+    "longitude": -122.51602222222222,
+    "altitude": 56.513636363636365,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.908969444444445,
+    "longitude": -122.51602222222222,
+    "altitude": 56.513636363636365,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1522018025",
+    "formatted": "Mar 25, 2018, 10:47:05 PM UTC"
+  }
+}

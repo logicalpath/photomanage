@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1492.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572403071",
+    "formatted": "Oct 30, 2019, 2:37:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820498",
+    "formatted": "Dec 31, 2019, 7:28:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.907180555555556,
+    "longitude": -122.55131666666666,
+    "altitude": 48.845794392523366,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.907180555555556,
+    "longitude": -122.55131666666666,
+    "altitude": 48.845794392523366,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1447298335",
+    "formatted": "Nov 12, 2015, 3:18:55 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0389.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115816",
+    "formatted": "Apr 5, 2020, 7:43:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116681",
+    "formatted": "Apr 5, 2020, 7:58:01 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.641730555555554,
+    "longitude": -106.34510833333333,
+    "altitude": 2498.694423223835,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.641730555555554,
+    "longitude": -106.34510833333333,
+    "altitude": 2498.694423223835,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1545942439",
+    "formatted": "Dec 27, 2018, 8:27:19 PM UTC"
+  }
+}

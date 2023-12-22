@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0030.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1564444705",
+    "formatted": "Jul 29, 2019, 11:58:25 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820394",
+    "formatted": "Dec 31, 2019, 7:26:34 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1220716583",
+    "formatted": "Sep 6, 2008, 3:56:23 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3186.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562375459",
+    "formatted": "Jul 6, 2019, 1:10:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585092935",
+    "formatted": "Mar 24, 2020, 11:35:35 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1162357508",
+    "formatted": "Nov 1, 2006, 5:05:08 AM UTC"
+  }
+}

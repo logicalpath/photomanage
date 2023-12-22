@@ -1,0 +1,31 @@
+{
+  "title": "MOV00527.MPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562364698",
+    "formatted": "Jul 5, 2019, 10:11:38 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776321",
+    "formatted": "Jan 23, 2020, 10:45:21 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1077994064",
+    "formatted": "Feb 28, 2004, 6:47:44 PM UTC"
+  }
+}

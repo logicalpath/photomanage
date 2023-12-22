@@ -1,0 +1,31 @@
+{
+  "title": "sac train trip_20101010_095.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565577089",
+    "formatted": "Aug 12, 2019, 2:31:29 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820458",
+    "formatted": "Dec 31, 2019, 7:27:38 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1286745533",
+    "formatted": "Oct 10, 2010, 9:18:53 PM UTC"
+  }
+}

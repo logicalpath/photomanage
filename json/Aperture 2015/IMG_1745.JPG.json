@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1745.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569216441",
+    "formatted": "Sep 23, 2019, 5:27:21 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820491",
+    "formatted": "Dec 31, 2019, 7:28:11 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.642719444444445,
+    "longitude": -106.60386666666666,
+    "altitude": 2241.8846153846152,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.642719444444445,
+    "longitude": -106.60386666666666,
+    "altitude": 2241.8846153846152,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451172433",
+    "formatted": "Dec 26, 2015, 11:27:13 PM UTC"
+  }
+}

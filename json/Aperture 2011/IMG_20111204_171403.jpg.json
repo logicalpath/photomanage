@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111204_171403.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195188",
+    "formatted": "Sep 22, 2019, 11:33:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1581813189",
+    "formatted": "Feb 16, 2020, 12:33:09 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.833330638888896,
+    "longitude": -122.47357963888889,
+    "altitude": -26.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.833330638888896,
+    "longitude": -122.47357963888889,
+    "altitude": -26.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1323047643",
+    "formatted": "Dec 5, 2011, 1:14:03 AM UTC"
+  }
+}

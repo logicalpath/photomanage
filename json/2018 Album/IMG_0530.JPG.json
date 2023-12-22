@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0530.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117077",
+    "formatted": "Apr 5, 2020, 8:04:37 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.93005555555556,
+    "longitude": -155.8851,
+    "altitude": 16.91640625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.93005555555556,
+    "longitude": -155.8851,
+    "altitude": 16.91640625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1521087365",
+    "formatted": "Mar 15, 2018, 4:16:05 AM UTC"
+  }
+}

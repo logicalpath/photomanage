@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0978.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113913",
+    "formatted": "Apr 5, 2020, 7:11:53 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114395",
+    "formatted": "Apr 5, 2020, 7:19:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.943255555555556,
+    "longitude": -155.86998055555557,
+    "altitude": 3.5031986269308786,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.943255555555556,
+    "longitude": -155.86998055555557,
+    "altitude": 3.5031986269308786,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1564179489",
+    "formatted": "Jul 26, 2019, 10:18:09 PM UTC"
+  }
+}

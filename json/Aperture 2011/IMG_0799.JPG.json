@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0799.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196234",
+    "formatted": "Sep 22, 2019, 11:50:34 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820472",
+    "formatted": "Dec 31, 2019, 7:27:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1299723302",
+    "formatted": "Mar 10, 2011, 2:15:02 AM UTC"
+  }
+}

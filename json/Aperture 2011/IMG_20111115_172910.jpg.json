@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111115_172910.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195551",
+    "formatted": "Sep 22, 2019, 11:39:11 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820467",
+    "formatted": "Dec 31, 2019, 7:27:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.82074033333333,
+    "longitude": -122.38711594444445,
+    "altitude": -26.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.82074033333333,
+    "longitude": -122.38711594444445,
+    "altitude": -26.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1321406950",
+    "formatted": "Nov 16, 2011, 1:29:10 AM UTC"
+  }
+}

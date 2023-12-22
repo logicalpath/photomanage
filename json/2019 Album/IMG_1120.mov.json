@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1120.mov",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114325",
+    "formatted": "Apr 5, 2020, 7:18:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.1889,
+    "longitude": -122.6912,
+    "altitude": 1223.42,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.1889,
+    "longitude": -122.6912,
+    "altitude": 1223.42,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1569602075",
+    "formatted": "Sep 27, 2019, 4:34:35 PM UTC"
+  }
+}

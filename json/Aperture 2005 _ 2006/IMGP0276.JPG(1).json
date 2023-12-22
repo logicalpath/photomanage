@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0276.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562437212",
+    "formatted": "Jul 6, 2019, 6:20:12 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820304",
+    "formatted": "Dec 31, 2019, 7:25:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1152803325",
+    "formatted": "Jul 13, 2006, 3:08:45 PM UTC"
+  }
+}

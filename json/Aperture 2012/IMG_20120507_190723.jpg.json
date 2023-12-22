@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120507_190723.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569198686",
+    "formatted": "Sep 23, 2019, 12:31:26 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820475",
+    "formatted": "Dec 31, 2019, 7:27:55 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.007116305555556,
+    "longitude": -122.55215227777778,
+    "altitude": -12.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.007116305555556,
+    "longitude": -122.55215227777778,
+    "altitude": -12.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1336442843",
+    "formatted": "May 8, 2012, 2:07:23 AM UTC"
+  }
+}

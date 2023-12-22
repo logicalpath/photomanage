@@ -1,0 +1,31 @@
+{
+  "title": "2014-11-27 12.30.42.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569201597",
+    "formatted": "Sep 23, 2019, 1:19:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584162377",
+    "formatted": "Mar 14, 2020, 5:06:17 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.907290555555555,
+    "longitude": -122.55127944444445,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.907290555555555,
+    "longitude": -122.55127944444445,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1417120242",
+    "formatted": "Nov 27, 2014, 8:30:42 PM UTC"
+  }
+}

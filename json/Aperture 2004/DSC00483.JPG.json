@@ -1,0 +1,31 @@
+{
+  "title": "DSC00483.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562363916",
+    "formatted": "Jul 5, 2019, 9:58:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584759324",
+    "formatted": "Mar 21, 2020, 2:55:24 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1076302355",
+    "formatted": "Feb 9, 2004, 4:52:35 AM UTC"
+  }
+}

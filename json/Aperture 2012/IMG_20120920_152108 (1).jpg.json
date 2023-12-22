@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120920_152108 (1).jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569197759",
+    "formatted": "Sep 23, 2019, 12:15:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.77830055555555,
+    "longitude": -122.38953833333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.77830055555555,
+    "longitude": -122.38953833333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1348179668",
+    "formatted": "Sep 20, 2012, 10:21:08 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111101_171657.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195700",
+    "formatted": "Sep 22, 2019, 11:41:40 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820468",
+    "formatted": "Dec 31, 2019, 7:27:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79611766666667,
+    "longitude": -122.39344597222222,
+    "altitude": -36.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79611766666667,
+    "longitude": -122.39344597222222,
+    "altitude": -36.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1320193016",
+    "formatted": "Nov 2, 2011, 12:16:56 AM UTC"
+  }
+}

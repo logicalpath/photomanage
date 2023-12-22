@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1080.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195880",
+    "formatted": "Sep 22, 2019, 11:44:40 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820468",
+    "formatted": "Dec 31, 2019, 7:27:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.879333333333335,
+    "longitude": -122.29316666666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.879333333333335,
+    "longitude": -122.29316666666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1307310695",
+    "formatted": "Jun 5, 2011, 9:51:35 PM UTC"
+  }
+}

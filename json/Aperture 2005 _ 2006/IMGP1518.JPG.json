@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1518.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562378415",
+    "formatted": "Jul 6, 2019, 2:00:15 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585110498",
+    "formatted": "Mar 25, 2020, 4:28:18 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1147980717",
+    "formatted": "May 18, 2006, 7:31:57 PM UTC"
+  }
+}

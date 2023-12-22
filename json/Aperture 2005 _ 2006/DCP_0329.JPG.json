@@ -1,0 +1,31 @@
+{
+  "title": "DCP_0329.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562372698",
+    "formatted": "Jul 6, 2019, 12:24:58 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820264",
+    "formatted": "Dec 31, 2019, 7:24:24 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1156020923",
+    "formatted": "Aug 19, 2006, 8:55:23 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1266.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114243",
+    "formatted": "Apr 5, 2020, 7:17:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.197913888888884,
+    "longitude": -122.71614722222222,
+    "altitude": 574.3672332942556,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.197913888888884,
+    "longitude": -122.71614722222222,
+    "altitude": 574.3672332942556,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572056568",
+    "formatted": "Oct 26, 2019, 2:22:48 AM UTC"
+  }
+}

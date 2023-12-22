@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0689.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196776",
+    "formatted": "Sep 22, 2019, 11:59:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1578972692",
+    "formatted": "Jan 14, 2020, 3:31:32 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.788666666666664,
+    "longitude": -122.4085,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.788666666666664,
+    "longitude": -122.4085,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1296934131",
+    "formatted": "Feb 5, 2011, 7:28:51 PM UTC"
+  }
+}

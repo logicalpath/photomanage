@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1599.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562388801",
+    "formatted": "Jul 6, 2019, 4:53:21 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820282",
+    "formatted": "Dec 31, 2019, 7:24:42 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1148407392",
+    "formatted": "May 23, 2006, 6:03:12 PM UTC"
+  }
+}

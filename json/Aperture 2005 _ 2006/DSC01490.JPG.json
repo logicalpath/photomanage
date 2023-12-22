@@ -1,0 +1,31 @@
+{
+  "title": "DSC01490.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562388885",
+    "formatted": "Jul 6, 2019, 4:54:45 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585188614",
+    "formatted": "Mar 26, 2020, 2:10:14 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1140720474",
+    "formatted": "Feb 23, 2006, 6:47:54 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2015-05-25 10.54.10 HDR-2.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569206081",
+    "formatted": "Sep 23, 2019, 2:34:41 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820485",
+    "formatted": "Dec 31, 2019, 7:28:05 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.90537222222222,
+    "longitude": -122.54754722222222,
+    "altitude": 17.341435185185187,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.90537222222222,
+    "longitude": -122.54754722222222,
+    "altitude": 17.341435185185187,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1432576450",
+    "formatted": "May 25, 2015, 5:54:10 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1810.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569214933",
+    "formatted": "Sep 23, 2019, 5:02:13 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.90725277777778,
+    "longitude": -122.54793611111111,
+    "altitude": 9.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.90725277777778,
+    "longitude": -122.54793611111111,
+    "altitude": 9.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451617725",
+    "formatted": "Jan 1, 2016, 3:08:45 AM UTC"
+  }
+}

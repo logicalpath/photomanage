@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111119_195714.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195551",
+    "formatted": "Sep 22, 2019, 11:39:11 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820467",
+    "formatted": "Dec 31, 2019, 7:27:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.96603344444445,
+    "longitude": -122.49403230555555,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.96603344444445,
+    "longitude": -122.49403230555555,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1321761433",
+    "formatted": "Nov 20, 2011, 3:57:13 AM UTC"
+  }
+}

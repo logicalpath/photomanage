@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20130216_183530.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200317",
+    "formatted": "Sep 23, 2019, 12:58:37 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1374617496",
+    "formatted": "Jul 23, 2013, 10:11:36 PM UTC"
+  }
+}

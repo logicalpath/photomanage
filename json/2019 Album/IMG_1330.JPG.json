@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1330.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114209",
+    "formatted": "Apr 5, 2020, 7:16:49 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.227108333333334,
+    "longitude": -122.6195361111111,
+    "altitude": 0.02132308484336931,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.227108333333334,
+    "longitude": -122.6195361111111,
+    "altitude": 0.02132308484336931,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572724255",
+    "formatted": "Nov 2, 2019, 7:50:55 PM UTC"
+  }
+}

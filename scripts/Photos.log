@@ -1,0 +1,16 @@
+Searching /Users/eddiedickey/Photos for media files...
+The extracted folder name is: Photos
+Exif file: ../csv/Photos-exif.csv
+Full Directory = /Users/eddiedickey/Photos
+exif_file = ../csv/Photos-exif.csv
+Warning: Bad ICC_Profile table (truncated) - /Users/eddiedickey/Photos/2000.photoslibrary/originals/B/B4D77FD4-21AC-495E-B499-EBF3AF238042.jpeg
+Warning: Invalid EXIF text encoding for UserComment - /Users/eddiedickey/Photos/2012.photoslibrary/originals/F/FBEB4034-FD39-49DA-A060-4A35F957AE91.jpeg
+Warning: Invalid EXIF text encoding for UserComment - /Users/eddiedickey/Photos/2012.photoslibrary/originals/E/E2E94BDC-E9C8-41B4-8577-B679D871C249.jpeg
+Warning: Invalid EXIF text encoding for UserComment - /Users/eddiedickey/Photos/2012.photoslibrary/originals/2/26A8BC8C-0987-46D4-A524-89A8087E1E6B.jpeg
+Warning: IPTCDigest is not current. XMP may be out of sync - /Users/eddiedickey/Photos/2015.photoslibrary/originals/9/9501615D-A86E-44F0-99F5-B748CEF26C7C.jpeg
+Warning: IPTCDigest is not current. XMP may be out of sync - /Users/eddiedickey/Photos/2015.photoslibrary/originals/9/980CE018-F709-45C5-8EDF-11606BBC2370.jpeg
+Warning: IPTCDigest is not current. XMP may be out of sync - /Users/eddiedickey/Photos/2015.photoslibrary/originals/0/0656178C-3A3A-4D94-B7D9-688B692F578D.jpeg
+Warning: IPTCDigest is not current. XMP may be out of sync - /Users/eddiedickey/Photos/2015.photoslibrary/originals/0/079D0A07-7BBF-4F86-9BBF-34324C9F6ACE.jpeg
+Warning: Bad ICC_Profile table (truncated) - /Users/eddiedickey/Photos/2011.photoslibrary/originals/3/30A2429C-A64E-4543-A7EB-158DAA6C29AD.jpeg
+  481 directories scanned
+42722 image files read

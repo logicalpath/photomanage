@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0261.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569359",
+    "formatted": "Aug 12, 2019, 12:22:39 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820450",
+    "formatted": "Dec 31, 2019, 7:27:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.791,
+    "longitude": -122.399,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.791,
+    "longitude": -122.399,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1289236682",
+    "formatted": "Nov 8, 2010, 5:18:02 PM UTC"
+  }
+}

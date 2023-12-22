@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1274.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115541",
+    "formatted": "Apr 5, 2020, 7:39:01 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.19367222222222,
+    "longitude": -122.70845833333334,
+    "altitude": 611.8517298187809,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.19367222222222,
+    "longitude": -122.70845833333334,
+    "altitude": 611.8517298187809,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572110133",
+    "formatted": "Oct 26, 2019, 5:15:33 PM UTC"
+  }
+}

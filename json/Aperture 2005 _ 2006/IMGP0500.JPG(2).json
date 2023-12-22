@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0500.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562398036",
+    "formatted": "Jul 6, 2019, 7:27:16 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776329",
+    "formatted": "Jan 23, 2020, 10:45:29 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1160244510",
+    "formatted": "Oct 7, 2006, 6:08:30 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0287.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565466797",
+    "formatted": "Aug 10, 2019, 7:53:17 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776361",
+    "formatted": "Jan 23, 2020, 10:46:01 AM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0365,
+    "longitude": -122.54316666666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0365,
+    "longitude": -122.54316666666666,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1243824488",
+    "formatted": "Jun 1, 2009, 2:48:08 AM UTC"
+  }
+}

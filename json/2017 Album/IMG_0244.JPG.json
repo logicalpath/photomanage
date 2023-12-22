@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0244.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116577",
+    "formatted": "Apr 5, 2020, 7:56:17 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117224",
+    "formatted": "Apr 5, 2020, 8:07:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.77300555555556,
+    "longitude": -122.41139166666667,
+    "altitude": 11.767687434002111,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.77300555555556,
+    "longitude": -122.41139166666667,
+    "altitude": 11.767687434002111,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1513179939",
+    "formatted": "Dec 13, 2017, 3:45:39 PM UTC"
+  }
+}

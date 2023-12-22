@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1544.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572403071",
+    "formatted": "Oct 30, 2019, 2:37:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820498",
+    "formatted": "Dec 31, 2019, 7:28:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1448051943",
+    "formatted": "Nov 20, 2015, 8:39:03 PM UTC"
+  }
+}

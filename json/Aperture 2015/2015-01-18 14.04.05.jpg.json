@@ -1,0 +1,32 @@
+{
+  "title": "2015-01-18 14.04.05.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569212850",
+    "formatted": "Sep 23, 2019, 4:27:30 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117376",
+    "formatted": "Apr 5, 2020, 8:09:36 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1421618645",
+    "formatted": "Jan 18, 2015, 10:04:05 PM UTC"
+  },
+  "favorited": true
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1819.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1580606225",
+    "formatted": "Feb 2, 2020, 1:17:05 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585945883",
+    "formatted": "Apr 3, 2020, 8:31:23 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.855983333333334,
+    "longitude": -122.57044166666667,
+    "altitude": 139.2919708029197,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.855983333333334,
+    "longitude": -122.57044166666667,
+    "altitude": 139.2919708029197,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451677239",
+    "formatted": "Jan 1, 2016, 7:40:39 PM UTC"
+  }
+}

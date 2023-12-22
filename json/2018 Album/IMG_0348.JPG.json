@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0348.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115816",
+    "formatted": "Apr 5, 2020, 7:43:36 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116705",
+    "formatted": "Apr 5, 2020, 7:58:25 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.91558055555556,
+    "longitude": -122.50806388888888,
+    "altitude": 7.1384582486902595,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.91558055555556,
+    "longitude": -122.50806388888888,
+    "altitude": 7.1384582486902595,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1545619902",
+    "formatted": "Dec 24, 2018, 2:51:42 AM UTC"
+  }
+}

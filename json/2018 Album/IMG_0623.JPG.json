@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0623.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117026",
+    "formatted": "Apr 5, 2020, 8:03:46 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.85196388888889,
+    "longitude": -155.92962777777777,
+    "altitude": 28.864768683274022,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.85196388888889,
+    "longitude": -155.92962777777777,
+    "altitude": 28.864768683274022,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1521416387",
+    "formatted": "Mar 18, 2018, 11:39:47 PM UTC"
+  }
+}

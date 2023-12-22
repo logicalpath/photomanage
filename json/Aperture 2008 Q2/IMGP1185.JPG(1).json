@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1185.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1563129351",
+    "formatted": "Jul 14, 2019, 6:35:51 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820390",
+    "formatted": "Dec 31, 2019, 7:26:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1210548054",
+    "formatted": "May 11, 2008, 11:20:54 PM UTC"
+  }
+}

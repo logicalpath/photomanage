@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2590.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562398534",
+    "formatted": "Jul 6, 2019, 7:35:34 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585224245",
+    "formatted": "Mar 26, 2020, 12:04:05 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1153596021",
+    "formatted": "Jul 22, 2006, 7:20:21 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0592.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117043",
+    "formatted": "Apr 5, 2020, 8:04:03 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.933333333333334,
+    "longitude": -155.88058333333333,
+    "altitude": 7.6986940298507465,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.933333333333334,
+    "longitude": -155.88058333333333,
+    "altitude": 7.6986940298507465,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1521344181",
+    "formatted": "Mar 18, 2018, 3:36:21 AM UTC"
+  }
+}

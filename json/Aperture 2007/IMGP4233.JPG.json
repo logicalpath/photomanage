@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4233.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562466874",
+    "formatted": "Jul 7, 2019, 2:34:34 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820342",
+    "formatted": "Dec 31, 2019, 7:25:42 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1182370902",
+    "formatted": "Jun 20, 2007, 8:21:42 PM UTC"
+  }
+}

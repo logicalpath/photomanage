@@ -1,0 +1,31 @@
+{
+  "title": "Claire-990328.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562352964",
+    "formatted": "Jul 5, 2019, 6:56:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584658489",
+    "formatted": "Mar 19, 2020, 10:54:49 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "922671478",
+    "formatted": "Mar 29, 1999, 1:37:58 AM UTC"
+  }
+}

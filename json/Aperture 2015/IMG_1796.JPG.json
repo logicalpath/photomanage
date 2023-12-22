@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1796.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569214933",
+    "formatted": "Sep 23, 2019, 5:02:13 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 39.64252777777778,
+    "longitude": -106.6040111111111,
+    "altitude": 2260.2702702702704,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.64252777777778,
+    "longitude": -106.6040111111111,
+    "altitude": 2260.2702702702704,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451353542",
+    "formatted": "Dec 29, 2015, 1:45:42 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0402.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116460",
+    "formatted": "Apr 5, 2020, 7:54:20 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117147",
+    "formatted": "Apr 5, 2020, 8:05:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79514444444444,
+    "longitude": -122.3957888888889,
+    "altitude": 44.703396226415094,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79514444444444,
+    "longitude": -122.3957888888889,
+    "altitude": 44.703396226415094,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1516391716",
+    "formatted": "Jan 19, 2018, 7:55:16 PM UTC"
+  }
+}

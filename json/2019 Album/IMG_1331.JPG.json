@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1331.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114209",
+    "formatted": "Apr 5, 2020, 7:16:49 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.22747777777778,
+    "longitude": -122.62030833333333,
+    "altitude": 4.1139488208730555,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.22747777777778,
+    "longitude": -122.62030833333333,
+    "altitude": 4.1139488208730555,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572724258",
+    "formatted": "Nov 2, 2019, 7:50:58 PM UTC"
+  }
+}

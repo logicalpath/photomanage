@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3833.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562444914",
+    "formatted": "Jul 6, 2019, 8:28:34 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820309",
+    "formatted": "Dec 31, 2019, 7:25:09 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1175961834",
+    "formatted": "Apr 7, 2007, 4:03:54 PM UTC"
+  }
+}

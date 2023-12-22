@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0842.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196171",
+    "formatted": "Sep 22, 2019, 11:49:31 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820470",
+    "formatted": "Dec 31, 2019, 7:27:50 PM UTC"
+  },
+  "geoData": {
+    "latitude": 33.4005,
+    "longitude": -111.97133333333333,
+    "altitude": 335.6057692307692,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 33.4005,
+    "longitude": -111.97133333333333,
+    "altitude": 335.6057692307692,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1300910736",
+    "formatted": "Mar 23, 2011, 8:05:36 PM UTC"
+  }
+}

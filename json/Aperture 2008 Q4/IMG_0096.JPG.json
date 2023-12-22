@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0096.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565415990",
+    "formatted": "Aug 10, 2019, 5:46:30 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820424",
+    "formatted": "Dec 31, 2019, 7:27:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78616666666667,
+    "longitude": -122.43966666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78616666666667,
+    "longitude": -122.43966666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1226945610",
+    "formatted": "Nov 17, 2008, 6:13:30 PM UTC"
+  }
+}

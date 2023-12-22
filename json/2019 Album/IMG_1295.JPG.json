@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1295.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114226",
+    "formatted": "Apr 5, 2020, 7:17:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.189049999999995,
+    "longitude": -122.69130833333334,
+    "altitude": 597.6038873994638,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.189049999999995,
+    "longitude": -122.69130833333334,
+    "altitude": 597.6038873994638,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572129880",
+    "formatted": "Oct 26, 2019, 10:44:40 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0263.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569359",
+    "formatted": "Aug 12, 2019, 12:22:39 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820450",
+    "formatted": "Dec 31, 2019, 7:27:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78966666666667,
+    "longitude": -122.39233333333334,
+    "altitude": 44.95852534562212,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78966666666667,
+    "longitude": -122.39233333333334,
+    "altitude": 44.95852534562212,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1289266051",
+    "formatted": "Nov 9, 2010, 1:27:31 AM UTC"
+  }
+}

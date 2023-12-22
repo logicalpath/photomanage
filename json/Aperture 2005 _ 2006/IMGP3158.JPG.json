@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3158.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562375579",
+    "formatted": "Jul 6, 2019, 1:12:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820272",
+    "formatted": "Dec 31, 2019, 7:24:32 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1162352255",
+    "formatted": "Nov 1, 2006, 3:37:35 AM UTC"
+  }
+}

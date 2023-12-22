@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0727.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562443805",
+    "formatted": "Jul 6, 2019, 8:10:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1168105299",
+    "formatted": "Jan 6, 2007, 5:41:39 PM UTC"
+  }
+}

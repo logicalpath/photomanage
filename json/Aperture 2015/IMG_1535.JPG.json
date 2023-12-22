@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1535.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572403071",
+    "formatted": "Oct 30, 2019, 2:37:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776375",
+    "formatted": "Jan 23, 2020, 10:46:15 AM UTC"
+  },
+  "geoData": {
+    "latitude": 38.428038888888885,
+    "longitude": -122.54827222222222,
+    "altitude": 150.0935960591133,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.428038888888885,
+    "longitude": -122.54827222222222,
+    "altitude": 150.0935960591133,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1447564102",
+    "formatted": "Nov 15, 2015, 5:08:22 AM UTC"
+  }
+}

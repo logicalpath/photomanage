@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1371.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114195",
+    "formatted": "Apr 5, 2020, 7:16:35 PM UTC"
+  },
+  "geoData": {
+    "latitude": 40.642355555555554,
+    "longitude": -111.28384444444444,
+    "altitude": 1973.3034682080925,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 40.642355555555554,
+    "longitude": -111.28384444444444,
+    "altitude": 1973.3034682080925,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1574960883",
+    "formatted": "Nov 28, 2019, 5:08:03 PM UTC"
+  }
+}

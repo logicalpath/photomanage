@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0255.mov",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116577",
+    "formatted": "Apr 5, 2020, 7:56:17 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117217",
+    "formatted": "Apr 5, 2020, 8:06:57 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.0253,
+    "longitude": -122.55539999999999,
+    "altitude": 80.7,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.0253,
+    "longitude": -122.55539999999999,
+    "altitude": 80.7,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1513479211",
+    "formatted": "Dec 17, 2017, 2:53:31 AM UTC"
+  }
+}

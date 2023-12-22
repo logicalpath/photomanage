@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1768.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569216441",
+    "formatted": "Sep 23, 2019, 5:27:21 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776368",
+    "formatted": "Jan 23, 2020, 10:46:08 AM UTC"
+  },
+  "geoData": {
+    "latitude": 39.64248611111111,
+    "longitude": -106.60395833333332,
+    "altitude": 2227.1466666666665,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.64248611111111,
+    "longitude": -106.60395833333332,
+    "altitude": 2227.1466666666665,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451178762",
+    "formatted": "Dec 27, 2015, 1:12:42 AM UTC"
+  }
+}

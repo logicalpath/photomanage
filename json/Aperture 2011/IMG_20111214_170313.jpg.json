@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111214_170313.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195124",
+    "formatted": "Sep 22, 2019, 11:32:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820465",
+    "formatted": "Dec 31, 2019, 7:27:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79931163888889,
+    "longitude": -122.39789936111112,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79931163888889,
+    "longitude": -122.39789936111112,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1323910993",
+    "formatted": "Dec 15, 2011, 1:03:13 AM UTC"
+  }
+}

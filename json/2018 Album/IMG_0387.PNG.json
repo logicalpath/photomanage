@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0387.PNG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116460",
+    "formatted": "Apr 5, 2020, 7:54:20 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117147",
+    "formatted": "Apr 5, 2020, 8:05:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1515004270",
+    "formatted": "Jan 3, 2018, 6:31:10 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0005.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562481078",
+    "formatted": "Jul 7, 2019, 6:31:18 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820356",
+    "formatted": "Dec 31, 2019, 7:25:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1189267750",
+    "formatted": "Sep 8, 2007, 4:09:10 PM UTC"
+  }
+}

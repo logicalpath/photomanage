@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0588.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114115",
+    "formatted": "Apr 5, 2020, 7:15:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116386",
+    "formatted": "Apr 5, 2020, 7:53:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.85967222222222,
+    "longitude": -104.67209722222222,
+    "altitude": 1638.6702878870178,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.85967222222222,
+    "longitude": -104.67209722222222,
+    "altitude": 1638.6702878870178,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1554045602",
+    "formatted": "Mar 31, 2019, 3:20:02 PM UTC"
+  }
+}

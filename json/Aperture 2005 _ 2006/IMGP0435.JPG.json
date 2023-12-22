@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0435.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562365985",
+    "formatted": "Jul 5, 2019, 10:33:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584772367",
+    "formatted": "Mar 21, 2020, 6:32:47 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1130006575",
+    "formatted": "Oct 22, 2005, 6:42:55 PM UTC"
+  }
+}

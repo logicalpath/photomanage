@@ -1,0 +1,31 @@
+{
+  "title": "school pics 028.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562455655",
+    "formatted": "Jul 6, 2019, 11:27:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820322",
+    "formatted": "Dec 31, 2019, 7:25:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1191868953",
+    "formatted": "Oct 8, 2007, 6:42:33 PM UTC"
+  }
+}

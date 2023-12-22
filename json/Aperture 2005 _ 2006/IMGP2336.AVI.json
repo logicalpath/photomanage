@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2336.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562389196",
+    "formatted": "Jul 6, 2019, 4:59:56 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585189597",
+    "formatted": "Mar 26, 2020, 2:26:37 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1152403926",
+    "formatted": "Jul 9, 2006, 12:12:06 AM UTC"
+  }
+}

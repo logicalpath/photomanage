@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0734.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113994",
+    "formatted": "Apr 5, 2020, 7:13:14 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115981",
+    "formatted": "Apr 5, 2020, 7:46:21 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.915683333333334,
+    "longitude": -122.50846111111112,
+    "altitude": 0.08080935478640025,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.915683333333334,
+    "longitude": -122.50846111111112,
+    "altitude": 0.08080935478640025,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1557712877",
+    "formatted": "May 13, 2019, 2:01:17 AM UTC"
+  }
+}

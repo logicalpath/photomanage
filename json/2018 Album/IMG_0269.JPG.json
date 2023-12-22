@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0269.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586115870",
+    "formatted": "Apr 5, 2020, 7:44:30 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116736",
+    "formatted": "Apr 5, 2020, 7:58:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.899875,
+    "longitude": -122.512025,
+    "altitude": 22.60757064774974,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.899875,
+    "longitude": -122.512025,
+    "altitude": 22.60757064774974,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1541871497",
+    "formatted": "Nov 10, 2018, 5:38:17 PM UTC"
+  }
+}

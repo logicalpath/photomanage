@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1399.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401998",
+    "formatted": "Oct 30, 2019, 2:19:58 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820497",
+    "formatted": "Dec 31, 2019, 7:28:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.824672222222226,
+    "longitude": -122.50872777777778,
+    "altitude": 22.940217391304348,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.824672222222226,
+    "longitude": -122.50872777777778,
+    "altitude": 22.940217391304348,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1443837660",
+    "formatted": "Oct 3, 2015, 2:01:00 AM UTC"
+  }
+}

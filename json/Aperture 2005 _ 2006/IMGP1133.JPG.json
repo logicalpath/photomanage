@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1133.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562390163",
+    "formatted": "Jul 6, 2019, 5:16:03 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585189711",
+    "formatted": "Mar 26, 2020, 2:28:31 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1145236887",
+    "formatted": "Apr 17, 2006, 1:21:27 AM UTC"
+  }
+}

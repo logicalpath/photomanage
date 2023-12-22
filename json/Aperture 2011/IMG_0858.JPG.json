@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0858.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196171",
+    "formatted": "Sep 22, 2019, 11:49:31 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820470",
+    "formatted": "Dec 31, 2019, 7:27:50 PM UTC"
+  },
+  "geoData": {
+    "latitude": 33.42933333333333,
+    "longitude": -111.94016666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 33.42933333333333,
+    "longitude": -111.94016666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1300930208",
+    "formatted": "Mar 24, 2011, 1:30:08 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0641.PNG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114070",
+    "formatted": "Apr 5, 2020, 7:14:30 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116370",
+    "formatted": "Apr 5, 2020, 7:52:50 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1555275547",
+    "formatted": "Apr 14, 2019, 8:59:07 PM UTC"
+  }
+}

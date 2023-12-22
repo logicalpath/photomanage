@@ -1,0 +1,31 @@
+{
+  "title": "2015-05-12 19.08.29.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569207124",
+    "formatted": "Sep 23, 2019, 2:52:04 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117271",
+    "formatted": "Apr 5, 2020, 8:07:51 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.00438055555556,
+    "longitude": -122.55279444444444,
+    "altitude": 12.525078369905955,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.00438055555556,
+    "longitude": -122.55279444444444,
+    "altitude": 12.525078369905955,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1431482909",
+    "formatted": "May 13, 2015, 2:08:29 AM UTC"
+  }
+}

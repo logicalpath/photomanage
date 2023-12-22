@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3369.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562434556",
+    "formatted": "Jul 6, 2019, 5:35:56 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579022932",
+    "formatted": "Jan 14, 2020, 5:28:52 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1166396500",
+    "formatted": "Dec 17, 2006, 11:01:40 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0690.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116297",
+    "formatted": "Apr 5, 2020, 7:51:37 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116991",
+    "formatted": "Apr 5, 2020, 8:03:11 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1523849184",
+    "formatted": "Apr 16, 2018, 3:26:24 AM UTC"
+  }
+}

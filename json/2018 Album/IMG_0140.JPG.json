@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0140.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116044",
+    "formatted": "Apr 5, 2020, 7:47:24 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116797",
+    "formatted": "Apr 5, 2020, 7:59:57 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.528747222222222,
+    "longitude": -155.92480555555554,
+    "altitude": 425.7212389380531,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.528747222222222,
+    "longitude": -155.92480555555554,
+    "altitude": 425.7212389380531,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1538006662",
+    "formatted": "Sep 27, 2018, 12:04:22 AM UTC"
+  }
+}

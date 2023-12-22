@@ -1,0 +1,31 @@
+{
+  "title": "IMGP4057.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562469855",
+    "formatted": "Jul 7, 2019, 3:24:15 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820347",
+    "formatted": "Dec 31, 2019, 7:25:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1179077112",
+    "formatted": "May 13, 2007, 5:25:12 PM UTC"
+  }
+}

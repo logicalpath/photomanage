@@ -1,0 +1,31 @@
+{
+  "title": "IMG_6366.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586117818",
+    "formatted": "Apr 5, 2020, 8:16:58 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586118039",
+    "formatted": "Apr 5, 2020, 8:20:39 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.907199999999996,
+    "longitude": -122.55130000000001,
+    "altitude": 106.44,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.907199999999996,
+    "longitude": -122.55130000000001,
+    "altitude": 106.44,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1506309950",
+    "formatted": "Sep 25, 2017, 3:25:50 AM UTC"
+  }
+}

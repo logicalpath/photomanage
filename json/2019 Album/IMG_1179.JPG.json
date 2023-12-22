@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1179.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114288",
+    "formatted": "Apr 5, 2020, 7:18:08 PM UTC"
+  },
+  "geoData": {
+    "latitude": 34.56154722222222,
+    "longitude": -120.14098333333334,
+    "altitude": 161.16530995616782,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 34.56154722222222,
+    "longitude": -120.14098333333334,
+    "altitude": 161.16530995616782,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1571611110",
+    "formatted": "Oct 20, 2019, 10:38:30 PM UTC"
+  }
+}

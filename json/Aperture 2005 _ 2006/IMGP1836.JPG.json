@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1836.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562382461",
+    "formatted": "Jul 6, 2019, 3:07:41 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585110536",
+    "formatted": "Mar 25, 2020, 4:28:56 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1149638498",
+    "formatted": "Jun 7, 2006, 12:01:38 AM UTC"
+  }
+}

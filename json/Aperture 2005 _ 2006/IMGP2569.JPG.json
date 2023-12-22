@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2569.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562385925",
+    "formatted": "Jul 6, 2019, 4:05:25 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820281",
+    "formatted": "Dec 31, 2019, 7:24:41 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1153348373",
+    "formatted": "Jul 19, 2006, 10:32:53 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3237.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562374883",
+    "formatted": "Jul 6, 2019, 1:01:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820269",
+    "formatted": "Dec 31, 2019, 7:24:29 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1163887780",
+    "formatted": "Nov 18, 2006, 10:09:40 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0249.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562372822",
+    "formatted": "Jul 6, 2019, 12:27:02 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776324",
+    "formatted": "Jan 23, 2020, 10:45:24 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1156021675",
+    "formatted": "Aug 19, 2006, 9:07:55 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1290.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114226",
+    "formatted": "Apr 5, 2020, 7:17:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.18910555555555,
+    "longitude": -122.69123888888889,
+    "altitude": 596.3945371775417,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.18910555555555,
+    "longitude": -122.69123888888889,
+    "altitude": 596.3945371775417,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572126005",
+    "formatted": "Oct 26, 2019, 9:40:05 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111214_082510.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195124",
+    "formatted": "Sep 22, 2019, 11:32:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820465",
+    "formatted": "Dec 31, 2019, 7:27:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.944620861111105,
+    "longitude": -122.50846983333334,
+    "altitude": -29.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.944620861111105,
+    "longitude": -122.50846983333334,
+    "altitude": -29.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1323879910",
+    "formatted": "Dec 14, 2011, 4:25:10 PM UTC"
+  }
+}

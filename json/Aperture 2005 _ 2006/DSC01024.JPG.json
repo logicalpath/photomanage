@@ -1,0 +1,31 @@
+{
+  "title": "DSC01024.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562367229",
+    "formatted": "Jul 5, 2019, 10:53:49 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584788295",
+    "formatted": "Mar 21, 2020, 10:58:15 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1116194675",
+    "formatted": "May 15, 2005, 10:04:35 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "DCP_0553.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562372577",
+    "formatted": "Jul 6, 2019, 12:22:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820262",
+    "formatted": "Dec 31, 2019, 7:24:22 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1156040109",
+    "formatted": "Aug 20, 2006, 2:15:09 AM UTC"
+  }
+}

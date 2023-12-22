@@ -1,0 +1,31 @@
+{
+  "title": "Bruce Gradowski 10.01.2010.jpeg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569359",
+    "formatted": "Aug 12, 2019, 12:22:39 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820450",
+    "formatted": "Dec 31, 2019, 7:27:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1286046708",
+    "formatted": "Oct 2, 2010, 7:11:48 PM UTC"
+  }
+}

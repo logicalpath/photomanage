@@ -4,11 +4,6 @@ photos/*
 # Secrets
 .env
 
-# Data
 
-/exifs
-/outputs
-/scripts/*.log
-/json
 
 

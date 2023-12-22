@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1530.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113155",
+    "formatted": "Apr 5, 2020, 6:59:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115787",
+    "formatted": "Apr 5, 2020, 7:43:07 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78632222222222,
+    "longitude": -122.4000388888889,
+    "altitude": 11.453314777327936,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78632222222222,
+    "longitude": -122.4000388888889,
+    "altitude": 11.453314777327936,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1580067322",
+    "formatted": "Jan 26, 2020, 7:35:22 PM UTC"
+  }
+}

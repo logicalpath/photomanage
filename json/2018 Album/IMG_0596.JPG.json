@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0596.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116384",
+    "formatted": "Apr 5, 2020, 7:53:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117034",
+    "formatted": "Apr 5, 2020, 8:03:54 PM UTC"
+  },
+  "geoData": {
+    "latitude": 19.93337222222222,
+    "longitude": -155.88063055555557,
+    "altitude": 9.278711484593838,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 19.93337222222222,
+    "longitude": -155.88063055555557,
+    "altitude": 9.278711484593838,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1521344207",
+    "formatted": "Mar 18, 2018, 3:36:47 AM UTC"
+  }
+}

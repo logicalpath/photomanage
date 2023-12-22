@@ -1,0 +1,31 @@
+{
+  "title": "2013-08-23 15.38.03.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200733",
+    "formatted": "Sep 23, 2019, 1:05:33 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.87923527777778,
+    "longitude": -122.29300194444444,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.87923527777778,
+    "longitude": -122.29300194444444,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1377297483",
+    "formatted": "Aug 23, 2013, 10:38:03 PM UTC"
+  }
+}

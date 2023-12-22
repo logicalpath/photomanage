@@ -1,0 +1,31 @@
+{
+  "title": "DSC00933.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562369422",
+    "formatted": "Jul 5, 2019, 11:30:22 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584986372",
+    "formatted": "Mar 23, 2020, 5:59:32 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1111958754",
+    "formatted": "Mar 27, 2005, 9:25:54 PM UTC"
+  }
+}

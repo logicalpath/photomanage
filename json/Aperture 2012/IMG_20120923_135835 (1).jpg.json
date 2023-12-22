@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120923_135835 (1).jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569197759",
+    "formatted": "Sep 23, 2019, 12:15:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.03780527777778,
+    "longitude": -122.54365638888889,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.03780527777778,
+    "longitude": -122.54365638888889,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1348433915",
+    "formatted": "Sep 23, 2012, 8:58:35 PM UTC"
+  }
+}

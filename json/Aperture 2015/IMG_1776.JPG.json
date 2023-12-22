@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1776.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569216441",
+    "formatted": "Sep 23, 2019, 5:27:21 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820491",
+    "formatted": "Dec 31, 2019, 7:28:11 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.644194444444445,
+    "longitude": -106.3368,
+    "altitude": 2523.7076923076925,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.644194444444445,
+    "longitude": -106.3368,
+    "altitude": 2523.7076923076925,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451246848",
+    "formatted": "Dec 27, 2015, 8:07:28 PM UTC"
+  }
+}

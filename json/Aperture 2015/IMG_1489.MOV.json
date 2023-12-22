@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1489.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572403071",
+    "formatted": "Oct 30, 2019, 2:37:51 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820498",
+    "formatted": "Dec 31, 2019, 7:28:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.907199999999996,
+    "longitude": -122.55130000000001,
+    "altitude": 97.28,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.907199999999996,
+    "longitude": -122.55130000000001,
+    "altitude": 97.28,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1447298100",
+    "formatted": "Nov 12, 2015, 3:15:00 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2013-09-25 17.06.45.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200947",
+    "formatted": "Sep 23, 2019, 1:09:07 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.03759611111111,
+    "longitude": -122.543555,
+    "altitude": 15.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.03759611111111,
+    "longitude": -122.543555,
+    "altitude": 15.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1380154005",
+    "formatted": "Sep 26, 2013, 12:06:45 AM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1263.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562374356",
+    "formatted": "Jul 6, 2019, 12:52:36 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820267",
+    "formatted": "Dec 31, 2019, 7:24:27 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1146427723",
+    "formatted": "Apr 30, 2006, 8:08:43 PM UTC"
+  }
+}

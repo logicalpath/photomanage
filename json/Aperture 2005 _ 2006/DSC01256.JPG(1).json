@@ -1,0 +1,31 @@
+{
+  "title": "DSC01256.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562370731",
+    "formatted": "Jul 5, 2019, 11:52:11 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776324",
+    "formatted": "Jan 23, 2020, 10:45:24 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1117403805",
+    "formatted": "May 29, 2005, 9:56:45 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2014-08-08 13.55.51.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569202075",
+    "formatted": "Sep 23, 2019, 1:27:55 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820478",
+    "formatted": "Dec 31, 2019, 7:27:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.94343805555555,
+    "longitude": -122.51180083333334,
+    "altitude": 17.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.94343805555555,
+    "longitude": -122.51180083333334,
+    "altitude": 17.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1407531351",
+    "formatted": "Aug 8, 2014, 8:55:51 PM UTC"
+  }
+}

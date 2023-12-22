@@ -1,0 +1,31 @@
+{
+  "title": "Events - 021.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569168541",
+    "formatted": "Sep 22, 2019, 4:09:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776365",
+    "formatted": "Jan 23, 2020, 10:46:05 AM UTC"
+  },
+  "geoData": {
+    "latitude": 37.8911,
+    "longitude": -122.28229999999999,
+    "altitude": 34.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.8911,
+    "longitude": -122.28229999999999,
+    "altitude": 34.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1284321813",
+    "formatted": "Sep 12, 2010, 8:03:33 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0185.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565569437",
+    "formatted": "Aug 12, 2019, 12:23:57 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820450",
+    "formatted": "Dec 31, 2019, 7:27:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.030166666666666,
+    "longitude": -122.55266666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.030166666666666,
+    "longitude": -122.55266666666667,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1287780977",
+    "formatted": "Oct 22, 2010, 8:56:17 PM UTC"
+  }
+}

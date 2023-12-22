@@ -1,0 +1,31 @@
+{
+  "title": "DSC00791.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562362226",
+    "formatted": "Jul 5, 2019, 9:30:26 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584740489",
+    "formatted": "Mar 20, 2020, 9:41:29 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1100647624",
+    "formatted": "Nov 16, 2004, 11:27:04 PM UTC"
+  }
+}

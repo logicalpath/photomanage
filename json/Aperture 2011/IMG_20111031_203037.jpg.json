@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111031_203037.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195700",
+    "formatted": "Sep 22, 2019, 11:41:40 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820468",
+    "formatted": "Dec 31, 2019, 7:27:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1320118237",
+    "formatted": "Nov 1, 2011, 3:30:37 AM UTC"
+  }
+}

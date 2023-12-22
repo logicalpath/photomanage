@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0729.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116259",
+    "formatted": "Apr 5, 2020, 7:50:59 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116967",
+    "formatted": "Apr 5, 2020, 8:02:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.018,
+    "longitude": -122.57239999999999,
+    "altitude": 95.84,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.018,
+    "longitude": -122.57239999999999,
+    "altitude": 95.84,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1526184148",
+    "formatted": "May 13, 2018, 4:02:28 AM UTC"
+  }
+}

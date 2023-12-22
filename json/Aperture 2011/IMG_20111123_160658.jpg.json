@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111123_160658.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195551",
+    "formatted": "Sep 22, 2019, 11:39:11 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820467",
+    "formatted": "Dec 31, 2019, 7:27:47 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78253288888889,
+    "longitude": -122.38860380555556,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78253288888889,
+    "longitude": -122.38860380555556,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1322093218",
+    "formatted": "Nov 24, 2011, 12:06:58 AM UTC"
+  }
+}

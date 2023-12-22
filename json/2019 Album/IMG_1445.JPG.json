@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1445.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113681",
+    "formatted": "Apr 5, 2020, 7:08:01 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114066",
+    "formatted": "Apr 5, 2020, 7:14:26 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.915730555555555,
+    "longitude": -122.50801944444444,
+    "altitude": 4.741485598787266,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.915730555555555,
+    "longitude": -122.50801944444444,
+    "altitude": 4.741485598787266,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1576987323",
+    "formatted": "Dec 22, 2019, 4:02:03 AM UTC"
+  }
+}

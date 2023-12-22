@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0783.mov",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586116219",
+    "formatted": "Apr 5, 2020, 7:50:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116945",
+    "formatted": "Apr 5, 2020, 8:02:25 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.013600000000004,
+    "longitude": -122.5151,
+    "altitude": 8.94,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.013600000000004,
+    "longitude": -122.5151,
+    "altitude": 8.94,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1528599899",
+    "formatted": "Jun 10, 2018, 3:04:59 AM UTC"
+  }
+}

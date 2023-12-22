@@ -1,0 +1,31 @@
+{
+  "title": "Events - 0652.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569192874",
+    "formatted": "Sep 22, 2019, 10:54:34 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776365",
+    "formatted": "Jan 23, 2020, 10:46:05 AM UTC"
+  },
+  "geoData": {
+    "latitude": 38.37133333333333,
+    "longitude": -122.71083333333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.37133333333333,
+    "longitude": -122.71083333333333,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1269122220",
+    "formatted": "Mar 20, 2010, 9:57:00 PM UTC"
+  }
+}

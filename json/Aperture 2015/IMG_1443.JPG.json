@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1443.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401998",
+    "formatted": "Oct 30, 2019, 2:19:58 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820497",
+    "formatted": "Dec 31, 2019, 7:28:17 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.93707777777777,
+    "longitude": -122.53623888888889,
+    "altitude": 19.382636655948552,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.93707777777777,
+    "longitude": -122.53623888888889,
+    "altitude": 19.382636655948552,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1445751291",
+    "formatted": "Oct 25, 2015, 5:34:51 AM UTC"
+  }
+}

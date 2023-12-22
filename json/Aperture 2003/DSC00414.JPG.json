@@ -1,0 +1,31 @@
+{
+  "title": "DSC00414.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562360179",
+    "formatted": "Jul 5, 2019, 8:56:19 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584692574",
+    "formatted": "Mar 20, 2020, 8:22:54 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1071122481",
+    "formatted": "Dec 11, 2003, 6:01:21 AM UTC"
+  }
+}

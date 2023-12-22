@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1553.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113155",
+    "formatted": "Apr 5, 2020, 6:59:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115781",
+    "formatted": "Apr 5, 2020, 7:43:01 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.78304722222222,
+    "longitude": -122.40406111111112,
+    "altitude": 13.243801116448138,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.78304722222222,
+    "longitude": -122.40406111111112,
+    "altitude": 13.243801116448138,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1580244744",
+    "formatted": "Jan 28, 2020, 8:52:24 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "DSC_0017.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562524745",
+    "formatted": "Jul 7, 2019, 6:39:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776339",
+    "formatted": "Jan 23, 2020, 10:45:39 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1198545880",
+    "formatted": "Dec 25, 2007, 1:24:40 AM UTC"
+  }
+}

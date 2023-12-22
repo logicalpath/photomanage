@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1546.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401727",
+    "formatted": "Oct 30, 2019, 2:15:27 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584162377",
+    "formatted": "Mar 14, 2020, 5:06:17 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1448238258",
+    "formatted": "Nov 23, 2015, 12:24:18 AM UTC"
+  }
+}

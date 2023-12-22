@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2668.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562397324",
+    "formatted": "Jul 6, 2019, 7:15:24 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585205131",
+    "formatted": "Mar 26, 2020, 6:45:31 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1154307240",
+    "formatted": "Jul 31, 2006, 12:54:00 AM UTC"
+  }
+}

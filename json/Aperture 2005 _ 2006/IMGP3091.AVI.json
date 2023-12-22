@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3091.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562434695",
+    "formatted": "Jul 6, 2019, 5:38:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820298",
+    "formatted": "Dec 31, 2019, 7:24:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1161454826",
+    "formatted": "Oct 21, 2006, 6:20:26 PM UTC"
+  }
+}

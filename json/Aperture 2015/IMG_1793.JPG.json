@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1793.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569214933",
+    "formatted": "Sep 23, 2019, 5:02:13 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584162377",
+    "formatted": "Mar 14, 2020, 5:06:17 AM UTC"
+  },
+  "geoData": {
+    "latitude": 39.64197222222222,
+    "longitude": -106.35050833333332,
+    "altitude": 2526.889423076923,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.64197222222222,
+    "longitude": -106.35050833333332,
+    "altitude": 2526.889423076923,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451333713",
+    "formatted": "Dec 28, 2015, 8:15:13 PM UTC"
+  }
+}

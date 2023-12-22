@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1157.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114298",
+    "formatted": "Apr 5, 2020, 7:18:18 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.91573611111111,
+    "longitude": -122.50824722222222,
+    "altitude": 3.39556884765625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.91573611111111,
+    "longitude": -122.50824722222222,
+    "altitude": 3.39556884765625,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1571531900",
+    "formatted": "Oct 20, 2019, 12:38:20 AM UTC"
+  }
+}

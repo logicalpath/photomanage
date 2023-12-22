@@ -1,0 +1,31 @@
+{
+  "title": "DSC00294.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562360367",
+    "formatted": "Jul 5, 2019, 8:59:27 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584692622",
+    "formatted": "Mar 20, 2020, 8:23:42 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1059445536",
+    "formatted": "Jul 29, 2003, 2:25:36 AM UTC"
+  }
+}

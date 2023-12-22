@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1893.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562398904",
+    "formatted": "Jul 6, 2019, 7:41:44 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585227856",
+    "formatted": "Mar 26, 2020, 1:04:16 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1149947268",
+    "formatted": "Jun 10, 2006, 1:47:48 PM UTC"
+  }
+}

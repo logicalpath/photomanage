@@ -1,0 +1,19 @@
+{
+  "albumData": {
+    "title": "Aperture 2016",
+    "description": "",
+    "access": "protected",
+    "location": "",
+    "date": {
+      "timestamp": "1580606097",
+      "formatted": "Feb 2, 2020, 1:14:57 AM UTC"
+    },
+    "geoData": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 0.0,
+      "latitudeSpan": 0.0,
+      "longitudeSpan": 0.0
+    }
+  }
+}

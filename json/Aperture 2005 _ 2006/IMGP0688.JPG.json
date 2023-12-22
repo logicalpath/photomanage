@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0688.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562369952",
+    "formatted": "Jul 5, 2019, 11:39:12 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584989262",
+    "formatted": "Mar 23, 2020, 6:47:42 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1135528461",
+    "formatted": "Dec 25, 2005, 4:34:21 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0936.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562399528",
+    "formatted": "Jul 6, 2019, 7:52:08 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1585227870",
+    "formatted": "Mar 26, 2020, 1:04:30 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1140384431",
+    "formatted": "Feb 19, 2006, 9:27:11 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "2002-12-27 12.47.34.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562356985",
+    "formatted": "Jul 5, 2019, 8:03:05 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584668988",
+    "formatted": "Mar 20, 2020, 1:49:48 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1041022054",
+    "formatted": "Dec 27, 2002, 8:47:34 PM UTC"
+  }
+}

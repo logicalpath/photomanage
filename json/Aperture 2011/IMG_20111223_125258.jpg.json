@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111223_125258.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195124",
+    "formatted": "Sep 22, 2019, 11:32:04 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820465",
+    "formatted": "Dec 31, 2019, 7:27:45 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.96582902777778,
+    "longitude": -120.08394063888889,
+    "altitude": 1879.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.96582902777778,
+    "longitude": -120.08394063888889,
+    "altitude": 1879.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1324673577",
+    "formatted": "Dec 23, 2011, 8:52:57 PM UTC"
+  }
+}

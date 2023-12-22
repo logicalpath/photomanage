@@ -1,0 +1,31 @@
+{
+  "title": "DSC00260.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562360665",
+    "formatted": "Jul 5, 2019, 9:04:25 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584740406",
+    "formatted": "Mar 20, 2020, 9:40:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1059264214",
+    "formatted": "Jul 27, 2003, 12:03:34 AM UTC"
+  }
+}

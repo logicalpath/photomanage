@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120811_131231 (1).jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569197759",
+    "formatted": "Sep 23, 2019, 12:15:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.96997694444445,
+    "longitude": -122.51671777777777,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.96997694444445,
+    "longitude": -122.51671777777777,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1344715951",
+    "formatted": "Aug 11, 2012, 8:12:31 PM UTC"
+  }
+}

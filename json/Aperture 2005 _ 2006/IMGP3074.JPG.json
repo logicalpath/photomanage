@@ -1,0 +1,31 @@
+{
+  "title": "IMGP3074.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562434695",
+    "formatted": "Jul 6, 2019, 5:38:15 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776329",
+    "formatted": "Jan 23, 2020, 10:45:29 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1161457899",
+    "formatted": "Oct 21, 2006, 7:11:39 PM UTC"
+  }
+}

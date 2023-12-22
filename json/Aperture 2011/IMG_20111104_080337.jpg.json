@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111104_080337.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195700",
+    "formatted": "Sep 22, 2019, 11:41:40 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820468",
+    "formatted": "Dec 31, 2019, 7:27:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.94430433333333,
+    "longitude": -122.50866830555556,
+    "altitude": -12.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.94430433333333,
+    "longitude": -122.50866830555556,
+    "altitude": -12.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1320419017",
+    "formatted": "Nov 4, 2011, 3:03:37 PM UTC"
+  }
+}

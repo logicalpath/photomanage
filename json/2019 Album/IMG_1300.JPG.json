@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1300.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113753",
+    "formatted": "Apr 5, 2020, 7:09:13 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586115541",
+    "formatted": "Apr 5, 2020, 7:39:01 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.32919722222223,
+    "longitude": -122.87104722222222,
+    "altitude": 417.28622064687636,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.32919722222223,
+    "longitude": -122.87104722222222,
+    "altitude": 417.28622064687636,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1572144701",
+    "formatted": "Oct 27, 2019, 2:51:41 AM UTC"
+  }
+}

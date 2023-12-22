@@ -1,0 +1,31 @@
+{
+  "title": "IMGP2597.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562398534",
+    "formatted": "Jul 6, 2019, 7:35:34 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820297",
+    "formatted": "Dec 31, 2019, 7:24:57 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1153594304",
+    "formatted": "Jul 22, 2006, 6:51:44 PM UTC"
+  }
+}

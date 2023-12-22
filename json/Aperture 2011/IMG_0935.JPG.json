@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0935.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569196171",
+    "formatted": "Sep 22, 2019, 11:49:31 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820470",
+    "formatted": "Dec 31, 2019, 7:27:50 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.879,
+    "longitude": -122.29316666666666,
+    "altitude": 49.70552147239264,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.879,
+    "longitude": -122.29316666666666,
+    "altitude": 49.70552147239264,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1302413843",
+    "formatted": "Apr 10, 2011, 5:37:23 AM UTC"
+  }
+}

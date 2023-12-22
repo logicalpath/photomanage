@@ -1,0 +1,31 @@
+{
+  "title": "Claire\u0026Eddie.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562354818",
+    "formatted": "Jul 5, 2019, 7:26:58 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584658504",
+    "formatted": "Mar 19, 2020, 10:55:04 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "987027982",
+    "formatted": "Apr 11, 2001, 10:26:22 PM UTC"
+  }
+}

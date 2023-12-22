@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1509.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1572401727",
+    "formatted": "Oct 30, 2019, 2:15:27 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776375",
+    "formatted": "Jan 23, 2020, 10:46:15 AM UTC"
+  },
+  "geoData": {
+    "latitude": 38.42789722222222,
+    "longitude": -122.54824166666667,
+    "altitude": 141.51098901098902,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.42789722222222,
+    "longitude": -122.54824166666667,
+    "altitude": 141.51098901098902,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1447552906",
+    "formatted": "Nov 15, 2015, 2:01:46 AM UTC"
+  }
+}

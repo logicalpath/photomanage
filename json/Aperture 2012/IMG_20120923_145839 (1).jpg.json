@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20120923_145839 (1).jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569197759",
+    "formatted": "Sep 23, 2019, 12:15:59 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820473",
+    "formatted": "Dec 31, 2019, 7:27:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.03776083333333,
+    "longitude": -122.54364861111111,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.03776083333333,
+    "longitude": -122.54364861111111,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1348437519",
+    "formatted": "Sep 23, 2012, 9:58:39 PM UTC"
+  }
+}

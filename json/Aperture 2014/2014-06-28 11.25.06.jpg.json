@@ -1,0 +1,31 @@
+{
+  "title": "2014-06-28 11.25.06.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569202223",
+    "formatted": "Sep 23, 2019, 1:30:23 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820479",
+    "formatted": "Dec 31, 2019, 7:27:59 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.93942305555555,
+    "longitude": -122.46213194444445,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.93942305555555,
+    "longitude": -122.46213194444445,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1403979906",
+    "formatted": "Jun 28, 2014, 6:25:06 PM UTC"
+  }
+}

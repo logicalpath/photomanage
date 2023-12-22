@@ -1,0 +1,31 @@
+{
+  "title": "2013-09-26 16.42.04.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200947",
+    "formatted": "Sep 23, 2019, 1:09:07 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.96586944444445,
+    "longitude": -122.49407055555555,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.96586944444445,
+    "longitude": -122.49407055555555,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1380238924",
+    "formatted": "Sep 26, 2013, 11:42:04 PM UTC"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1290.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1573711722",
+    "formatted": "Nov 14, 2019, 6:08:42 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1575205677",
+    "formatted": "Dec 1, 2019, 1:07:57 PM UTC"
+  },
+  "geoData": {
+    "latitude": 34.010197222222224,
+    "longitude": -118.49787777777777,
+    "altitude": 4.911918694179242,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 34.010197222222224,
+    "longitude": -118.49787777777777,
+    "altitude": 4.911918694179242,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1442080538",
+    "formatted": "Sep 12, 2015, 5:55:38 PM UTC"
+  }
+}

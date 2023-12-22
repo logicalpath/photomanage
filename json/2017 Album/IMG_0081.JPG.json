@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0081.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586117735",
+    "formatted": "Apr 5, 2020, 8:15:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586117996",
+    "formatted": "Apr 5, 2020, 8:19:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.79402222222222,
+    "longitude": -122.40036111111111,
+    "altitude": 8.826466916354557,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.79402222222222,
+    "longitude": -122.40036111111111,
+    "altitude": 8.826466916354557,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1510763179",
+    "formatted": "Nov 15, 2017, 4:26:19 PM UTC"
+  }
+}

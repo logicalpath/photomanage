@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1093.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586113808",
+    "formatted": "Apr 5, 2020, 7:10:08 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586114333",
+    "formatted": "Apr 5, 2020, 7:18:53 PM UTC"
+  },
+  "geoData": {
+    "latitude": 42.1864,
+    "longitude": -122.69056666666667,
+    "altitude": 597.3874570446735,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 42.1864,
+    "longitude": -122.69056666666667,
+    "altitude": 597.3874570446735,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1569540506",
+    "formatted": "Sep 26, 2019, 11:28:26 PM UTC"
+  }
+}

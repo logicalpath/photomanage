@@ -1,0 +1,31 @@
+{
+  "title": "IMGP1540.AVI",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562378351",
+    "formatted": "Jul 6, 2019, 1:59:11 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820274",
+    "formatted": "Dec 31, 2019, 7:24:34 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1147991758",
+    "formatted": "May 18, 2006, 10:35:58 PM UTC"
+  }
+}

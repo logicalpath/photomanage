@@ -1,0 +1,19 @@
+{
+  "albumData": {
+    "title": "Aperture 2001",
+    "description": "",
+    "access": "protected",
+    "location": "",
+    "date": {
+      "timestamp": "1562354778",
+      "formatted": "Jul 5, 2019, 7:26:18 PM UTC"
+    },
+    "geoData": {
+      "latitude": 0.0,
+      "longitude": 0.0,
+      "altitude": 0.0,
+      "latitudeSpan": 0.0,
+      "longitudeSpan": 0.0
+    }
+  }
+}

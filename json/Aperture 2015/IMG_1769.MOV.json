@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1769.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569216441",
+    "formatted": "Sep 23, 2019, 5:27:21 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820491",
+    "formatted": "Dec 31, 2019, 7:28:11 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.6427,
+    "longitude": -106.60409999999999,
+    "altitude": 4447.56,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.6427,
+    "longitude": -106.60409999999999,
+    "altitude": 4447.56,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451237703",
+    "formatted": "Dec 27, 2015, 5:35:03 PM UTC"
+  }
+}

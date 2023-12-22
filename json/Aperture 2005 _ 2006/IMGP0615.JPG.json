@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0615.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562366315",
+    "formatted": "Jul 5, 2019, 10:38:35 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820246",
+    "formatted": "Dec 31, 2019, 7:24:06 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1133735659",
+    "formatted": "Dec 4, 2005, 10:34:19 PM UTC"
+  }
+}

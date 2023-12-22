@@ -1,0 +1,31 @@
+{
+  "title": "6801406-R2-039-18.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562360482",
+    "formatted": "Jul 5, 2019, 9:01:22 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1584709382",
+    "formatted": "Mar 20, 2020, 1:03:02 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1071954000",
+    "formatted": "Dec 20, 2003, 9:00:00 PM UTC"
+  }
+}

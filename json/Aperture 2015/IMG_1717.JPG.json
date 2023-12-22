@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1717.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518299",
+    "formatted": "Oct 19, 2019, 8:51:39 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820493",
+    "formatted": "Dec 31, 2019, 7:28:13 PM UTC"
+  },
+  "geoData": {
+    "latitude": 39.64285,
+    "longitude": -106.60438611111111,
+    "altitude": 2224.6692307692306,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 39.64285,
+    "longitude": -106.60438611111111,
+    "altitude": 2224.6692307692306,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1451171234",
+    "formatted": "Dec 26, 2015, 11:07:14 PM UTC"
+  }
+}

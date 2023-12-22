@@ -1,0 +1,31 @@
+{
+  "title": "misc_20081017_034.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1565415888",
+    "formatted": "Aug 10, 2019, 5:44:48 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820418",
+    "formatted": "Dec 31, 2019, 7:26:58 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.837,
+    "longitude": -122.3055,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.837,
+    "longitude": -122.3055,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1224276105",
+    "formatted": "Oct 17, 2008, 8:41:45 PM UTC"
+  }
+}

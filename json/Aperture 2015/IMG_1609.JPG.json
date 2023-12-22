@@ -1,0 +1,31 @@
+{
+  "title": "IMG_1609.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1571518901",
+    "formatted": "Oct 19, 2019, 9:01:41 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820494",
+    "formatted": "Dec 31, 2019, 7:28:14 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.97113888888889,
+    "longitude": -122.51676944444445,
+    "altitude": 0.13428679913934946,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.97113888888889,
+    "longitude": -122.51676944444445,
+    "altitude": 0.13428679913934946,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1449948421",
+    "formatted": "Dec 12, 2015, 7:27:01 PM UTC"
+  }
+}

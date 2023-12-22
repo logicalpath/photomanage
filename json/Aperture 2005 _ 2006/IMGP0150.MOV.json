@@ -1,0 +1,31 @@
+{
+  "title": "IMGP0150.MOV",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562383202",
+    "formatted": "Jul 6, 2019, 3:20:02 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1579776326",
+    "formatted": "Jan 23, 2020, 10:45:26 AM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1153161326",
+    "formatted": "Jul 17, 2006, 6:35:26 PM UTC"
+  }
+}

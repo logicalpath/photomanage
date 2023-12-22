@@ -1,0 +1,31 @@
+{
+  "title": "IMG_20111026_083901.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569195700",
+    "formatted": "Sep 22, 2019, 11:41:40 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820468",
+    "formatted": "Dec 31, 2019, 7:27:48 PM UTC"
+  },
+  "geoData": {
+    "latitude": 37.879963527777775,
+    "longitude": -122.42492975,
+    "altitude": -32.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 37.879963527777775,
+    "longitude": -122.42492975,
+    "altitude": -32.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1319643541",
+    "formatted": "Oct 26, 2011, 3:39:01 PM UTC"
+  }
+}

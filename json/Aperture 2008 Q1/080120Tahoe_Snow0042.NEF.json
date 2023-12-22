@@ -1,0 +1,31 @@
+{
+  "title": "080120Tahoe_Snow0042.NEF",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1562530998",
+    "formatted": "Jul 7, 2019, 8:23:18 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820379",
+    "formatted": "Dec 31, 2019, 7:26:19 PM UTC"
+  },
+  "geoData": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude": 0.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1200864191",
+    "formatted": "Jan 20, 2008, 9:23:11 PM UTC"
+  }
+}

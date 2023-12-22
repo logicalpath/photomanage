@@ -1,0 +1,31 @@
+{
+  "title": "IMG_0645.JPG",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1586114070",
+    "formatted": "Apr 5, 2020, 7:14:30 PM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1586116370",
+    "formatted": "Apr 5, 2020, 7:52:50 PM UTC"
+  },
+  "geoData": {
+    "latitude": 36.03015555555555,
+    "longitude": -95.86357777777778,
+    "altitude": 204.64785373608902,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 36.03015555555555,
+    "longitude": -95.86357777777778,
+    "altitude": 204.64785373608902,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1555335623",
+    "formatted": "Apr 15, 2019, 1:40:23 PM UTC"
+  }
+}

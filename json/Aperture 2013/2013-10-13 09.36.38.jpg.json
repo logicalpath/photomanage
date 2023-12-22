@@ -1,0 +1,31 @@
+{
+  "title": "2013-10-13 09.36.38.jpg",
+  "description": "",
+  "imageViews": "0",
+  "creationTime": {
+    "timestamp": "1569200947",
+    "formatted": "Sep 23, 2019, 1:09:07 AM UTC"
+  },
+  "modificationTime": {
+    "timestamp": "1577820476",
+    "formatted": "Dec 31, 2019, 7:27:56 PM UTC"
+  },
+  "geoData": {
+    "latitude": 38.022440833333334,
+    "longitude": -122.55076972222221,
+    "altitude": 97.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "geoDataExif": {
+    "latitude": 38.022440833333334,
+    "longitude": -122.55076972222221,
+    "altitude": 97.0,
+    "latitudeSpan": 0.0,
+    "longitudeSpan": 0.0
+  },
+  "photoTakenTime": {
+    "timestamp": "1381682198",
+    "formatted": "Oct 13, 2013, 4:36:38 PM UTC"
+  }
+}
