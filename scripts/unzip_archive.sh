@@ -13,4 +13,4 @@ ARCHIVE_NAME="$1"
 mkdir -p "$ARCHIVE_NAME"
 
 # Unzip the archive into the directory
-unzip -j "${ARCHIVE_NAME}.zip" -d "$ARCHIVE_NAME"
+unzip -j "${ARCHIVE_NAME}" -d "${ARCHIVE_NAME%.zip}"
