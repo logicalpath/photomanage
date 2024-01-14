@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+import uuid
 
 def main():
     # Check if two arguments are given
@@ -25,13 +26,16 @@ def main():
     for file in os.listdir(src_dir):
         file_path = os.path.join(src_dir, file)
         if os.path.isfile(file_path):
-            # Extract the first letter of the filename
-            folder = file[0]
-            # Create a directory in the destination directory if it doesn't exist
-            new_dir = os.path.join(dest_dir, folder)
-            os.makedirs(new_dir, exist_ok=True)
-            # Move the file to the new directory
-            shutil.move(file_path, new_dir)
+            unique_filename = str(uuid.uuid4())
+            dest_file_path = os.path.join(dest_dir, unique_filename)
+
+            # Ensure the UUID file does not already exist in the destination directory
+            while os.path.exists(dest_file_path):
+                unique_filename = str(uuid.uuid4())
+                dest_file_path = os.path.join(dest_dir, unique_filename)
+
+            # Move and rename the file to the new directory with a unique name
+            shutil.move(file_path, dest_file_path)
 
 if __name__ == "__main__":
     main()
