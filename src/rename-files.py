@@ -7,7 +7,7 @@ def rename_files_in_directory(directory_path):
     old_new_name_map = {}
 
     for filename in os.listdir(directory_path):
-        if os.path.isfile(os.path.join(directory_path, filename)):
+        if os.path.isfile(os.path.join(directory_path, filename)) and not filename.endswith('.json'):
             new_filename = str(uuid.uuid4()) + os.path.splitext(filename)[1]
             os.rename(os.path.join(directory_path, filename), os.path.join(directory_path, new_filename))
             old_new_name_map[filename] = new_filename
@@ -27,13 +27,14 @@ def main():
         sys.exit(1)
 
     directory_path = sys.argv[1]
+    print(f'directory_path: {directory_path}')
 
     if not os.path.isdir(directory_path):
         print(f"The provided directory does not exist: {directory_path}")
         sys.exit(1)
 
     mapping = rename_files_in_directory(directory_path)
-    #csv_file_path = os.path.join(directory_path, 'filename_mapping.csv')
+
     csv_file_path = os.path.join(directory_path, directory_path.split(os.sep)[-1] + '-mapping.csv')
     write_mapping_to_csv(mapping, csv_file_path)
 
