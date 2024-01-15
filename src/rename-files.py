@@ -35,7 +35,9 @@ def main():
 
     mapping = rename_files_in_directory(directory_path)
 
-    csv_file_path = os.path.join(directory_path, directory_path.split(os.sep)[-1] + '-mapping.csv')
+    csv_file_path = os.path.join(directory_path, 'map/' + 'mapping.csv')
+    print (f'csv_file_path: {csv_file_path}\n')     
+
     write_mapping_to_csv(mapping, csv_file_path)
 
     print(f"Renaming completed. Mapping saved to {csv_file_path}.")
