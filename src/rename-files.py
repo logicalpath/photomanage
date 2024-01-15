@@ -7,7 +7,7 @@ def rename_files_in_directory(directory_path):
     old_new_name_map = {}
 
     for filename in os.listdir(directory_path):
-        if os.path.isfile(os.path.join(directory_path, filename)) and not filename.endswith('.json'):
+        if os.path.isfile(os.path.join(directory_path, filename)) and not filename.startswith('.') and not filename.endswith('.json'):
             new_filename = str(uuid.uuid4()) + os.path.splitext(filename)[1]
             os.rename(os.path.join(directory_path, filename), os.path.join(directory_path, new_filename))
             old_new_name_map[filename] = new_filename

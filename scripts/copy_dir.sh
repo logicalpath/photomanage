@@ -11,7 +11,7 @@ SOURCE_DIR=$1
 DESTINATION_DIR=$2
 
 # Copy the directory
-cp -a "$SOURCE_DIR" "$DESTINATION_DIR"
+cp -ap "$SOURCE_DIR" "$DESTINATION_DIR"
 
 # Check if the copy operation was successful
 if [ $? -eq 0 ]; then
