@@ -40,3 +40,6 @@ Sort the output file by size:
 
 `b2 download-file-by-name b2-snapshots-xxxxxxxxx Aperture2016.zip ~/Downloads/Aperture2016.zip`
 
+### Count files recursively excluding hidden files
+
+` find . -type f ! -path '*/.*' | wc -l`
