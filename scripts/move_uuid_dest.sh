@@ -22,6 +22,11 @@ if [ ! -d "$DEST_DIR" ]; then
     mkdir -p "$DEST_DIR"
 fi
 
+echo "File count prior to move:  "
+find "$DEST_DIR" -type f ! -path '*/.*' | wc -l
+echo
+
+
 # Loop over files in the source directory
 for file in "$SRC_DIR"/*; do
     if [[ -f $file ]]; then
@@ -34,3 +39,7 @@ for file in "$SRC_DIR"/*; do
         mv "$file" "$NEW_DIR/"
     fi
 done
+
+echo "File count after move:  "
+find "$DEST_DIR" -type f ! -path '*/.*' | wc -l
+echo
