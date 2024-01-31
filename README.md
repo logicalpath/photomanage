@@ -43,3 +43,49 @@ Sort the output file by size:
 ### Count files recursively excluding hidden files
 
 ` find . -type f ! -path '*/.*' | wc -l`
+
+___
+
+## Rename filenames to a uuid, move to a new directory and record this in a database
+
+### Rename files in each directoey
+`python src/rename-files.py <directory>`
+
+### Move the files to a new directory
+`scripts/move_uuid_dest.sh <source> <destination`
+
+### From the original media root dir, get a list of mappings of old to new name 
+
+`find . -name 'mapping.csv' > mappings.txt`
+
+### Load the mappings into a sqlite db table
+`./loadmap.sh mappings.txt`
+
+### Get a list of the new filenames
+Run from the root of the new filenames dir: `uuid`
+
+`find . -type f ! -path '*/._*' > newfilenames.txt`
+
+### parse the filennames into a csv file of Directory, File name
+`python parse-newfiles.py newfilenames.txt filenames.csv`
+
+### Load the filenames into a sqlite db table
+`sqlite-utils insert mediameta.db filenames ./filenames.csv --csv -d`
+
+## Get the exif data from the media files (script calls  exiftool)
+
+```
+√ database > ./getFoldersExif.sh ../uuid
+./getFoldersExif.sh: line 3: Check: command not found
+Searching ../uuid for media files...
+The extracted folder name is: uuid
+Exif file: uuid-exif.csv
+Full Directory = ../uuid
+exif_file = uuid-exif.csv
+10452 image files read
+10452 image files read
+ 7487 image files read
+```
+
+Note the total number of files read is 28,391
+

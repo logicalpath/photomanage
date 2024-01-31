@@ -7,9 +7,9 @@ echo "Searching $TOP_DIR for media files..."
 folder=$(./get-basename.sh "$1")
 echo "The extracted folder name is: $folder"
 
-output_file="$folder-output.csv"
-exclude_file="$folder-exclusions.csv"
-json_file="$folder-json.txt"
+output_file="$folder_output.csv"
+exclude_file="$folder_exclusions.csv"
+json_file="$folder_json.txt"
 
 echo "Output file: $output_file"
 

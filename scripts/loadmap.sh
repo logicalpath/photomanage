@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Load the mappings from a CSV file into the database
+
 # Check if a file name was provided
 if [ "$#" -ne 1 ]; then
     echo "Usage: $0 filename"

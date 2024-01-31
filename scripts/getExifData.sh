@@ -3,12 +3,12 @@
 # Ensure the first argument is 'folder' or 'photolib' or fcpbundle
 if [ "$1" != "folder" ] && [ "$1" != "photolib" ] && [ "$1" != "fcpbundle" ]; then
     echo "Error: First argument should be either 'folder' or 'photolib' or 'fcpbundle'"
-    echo "Usage: ./getExifData2.sh folder ~/Feb2020/Movie-files"
-    echo "Usage: ./getExifData2.sh folder ~/Feb2020/GPhotos
-    echo "Usage: ./getExifData2.sh photolib ~/Photos"
-    echo "Usage: ./getExifData2.sh fcpbundle ~/Feb2020/Movies"
+    echo "Usage: ./getExifData.sh folder ~/Feb2020/Movie-files"
+    echo "Usage: ./getExifData.sh folder ~/Feb2020/GPhotos
+    echo "Usage: ./getExifData.sh photolib ~/Photos"
+    echo "Usage: ./getExifData.sh fcpbundle ~/Feb2020/Movies"
     echo " Example to redirect stdout/stederr:
-    echo " ./getExifData2.sh folder ~/Feb2020/GPhotos > GPhotos.log 2>&1"
+    echo " ./getExifData.sh folder ~/Feb2020/GPhotos > GPhotos.log 2>&1"
     exit 1
 fi
 
@@ -21,7 +21,7 @@ folder=$(./get-basename.sh "$2")
 echo "The extracted folder name is: $folder"
 
 # exif_file="$folder-exif.csv"
-exif_file="../exifs/$folder-exif.csv"
+exif_file="$folder-exif.csv"
 
 echo "Exif file: $exif_file"
 
