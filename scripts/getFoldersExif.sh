@@ -31,7 +31,7 @@ echo "exif_file = $exif_file"
 # ignore ._03fd20b0-483e-452d-88fc-89720a36c172.JPG
 # find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude {} + > "$exif_file"
 # grab filename without path
-find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -filename {} + > "$exif_file"
+find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -"Date*Created" -"Profile*Date*Time" -n -gpslatitude -gpslongitude -filename {} + > "$exif_file"
 
 #exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -r --ext json "$TOP_DIR" > "$exif_file"
 
