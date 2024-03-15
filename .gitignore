@@ -6,5 +6,8 @@ photos/*
 .env
 
 
+# Data
+database/*
+
 
 
