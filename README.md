@@ -89,3 +89,8 @@ exif_file = uuid-exif.csv
 
 Note the total number of files read is 28,391
 
+### Load the exif data into a sqlite db table
+`sqlite-utils insert mediameta.db exif ./uuid-exif.csv --csv -d`
+
+
+
