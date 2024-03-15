@@ -9,6 +9,7 @@ black = "*"
 b2 = "*"
 pandas = "*"
 numpy = "*"
+openai = "*"
 
 [dev-packages]
 
