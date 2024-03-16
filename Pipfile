@@ -10,6 +10,7 @@ b2 = "*"
 pandas = "*"
 numpy = "*"
 openai = "*"
+anthropic = "*"
 
 [dev-packages]
 
