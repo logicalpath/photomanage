@@ -1,6 +1,8 @@
 .DS_Store
 photos/*
 *.log
+*.txt
+*.csv
 
 # Secrets
 .env
