@@ -11,6 +11,9 @@ pandas = "*"
 numpy = "*"
 openai = "*"
 anthropic = "*"
+pillow = "*"
+rawpy = "*"
+imageio = "*"
 
 [dev-packages]
 
