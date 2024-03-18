@@ -1,17 +1,8 @@
 # image_thumbnail_creator.py
 
 from PIL import Image
+from error_processing import get_file_info, log_error
 
-def log_error(message, log_file="non-raw-errors.txt"):
-    """
-    Logs an error message to a specified log file.
-
-    Args:
-    - message: Error message to log.
-    - log_file: Path to the log file.
-    """
-    with open(log_file, "a") as file:
-        file.write(message + "\n")
 
 def create_thumbnail(input_image_path, output_image_path, size=(256, 256)):
     """
@@ -29,5 +20,6 @@ def create_thumbnail(input_image_path, output_image_path, size=(256, 256)):
         # print(f"Thumbnail saved to {output_image_path}")
     except Exception as e:
         error_message = f"Error creating thumbnail for {input_image_path}: {e}"
-        log_error(error_message)
-        # print(error_message)
+        detailed_error_message = get_file_info(input_image_path, error_message)
+        log_error(detailed_error_message)
+        

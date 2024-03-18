@@ -3,11 +3,7 @@
 import rawpy
 from PIL import Image, ImageOps
 from pathlib import Path
-
-def log_error(message, log_file="raw_errors.txt"):
-    with open(log_file, "a") as error_log:
-        error_log.write(message + "\n")
-    print(message)
+from error_processing import get_file_info, log_error
 
 def create_raw_thumbnail(input_file, output_file_path, thumbnail_size=256):
     try:
@@ -29,4 +25,5 @@ def create_raw_thumbnail(input_file, output_file_path, thumbnail_size=256):
 
     except Exception as e:
         error_message = f"Error processing file {input_file}: {e}"
-        log_error(error_message)
+        detailed_error_message = get_file_info(input_file, error_message)
+        log_error(detailed_error_message)
