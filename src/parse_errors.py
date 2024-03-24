@@ -5,7 +5,7 @@ import sys
 
 def parse_errors_to_csv(input_file_path, output_folder):
     # Regular expression patterns to match file paths and file type info
-    file_path_pattern = r"Error creating thumbnail for (.*): cannot identify image file"
+    file_path_pattern = r"Error creating thumbnail for (.*)"
     file_type_info_pattern = r"File type info: (.*): (.*)"
     
     # Ensure output directory exists
