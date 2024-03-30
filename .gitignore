@@ -5,6 +5,7 @@ photos/*
 *.csv
 *.txt
 previews/*
+TODO
 
 # Secrets
 .env

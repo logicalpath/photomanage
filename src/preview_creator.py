@@ -7,17 +7,35 @@ from error_processing import log_error
 import os
 import subprocess
 
-def create_preview(input_file, output_file):
+def create_preview(input_file, output_file, file_extension):
     """
     Creates a video preview using ffmpeg, with error handling.
     Ensures no 0-length files are left.
     """
+    # command = [
+    #     'ffmpeg', '-i', input_file, '-ss', '00:00:05', '-t', '00:00:10',
+    #     '-vf', 'scale=320:-1', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '28', output_file
+    # ]
+
     command = [
-        'ffmpeg', '-i', input_file, '-ss', '00:00:05', '-t', '00:00:10',
-        '-vf', 'scale=320:-1', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '28', output_file
+    'ffmpeg', '-i', input_file, '-ss', '00:00:05', '-t', '00:00:10',
+    '-vf', 'scale=320:-2', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '28', output_file
     ]
+
+    command3gp = [
+    'ffmpeg', '-i', input_file, '-ss', '00:00:05', '-t', '00:00:10',
+    '-vf', 'scale=320:-2', '-c:v', 'libx264', '-preset', 'veryfast',
+    '-crf', '28', '-c:a', 'aac', '-b:a', '128k', output_file
+    ]
+
+
+
+
     try:
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        if file_extension == '3gp':
+            result = subprocess.run(command3gp, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+        else:
+            result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
         # Check if the file was created and its size is not zero
         if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
             print(f"Preview created for {input_file}")
@@ -60,7 +78,7 @@ def traverse_and_create_previews(root_dir, extensions, thumbnail_dir, max_thumbn
                 # output_path = os.path.join(thumbnail_dir + '/' + first_char, os.path.basename(file))
                 output_path = os.path.join(thumbnail_dir + '/' + first_char, 'preview-' + os.path.basename(file))
                 os.makedirs(os.path.dirname(output_path), exist_ok=True)
-                if create_preview(input_path, output_path):
+                if create_preview(input_path, output_path, file_extension):
                     successes += 1
                 else:
                     errors += 1    
