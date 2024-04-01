@@ -14,8 +14,7 @@ echo "Searching $TOP_DIR for media files..."
 folder=$(./get-basename.sh "$1")
 echo "The extracted folder name is: $folder"
 
-# exif_file="$folder-exif.csv"
-exif_file="$folder/exif.csv"
+exif_file="$folder/exifAll.csv"
 
 echo "Exif file: $exif_file"
 
@@ -28,10 +27,8 @@ echo "Full Directory = $TOP_DIR"
 echo "exif_file = $exif_file"
 
 
-# ignore ._03fd20b0-483e-452d-88fc-89720a36c172.JPG
-# find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude {} + > "$exif_file"
 # grab filename without path
-find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -"Date*Created" -"Profile*Date*Time" -"DateTimeOriginal" -n -gpslatitude -gpslongitude -filename {} + > "$exif_file"
+# find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -"Create*Date" -"Date*Created" -"Profile*Date*Time" -n -gpslatitude -gpslongitude -filename {} + > "$exif_file"
+find "$TOP_DIR" -type f ! -name '._*' -exec exiftool -csv -time:all -gps:all -G1 -a -s -filename {} + > "$exif_file"
 
-#exiftool -csv -"Create*Date" -n -gpslatitude -gpslongitude -r --ext json "$TOP_DIR" > "$exif_file"
 
