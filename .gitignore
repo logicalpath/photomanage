@@ -6,6 +6,7 @@ photos/*
 *.txt
 previews/*
 TODO
+*.pickle
 
 # Secrets
 .env
