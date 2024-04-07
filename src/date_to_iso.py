@@ -1,11 +1,13 @@
 from datetime import datetime
 
 def convert(value):
+
     date_formats = [
-        "%Y:%m:%d %H:%M:%S",    # Format without UTC offset
-        "%Y:%m:%d",             # Format with date only
-        "%Y:%m:%d %H:%M:%S%z",  # Format with UTC offset
-        "%Y:%m:%d %H:%M:%SZ"   # Format with 'Z' indicating UTC
+        "%Y:%m:%d %H:%M:%S", # Format without UTC offset
+        "%Y:%m:%d", # Format with date only
+        "%Y:%m:%d %H:%M:%S%z", # Format with UTC offset
+        "%Y:%m:%d %H:%M:%SZ", # Format with 'Z' indicating UTC
+        "%Y:%m:%d %H:%M:%S.%fZ" # Format with fractional seconds and 'Z' indicating UTC
     ]
 
     if not value.strip():
@@ -18,7 +20,6 @@ def convert(value):
             try:
                 # Attempt to parse the date string using the current format
                 parsed_date = datetime.strptime(value, date_format)
-                print(f"Successfully parsed date using format: {date_format}")
                 break  # If parsing succeeds, exit the loop
             except ValueError as e:
                 print (f"Error parsing date: {e}")
