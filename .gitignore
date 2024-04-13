@@ -14,7 +14,9 @@ TODO
 
 
 # Data
-database/*
+database/*.csv
+database/*.db
+database/*.txt
 
 
 

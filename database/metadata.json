@@ -1,0 +1,13 @@
+{
+    "plugins": {
+        "datasette-render-images": {
+            "size_limit": 1000000
+        },
+        "datasette-media": {
+            "photo": {
+                "sql": "select thumbnail as content from photos where uuid=:key",
+                "database": "thumbs"
+            }
+        }
+    }
+}

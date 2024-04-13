@@ -66,8 +66,14 @@ Run from the root of the new filenames dir: `uuid`
 
 `find . -type f ! -path '*/._*' > newfilenames.txt`
 
+Get list with filesize:
+`find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}' > <filename>.txt`
+
 ### parse the filennames into a csv file of Directory, File name
 `python parse-newfiles.py newfilenames.txt filenames.csv`
+
+### Parse the awk file into csv
+` python ./src/parse_awk.py ./awkthumb.txt`
 
 ### Load the filenames into a sqlite db table
 `sqlite-utils insert mediameta.db filenames ./filenames.csv --csv -d`
@@ -92,5 +98,25 @@ Note the total number of files read is 28,391
 ### Load the exif data into a sqlite db table
 `sqlite-utils insert mediameta.db exif ./uuid-exif.csv --csv -d`
 
+### Convert dates
+` cat ../src/date_to_iso.py| sqlite-utils convert mediameta.db exif CreateDate -`
 
 
+
+
+---
+
+Photos in datasette:
+
+### Required Plugins
+
+pipenv install datasette-media
+pipenv install datasette-render-images
+
+### Load the images
+
+sqlite-utils insert-files media.db /Volumes/Eddie\ 4TB/MediaFiles/ThumbFiles/0/*.jpg
+
+### bring up the media db
+
+datasette -p 8002 --metadata metadata.json media.db
