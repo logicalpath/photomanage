@@ -5,8 +5,8 @@
         },
         "datasette-media": {
             "photo": {
-                "sql": "select thumbnail as content from images where uuid=:key",
-                "database": "thumb"
+                "sql": "select thumbnail as content from thumbImages where uuid=:key",
+                "database": "mediameta"
             }
         }
     }

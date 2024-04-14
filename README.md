@@ -120,3 +120,6 @@ sqlite-utils insert-files media.db /Volumes/Eddie\ 4TB/MediaFiles/ThumbFiles/0/*
 ### bring up the media db
 
 datasette -p 8002 --metadata metadata.json media.db
+
+### extend time limit
+`(photomanage) X1 database > datasette -p 8001 --setting sql_time_limit_ms 5500  --metadata metadata2.json mediameta.db`
