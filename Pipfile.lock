@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b18f17ebed285e76c796a88cf7e0449895e42aafa111a66a20f5399648fa02c8"
+            "sha256": "666772a6afe4068caea1b758daba71059677e7c5a70150109b98b7e87423e33b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -79,6 +79,14 @@
             ],
             "markers": "python_version >= '3.8'",
             "version": "==3.8.1"
+        },
+        "asyncinject": {
+            "hashes": [
+                "sha256:2f1c9d03e50a51877bdc1b5907a206c47ed9bd1ddca25aee4d62ed2297b2e90a",
+                "sha256:ee8e879e3c18eaa5fd0b6962ac447ee80f21b201f5d12986f59fa6e0638ba774"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==0.6"
         },
         "b2": {
             "hashes": [
@@ -306,11 +314,12 @@
         },
         "datasette": {
             "hashes": [
-                "sha256:158dbdfab1a4c613da7757518444a7664ecd39f54a617304edff4f119dd057df",
-                "sha256:85ca3aabca64fd9560052042aec27d3b32a1f85303853da3550434866d0fa539"
+                "sha256:0337d22b90ec514e6098845b94c49e272ddccb58f084e2218098115132e12184",
+                "sha256:6bdf35c8a2ffcbafe9f3111bc61c152c180200e2be1975cc73df739cfe2da1fa"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==0.64.6"
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.0a13"
         },
         "datasette-media": {
             "hashes": [
@@ -1000,11 +1009,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:3b2dbd8f63dcc6b7c327d0243c2d7dc8c96cc507c016f09221f3787e6e528719",
-                "sha256:8d881f842bfc0e29e93bc98a2e650e8845609adff4d2989ba6c748e67b09d5be"
+                "sha256:6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987",
+                "sha256:c636ac361bc47580504644275c9ad802c50415c7522212252c033bd15f301f32"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==69.5.0"
+            "version": "==69.5.1"
         },
         "six": {
             "hashes": [
@@ -1021,6 +1030,21 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==1.3.1"
+        },
+        "sqlite-fts4": {
+            "hashes": [
+                "sha256:0359edd8dea6fd73c848989e1e2b1f31a50fe5f9d7272299ff0e8dbaa62d035f",
+                "sha256:78b05eeaf6680e9dbed8986bde011e9c086a06cb0c931b3cf7da94c214e8930c"
+            ],
+            "version": "==1.0.3"
+        },
+        "sqlite-utils": {
+            "hashes": [
+                "sha256:b71e829755c2efbdcd6931a31968dee4e8bd71b3c14f0fe648b22377027c5bec",
+                "sha256:dcc311394fe86dc16f65037b0075e238efcfd2e12e65d53ed196954502996f3c"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==3.36"
         },
         "tabulate": {
             "hashes": [
