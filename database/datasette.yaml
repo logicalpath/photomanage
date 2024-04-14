@@ -1,0 +1,22 @@
+# Datasette settings block
+settings:
+  default_page_size: 50
+  sql_time_limit_ms: 5000
+  max_returned_rows: 2000
+
+# top-level plugin configuration
+plugins:
+  datasette-render-images:
+    size_limit: 1000000
+  datasette-media:
+    photo:
+      sql: "select thumbnail as content from thumbImages where uuid=:key"
+      database: "mediameta"
+
+# Database and table-level configuration
+
+plugins:
+  datasette-proxy-url:
+    paths:
+    - path: /proxy
+      backend: http://example.com/

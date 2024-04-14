@@ -123,3 +123,11 @@ datasette -p 8002 --metadata metadata.json media.db
 
 ### extend time limit
 `(photomanage) X1 database > datasette -p 8001 --setting sql_time_limit_ms 5500  --metadata metadata2.json mediameta.db`
+
+### New config file 
+`datasette -c datasette.yaml`
+
+
+`datasette -p 8001 -c datasette.yaml mediameta.db`
+
+
