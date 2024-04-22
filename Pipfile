@@ -22,4 +22,4 @@ datasette = "==1.0a13"
 [dev-packages]
 
 [requires]
-python_version = "3.12.1"
+python_version = "/opt/homebrew/bin/python3"

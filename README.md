@@ -130,4 +130,30 @@ datasette -p 8002 --metadata metadata.json media.db
 
 `datasette -p 8001 -c datasette.yaml mediameta.db`
 
+`datasette -p 8001 --root --load-extension=spatialite  -c datasette.yaml mediameta.db`
+
+
+
+### Being an actor - is this how to specify the actor on the command line?
+`datasette --memory --actor '{"id": "root"}' --get '/-/actor.json'`
+
+### Plugins
+
+`datasette install datasette-write-ui`
+
+`datasette install datasette-enrichments`
+
+`datasette install datasette-enrichments-opencage`
+
+`datasette install datasette-cluster-map`
+
+## Notes re gps:
+
+In the exif file, rename GPSLatitude & GPSLongitude as latitude & longitude to avoid
+calling open cage. Unless I change the plugin to use reverse gps to store address info
+
+
+
+
+
 

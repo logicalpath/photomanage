@@ -1,8 +1,8 @@
 # Datasette settings block
 settings:
   default_page_size: 50
-  sql_time_limit_ms: 5000
-  max_returned_rows: 2000
+  sql_time_limit_ms: 10000
+  max_returned_rows: 25000
 
 # top-level plugin configuration
 plugins:
@@ -12,11 +12,57 @@ plugins:
     photo:
       sql: "select thumbnail as content from thumbImages where uuid=:key"
       database: "mediameta"
+  datasette-enrichments-opencage:
+    api_key:
+      $env: OPENCAGE_API_KEY
 
 # Database and table-level configuration
+databases:
+    mediameta:
+      queries:
+        2008 January-February:
+          sql: 
+            SELECT thumbImages.content, exif.CreateDate
+            FROM exif
+            INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+            WHERE strftime('%Y', exif.CreateDate) = '2008'
+              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02';
+        Show Time Matches:
+          sql:
+            SELECT thumbImages.content, exif.CreateDate, exif.FileName
+            FROM exif
+            INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+            WHERE strftime('%Y', exif.CreateDate) = '2008'
+              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
+              AND exif.CreateDate IN (
+                SELECT CreateDate
+                FROM exif
+                WHERE strftime('%Y', CreateDate) = '2008'
+                  AND strftime('%m', CreateDate) BETWEEN '01' AND '02'
+                GROUP BY CreateDate
+                HAVING COUNT(*) > 1
+              )
+            ORDER BY exif.CreateDate;
+        Size of all media files:
+          sql:
+            SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
+
 
 plugins:
   datasette-proxy-url:
     paths:
     - path: /proxy
       backend: http://example.com/
+
+# Permissions block
+
+allow:
+  id:
+  - eddie
+  - root
+
+id: eddie
+id: root
+
+
+  
