@@ -152,8 +152,13 @@ datasette -p 8002 --metadata metadata.json media.db
 In the exif file, rename GPSLatitude & GPSLongitude as latitude & longitude to avoid
 calling open cage. Unless I change the plugin to use reverse gps to store address info
 
+Or change the name of the columns in the datasette.yaml
 
-
-
+```yaml
+plugins:
+  datasette-cluster-map:
+    latitude_column: xlat
+    longitude_column: xlng
+```
 
 

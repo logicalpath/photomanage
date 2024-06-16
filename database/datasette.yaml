@@ -1,8 +1,8 @@
 # Datasette settings block
 settings:
   default_page_size: 50
-  sql_time_limit_ms: 10000
-  max_returned_rows: 25000
+  sql_time_limit_ms: 60000
+  max_returned_rows: 50000
 
 # top-level plugin configuration
 plugins:
@@ -15,6 +15,9 @@ plugins:
   datasette-enrichments-opencage:
     api_key:
       $env: OPENCAGE_API_KEY
+  datasette-cluster-map:
+    latitude_column: GPSLatitude
+    longitude_column: GPSLongitude
 
 # Database and table-level configuration
 databases:
@@ -22,12 +25,13 @@ databases:
       queries:
         2008 January-February:
           sql: 
-            SELECT thumbImages.content, exif.CreateDate
+            SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbFile
             FROM exif
             INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
             WHERE strftime('%Y', exif.CreateDate) = '2008'
-              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02';
-        Show Time Matches:
+              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
+            ORDER BY exif.CreateDate ASC;
+        Show Time Matches in 2008 January-February:
           sql:
             SELECT thumbImages.content, exif.CreateDate, exif.FileName
             FROM exif
@@ -43,16 +47,39 @@ databases:
                 HAVING COUNT(*) > 1
               )
             ORDER BY exif.CreateDate;
+        Show Time Matches all dates:
+         sql:
+            SELECT
+              thumbImages.content,
+              exif.CreateDate,
+              exif.FileName,
+              thumbImages.size
+            FROM
+              exif
+              INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+            WHERE
+              exif.CreateDate IS NOT NULL
+              AND exif.CreateDate <> ''
+              AND exif.CreateDate IN (
+                SELECT
+                  CreateDate
+                FROM
+                  exif
+                WHERE
+                  CreateDate IS NOT NULL
+                  AND exif.CreateDate <> ''
+                GROUP BY
+                  CreateDate
+                HAVING
+                  COUNT(*) > 1
+              )
+            ORDER BY
+              exif.CreateDate;
         Size of all media files:
           sql:
             SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
 
 
-plugins:
-  datasette-proxy-url:
-    paths:
-    - path: /proxy
-      backend: http://example.com/
 
 # Permissions block
 
