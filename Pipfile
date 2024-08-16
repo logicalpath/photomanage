@@ -17,7 +17,7 @@ imageio = "*"
 datasette-media = "*"
 pyheif = "*"
 datasette-render-images = "*"
-datasette = "==1.0a13"
+datasette = "==1.0a14"
 
 [dev-packages]
 
