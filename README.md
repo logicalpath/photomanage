@@ -165,3 +165,21 @@ plugins:
 ```
 
 
+## Display full images from disk
+
+```yaml
+plugins:
+
+  datasette-media:
+      photo:
+        sql: "select prefixed_path as filepath from exif where FileName=:key"
+```
+The exif table contains a column called prefixed_path which contains the full path to the image. FileName is the filename.
+
+Then call the image like this:
+```
+http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
+```
+
+And the image will be displayed.
+

@@ -12,6 +12,9 @@ plugins:
     photo:
       sql: "select thumbnail as content from thumbImages where uuid=:key"
       database: "mediameta"
+  datasette-media:
+    photo:
+      sql: "select prefixed_path as filepath from exif where FileName=:key"
   datasette-enrichments-opencage:
     api_key:
       $env: OPENCAGE_API_KEY
