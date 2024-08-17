@@ -147,6 +147,9 @@ datasette -p 8002 --metadata metadata.json media.db
 
 `datasette install datasette-cluster-map`
 
+`datasette install datasette-checkbox`
+
+
 ## Notes re gps:
 
 In the exif file, rename GPSLatitude & GPSLongitude as latitude & longitude to avoid
