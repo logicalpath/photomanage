@@ -78,7 +78,7 @@ databases:
               )
             ORDER BY
               exif.CreateDate;
-        Exit no date Thumbs:
+        Exif no date Thumbs:
           sql:
             SELECT e.rowid, e.SourceFile, t.content AS ThumbImage
             FROM exifNoDate e
@@ -87,6 +87,10 @@ databases:
         Size of all media files:
           sql:
             SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
+        Number of .nef files:
+          sql:
+            SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
+
 
 
 

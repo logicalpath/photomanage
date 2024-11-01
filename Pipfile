@@ -17,7 +17,9 @@ imageio = "*"
 datasette-media = "*"
 pyheif = "*"
 datasette-render-images = "*"
-datasette = "==1.0a14"
+datasette = "==1.0a16"
+torch = "*"
+torchvision = "*"
 
 [dev-packages]
 

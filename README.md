@@ -174,10 +174,13 @@ plugins:
       photo:
         sql: "select prefixed_path as filepath from exif where FileName=:key"
 ```
-The exif table contains a column called prefixed_path which contains the full path to the image. FileName is the filename.
+The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
 
 Then call the image like this:
 ```
+http://127.0.0.1:8001/-/media/photo/<FileName>
+
+
 http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
 ```
 
