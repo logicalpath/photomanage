@@ -186,3 +186,17 @@ http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
 
 And the image will be displayed.
 
+Adding sqlite-vec for embeddings
+
+For Datasette:
+`datasette install datasette-sqlite-vec`
+
+For sqlite-utils:
+`sqlite-utils install sqlite-utils-sqlite-vec`
+
+
+
+
+
+
+

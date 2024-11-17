@@ -2,12 +2,14 @@
 
 # Shell script to create thumbnails for image files using ImageMagick
 
-# Usage: ./script.sh <input_directory> <output_directory> [<max_thumbnails>] [<error_log>]
+# Usage: ./script.sh <input_directory> <output_directory> [<resize_dimensions>] [<max_thumbnails>] [<error_log>]
+# Example: ./script.sh ./input ./output "256x256" 100 "errors.log"
 
 input_directory=$1
 output_directory=$2
-max_thumbnails=${3:-0} # Default is 0, meaning no limit
-error_log=${4:-"error_log.txt"}
+resize_dimensions=${3:-"128x128"} # Default is 128x128 if not specified
+max_thumbnails=${4:-0} # Default is 0, meaning no limit
+error_log=${5:-"error_log.txt"}
 
 # Ensure output directory exists
 mkdir -p "$output_directory"
@@ -26,7 +28,8 @@ create_thumbnail() {
     local input_path="$1"
     local output_path="$2"
     
-    if convert "$input_path" -resize 128x128 "$output_path"; then
+    if magick "$input_path" -resize "$resize_dimensions" "$output_path"; then
+    # if convert "$input_path" -resize "$resize_dimensions" "$output_path"; then
         echo "Thumbnail created for $input_path"
     else
         echo "Error creating thumbnail for $input_path" >> "$error_log"

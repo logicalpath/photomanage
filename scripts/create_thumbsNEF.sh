@@ -74,12 +74,18 @@ for file in "$input_directory"/*; do
     
     if [[ " $raw_formats " =~ " $extension " ]] || [[ $extensions =~ $extension ]]; then
         filename=$(basename "$file")
+        # Get first character of filename and ensure lowercase
+        first_char=$(echo "${filename:0:1}" | tr '[:upper:]' '[:lower:]')
+        
+        # Create the subdirectory if it doesn't exist
+        mkdir -p "$output_directory/$first_char"
+        
         if [[ " $raw_formats " =~ " $extension " ]]; then
             # Preserve original extension case for RAW files
             original_extension="${file##*.}"
-            output_file="$output_directory/${filename%.*}.$original_extension"
+            output_file="$output_directory/$first_char/${filename%.*}.$original_extension"
         else
-            output_file="$output_directory/${filename%.*}.jpg"
+            output_file="$output_directory/$first_char/${filename%.*}.jpg"
         fi
         if create_thumbnail "$file" "$output_file"; then
             ((count++))
