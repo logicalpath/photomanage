@@ -55,42 +55,66 @@ create_thumbnail() {
     fi
 }
 
-# Process files in input directory
-for file in "$input_directory"/*; do
-    # Skip the output directory
-    [[ "$file" == "$output_directory" ]] && continue
+# Function to process a directory
+process_directory() {
+    local current_dir="$1"
     
-    # Skip if not a file
-    [[ ! -f "$file" ]] && continue
-    
-    # Check if we reached the maximum number of thumbnails (if set)
-    if [[ $max_thumbnails -ne 0 ]] && [[ $count -ge $max_thumbnails ]]; then
-        break
-    fi
-    
-    # Convert the file extension to lowercase for comparison
-    extension="${file##*.}"
-    extension=$(echo "$extension" | tr '[:upper:]' '[:lower:]')  # Convert to lowercase using tr
-    
-    if [[ " $raw_formats " =~ " $extension " ]] || [[ $extensions =~ $extension ]]; then
-        filename=$(basename "$file")
-        # Get first character of filename and ensure lowercase
-        first_char=$(echo "${filename:0:1}" | tr '[:upper:]' '[:lower:]')
-        
-        # Create the subdirectory if it doesn't exist
-        mkdir -p "$output_directory/$first_char"
-        
-        if [[ " $raw_formats " =~ " $extension " ]]; then
-            # Preserve original extension case for RAW files
-            original_extension="${file##*.}"
-            output_file="$output_directory/$first_char/${filename%.*}.$original_extension"
-        else
-            output_file="$output_directory/$first_char/${filename%.*}.jpg"
+    # Process all files in the current directory
+    for file in "$current_dir"/*; do
+        # Skip if it's a directory that matches the output directory path
+        if [[ -d "$file" ]]; then
+            # Skip the output directory and its subdirectories
+            if [[ "$file" != "$output_directory"* ]]; then
+                process_directory "$file"
+            fi
+            continue
         fi
-        if create_thumbnail "$file" "$output_file"; then
-            ((count++))
+        
+        # Skip if not a file
+        [[ ! -f "$file" ]] && continue
+        
+        # Check if we reached the maximum number of thumbnails (if set)
+        if [[ $max_thumbnails -ne 0 ]] && [[ $count -ge $max_thumbnails ]]; then
+            return
         fi
-    fi
-done
+        
+        # Convert the file extension to lowercase for comparison
+        extension="${file##*.}"
+        extension=$(echo "$extension" | tr '[:upper:]' '[:lower:]')  # Convert to lowercase using tr
+        
+        if [[ " $raw_formats " =~ " $extension " ]] || [[ $extensions =~ $extension ]]; then
+            filename=$(basename "$file")
+            # Get first character of filename and ensure lowercase
+            first_char=$(echo "${filename:0:1}" | tr '[:upper:]' '[:lower:]')
+            
+            # Create the output directory if it doesn't exist
+            # Note: Removed the $first_char from the path
+            mkdir -p "$output_directory"
+            
+            # Preserve the relative path structure after the input directory
+            relative_path=${file#$input_directory/}
+            relative_dir=$(dirname "$relative_path")
+            
+            # Create subdirectory in output directory to match input structure
+            # Note: Removed the $first_char from the path
+            mkdir -p "$output_directory/$relative_dir"
+            
+            if [[ " $raw_formats " =~ " $extension " ]]; then
+                # Preserve original extension case for RAW files
+                original_extension="${file##*.}"
+                output_file="$output_directory/$relative_dir/${filename%.*}.$original_extension"
+            else
+                output_file="$output_directory/$relative_dir/${filename%.*}.jpg"
+            fi
+            
+            if create_thumbnail "$file" "$output_file"; then
+                ((count++))
+            fi
+        fi
+    done
+}
+
+# Start processing from the input directory
+process_directory "$input_directory"
 
 echo "Process completed. $count thumbnails created."
