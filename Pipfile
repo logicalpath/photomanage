@@ -21,6 +21,7 @@ datasette = "==1.0a16"
 torch = "*"
 torchvision = "*"
 llm-clip = "*"
+mlx-vlm = "*"
 
 [dev-packages]
 
