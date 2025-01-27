@@ -195,6 +195,12 @@ For sqlite-utils:
 `sqlite-utils install sqlite-utils-sqlite-vec`
 
 
+## Create duptime table
+
+Find thumbnails where the CreateDate is within the same second.
+
+`CREATE TABLE duptime AS SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size FROM exif INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path WHERE exif.CreateDate IS NOT NULL AND exif.CreateDate <> '' AND exif.CreateDate IN (SELECT CreateDate FROM exif WHERE CreateDate IS NOT NULL AND exif.CreateDate <> '' GROUP BY CreateDate HAVING COUNT(*) > 1) ORDER BY exif.CreateDate;`
+
 
 
 
