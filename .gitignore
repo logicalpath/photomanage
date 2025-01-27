@@ -18,5 +18,7 @@ database/*.csv
 database/*.db
 database/*.txt
 
+database/224x224
+
 
 

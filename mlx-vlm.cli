@@ -1,1 +1,1 @@
-python -m mlx_vlm.generate --model mlx-community/SmolVLM-Instruct-bf16 --max-tokens 500 --temp 0.5  --prompt "Describe this image in detail" --image test.jpg
+python -m mlx_vlm.generate --model mlx-community/SmolVLM-Instruct-bf16 --max-tokens 500 --temp 0.5  --prompt "Describe this image in detail" --image 078ef57f-5196-433d-adf4-a77afbbe9d74.NEF
