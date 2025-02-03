@@ -19,7 +19,7 @@ def run_image_analysis(image_path, output_dir="outputs"):
         "python", "-m", "mlx_vlm.generate",
         "--model", "mlx-community/SmolVLM-Instruct-bf16",
         "--max-tokens", "500",
-        "--temp", "0.5",
+        "--temp", "0.0",
         "--prompt", "Describe this image in detail",
         "--image", image_path
     ]
