@@ -34,22 +34,17 @@ databases:
             WHERE strftime('%Y', exif.CreateDate) = '2008'
               AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
             ORDER BY exif.CreateDate ASC;
-        Show Time Matches in 2008 January-February:
+        Show descriptions of images:
           sql:
-            SELECT thumbImages.content, exif.CreateDate, exif.FileName
-            FROM exif
-            INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
-            WHERE strftime('%Y', exif.CreateDate) = '2008'
-              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
-              AND exif.CreateDate IN (
-                SELECT CreateDate
-                FROM exif
-                WHERE strftime('%Y', CreateDate) = '2008'
-                  AND strftime('%m', CreateDate) BETWEEN '01' AND '02'
-                GROUP BY CreateDate
-                HAVING COUNT(*) > 1
-              )
-            ORDER BY exif.CreateDate;
+            SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbPath, ai_description.file as aiFile, ai_description.description
+            FROM ai_description 
+            INNER JOIN thumbImages ON (
+            ai_description.file = thumbImages.path OR 
+            replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path) OR
+            lower(ai_description.file) = lower(thumbImages.path)
+            )
+            INNER JOIN exif ON thumbImages.path = exif.SourceFile
+            ORDER BY exif.CreateDate ASC;
         Show Time Matches all dates:
          sql:
             SELECT

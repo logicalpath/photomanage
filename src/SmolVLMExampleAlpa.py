@@ -1,18 +1,50 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "click",
-# ]
-# ///
-
+import mlx.core as mx
+from mlx_vlm import load, generate
+from mlx_vlm.prompt_utils import apply_chat_template
+from mlx_vlm.utils import load_config
 import click
 import subprocess
 import json
 from datetime import datetime
 import os
 from pathlib import Path
+from dataclasses import dataclass
+from PIL import Image
 
 IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.nef', '.arw'}
+
+@dataclass
+class ModelComponents:
+    model: any  # You could use a more specific type hint if available
+    processor: any
+    config: any
+
+def loadModel() -> ModelComponents:
+    model_path = "mlx-community/SmolVLM-Instruct-bf16"
+    model, processor = load(model_path)
+    config = load_config(model_path)
+    return ModelComponents(model, processor, config)
+
+# Load the model
+model_path = "mlx-community/Qwen2-VL-2B-Instruct-4bit"
+model, processor = load(model_path)
+config = load_config(model_path)
+
+
+def analyze_image(image, model, processor, config):
+
+    prompt = "Describe this image in detail"
+    click.echo(f"Image path: {image}")
+
+    # Open the image file
+    pillow_image = Image.open(image)
+    # Generate output
+    max_tokens = 500  # Define max_tokens with an appropriate value
+    description = generate(model, processor, prompt, pillow_image, temp=0.0, max_tokens=max_tokens, verbose=False)
+    # print(output)
+    return description
+
+
 
 def is_image_file(path):
     """Check if a file is an image based on its extension."""
@@ -29,49 +61,6 @@ def find_image_files(directory):
     
     return image_files, directory_path
 
-def extract_assistant_response(output):
-    """Extract text between 'Assistant:' and 'Prompt:' or end of string."""
-    if "Assistant:" not in output:
-        return output
-    
-    # Split on Assistant: and take everything after it
-    response = output.split("Assistant:", 1)[1]
-    
-    # If there's a Prompt: section, remove it and everything after
-    if "Prompt:" in response:
-        response = response.split("Prompt:", 1)[0]
-        
-    return "Assistant:" + response.strip()
-
-def analyze_image(image_path):
-    """Run image analysis on a single image and return the description."""
-    command = [
-        "uv", "run",
-        "--with", "mlx-vlm",
-        "--with", "torch",
-        "python", "-m", "mlx_vlm.generate",
-        "--model", "mlx-community/SmolVLM-Instruct-bf16",
-        "--max-tokens", "500",
-        "--temp", "0.0",
-        "--prompt", "Describe this image in detail",
-        "--image", str(image_path)
-    ]
-    
-    try:
-        process = subprocess.Popen(
-            command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-        stdout, stderr = process.communicate()
-        
-        if process.returncode == 0:
-            return extract_assistant_response(stdout.strip())
-        else:
-            return f"Error analyzing image: {stderr}"
-    except Exception as e:
-        return f"Error running analysis: {str(e)}"
 
 @click.command()
 @click.argument('directory', type=click.Path(exists=True, file_okay=False, dir_okay=True))
@@ -97,6 +86,12 @@ def main(directory, num_files, output_dir):
     # Limit to the specified number of files
     image_files = image_files[:num_files]
     
+    # Load the model
+    components = loadModel()
+    model = components.model
+    processor = components.processor
+    config = components.config
+
     # Process images and collect results
     results = []
     for i, image_path in enumerate(image_files, 1):
@@ -104,9 +99,8 @@ def main(directory, num_files, output_dir):
         
         # Get relative path from input directory
         rel_path = image_path.relative_to(base_path)
-        click.echo(f"image path: {image_path}")
         
-        description = analyze_image(image_path)
+        description = analyze_image(str(image_path), model, processor, config)
         results.append({
             "file": f"./{rel_path}",
             "description": description
@@ -124,3 +118,5 @@ def main(directory, num_files, output_dir):
 
 if __name__ == "__main__":
     main()
+
+
