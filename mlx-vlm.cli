@@ -1,1 +1,16 @@
 python -m mlx_vlm.generate --model mlx-community/SmolVLM-Instruct-bf16 --max-tokens 500 --temp 0.0  --prompt "Describe this image in detail" --image 94e89748-9c84-4f88-ac4f-66e69037b9de.jpg
+
+
+
+Using uv
+
+uv run \
+  --with mlx-vlm \
+  --with torch \
+  python -m mlx_vlm.generate \
+    --model mlx-community/SmolVLM-Instruct-bf16 \
+    --max-tokens 500 \
+    --temp 0.5 \
+    --prompt "Describe this image in detail" \
+    --image test.jpg
+
