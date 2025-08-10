@@ -54,7 +54,7 @@ ___
 ### Move the files to a new directory
 `scripts/move_uuid_dest.sh <source> <destination`
 
-### From the original media root dir, get a list of mappings of old to new name 
+### From the original media root dir, get a list of mappings of old to new name
 
 `find . -name 'mapping.csv' > mappings.txt`
 
@@ -124,7 +124,7 @@ datasette -p 8002 --metadata metadata.json media.db
 ### extend time limit
 `(photomanage) X1 database > datasette -p 8001 --setting sql_time_limit_ms 5500  --metadata metadata2.json mediameta.db`
 
-### New config file 
+### New config file
 `datasette -c datasette.yaml`
 
 
@@ -176,6 +176,16 @@ plugins:
 ```
 The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
 
+I had forgotten how prefix_path was added to the exif table. I searched the code base with ripgrep `rg -n prefix_path` and found this entry in cache. I must have forgoten to write it down anywhere:
+```
+Library/Application Support/Code/User/History/30f82f25/DEe8.txt
+2:ALTER TABLE your_table ADD COLUMN prefixed_path TEXT;
+6:SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(path, 2);
+11:ALTER TABLE exif ADD COLUMN prefixed_path TEXT;
+15:UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(path, 2);
+```
+
+
 Then call the image like this:
 ```
 http://127.0.0.1:8001/-/media/photo/<FileName>
@@ -200,9 +210,3 @@ For sqlite-utils:
 Find thumbnails where the CreateDate is within the same second.
 
 `CREATE TABLE duptime AS SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size FROM exif INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path WHERE exif.CreateDate IS NOT NULL AND exif.CreateDate <> '' AND exif.CreateDate IN (SELECT CreateDate FROM exif WHERE CreateDate IS NOT NULL AND exif.CreateDate <> '' GROUP BY CreateDate HAVING COUNT(*) > 1) ORDER BY exif.CreateDate;`
-
-
-
-
-
-
