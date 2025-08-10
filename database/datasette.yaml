@@ -14,6 +14,7 @@ plugins:
       database: "mediameta"
     photo:
       sql: "select prefixed_path as filepath from exif where FileName=:key"
+      database: "mediameta"
   datasette-enrichments-opencage:
     api_key:
       $env: OPENCAGE_API_KEY
