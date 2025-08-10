@@ -9,10 +9,9 @@ plugins:
   datasette-render-images:
     size_limit: 1000000
   datasette-media:
-    photo:
+    thumb:
       sql: "select thumbnail as content from thumbImages where uuid=:key"
       database: "mediameta"
-  datasette-media:
     photo:
       sql: "select prefixed_path as filepath from exif where FileName=:key"
   datasette-enrichments-opencage:
@@ -24,80 +23,67 @@ plugins:
 
 # Database and table-level configuration
 databases:
-    mediameta:
-      queries:
-        2008 January-February:
-          sql: 
-            SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbFile
-            FROM exif
-            INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
-            WHERE strftime('%Y', exif.CreateDate) = '2008'
-              AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
-            ORDER BY exif.CreateDate ASC;
-        Show descriptions of images:
-          sql:
-            SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbPath, ai_description.file as aiFile, ai_description.description
-            FROM ai_description 
-            INNER JOIN thumbImages ON (
-            ai_description.file = thumbImages.path OR 
-            replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path) OR
-            lower(ai_description.file) = lower(thumbImages.path)
-            )
-            INNER JOIN exif ON thumbImages.path = exif.SourceFile
-            ORDER BY exif.CreateDate ASC;
-        Show Time Matches all dates:
-         sql:
-            SELECT
-              thumbImages.content,
-              exif.CreateDate,
-              exif.FileName,
-              thumbImages.size
-            FROM
-              exif
-              INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
-            WHERE
-              exif.CreateDate IS NOT NULL
-              AND exif.CreateDate <> ''
-              AND exif.CreateDate IN (
-                SELECT
-                  CreateDate
-                FROM
-                  exif
-                WHERE
-                  CreateDate IS NOT NULL
-                  AND exif.CreateDate <> ''
-                GROUP BY
-                  CreateDate
-                HAVING
-                  COUNT(*) > 1
-              )
-            ORDER BY
-              exif.CreateDate;
-        Exif no date Thumbs:
-          sql:
-            SELECT e.rowid, e.SourceFile, t.content AS ThumbImage
-            FROM exifNoDate e
-            LEFT JOIN thumbImages t ON e.SourceFile = t.path
-            ORDER BY e.rowid;
-        Size of all media files:
-          sql:
-            SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
-        Number of .nef files:
-          sql:
-            SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
-
-
-
+  mediameta:
+    queries:
+      2008 January-February:
+        sql:
+          SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbFile
+          FROM exif
+          INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+          WHERE strftime('%Y', exif.CreateDate) = '2008'
+          AND strftime('%m', exif.CreateDate) BETWEEN '01' AND '02'
+          ORDER BY exif.CreateDate ASC;
+      Show descriptions of images:
+        sql:
+          SELECT thumbImages.content, exif.CreateDate, thumbImages.path as thumbPath, ai_description.file as aiFile, ai_description.description
+          FROM ai_description
+          INNER JOIN thumbImages ON (
+          ai_description.file = thumbImages.path OR
+          replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path) OR
+          lower(ai_description.file) = lower(thumbImages.path)
+          )
+          INNER JOIN exif ON thumbImages.path = exif.SourceFile
+          ORDER BY exif.CreateDate ASC;
+      Show Time Matches all dates:
+        sql: SELECT
+          thumbImages.content,
+          exif.CreateDate,
+          exif.FileName,
+          thumbImages.size
+          FROM
+          exif
+          INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+          WHERE
+          exif.CreateDate IS NOT NULL
+          AND exif.CreateDate <> ''
+          AND exif.CreateDate IN (
+          SELECT
+          CreateDate
+          FROM
+          exif
+          WHERE
+          CreateDate IS NOT NULL
+          AND exif.CreateDate <> ''
+          GROUP BY
+          CreateDate
+          HAVING
+          COUNT(*) > 1
+          )
+          ORDER BY
+          exif.CreateDate;
+      Exif no date Thumbs:
+        sql: SELECT e.rowid, e.SourceFile, t.content AS ThumbImage
+          FROM exifNoDate e
+          LEFT JOIN thumbImages t ON e.SourceFile = t.path
+          ORDER BY e.rowid;
+      Size of all media files:
+        sql: SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
+      Number of .nef files:
+        sql: SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
 
 # Permissions block
 
 allow:
   id:
-  - eddie
-  - root
-
-id: eddie
-id: root
-
-
-  
+    - eddie
+    - root
