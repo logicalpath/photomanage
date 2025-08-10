@@ -176,7 +176,7 @@ plugins:
 ```
 The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
 
-I had forgotten how prefix_path was added to the exif table. I searched the code base with ripgrep `rg -n prefix_path` and found this entry in cache. I must have forgoten to write it down anywhere:
+I had forgotten how prefix_path was added to the exif table. I searched the code base with ripgrep `rg -n prefix_path` and found this entry in cache. I must have forgotten to write it down anywhere:
 ```
 Library/Application Support/Code/User/History/30f82f25/DEe8.txt
 2:ALTER TABLE your_table ADD COLUMN prefixed_path TEXT;
