@@ -26,7 +26,7 @@ Mismatched record counts across related tables have identifiable causes:
 | thumbImages | 31,825 | 1,143 fewer records than exif |
 | videorez | 1,123 | Video resolution data (matches video count in exif) |
 | exifAll | 32,969 | 1 more record than exif |
-| thumberrs | (unknown) | Failed thumbnail generation attempts |
+| thumberrs | 20 | Failed thumbnail generation attempts |
 
 **Detailed breakdown of the 1,143 record discrepancy:**
 - **1,123 video files** in exif table that don't generate thumbnails:
