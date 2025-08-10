@@ -100,4 +100,4 @@ Multiple tables store location data:
 - thumbImages: 31,825 records (difference explained by 1,123 videos + ~20 failed thumbnails)
 - exifAll: 32,969 records
 
-The slight discrepancy in counts suggests some EXIF records may not have corresponding thumbnails, or vice versa.
+The discrepancy in counts is fully explained by the presence of 1,123 video files (which do not have thumbnails in `thumbImages`) and approximately 20 failed thumbnail generations, as detailed in sourcefile-consistency-analysis.md.
