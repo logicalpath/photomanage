@@ -210,3 +210,44 @@ For sqlite-utils:
 Find thumbnails where the CreateDate is within the same second.
 
 `CREATE TABLE duptime AS SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size FROM exif INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path WHERE exif.CreateDate IS NOT NULL AND exif.CreateDate <> '' AND exif.CreateDate IN (SELECT CreateDate FROM exif WHERE CreateDate IS NOT NULL AND exif.CreateDate <> '' GROUP BY CreateDate HAVING COUNT(*) > 1) ORDER BY exif.CreateDate;`
+
+## Troubleshooting
+
+### Set Pipenv to Use Pyenv Python
+
+```bash
+export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
+
+# Make it permanent
+echo 'export PIPENV_PYTHON="$HOME/.pyenv/shims/python"' >> ~/.zshrc
+```
+
+### Check Python Compilation Flags
+
+```bash
+python -c "import sysconfig; print(sysconfig.get_config_var('CONFIG_ARGS'))"
+```
+
+### Rebuild Python with SQLite Extensions Support
+
+```bash
+PYTHON_CONFIGURE_OPTS="--enable-loadable-sqlite-extensions" \
+LDFLAGS="-L/opt/homebrew/opt/sqlite/lib" \
+CPPFLAGS="-I/opt/homebrew/opt/sqlite/include" \
+pyenv install 3.12.5 --force
+```
+
+**Verify the fix:**
+
+```bash
+python -c "import sqlite3; print(sqlite3.sqlite_version)"
+python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extension(True))"
+```
+
+**Recreate Pipenv environment:**
+
+```bash
+pipenv --rm
+pipenv install
+pipenv shell
+```
