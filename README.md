@@ -4,13 +4,13 @@ Scripts and ideas to manage tons and tons of images and movies
 
 ## Find media in apple photos library
 
-``` find_media-photolibrary.sh folder```
+``` scripts/find_media_photolibrary.sh folder```
 
 This shell script searches for media files in directories with ".photoslibrary" in their name. It searches for media files within the "originals" subdirectory of each matching directory. The script defines a list of file extensions to search for, and uses this list to search for files with matching extensions. The script outputs the file paths of the matching files to a CSV file, along with their directory and file size. If a file does not match the desired extensions, its path is output to a separate exclusions file.
 
 ## Find media in a directory
 
-``` find_media.sh folder```
+**Note:** `find_media.sh` script is not currently in the repository. Use `scripts/find_media_folders.sh` instead.
 
 This shell script searches for media files in a specified directory and its subdirectories. It extracts the folder name from the specified directory path, creates an output file, an exclusions file, and a JSON file with the folder name. It then defines a list of file extensions to search for, and uses this list to search for files with matching extensions in the specified directory and its subdirectories. The script outputs the file paths of the matching files to the output file, and any excluded files to the exclusions file.
 
@@ -24,11 +24,7 @@ Find potential media types missed:
 
 ## Get EXIF Data (Date & GPS)
 
-For an apple photolibrary:
-``` getExifData.py folder foldername```
-
-For a regular folder with media:
-``` getExifData.py photolib foldername```
+**Note:** `getExifData.py` script is not currently in the repository. Use `scripts/getFoldersExif.sh` or `scripts/getAllExif.sh` instead.
 
 
 Sort the output file by size:
@@ -59,7 +55,7 @@ ___
 `find . -name 'mapping.csv' > mappings.txt`
 
 ### Load the mappings into a sqlite db table
-`./loadmap.sh mappings.txt`
+`scripts/loadmap.sh mappings.txt`
 
 ### Get a list of the new filenames
 Run from the root of the new filenames dir: `uuid`
@@ -70,7 +66,7 @@ Get list with filesize:
 `find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}' > <filename>.txt`
 
 ### parse the filennames into a csv file of Directory, File name
-`python parse-newfiles.py newfilenames.txt filenames.csv`
+`python src/parse-newfiles.py newfilenames.txt filenames.csv`
 
 ### Parse the awk file into csv
 ` python ./src/parse_awk.py ./awkthumb.txt`
@@ -81,7 +77,7 @@ Get list with filesize:
 ## Get the exif data from the media files (script calls  exiftool)
 
 ```
-√ database > ./getFoldersExif.sh ../uuid
+√ database > scripts/getFoldersExif.sh ../uuid
 ./getFoldersExif.sh: line 3: Check: command not found
 Searching ../uuid for media files...
 The extracted folder name is: uuid
@@ -125,12 +121,13 @@ datasette -p 8002 --metadata metadata.json media.db
 `(photomanage) X1 database > datasette -p 8001 --setting sql_time_limit_ms 5500  --metadata metadata2.json mediameta.db`
 
 ### New config file
-`datasette -c datasette.yaml`
+**Note:** The `datasette.yaml` config file is located in the `database/` directory. Run these commands from that directory:
 
+`datasette -c datasette.yaml`
 
 `datasette -p 8001 -c datasette.yaml mediameta.db`
 
-`datasette -p 8001 --root --load-extension=spatialite  -c datasette.yaml mediameta.db`
+`datasette -p 8001 --root --load-extension=spatialite -c datasette.yaml mediameta.db`
 
 
 
@@ -139,13 +136,12 @@ datasette -p 8002 --metadata metadata.json media.db
 
 ### Plugins
 
-`datasette install datasette-write-ui`
-
 `datasette install datasette-cluster-map`
 
 `datasette install datasette-checkbox`
 
 **Note:** The following plugins are not currently installed:
+- `datasette-write-ui`
 - `datasette-enrichments`
 - `datasette-enrichments-opencage`
 
