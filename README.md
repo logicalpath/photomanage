@@ -141,13 +141,13 @@ datasette -p 8002 --metadata metadata.json media.db
 
 `datasette install datasette-write-ui`
 
-`datasette install datasette-enrichments`
-
-`datasette install datasette-enrichments-opencage`
-
 `datasette install datasette-cluster-map`
 
 `datasette install datasette-checkbox`
+
+**Note:** The following plugins are not currently installed:
+- `datasette-enrichments`
+- `datasette-enrichments-opencage`
 
 
 ## Notes re gps:
