@@ -26,7 +26,7 @@ Mismatched record counts across related tables have identifiable causes:
 | thumbImages | 31,825 | 1,143 fewer records than exif |
 | videorez | 1,123 | Video resolution data (matches video count in exif) |
 | exifAll | 32,969 | 1 more record than exif |
-| thumberrs | 20 | Failed thumbnail generation attempts |
+| thumberrs | 15 | Failed thumbnail generation attempts |
 
 **Detailed breakdown of the 1,143 record discrepancy:**
 - **1,123 video files** in exif table that don't generate thumbnails:
@@ -36,7 +36,7 @@ Mismatched record counts across related tables have identifiable causes:
   - `.mpg`: 24 files
   - `.3gp`: 11 files
   - `.m4v`: 8 files
-- **~20 remaining files**: Likely failed thumbnail generation (tracked in `thumberrs`)
+- **20 remaining files**: Likely failed thumbnail generation (15 tracked in `thumberrs`)
 - **Perfect correlation**: The 1,123 video count matches exactly with `videorez` table records
 
 
@@ -71,7 +71,7 @@ Datasette queries show extensive workarounds:
 ### 3. Data Integrity
 - 1,143 EXIF records without thumbnails fully explained:
   - 1,123 are video files (98.3% of the discrepancy)
-  - ~20 are likely failed thumbnail generations
+  - 20 are likely failed thumbnail generations (15 tracked in thumberrs)
 - Video files properly tracked in both `exif` and `videorez` tables
 - Failed thumbnail attempts tracked in `thumberrs` table
 - Potential for duplicate entries with different path formats
@@ -124,12 +124,12 @@ Analysis of the exif table reveals:
 - **1,123 video files** across 6 different formats
 - These video files account for 98.3% of the discrepancy between exif and thumbImages
 - The `videorez` table contains exactly 1,123 records, confirming proper video tracking
-- Only ~20 files (0.06% of total) represent actual failed thumbnail generations
+- Only 20 files (0.06% of total) represent actual failed thumbnail generations (15 tracked in thumberrs)
 
 ### Error Tracking Tables
 - `thumberrs`: Tracks failed thumbnail generation attempts with error messages
 - `previewerrs`: Tracks failed preview generation attempts
-- These tables help explain the remaining ~20 missing thumbnails
+- These tables help explain the remaining 20 missing thumbnails (15 recorded in thumberrs)
 - Scripts like `src/getFileFromErr.py` and `src/extract_and_insert_file.py` process these errors
 
 ## Conclusion
@@ -142,7 +142,7 @@ The photomanage database system uses `SourceFile` as its primary identifier with
 ### Current State
 - **Consistent path format**: All tables use `./` prefix for relative paths
 - **Clear data relationships**: exif.SourceFile → thumbImages.path foreign key
-- **Explained discrepancies**: 1,143 record difference between exif and thumbImages is fully accounted for (1,123 videos + ~20 failed thumbnails)
+- **Explained discrepancies**: 1,143 record difference between exif and thumbImages is fully accounted for (1,123 videos + 20 failed thumbnails, 15 tracked in thumberrs)
 - **Proper video handling**: Video files tracked in both exif and videorez tables
 
 ### System Strengths
