@@ -21,6 +21,7 @@ datasette = "==1.0a21"
 torch = "*"
 torchvision = "*"
 mlx-vlm = "*"
+pyyaml = "*"
 
 [dev-packages]
 
