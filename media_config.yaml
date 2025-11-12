@@ -1,0 +1,8 @@
+# Media Management Configuration
+# Configuration for managing media file paths
+
+# The base directory path where media files are stored on disk
+media_prefix_path: "/Volumes/Eddie 4TB/MediaFiles/uuid"
+
+# Path to the database file
+database_path: "database/mediameta.db"

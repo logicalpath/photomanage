@@ -172,13 +172,34 @@ plugins:
 ```
 The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
 
-I had forgotten how prefix_path was added to the exif table. I searched the code base with ripgrep `rg -n prefix_path` and found this entry in cache. I must have forgotten to write it down anywhere:
+### Managing the Media Prefix Path
+
+The media file location prefix is now managed via the `media_config.yaml` configuration file:
+
+```yaml
+# media_config.yaml
+media_prefix_path: "/Volumes/Eddie 4TB/MediaFiles/uuid"
+database_path: "database/mediameta.db"
 ```
-Library/Application Support/Code/User/History/30f82f25/DEe8.txt
-2:ALTER TABLE your_table ADD COLUMN prefixed_path TEXT;
-6:SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(path, 2);
-11:ALTER TABLE exif ADD COLUMN prefixed_path TEXT;
-15:UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(path, 2);
+
+#### Updating the Prefix Path
+
+When the media files are moved to a new location, update the `media_prefix_path` in `media_config.yaml` and run:
+
+```bash
+python src/update_prefix_path.py
+```
+
+This script will regenerate all `prefixed_path` values in the exif table by concatenating the new prefix with the relative path stored in `SourceFile`.
+
+**Note:** Install PyYAML if not already installed: `pipenv install pyyaml`
+
+#### Original SQL Commands (for reference)
+
+The prefixed_path column was originally created with:
+```sql
+ALTER TABLE exif ADD COLUMN prefixed_path TEXT;
+UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(SourceFile, 2);
 ```
 
 
