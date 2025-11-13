@@ -157,9 +157,9 @@ DROP INDEX IF EXISTS index_name;
 
 ## Related Configuration
 
-This index strategy complements the planned path architecture changes:
+This index strategy complements the database-native configuration architecture:
 - See `docs/sourcefile-consistency-analysis.md` for path architecture
-- The `photomanage_config` table and `exif_with_fullpath` view (planned) will work efficiently with these indexes
+- The `photomanage_config` table and `exif_with_fullpath` view work efficiently with these indexes
 
 ## References
 
