@@ -223,6 +223,35 @@ http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
 
 And the image will be displayed.
 
+## Database Optimization
+
+### Creating Performance Indexes
+
+The database uses indexes on frequently queried columns for optimal performance:
+
+```bash
+python src/create_indexes.py
+```
+
+This creates indexes on:
+- `exif.FileName` - For photo lookups (100-1000x faster)
+- `thumbImages.path` - For JOIN operations
+- `exif.CreateDate` - For date-based queries
+- `ai_description.file` - For AI description JOINs
+
+**Performance impact**: Photo lookups improve from O(n) full table scans to O(log n) index seeks.
+
+See [docs/database-indexes.md](docs/database-indexes.md) for detailed analysis and recommendations.
+
+### Database Architecture
+
+See documentation for system architecture details:
+- [docs/config-table-migration.md](docs/config-table-migration.md) - Configuration management
+- [docs/sourcefile-consistency-analysis.md](docs/sourcefile-consistency-analysis.md) - Path architecture
+- [docs/database-indexes.md](docs/database-indexes.md) - Index optimization
+
+## Extensions and Embeddings
+
 Adding sqlite-vec for embeddings
 
 For Datasette:
