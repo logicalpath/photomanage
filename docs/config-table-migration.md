@@ -296,23 +296,23 @@ CREATE TABLE media_locations (
 
 ### Immediate (Now)
 - ✅ Document migration plan (this file)
-- ⏳ Create migration script
-- ⏳ Test migration on database
+- ✅ Create migration script
+- ✅ Test migration on database
 
-### Phase 1 (This session)
-- ⏳ Run migration script
-- ⏳ Verify paths are computed correctly
-- ⏳ Commit database changes
+### Phase 1 (Completed)
+- ✅ Run migration script
+- ✅ Verify paths are computed correctly
+- ✅ Commit database changes
 
-### Phase 2 (This session)
-- ⏳ Update `datasette.yaml`
-- ⏳ Test Datasette functionality
-- ⏳ Commit configuration changes
+### Phase 2 (Completed)
+- ✅ Update `datasette.yaml`
+- ✅ Test Datasette functionality
+- ✅ Commit configuration changes
 
-### Phase 3 (Future - after validation period)
-- Drop `prefixed_path` column
-- Archive `update_prefix_path.py`
-- Update end-user documentation
+### Phase 3 (Completed)
+- ✅ Drop `prefixed_path` column
+- ✅ Update all documentation
+- ✅ Add database optimization section to README
 
 ## Success Criteria
 
