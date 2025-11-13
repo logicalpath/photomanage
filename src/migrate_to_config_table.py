@@ -77,37 +77,15 @@ def insert_configuration(cursor, media_prefix):
     """Insert the media prefix configuration"""
     print("\nInserting configuration...")
 
-    # Check if configuration already exists
+    # Atomically insert or replace the configuration to avoid race conditions
     cursor.execute(
-        "SELECT value FROM photomanage_config WHERE key = 'media_prefix_path'"
+        """INSERT OR REPLACE INTO photomanage_config (key, value, description, updated_at)
+           VALUES (?, ?, ?, CURRENT_TIMESTAMP)""",
+        ('media_prefix_path',
+         media_prefix,
+         'Absolute path prefix for media files')
     )
-    existing = cursor.fetchone()
-
-    if existing:
-        existing_value = existing[0]
-        if existing_value == media_prefix:
-            print(f"  ✓ Configuration already exists with same value: {media_prefix}")
-        else:
-            print(f"  ! Configuration exists with different value:")
-            print(f"    Existing: {existing_value}")
-            print(f"    New:      {media_prefix}")
-            print(f"  Updating to new value...")
-            cursor.execute(
-                """UPDATE photomanage_config
-                   SET value = ?, updated_at = CURRENT_TIMESTAMP
-                   WHERE key = 'media_prefix_path'""",
-                (media_prefix,)
-            )
-            print("  ✓ Updated media_prefix_path")
-    else:
-        cursor.execute(
-            """INSERT INTO photomanage_config (key, value, description)
-               VALUES (?, ?, ?)""",
-            ('media_prefix_path',
-             media_prefix,
-             'Absolute path prefix for media files')
-        )
-        print("  ✓ Inserted media_prefix_path")
+    print(f"  ✓ Upserted media_prefix_path: {media_prefix}")
 
 
 def create_view(cursor):
