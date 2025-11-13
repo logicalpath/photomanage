@@ -58,12 +58,16 @@ The system intentionally uses two complementary path types to balance portabilit
 
 **Current Implementation:**
 - Configuration stored in database: `photomanage_config` table
-- Paths computed on-demand via view:
+- Paths computed on-demand via view with edge case handling:
 ```sql
 CREATE VIEW exif_with_fullpath AS
 SELECT exif.*,
-    (SELECT value FROM photomanage_config WHERE key = 'media_prefix_path')
-    || substr(SourceFile, 2) as full_path
+    CASE
+        WHEN SourceFile IS NOT NULL AND length(SourceFile) >= 2 THEN
+            (SELECT value FROM photomanage_config WHERE key = 'media_prefix_path')
+            || substr(SourceFile, 2)
+        ELSE NULL
+    END as full_path
 FROM exif;
 ```
 
