@@ -45,22 +45,32 @@ Mismatched record counts across related tables have identifiable causes:
 ### Relative vs Absolute Paths (By Design)
 The system intentionally uses two complementary path types to balance portability with filesystem access:
 
-| Column | Type | Purpose | Example |
-|--------|------|---------|---------|
+| Column/View | Type | Purpose | Example |
+|-------------|------|---------|---------|
 | SourceFile | Relative | Stable, disk-agnostic identifier | `./0/filename.jpg` |
-| prefixed_path | Absolute | Current filesystem path for access | `/Volumes/Eddie 4TB/MediaFiles/uuid/0/filename.jpg` |
+| exif_with_fullpath.full_path | Absolute (computed) | Current filesystem path for access | `/Volumes/Eddie 4TB/MediaFiles/uuid/0/filename.jpg` |
 
 **Design rationale:**
 - `SourceFile` remains constant regardless of where media files are physically stored, providing database portability
-- `prefixed_path` is a computed/derived column that provides the actual filesystem path for the current media location
-- When media files are moved to a different disk or location, only `prefixed_path` needs updating via `src/update_prefix_path.py`
-- The prefix path is configurable in `media_config.yaml`
+- `full_path` is dynamically computed via the `exif_with_fullpath` view, ensuring it always reflects the current media location
+- When media files are moved to a different disk or location, only the `photomanage_config` table needs updating (one SQL UPDATE)
+- The prefix path is stored in the `photomanage_config` database table
 
-Absolute paths are regenerated via:
+**Current Implementation:**
+- Configuration stored in database: `photomanage_config` table
+- Paths computed on-demand via view:
 ```sql
-UPDATE exif SET prefixed_path = ? || substr(SourceFile, 2);
+CREATE VIEW exif_with_fullpath AS
+SELECT exif.*,
+    (SELECT value FROM photomanage_config WHERE key = 'media_prefix_path')
+    || substr(SourceFile, 2) as full_path
+FROM exif;
 ```
-where `?` is the configurable prefix from `media_config.yaml`
+
+**Benefits:**
+- Always accurate (never stale)
+- No maintenance scripts needed
+- Simple configuration updates via SQL
 
 ## Impact on System Operations
 
@@ -153,8 +163,9 @@ The photomanage database system uses `SourceFile` as its primary identifier with
 - Clear foreign key relationships
 - Comprehensive EXIF data in exifAll with proper namespacing
 - Error tracking via thumberrs and previewerrs tables
-- **Intentional dual-path architecture**: `SourceFile` provides portability while `prefixed_path` enables filesystem access
-- **Reconfigurable media location**: System can adapt to media files moving between disks/locations
+- **Intentional dual-path architecture**: `SourceFile` provides portability while `exif_with_fullpath.full_path` enables filesystem access
+- **Reconfigurable media location**: System can adapt to media files moving between disks/locations via simple SQL UPDATE
+- **Database-native configuration**: All configuration stored in `photomanage_config` table, accessible via SQL
 
 ### Remaining Considerations
 - Case sensitivity requiring lowercase normalization in some queries

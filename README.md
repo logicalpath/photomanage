@@ -165,42 +165,52 @@ plugins:
 
 ```yaml
 plugins:
-
   datasette-media:
       photo:
-        sql: "select prefixed_path as filepath from exif where FileName=:key"
+        sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
 ```
-The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
+
+The system uses a database-native configuration approach:
+- **Configuration Table**: `photomanage_config` stores the media prefix path
+- **Dynamic View**: `exif_with_fullpath` computes full paths on-demand
+- **Source Data**: `exif` table contains only source data (no computed paths)
 
 ### Managing the Media Prefix Path
 
-The media file location prefix is now managed via the `media_config.yaml` configuration file:
+The media file location prefix is stored in the `photomanage_config` database table. When media files are moved to a new location, simply update the configuration:
 
-```yaml
-# media_config.yaml
-media_prefix_path: "/Volumes/Eddie 4TB/MediaFiles/uuid"
-database_path: "database/mediameta.db"
-```
-
-#### Updating the Prefix Path
-
-When the media files are moved to a new location, update the `media_prefix_path` in `media_config.yaml` and run:
-
-```bash
-python src/update_prefix_path.py
-```
-
-This script will regenerate all `prefixed_path` values in the exif table by concatenating the new prefix with the relative path stored in `SourceFile`.
-
-**Note:** Install PyYAML if not already installed: `pipenv install pyyaml`
-
-#### Original SQL Commands (for reference)
-
-The prefixed_path column was originally created with:
 ```sql
-ALTER TABLE exif ADD COLUMN prefixed_path TEXT;
-UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(SourceFile, 2);
+UPDATE photomanage_config
+SET value = '/new/path/to/media'
+WHERE key = 'media_prefix_path';
 ```
+
+The `exif_with_fullpath` view will automatically use the new prefix - no migration script needed!
+
+#### View the Current Configuration
+
+```sql
+SELECT * FROM photomanage_config;
+```
+
+#### How It Works
+
+The `exif_with_fullpath` view dynamically computes full paths by combining:
+- The prefix from `photomanage_config` table
+- The relative path from `exif.SourceFile`
+
+Example:
+```
+SourceFile:  ./0/example.jpg
+Config:      /Volumes/Eddie 4TB/MediaFiles/uuid
+Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
+```
+
+**Benefits:**
+- Paths always accurate (never stale)
+- No maintenance scripts needed
+- Simple configuration updates
+- SQL-accessible configuration
 
 
 Then call the image like this:
