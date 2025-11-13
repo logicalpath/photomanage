@@ -22,7 +22,7 @@ Based on `database/datasette.yaml`, these are the most common query patterns:
 ### 1. FileName Lookups (CRITICAL)
 **Location**: `datasette.yaml:16`
 ```sql
-SELECT prefixed_path as filepath FROM exif WHERE FileName=:key
+SELECT full_path as filepath FROM exif_with_fullpath WHERE FileName=:key
 ```
 **Issue**: Full table scan on every photo lookup
 **Solution**: Index on `exif.FileName`
@@ -127,7 +127,7 @@ ORDER BY tbl_name, name;
 
 -- Check if index is being used (SQLite EXPLAIN QUERY PLAN)
 EXPLAIN QUERY PLAN
-SELECT prefixed_path FROM exif WHERE FileName='example.jpg';
+SELECT full_path FROM exif_with_fullpath WHERE FileName='example.jpg';
 ```
 
 ## Future Considerations
@@ -140,12 +140,14 @@ CREATE INDEX idx_exif_createdate_filename ON exif(CreateDate, FileName);
 ```
 
 ### Covering Indexes
-For frequently accessed columns, consider covering indexes:
+For frequently accessed columns, consider covering indexes on the base table:
 ```sql
--- Example: Include commonly selected columns
+-- Example: Include commonly selected columns in exif table
 CREATE INDEX idx_exif_filename_covering
-ON exif(FileName, SourceFile, CreateDate, prefixed_path);
+ON exif(FileName, SourceFile, CreateDate);
 ```
+
+Note: The `full_path` is computed via the `exif_with_fullpath` view and cannot be directly indexed. The view uses the underlying `exif` table indexes.
 
 ### Index Removal
 If query patterns change, remove unused indexes:
