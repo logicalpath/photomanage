@@ -13,7 +13,7 @@ plugins:
       sql: "select thumbnail as content from thumbImages where uuid=:key"
       database: "mediameta"
     photo:
-      sql: "select prefixed_path as filepath from exif where FileName=:key"
+      sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
       database: "mediameta"
   datasette-enrichments-opencage:
     api_key:
