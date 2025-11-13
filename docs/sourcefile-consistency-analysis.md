@@ -40,20 +40,41 @@ Mismatched record counts across related tables have identifiable causes:
 - **Perfect correlation**: The 1,123 video count matches exactly with `videorez` table records
 
 
-## Path Type Mixing
+## Path Architecture
 
-### Relative vs Absolute Paths
-The system uses both path types inconsistently:
+### Relative vs Absolute Paths (By Design)
+The system intentionally uses two complementary path types to balance portability with filesystem access:
 
-| Column | Type | Example |
-|--------|------|---------|
-| SourceFile | Relative | `./0/filename.jpg` |
-| prefixed_path | Absolute | `/Volumes/Eddie 4TB/MediaFiles/uuid/0/filename.jpg` |
+| Column/View | Type | Purpose | Example |
+|-------------|------|---------|---------|
+| SourceFile | Relative | Stable, disk-agnostic identifier | `./0/filename.jpg` |
+| exif_with_fullpath.full_path | Absolute (computed) | Current filesystem path for access | `/Volumes/Eddie 4TB/MediaFiles/uuid/0/filename.jpg` |
 
-Absolute paths are created via:
+**Design rationale:**
+- `SourceFile` remains constant regardless of where media files are physically stored, providing database portability
+- `full_path` is dynamically computed via the `exif_with_fullpath` view, ensuring it always reflects the current media location
+- When media files are moved to a different disk or location, only the `photomanage_config` table needs updating (one SQL UPDATE)
+- The prefix path is stored in the `photomanage_config` database table
+
+**Current Implementation:**
+- Configuration stored in database: `photomanage_config` table
+- Paths computed on-demand via view with edge case handling:
 ```sql
-UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(path, 2);
+CREATE VIEW exif_with_fullpath AS
+SELECT exif.*,
+    CASE
+        WHEN SourceFile IS NOT NULL AND length(SourceFile) >= 2 THEN
+            (SELECT value FROM photomanage_config WHERE key = 'media_prefix_path')
+            || substr(SourceFile, 2)
+        ELSE NULL
+    END as full_path
+FROM exif;
 ```
+
+**Benefits:**
+- Always accurate (never stale)
+- No maintenance scripts needed
+- Simple configuration updates via SQL
 
 ## Impact on System Operations
 
@@ -92,17 +113,13 @@ replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path)
 ## Recommendations
 
 ### Immediate Actions
-1. **Standardize Path Format**: Choose one prefix format (`./` or `.`) and update all tables
-2. **Create Normalization View**: Build a view that handles all path variations
-3. **Add Data Validation**: Implement checks for new data imports
-4. **Document Media Types**: Clearly identify which records are videos vs photos in exif table
-5. **Link Error Tables**: Create proper relationships between thumberrs and source files
+1. **Add Data Validation**: Implement checks for new data imports to ensure they follow the `./` prefix format
+2. **Document Media Types**: Clearly identify which records are videos vs photos in exif table
+3. **Link Error Tables**: Create proper relationships between thumberrs and source files
 
 ### Long-term Solutions
-1. **Path Normalization Function**: Create a standard function for path handling
-2. **Data Migration**: Clean existing data to use consistent formats
-3. **Foreign Key Constraints**: Enforce referential integrity after cleanup
-4. **Platform-Agnostic Path Handling**: Use proper path libraries instead of string splitting
+1. **Foreign Key Constraints**: Enforce referential integrity after cleanup
+2. **Platform-Agnostic Path Handling**: Use proper path libraries instead of string manipulation for path operations
 
 ### Monitoring
 1. **Regular Audits**: Check for record count discrepancies
@@ -146,14 +163,16 @@ The photomanage database system uses `SourceFile` as its primary identifier with
 - **Proper video handling**: Video files tracked in both exif and videorez tables
 
 ### System Strengths
-- Consistent path formatting across all tables
+- Consistent path formatting across all tables (all use `./` prefix)
 - Clear foreign key relationships
 - Comprehensive EXIF data in exifAll with proper namespacing
 - Error tracking via thumberrs and previewerrs tables
+- **Intentional dual-path architecture**: `SourceFile` provides portability while `exif_with_fullpath.full_path` enables filesystem access
+- **Reconfigurable media location**: System can adapt to media files moving between disks/locations via simple SQL UPDATE
+- **Database-native configuration**: All configuration stored in `photomanage_config` table, accessible via SQL
 
 ### Remaining Considerations
-- Absolute vs relative path mixing (prefixed_path vs SourceFile)
 - Case sensitivity requiring lowercase normalization in some queries
 - File extension variations (.jpg vs .jpeg) need handling
 
-The system architecture is sound with predictable behavior and well-understood record relationships.
+The system architecture is sound with predictable behavior, well-understood record relationships, and a thoughtful separation between portable identifiers and filesystem paths.

@@ -165,53 +165,106 @@ plugins:
 
 ```yaml
 plugins:
-
   datasette-media:
       photo:
-        sql: "select prefixed_path as filepath from exif where FileName=:key"
+        sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
 ```
-The exif table contains a column called prefixed_path which contains the full path to the image. The FileName column contains the filename.
+
+The system uses a database-native configuration approach:
+- **Configuration Table**: `photomanage_config` stores the media prefix path
+- **Dynamic View**: `exif_with_fullpath` computes full paths on-demand
+- **Source Data**: `exif` table contains only source data (no computed paths)
 
 ### Managing the Media Prefix Path
 
-The media file location prefix is now managed via the `media_config.yaml` configuration file:
+The media file location prefix is stored in the `photomanage_config` database table. When media files are moved to a new location, simply update the configuration:
 
-```yaml
-# media_config.yaml
-media_prefix_path: "/Volumes/Eddie 4TB/MediaFiles/uuid"
-database_path: "database/mediameta.db"
-```
-
-#### Updating the Prefix Path
-
-When the media files are moved to a new location, update the `media_prefix_path` in `media_config.yaml` and run:
-
-```bash
-python src/update_prefix_path.py
-```
-
-This script will regenerate all `prefixed_path` values in the exif table by concatenating the new prefix with the relative path stored in `SourceFile`.
-
-**Note:** Install PyYAML if not already installed: `pipenv install pyyaml`
-
-#### Original SQL Commands (for reference)
-
-The prefixed_path column was originally created with:
 ```sql
-ALTER TABLE exif ADD COLUMN prefixed_path TEXT;
-UPDATE exif SET prefixed_path = '/Volumes/Eddie 4TB/MediaFiles/uuid' || substr(SourceFile, 2);
+UPDATE photomanage_config
+SET value = '/new/path/to/media'
+WHERE key = 'media_prefix_path';
 ```
 
+The `exif_with_fullpath` view will automatically use the new prefix - no migration script needed!
 
-Then call the image like this:
+#### View the Current Configuration
+
+```sql
+SELECT * FROM photomanage_config;
+```
+
+#### How It Works
+
+The `exif_with_fullpath` view dynamically computes full paths by combining:
+- The prefix from `photomanage_config` table
+- The relative path from `exif.SourceFile`
+
+Example:
+```
+SourceFile:  ./0/example.jpg
+Config:      /Volumes/Eddie 4TB/MediaFiles/uuid
+Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
+```
+
+**Benefits:**
+- Paths always accurate (never stale)
+- No maintenance scripts needed
+- Simple configuration updates
+- SQL-accessible configuration
+
+
+#### Viewing Images
+
+Access images using the datasette-media plugin URL format:
 ```
 http://127.0.0.1:8001/-/media/photo/<FileName>
-
-
-http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
 ```
 
-And the image will be displayed.
+**Example:**
+```
+http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
+```
+
+**What happens:**
+1. You access: `http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg`
+2. The `photo` part matches the config key in `datasette.yaml`
+3. The filename `00126662-8f53-4042-a3e0-a291170a004e.jpg` becomes the `:key` parameter
+4. Datasette runs:
+   ```sql
+   SELECT full_path as filepath
+   FROM exif_with_fullpath
+   WHERE FileName='00126662-8f53-4042-a3e0-a291170a004e.jpg'
+   ```
+5. Returns the full path, and datasette-media serves the image
+
+## Database Optimization
+
+### Creating Performance Indexes
+
+The database uses indexes on frequently queried columns for optimal performance:
+
+```bash
+python src/create_indexes.py
+```
+
+This creates indexes on:
+- `exif.FileName` - For photo lookups (100-1000x faster)
+- `thumbImages.path` - For JOIN operations
+- `exif.CreateDate` - For date-based queries
+- `ai_description.file` - For AI description JOINs
+
+**Performance impact**: Photo lookups improve from O(n) full table scans to O(log n) index seeks.
+
+See [docs/database-indexes.md](docs/database-indexes.md) for detailed analysis and recommendations.
+
+### Database Architecture
+
+See documentation for system architecture details:
+- [docs/config-table-migration.md](docs/config-table-migration.md) - Configuration management
+- [docs/sourcefile-consistency-analysis.md](docs/sourcefile-consistency-analysis.md) - Path architecture
+- [docs/database-indexes.md](docs/database-indexes.md) - Index optimization
+
+## Extensions and Embeddings
 
 Adding sqlite-vec for embeddings
 
