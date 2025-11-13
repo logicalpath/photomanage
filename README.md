@@ -213,15 +213,29 @@ Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
 - SQL-accessible configuration
 
 
-Then call the image like this:
+#### Viewing Images
+
+Access images using the datasette-media plugin URL format:
 ```
 http://127.0.0.1:8001/-/media/photo/<FileName>
-
-
-http://127.0.0.1:8001/-/media/photo/04aa8750-9903-427c-bba6-8fb53512b6f2.jpg
 ```
 
-And the image will be displayed.
+**Example:**
+```
+http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
+```
+
+**What happens:**
+1. You access: `http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg`
+2. The `photo` part matches the config key in `datasette.yaml`
+3. The filename `00126662-8f53-4042-a3e0-a291170a004e.jpg` becomes the `:key` parameter
+4. Datasette runs:
+   ```sql
+   SELECT full_path as filepath
+   FROM exif_with_fullpath
+   WHERE FileName='00126662-8f53-4042-a3e0-a291170a004e.jpg'
+   ```
+5. Returns the full path, and datasette-media serves the image
 
 ## Database Optimization
 
