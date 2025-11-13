@@ -9,6 +9,7 @@ Usage:
     python src/create_indexes.py
 """
 
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -16,6 +17,19 @@ from pathlib import Path
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
 DATABASE_PATH = PROJECT_ROOT / "database" / "mediameta.db"
+
+
+def validate_sql_identifier(identifier, identifier_type="identifier"):
+    """
+    Validate SQL identifier to prevent SQL injection.
+
+    SQLite identifiers must start with a letter or underscore,
+    followed by letters, numbers, or underscores.
+    """
+    if not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', identifier):
+        raise ValueError(f"Invalid {identifier_type}: {identifier}")
+    return identifier
+
 
 def create_indexes(db_path):
     """Create indexes on frequently queried columns"""
@@ -46,6 +60,11 @@ def create_indexes(db_path):
 
     for index_name, table, column in indexes:
         try:
+            # Validate identifiers to prevent SQL injection
+            validate_sql_identifier(index_name, "index name")
+            validate_sql_identifier(table, "table name")
+            validate_sql_identifier(column, "column name")
+
             # Check if index already exists
             cursor.execute(
                 "SELECT name FROM sqlite_master WHERE type='index' AND name=?",
