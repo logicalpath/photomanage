@@ -164,19 +164,25 @@ datasette -p 8002 --metadata metadata.json media.db
 - `datasette-enrichments-opencage`
 
 
-## Notes re gps:
+## Notes re GPS and Maps
 
-In the exif file, rename GPSLatitude & GPSLongitude as latitude & longitude to avoid
-calling open cage. Unless I change the plugin to use reverse gps to store address info
+**Important:** The `datasette-enrichments-opencage` plugin (if installed) automatically looks for columns named `GPSLatitude` and `GPSLongitude` to perform reverse geocoding.
 
-Or change the name of the columns in the datasette.yaml
+**Current Configuration:**
+- `datasette-cluster-map` is configured to use `GPSLatitude` and `GPSLongitude` columns
+- `datasette-enrichments-opencage` is NOT currently installed (config removed from datasette.yaml)
+- The `exif` table has ~33K photos with GPS data
 
-```yaml
-plugins:
-  datasette-cluster-map:
-    latitude_column: xlat
-    longitude_column: xlng
-```
+**Options to avoid unintended opencage API calls (if plugin were installed):**
+
+1. Rename columns in the exif table from `GPSLatitude` & `GPSLongitude` to `latitude` & `longitude`
+2. Keep current column names but configure datasette-cluster-map to use different column names:
+   ```yaml
+   plugins:
+     datasette-cluster-map:
+       latitude_column: xlat
+       longitude_column: xlng
+   ```
 
 
 ## Display full images from disk
