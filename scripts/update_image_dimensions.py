@@ -29,42 +29,47 @@ def update_dimensions(csv_file, db_file):
     update_count = 0
     skip_count = 0
 
-    with open(csv_file, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
+    try:
+        with open(csv_file, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
 
-        for row in reader:
-            filename = row.get('FileName')
-            width = row.get('ImageWidth')
-            height = row.get('ImageHeight')
+            for row in reader:
+                filename = row.get('FileName')
+                width = row.get('ImageWidth')
+                height = row.get('ImageHeight')
 
-            # Skip rows without dimension data
-            if not width or not height or width == '-' or height == '-':
-                skip_count += 1
-                continue
+                # Skip rows without dimension data
+                if not width or not height or width == '-' or height == '-':
+                    skip_count += 1
+                    continue
 
-            try:
-                width = int(width)
-                height = int(height)
-            except ValueError:
-                skip_count += 1
-                continue
+                try:
+                    width = int(width)
+                    height = int(height)
+                except ValueError:
+                    skip_count += 1
+                    continue
 
-            # Update the exif table
-            cursor.execute("""
-                UPDATE exif
-                SET ImageWidth = ?, ImageHeight = ?
-                WHERE FileName = ?
-            """, (width, height, filename))
+                # Update the exif table
+                cursor.execute("""
+                    UPDATE exif
+                    SET ImageWidth = ?, ImageHeight = ?
+                    WHERE FileName = ?
+                """, (width, height, filename))
 
-            if cursor.rowcount > 0:
-                update_count += 1
+                if cursor.rowcount > 0:
+                    update_count += 1
 
-    # Commit changes
-    conn.commit()
-    conn.close()
-
-    print(f"Successfully updated {update_count} records")
-    print(f"Skipped {skip_count} records (no dimension data)")
+        # Commit changes
+        conn.commit()
+        print(f"Successfully updated {update_count} records")
+        print(f"Skipped {skip_count} records (no dimension data)")
+    except Exception as e:
+        conn.rollback()
+        print(f"Error during database update: {e}")
+        sys.exit(1)
+    finally:
+        conn.close()
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
