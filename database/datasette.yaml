@@ -10,7 +10,7 @@ plugins:
     size_limit: 1000000
   datasette-media:
     thumb:
-      sql: "select thumbnail as content from thumbImages where uuid=:key"
+      sql: "select content from thumbImages where path='./' || :key"
       database: "mediameta"
     photo:
       sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
