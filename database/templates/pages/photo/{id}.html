@@ -76,6 +76,7 @@
 </head>
 <body>
     <div class="container">
+        {# Use parameterized query to prevent SQL injection - datasette-template-sql plugin handles escaping #}
         {% set photo_data = sql("SELECT * FROM exif_with_fullpath WHERE FileName = :filename", {"filename": id}, database="mediameta") %}
 
         {% if photo_data %}
