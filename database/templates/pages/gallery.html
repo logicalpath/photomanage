@@ -184,7 +184,7 @@
                 {% for photo in photos %}
                 <div class="photo-card">
                     <a href="/photo/{{ photo.FileName }}">
-                        <img src="/-/media/thumb/{{ photo.SourceFile[2:] }}"
+                        <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}"
                              alt="{{ photo.FileName }}"
                              class="photo-thumbnail"
                              loading="lazy">
