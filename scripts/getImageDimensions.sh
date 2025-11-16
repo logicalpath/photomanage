@@ -3,6 +3,13 @@
 # Script to extract image dimensions from media files
 # Usage: ./getImageDimensions.sh <directory-path>
 
+# Check if exiftool is installed
+if ! command -v exiftool &> /dev/null; then
+    echo "Error: exiftool is not installed."
+    echo "Please install exiftool to use this script."
+    exit 1
+fi
+
 # Check if a directory argument is provided
 if [ $# -eq 0 ]; then
     echo "Error: No directory specified."
