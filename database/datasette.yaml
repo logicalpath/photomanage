@@ -15,9 +15,6 @@ plugins:
     photo:
       sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
       database: "mediameta"
-  datasette-enrichments-opencage:
-    api_key:
-      $env: OPENCAGE_API_KEY
   datasette-cluster-map:
     latitude_column: GPSLatitude
     longitude_column: GPSLongitude
