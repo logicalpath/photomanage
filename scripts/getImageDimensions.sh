@@ -19,6 +19,13 @@ fi
 
 # Path to the top-level directory
 TOP_DIR=$1
+
+# Verify that the provided path exists and is a directory
+if [ ! -d "$TOP_DIR" ]; then
+    echo "Error: Directory '$TOP_DIR' does not exist."
+    exit 1
+fi
+
 echo "Extracting image dimensions from $TOP_DIR..."
 
 # Output file
