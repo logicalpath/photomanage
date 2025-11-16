@@ -191,7 +191,13 @@
                         <div class="photo-info">
                             <div class="photo-filename">{{ photo.FileName }}</div>
                             {% if photo.CreateDate %}
-                            <div class="photo-date">{{ photo.CreateDate[:10] }}</div>
+                            <div class="photo-date">
+                                {% if photo.CreateDate|length >= 10 %}
+                                    {{ photo.CreateDate[:10] }}
+                                {% else %}
+                                    {{ photo.CreateDate }}
+                                {% endif %}
+                            </div>
                             {% endif %}
                         </div>
                     </a>
