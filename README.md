@@ -97,8 +97,24 @@ Note the total number of files read is 28,391
 ### Convert dates
 ` cat ../src/date_to_iso.py| sqlite-utils convert mediameta.db exif CreateDate -`
 
+### Extract image dimensions
 
+First, add ImageWidth and ImageHeight columns to the exif table:
+```bash
+sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageWidth INTEGER;"
+sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageHeight INTEGER;"
+```
 
+Extract dimensions using exiftool:
+```bash
+cd database
+../scripts/getImageDimensions.sh "/Volumes/Eddie 4TB/MediaFiles/uuid"
+```
+
+Import the dimension data into the database:
+```bash
+python ../scripts/update_image_dimensions.py image-dimensions.csv mediameta.db
+```
 
 ---
 
@@ -128,6 +144,8 @@ datasette -p 8002 --metadata metadata.json media.db
 `datasette -p 8001 -c datasette.yaml mediameta.db`
 
 `datasette -p 8001 --root --load-extension=spatialite -c datasette.yaml mediameta.db`
+
+`datasette -p 8001 --root --load-extension=spatialite --template-dir templates -c datasette.yaml mediameta.db`
 
 
 

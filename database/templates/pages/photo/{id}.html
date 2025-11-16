@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photo: {{ id }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .photo-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #333;
+        }
+        .photo-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        .photo-header a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        .photo-header a:hover {
+            text-decoration: underline;
+        }
+        .photo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .photo-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .photo-info {
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .photo-info h2 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #999;
+        }
+        .info-value {
+            color: #e0e0e0;
+        }
+        .error {
+            background-color: #3d1a1a;
+            color: #ff6b6b;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {# Use parameterized query to prevent SQL injection - datasette-template-sql plugin handles escaping #}
+        {% set photo_data = sql("SELECT * FROM exif_with_fullpath WHERE FileName = :filename", {"filename": id}, database="mediameta") %}
+
+        {% if photo_data %}
+            {% set photo = photo_data[0] %}
+
+            <div class="photo-header">
+                <h1>{{ photo.FileName }}</h1>
+                <a href="/mediameta/exif_with_fullpath?FileName={{ id }}">View in database</a>
+            </div>
+
+            <div class="photo-container">
+                <img src="/-/media/photo/{{ id }}" alt="{{ photo.FileName }}">
+            </div>
+
+            <div class="photo-info">
+                <h2>Photo Information</h2>
+                <div class="info-grid">
+                    <div class="info-label">Filename:</div>
+                    <div class="info-value">{{ photo.FileName }}</div>
+
+                    {% if photo.CreateDate %}
+                    <div class="info-label">Date Created:</div>
+                    <div class="info-value">{{ photo.CreateDate }}</div>
+                    {% endif %}
+
+                    {% if photo.ImageWidth and photo.ImageHeight %}
+                    <div class="info-label">Dimensions:</div>
+                    <div class="info-value">{{ photo.ImageWidth }} x {{ photo.ImageHeight }} pixels</div>
+                    {% endif %}
+
+                    {% if photo.GPSLatitude and photo.GPSLongitude %}
+                    <div class="info-label">Location:</div>
+                    <div class="info-value">
+                        {{ photo.GPSLatitude }}, {{ photo.GPSLongitude }}
+                    </div>
+                    {% endif %}
+
+                    {% if photo.full_path %}
+                    <div class="info-label">Full Path:</div>
+                    <div class="info-value">{{ photo.full_path }}</div>
+                    {% endif %}
+
+                    {% if photo.SourceFile %}
+                    <div class="info-label">Source File:</div>
+                    <div class="info-value">{{ photo.SourceFile }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="error">
+                <h2>Photo Not Found</h2>
+                <p>No photo found with filename: <strong>{{ id }}</strong></p>
+                <p><a href="/mediameta/exif_with_fullpath" style="color: #4a9eff;">Browse all photos</a></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
