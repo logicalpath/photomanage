@@ -233,12 +233,44 @@ Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
 
 #### Viewing Images
 
+**Photo Gallery (Thumbnail Carousel)**
+
+Browse photos with a responsive thumbnail grid at:
+```
+http://127.0.0.1:8001/gallery
+```
+
+Features:
+- Filter by date range (start date and/or end date)
+- Click thumbnails to view full photo with metadata
+- Shows 100 most recent photos by default
+- Responsive grid layout
+
+Example with date filter:
+```
+http://127.0.0.1:8001/gallery?start_date=2016-01-01&end_date=2016-12-31
+```
+
+**Individual Photo Page**
+
+View a single photo with full metadata at:
+```
+http://127.0.0.1:8001/photo/<FileName>
+```
+
+Example:
+```
+http://127.0.0.1:8001/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
+```
+
+**Direct Media Access**
+
 Access images using the datasette-media plugin URL format:
 ```
 http://127.0.0.1:8001/-/media/photo/<FileName>
 ```
 
-**Example:**
+Example:
 ```
 http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
 ```
