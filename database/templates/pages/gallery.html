@@ -131,6 +131,36 @@
             font-size: 24px;
             margin-bottom: 10px;
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .pagination a {
+            padding: 10px 20px;
+            background-color: #4a9eff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .pagination a:hover {
+            background-color: #3a8eef;
+        }
+        .pagination a.disabled {
+            background-color: #2a2a2a;
+            color: #666;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        .pagination .page-info {
+            color: #999;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -152,25 +182,34 @@
             </form>
         </div>
 
-        {# Query photos based on date filter #}
+        {# Query photos based on date filter with pagination #}
         {% set start_date = request.args.get('start_date', '') %}
         {% set end_date = request.args.get('end_date', '') %}
+        {% set page = request.args.get('page', '1')|int %}
+        {% set per_page = 100 %}
+        {% set offset = (page - 1) * per_page %}
 
         {% if start_date and end_date %}
             {# Use parameterized query to prevent SQL injection #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND e.CreateDate <= :end ORDER BY e.CreateDate DESC LIMIT 100", {"start": start_date, "end": end_date}, database="mediameta") %}
+            {# Use LIKE for end date to include all times on that day #}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%') ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"start": start_date, "end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif start_date %}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start ORDER BY e.CreateDate DESC LIMIT 100", {"start": start_date}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"start": start_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif end_date %}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end ORDER BY e.CreateDate DESC LIMIT 100", {"end": end_date}, database="mediameta") %}
+            {# Use LIKE to include all times on the end date #}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%' ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% else %}
             {# Show most recent 100 photos by default #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL ORDER BY e.CreateDate DESC LIMIT 100", database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% endif %}
 
-        {% if photos %}
+        {# Check if there are more results #}
+        {% set has_more = photos|length > per_page %}
+        {% set display_photos = photos[:per_page] %}
+
+        {% if display_photos %}
             <div class="gallery-info">
-                Showing {{ photos|length }} photo(s)
+                Showing {{ display_photos|length }} photo(s)
                 {% if start_date and end_date %}
                     from {{ start_date }} to {{ end_date }}
                 {% elif start_date %}
@@ -180,10 +219,11 @@
                 {% else %}
                     (most recent)
                 {% endif %}
+                - Page {{ page }}
             </div>
 
             <div class="gallery-grid">
-                {% for photo in photos %}
+                {% for photo in display_photos %}
                 <div class="photo-card">
                     <a href="/photo/{{ photo.FileName }}">
                         <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}"
@@ -205,6 +245,23 @@
                     </a>
                 </div>
                 {% endfor %}
+            </div>
+
+            {# Pagination controls #}
+            <div class="pagination">
+                {% if page > 1 %}
+                    <a href="/gallery?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}page={{ page - 1 }}">← Previous</a>
+                {% else %}
+                    <a href="#" class="disabled">← Previous</a>
+                {% endif %}
+
+                <span class="page-info">Page {{ page }}</span>
+
+                {% if has_more %}
+                    <a href="/gallery?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}page={{ page + 1 }}">Next →</a>
+                {% else %}
+                    <a href="#" class="disabled">Next →</a>
+                {% endif %}
             </div>
         {% else %}
             <div class="no-results">

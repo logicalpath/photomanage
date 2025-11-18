@@ -1,0 +1,14 @@
+{% extends "table.html" %}
+
+{% block extra_head %}
+<style>
+    /* Limit image size in table view to match gallery */
+    table td img {
+        max-height: 250px;
+        max-width: 250px;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+    }
+</style>
+{% endblock %}
