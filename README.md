@@ -129,6 +129,37 @@ pipenv install datasette-render-images
 
 sqlite-utils insert-files media.db /Volumes/Eddie\ 4TB/MediaFiles/ThumbFiles/0/*.jpg
 
+### Generate and load thumbnails (Modern approach - November 2025)
+
+**Generate auto-oriented 512x512 thumbnails:**
+```bash
+scripts/create_thumbs_oriented.sh /Volumes/Eddie\ 4TB/MediaFiles/uuid database/512x512 512x512>
+```
+
+This creates thumbnails with:
+- Auto-orientation based on EXIF data (fixes sideways images)
+- 512x512 max dimensions (prevents upsampling with `>` flag)
+- Preserved original file extensions
+
+**Load thumbnails into database:**
+```bash
+python3 scripts/load_thumbnails_to_db.py
+```
+
+This script:
+- Clears existing thumbnails from `thumbImages` table
+- Loads all files from `database/512x512/` directory
+- Transforms paths from `database/512x512/0/file.jpg` to `./0/file.jpg`
+- Inserts BLOB content, file size, and path
+
+**Populate CreateDate column:**
+After loading thumbnails, populate the `CreateDate` column from the `exif` table:
+```bash
+sqlite3 database/mediameta.db "UPDATE thumbImages SET CreateDate = (SELECT CreateDate FROM exif WHERE exif.SourceFile = thumbImages.path)"
+```
+
+This links thumbnails to their EXIF metadata creation dates.
+
 ### bring up the media db
 
 datasette -p 8002 --metadata metadata.json media.db
@@ -249,7 +280,8 @@ http://127.0.0.1:8001/gallery
 Features:
 - Filter by date range (start date and/or end date)
 - Click thumbnails to view full photo with metadata
-- Shows 100 most recent photos by default
+- Pagination (100 photos per page with Previous/Next navigation)
+- Auto-oriented 512x512 thumbnails for optimal quality
 - Responsive grid layout
 
 Example with date filter:

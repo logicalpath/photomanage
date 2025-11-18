@@ -26,7 +26,7 @@ SQLite database located at `database/mediameta.db` containing metadata for media
 ### Utility Tables
 - **mappings** - Old to new filename mappings
 - **videorez** - Video resolution information (width/height)
-- **filenames** / **thumbFiles** - File listings with sizes
+- **filenames** - File listings with sizes
 - **gpscage** - GPS and date metadata subset
 
 ### Duplicate Detection
@@ -35,7 +35,6 @@ SQLite database located at `database/mediameta.db` containing metadata for media
 
 ### Error Tracking
 - **previewerrs** - Preview generation errors
-- **thumberrs** - Thumbnail generation errors
 
 ### Data Processing
 - **_enrichment_jobs** - Job processing queue
@@ -68,7 +67,7 @@ Multiple tables share the `SourceFile` column as a common key:
 - **mappings** - Connects old and new filenames for rename tracking
 - **videorez.File** - References video files for resolution data
 - **duptime/dups2008** - Track duplicate files by dates and filenames
-- **previewerrs/thumberrs** - Reference files that had processing errors
+- **previewerrs** - References files that had preview processing errors
 
 ## Key Observations
 
@@ -97,7 +96,7 @@ Multiple tables store location data:
 
 ### Record Counts
 - exif: 32,968 records
-- thumbImages: 31,825 records (difference explained by 1,123 videos + ~20 failed thumbnails)
+- thumbImages: 31,841 records (512x512 thumbnails with auto-orientation)
 - exifAll: 32,969 records
 
-The discrepancy in counts is fully explained by the presence of 1,123 video files (which do not have thumbnails in `thumbImages`) and approximately 20 failed thumbnail generations, as detailed in sourcefile-consistency-analysis.md.
+The discrepancy in counts is primarily explained by the presence of 1,123 video files (which do not have thumbnails in `thumbImages`), as detailed in sourcefile-consistency-analysis.md. Following the November 2025 thumbnail upgrade, all processable images now have auto-oriented 512x512 thumbnails.
