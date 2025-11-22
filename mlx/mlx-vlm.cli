@@ -7,10 +7,23 @@ Using uv
 uv run \
   --with mlx-vlm \
   --with torch \
-  python -m mlx_vlm.generate \
+  --with num2words \
+  python -m mlx_vlm generate \
     --model mlx-community/SmolVLM-Instruct-bf16 \
     --max-tokens 500 \
     --temp 0.5 \
     --prompt "Describe this image in detail" \
     --image test.jpg
 
+
+# SmolVLM2 - 2.2B parameters
+uv run \
+  --with mlx-vlm \
+  --with torch \
+  --with num2words \
+  python -m mlx_vlm generate \
+    --model mlx-community/SmolVLM2-2.2B-Instruct-mlx \
+    --max-tokens 500 \
+    --temp 0.0 \
+    --prompt "Describe this image in detail" \
+    --image test.jpg
