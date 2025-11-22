@@ -6,15 +6,65 @@ This document provides a comprehensive analysis of all tools, scripts, and comma
 ---
 
 ## Table of Contents
-1. [Primary Media Discovery Tools](#primary-media-discovery-tools)
-2. [EXIF Metadata Extraction](#exif-metadata-extraction)
-3. [File Listing Utilities](#file-listing-utilities)
-4. [Thumbnail Generation](#thumbnail-generation)
-5. [Video Preview Generation](#video-preview-generation)
-6. [Python File Discovery Scripts](#python-file-discovery-scripts)
-7. [Supported File Formats](#supported-file-formats)
-8. [Common Workflows](#common-workflows)
-9. [Dependencies](#dependencies)
+1. [README Commands: Automated vs Manual](#readme-commands-automated-vs-manual)
+2. [Primary Media Discovery Tools](#primary-media-discovery-tools)
+3. [EXIF Metadata Extraction](#exif-metadata-extraction)
+4. [File Listing Utilities](#file-listing-utilities)
+5. [Thumbnail Generation](#thumbnail-generation)
+6. [Video Preview Generation](#video-preview-generation)
+7. [Python File Discovery Scripts](#python-file-discovery-scripts)
+8. [Supported File Formats](#supported-file-formats)
+9. [Common Workflows](#common-workflows)
+10. [Dependencies](#dependencies)
+
+---
+
+## README Commands: Automated vs Manual
+
+The README.md file documents 9 distinct command patterns. This section categorizes each command as either **automated** (implemented in scripts/src files) or **manual** (one-off workflow commands).
+
+### ✅ Automated Commands (Implemented in Scripts)
+
+These commands have corresponding implementations in the scripts/ or src/ directories:
+
+| # | README Command | Implementation | File Location | Notes |
+|---|----------------|----------------|---------------|-------|
+| 1 | `scripts/find_media_photolibrary.sh folder` | Standalone Script | `scripts/find_media_photolibrary.sh` | Direct match |
+| 2 | `find_media.sh` (deprecated) | Alternative Script | `scripts/find_media_folders.sh` | Replacement for missing script |
+| 3 | `getExifData.py` (deprecated) | Alternative Scripts | `scripts/getFoldersExif.sh`<br>`scripts/getAllExif.sh` | Shell alternatives for missing Python script |
+| 4 | `find . -type f ! -path '*/.*' \| wc -l` | Within Script | `scripts/move_uuid_dest.sh:26,44` | Used for file count verification |
+| 5 | `find . -type f ! -path '*/._*' -exec ls -l {} + \| awk '{print $9, $5}'` | Standalone Script | `scripts/list_files.sh:5,7` | Multiple output variations |
+| 6 | `b2 authorize-account`<br>`b2 download-file-by-name` | Python SDK Wrapper | `src/b2-file.py` | Uses `b2sdk.v2` instead of CLI commands |
+
+**Total: 6 command patterns with implementations**
+
+---
+
+### ⚠️ Manual Workflow Commands (No Automation)
+
+These commands are one-off data manipulation tasks shown as examples in the README. They are not automated within any scripts:
+
+| # | README Command | Purpose | Why Manual |
+|---|----------------|---------|------------|
+| 1 | `cat exclusions.csv \| awk -F '.' '{print $NF}' \| sort \| uniq` | Find potential media types missed in discovery | Ad-hoc data analysis to discover new extensions |
+| 2 | `sort -t',' -k3 -n -r Movies-output.csv -o sorted_movies.csv` | Sort media files by size | One-time CSV sorting for exploration |
+| 3 | `find . -name 'mapping.csv' > mappings.txt` | Locate all mapping CSVs from rename operations | One-time file discovery for workflow setup |
+
+**Total: 3 command patterns as manual examples only**
+
+---
+
+### Key Insights
+
+- **66% automated** (6 of 9 commands have script implementations)
+- **33% manual-only** (3 of 9 are ad-hoc workflow commands)
+- **All primary operations are automated:** Media finding, EXIF extraction, file listing, cloud integration
+- **Manual commands are for:** Extension discovery, CSV sorting, mapping file location
+- **Implementation approaches:**
+  - **Direct scripts:** find_media_photolibrary.sh, find_media_folders.sh
+  - **Alternative implementations:** getFoldersExif.sh replaces getExifData.py
+  - **Embedded in scripts:** File counting in move_uuid_dest.sh
+  - **Different technology:** Python SDK instead of B2 CLI
 
 ---
 
@@ -269,58 +319,9 @@ cd database
 
 ## File Listing Utilities
 
-### README Commands
+This section covers both automated scripts and manual README commands for file listing operations.
 
-#### Count files recursively (excluding hidden)
-```bash
-find . -type f ! -path '*/.*' | wc -l
-```
-**Purpose:** Count all non-hidden files in directory tree
-
----
-
-#### Get list of new filenames
-```bash
-# Simple list
-find . -type f ! -path '*/._*' > newfilenames.txt
-
-# With file sizes (filename, size)
-find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}' > <filename>.txt
-
-# With file sizes (size, filename)
-find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $5, $9}' > <filename>.txt
-```
-**Purpose:** Generate file listings for database import workflows
-
-**Key features:**
-- Excludes Apple resource fork files (`._*`)
-- Can include file sizes via `ls -l` and `awk`
-
-**Status:** ✅ Active (part of rename/move workflow)
-
----
-
-#### Find mapping files
-```bash
-find . -name 'mapping.csv' > mappings.txt
-```
-**Purpose:** Locate all mapping CSVs from rename operations
-
-**Status:** ✅ Active (part of UUID rename workflow)
-
----
-
-#### Sort exclusions to find missed media types
-```bash
-cat exclusions.csv | awk -F '.' '{print $NF}' | sort | uniq
-```
-**Purpose:** Analyze excluded files to discover media types not in extension list
-
-**Status:** ✅ Active utility workflow
-
----
-
-### list_files.sh
+### 🤖 Automated: list_files.sh
 **Location:** `scripts/list_files.sh`
 
 **Purpose:** Generate multiple file listing formats for database workflows
@@ -342,10 +343,79 @@ cd <directory>
 - Excludes Apple resource fork files (`._*`)
 - Three different output formats for flexibility
 - Uses `awk` for structured data extraction
+- **Implements README pattern:** `find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}'`
 
 **Dependencies:** `find`, `ls`, `awk`
 
 **Status:** ✅ Active
+
+---
+
+### 🤖 Automated: File Counting (Embedded)
+**Location:** `scripts/move_uuid_dest.sh:26,44`
+
+**Purpose:** Count all non-hidden files in directory tree
+
+**Command:**
+```bash
+find . -type f ! -path '*/.*' | wc -l
+```
+
+**Usage:** Automatically used within move_uuid_dest.sh for verification
+
+**Key features:**
+- Counts files before and after move operation
+- Validates file transfer completeness
+- **Implements README pattern exactly**
+
+**Status:** ✅ Active (embedded in script)
+
+---
+
+### 📝 Manual: README File Listing Commands
+
+These commands appear in the README as manual workflow examples:
+
+#### Get list of new filenames (MANUAL)
+```bash
+# Simple list
+find . -type f ! -path '*/._*' > newfilenames.txt
+
+# With file sizes (filename, size)
+find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}' > <filename>.txt
+
+# With file sizes (size, filename)
+find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $5, $9}' > <filename>.txt
+```
+**Purpose:** Generate file listings for database import workflows
+
+**Implementation Status:** ⚠️ Partially automated - list_files.sh implements the awk pattern variants
+
+**Status:** ✅ Active (part of rename/move workflow)
+
+---
+
+#### Find mapping files (MANUAL)
+```bash
+find . -name 'mapping.csv' > mappings.txt
+```
+**Purpose:** Locate all mapping CSVs from rename operations
+
+**Implementation Status:** ❌ No automation - manual one-off command
+
+**Status:** ✅ Active (part of UUID rename workflow)
+
+---
+
+#### Sort exclusions to find missed media types (MANUAL)
+```bash
+cat exclusions.csv | awk -F '.' '{print $NF}' | sort | uniq
+```
+**Purpose:** Analyze excluded files to discover media types not in extension list
+
+**Implementation Status:** ❌ No automation - manual data analysis command
+
+**Status:** ✅ Active utility workflow
 
 ---
 
@@ -994,14 +1064,18 @@ All Python scripts use **standard library only**:
 
 ## Notes
 
-1. All shell scripts use `get-basename.sh` helper for consistent folder name extraction
-2. Case-insensitive extension matching is standard across all media discovery tools
-3. Apple resource fork files (`._*`) are explicitly excluded in most workflows
-4. Extension lists are consistent: jpeg, jpg, nef, png, mov, mp4, 3g2, 3gp, aae, avi, gif, heic, m4v, mpg, pdf, psd, tiff, tif
-5. Modern workflows (November 2025) use auto-oriented thumbnails and database BLOB storage
-6. Python scripts use only standard library (no external dependencies beyond command-line tools)
+1. **Command Implementation:** 66% of README commands (6 of 9) have automated implementations in scripts/src files
+2. **Manual vs Automated:** Manual commands are primarily for ad-hoc data analysis (extension discovery, CSV sorting, mapping file location)
+3. All shell scripts use `get-basename.sh` helper for consistent folder name extraction
+4. Case-insensitive extension matching is standard across all media discovery tools
+5. Apple resource fork files (`._*`) are explicitly excluded in most workflows
+6. Extension lists are consistent: jpeg, jpg, nef, png, mov, mp4, 3g2, 3gp, aae, avi, gif, heic, m4v, mpg, pdf, psd, tiff, tif
+7. Modern workflows (November 2025) use auto-oriented thumbnails and database BLOB storage
+8. Python scripts use only standard library (no external dependencies beyond command-line tools)
+9. **Implementation patterns:** Direct scripts (find_media_folders.sh), alternative implementations (getFoldersExif.sh), embedded commands (move_uuid_dest.sh), SDK wrappers (b2-file.py)
 
 ---
 
 *Document generated: November 2025*
-*Based on analysis of photomanage repository at commit f5408585*
+*Based on analysis of photomanage repository*
+*Analysis includes categorization of automated vs manual commands from README*
