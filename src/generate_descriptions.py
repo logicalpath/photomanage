@@ -191,7 +191,8 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
                 "file": f"./{rel_path}",
                 "description": description_text.strip(),
                 "model": model,
-                "generation_time_seconds": round(elapsed_time, 2)
+                "generation_time_seconds": round(elapsed_time, 2),
+                "error": False
             })
 
             click.echo(f"  Completed in {elapsed_time:.2f}s")
@@ -200,12 +201,13 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
             append_to_progress_file(str(rel_path))
 
         except Exception as e:
-            click.echo(f"  Error processing {rel_path}: {e}")
+            click.echo(f"  Error processing {rel_path}: {e}", err=True)
             results.append({
                 "file": f"./{rel_path}",
                 "description": f"Error: {str(e)}",
                 "model": model,
-                "generation_time_seconds": None
+                "generation_time_seconds": None,
+                "error": True
             })
 
     # Generate output filename with timestamp
@@ -216,8 +218,15 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
+    # Count successes and errors
+    successful = sum(1 for r in results if not r.get('error', False))
+    failed = sum(1 for r in results if r.get('error', False))
+
     click.echo(f"\n✓ Analysis complete!")
-    click.echo(f"  Processed: {len(results)} files")
+    click.echo(f"  Total processed: {len(results)} files")
+    click.echo(f"  Successful: {successful}")
+    if failed > 0:
+        click.echo(f"  Failed: {failed}", err=True)
     click.echo(f"  Output saved to: {output_file}")
     click.echo(f"  Progress tracked in: {PROGRESS_FILE}")
 
