@@ -24,6 +24,8 @@ mlx-vlm = "*"
 pyyaml = "*"
 datasette-template-sql = "*"
 num2words = "*"
+psutil = "*"
+click = "*"
 
 [dev-packages]
 
