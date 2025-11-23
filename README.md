@@ -1,5 +1,5 @@
 # photomanage
-Scripts and ideas to manage tons and tons of images and movies
+Scripts and ideas to manage tons and tons of images and movies. The code was/is developted using ai coding agents. I started with chatgpt 4.0, then Claude with various models and now with Claude Code and Claude Sonnet 4.5 (as of Nov 23, 2025). 
 
 
 ## Find media in apple photos library
@@ -160,28 +160,14 @@ sqlite3 database/mediameta.db "UPDATE thumbImages SET CreateDate = (SELECT Creat
 
 This links thumbnails to their EXIF metadata creation dates.
 
-### bring up the media db
+### Start Datasette
 
-datasette -p 8002 --metadata metadata.json media.db
-
-### extend time limit
-`(photomanage) X1 database > datasette -p 8001 --setting sql_time_limit_ms 5500  --metadata metadata2.json mediameta.db`
-
-### New config file
-**Note:** The `datasette.yaml` config file is located in the `database/` directory. Run these commands from that directory:
-
-`datasette -c datasette.yaml`
-
-`datasette -p 8001 -c datasette.yaml mediameta.db`
-
-`datasette -p 8001 --root --load-extension=spatialite -c datasette.yaml mediameta.db`
-
-`datasette -p 8001 --root --load-extension=spatialite --template-dir templates -c datasette.yaml mediameta.db`
-
-
-
-### Being an actor - is this how to specify the actor on the command line?
-`datasette --memory --actor '{"id": "root"}' --get '/-/actor.json'`
+```bash
+datasette -p 8001 --root --load-extension=spatialite \
+    --template-dir datasette/templates \
+    -c datasette/datasette.yaml \
+    database/mediameta.db
+```
 
 ### Plugins
 
