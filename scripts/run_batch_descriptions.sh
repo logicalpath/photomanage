@@ -6,12 +6,13 @@
 # system from sleeping. The process runs in the background and logs to a file.
 #
 # Usage:
-#   ./scripts/run_batch_descriptions.sh [directory] [batch_size] [cooldown] [model]
+#   ./scripts/run_batch_descriptions.sh [directory] [batch_size] [cooldown] [model] [max_tokens] [temp]
 #
 # Examples:
 #   ./scripts/run_batch_descriptions.sh
 #   ./scripts/run_batch_descriptions.sh database/512x512 50 60
 #   ./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm2
+#   ./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm 300 0.7
 #
 
 # Default values
@@ -19,6 +20,8 @@ DIRECTORY="${1:-database/512x512}"
 BATCH_SIZE="${2:-100}"
 COOLDOWN="${3:-30}"
 MODEL="${4:-smolvlm}"
+MAX_TOKENS="${5:-500}"
+TEMP="${6:-0.0}"
 
 # PID file location
 PID_FILE="batch_orchestrator.pid"
@@ -53,6 +56,8 @@ echo "Directory:      $DIRECTORY"
 echo "Batch size:     $BATCH_SIZE images per batch"
 echo "Cooldown:       ${COOLDOWN}s between batches"
 echo "Model:          $MODEL"
+echo "Max tokens:     $MAX_TOKENS"
+echo "Temperature:    $TEMP"
 echo ""
 
 # Count files
@@ -70,6 +75,8 @@ nohup caffeinate -i python3 src/batch_orchestrator.py \
     --batch-size "$BATCH_SIZE" \
     --cooldown "$COOLDOWN" \
     --model "$MODEL" \
+    --max-tokens "$MAX_TOKENS" \
+    --temp "$TEMP" \
     > logs/orchestrator_console.log 2>&1 &
 
 # Save the PID
