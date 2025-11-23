@@ -15,12 +15,6 @@ TODO
 
 
 # Data
-database/*.csv
-database/*.db
-database/*.txt
-
-database/224x224
-database/512x512
-
-database/Test224
+database/
+outputs/
 

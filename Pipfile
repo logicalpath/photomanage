@@ -23,6 +23,7 @@ torchvision = "*"
 mlx-vlm = "*"
 pyyaml = "*"
 datasette-template-sql = "*"
+num2words = "*"
 
 [dev-packages]
 
