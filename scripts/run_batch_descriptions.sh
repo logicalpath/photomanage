@@ -6,11 +6,12 @@
 # system from sleeping. The process runs in the background and logs to a file.
 #
 # Usage:
-#   ./scripts/run_batch_descriptions.sh [directory] [batch_size] [cooldown]
+#   ./scripts/run_batch_descriptions.sh [directory] [batch_size] [cooldown] [model]
 #
 # Examples:
 #   ./scripts/run_batch_descriptions.sh
 #   ./scripts/run_batch_descriptions.sh database/512x512 50 60
+#   ./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm2
 #
 
 # Default values
@@ -78,7 +79,7 @@ echo $ORCHESTRATOR_PID > "$PID_FILE"
 # Wait a moment to check if it started successfully
 sleep 2
 
-if ps -p $ORCHESTRATOR_PID > /dev/null 2>&1; then
+if ps -p "$ORCHESTRATOR_PID" > /dev/null 2>&1; then
     echo "✅ Batch orchestrator started successfully!"
     echo ""
     echo "Process ID:     $ORCHESTRATOR_PID"

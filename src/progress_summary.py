@@ -17,7 +17,6 @@ import json
 import os
 import re
 from collections import defaultdict
-from datetime import datetime
 from pathlib import Path
 
 
@@ -76,7 +75,18 @@ def analyze_outputs():
             print(f"Warning: Could not read {output_file}: {e}")
 
     if not generation_times:
-        return None
+        # No successful generations with timing, but return failure stats
+        return {
+            'total_processed': total_processed,
+            'total_successful': total_successful,
+            'total_failed': total_failed,
+            'success_rate': (total_successful / total_processed * 100) if total_processed > 0 else 0,
+            'avg_time': None,
+            'median_time': None,
+            'min_time': None,
+            'max_time': None,
+            'errors_by_type': dict(errors_by_type)
+        }
 
     # Calculate statistics
     avg_time = sum(generation_times) / len(generation_times)
@@ -118,7 +128,6 @@ def analyze_logs():
     errors = []
 
     # Regex patterns
-    batch_pattern = re.compile(r'Starting batch (\d+)')
     memory_pattern = re.compile(r'Memory: ([\d.]+)%')
     cpu_pattern = re.compile(r'CPU: ([\d.]+)%')
     error_pattern = re.compile(r'ERROR.*?- (.*)')
@@ -202,10 +211,19 @@ def main():
         print(f"Failed:               {output_stats['total_failed']}")
         print(f"Success rate:         {output_stats['success_rate']:.1f}%")
 
-        print(f"\nGeneration time per image:")
-        print(f"  Average:            {output_stats['avg_time']:.2f}s")
-        print(f"  Median:             {output_stats['median_time']:.2f}s")
-        print(f"  Range:              {output_stats['min_time']:.2f}s - {output_stats['max_time']:.2f}s")
+        if (
+            output_stats['avg_time'] is not None and
+            output_stats['median_time'] is not None and
+            output_stats['min_time'] is not None and
+            output_stats['max_time'] is not None
+        ):
+            print(f"\nGeneration time per image:")
+            print(f"  Average:            {output_stats['avg_time']:.2f}s")
+            print(f"  Median:             {output_stats['median_time']:.2f}s")
+            print(f"  Range:              {output_stats['min_time']:.2f}s - {output_stats['max_time']:.2f}s")
+        else:
+            print("\nGeneration time per image:")
+            print("  Timing data unavailable.")
 
         if output_stats['errors_by_type']:
             print(f"\nError breakdown:")

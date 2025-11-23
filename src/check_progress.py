@@ -12,6 +12,7 @@ Example:
 """
 
 import argparse
+import json
 import os
 import sys
 from datetime import datetime, timedelta
@@ -87,12 +88,13 @@ def get_recent_errors():
                 if 'ERROR' in line or 'failed' in line.lower():
                     error_count += 1
     except Exception:
+        # Ignore errors reading log files (e.g., file not found, permission issues)
         pass
 
     return error_count
 
 
-def estimate_time_remaining(completed: int, total: int, last_modified: datetime) -> tuple:
+def estimate_time_remaining(completed: int, total: int, last_modified: datetime) -> tuple[float | None, float | None, bool]:
     """
     Estimate time remaining based on recent progress.
 
@@ -108,11 +110,6 @@ def estimate_time_remaining(completed: int, total: int, last_modified: datetime)
 
     if is_stale:
         return None, None, True
-
-    # Calculate rate based on time since last update
-    # Assume the last file was just completed
-    # This is a rough estimate - real rate tracking would need timestamps per file
-    hours_elapsed = time_since_update.total_seconds() / 3600
 
     # For a better estimate, assume average processing time
     # Check outputs directory for recent timing data
@@ -132,7 +129,7 @@ def estimate_time_remaining(completed: int, total: int, last_modified: datetime)
     return hours_remaining, rate_per_hour, False
 
 
-def estimate_avg_time_per_image() -> float:
+def estimate_avg_time_per_image() -> float | None:
     """
     Estimate average time per image from recent output files.
 
@@ -149,7 +146,6 @@ def estimate_avg_time_per_image() -> float:
         return None
 
     try:
-        import json
         with open(output_files[0], 'r') as f:
             data = json.load(f)
 
@@ -167,6 +163,7 @@ def estimate_avg_time_per_image() -> float:
             return sum(times) / len(times)
 
     except Exception:
+        # Ignore errors reading JSON files (e.g., malformed JSON, file access issues)
         pass
 
     return None
