@@ -7,7 +7,7 @@ database-native configuration approach using a config table and view.
 
 What it does:
 1. Creates photomanage_config table
-2. Reads current prefix from media_config.yaml
+2. Reads current prefix from datasette/media_config.yaml
 3. Inserts configuration into database
 4. Creates exif_with_fullpath view for dynamic path computation
 5. Verifies paths match existing prefixed_path column
@@ -30,12 +30,12 @@ from pathlib import Path
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.parent
 DATABASE_PATH = PROJECT_ROOT / "database" / "mediameta.db"
-CONFIG_PATH = PROJECT_ROOT / "media_config.yaml"
+CONFIG_PATH = PROJECT_ROOT / "datasette" / "media_config.yaml"
 
 
 def read_media_config():
-    """Read the media prefix path from media_config.yaml"""
-    print("Reading media prefix from media_config.yaml...")
+    """Read the media prefix path from datasette/media_config.yaml"""
+    print("Reading media prefix from datasette/media_config.yaml...")
 
     if not CONFIG_PATH.exists():
         print(f"  ✗ Error: {CONFIG_PATH} not found")

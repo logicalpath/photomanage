@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Update the prefixed_path column in the exif table based on media_config.yaml
+Update the prefixed_path column in the exif table based on datasette/media_config.yaml
 
 This script reads the media prefix path from the configuration file and updates
 all rows in the exif table to regenerate the prefixed_path column.
@@ -15,7 +15,7 @@ import os
 import sys
 
 
-def load_config(config_path="media_config.yaml"):
+def load_config(config_path="datasette/media_config.yaml"):
     """Load configuration from YAML file"""
     if not os.path.exists(config_path):
         print(f"Error: Configuration file '{config_path}' not found")
