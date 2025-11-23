@@ -32,12 +32,15 @@ class BatchOrchestrator:
 
     def __init__(self, directory: str, batch_size: int = 100,
                  cooldown: int = 30, model: str = 'smolvlm',
-                 max_memory_percent: float = 85.0):
+                 max_memory_percent: float = 85.0,
+                 max_tokens: int = 500, temp: float = 0.0):
         self.directory = Path(directory)
         self.batch_size = batch_size
         self.cooldown = cooldown
         self.model = model
         self.max_memory_percent = max_memory_percent
+        self.max_tokens = max_tokens
+        self.temp = temp
         self.progress_file = "photo_descriptions_progress.txt"
 
         # Set up logging
@@ -155,7 +158,9 @@ class BatchOrchestrator:
             "src/generate_descriptions.py",
             str(self.directory),
             str(self.batch_size),
-            "--model", self.model
+            "--model", self.model,
+            "--max-tokens", str(self.max_tokens),
+            "--temp", str(self.temp)
         ]
 
         self.logger.info(f"Running: {' '.join(cmd)}")
@@ -193,6 +198,8 @@ class BatchOrchestrator:
         self.logger.info(f"Batch size: {self.batch_size}")
         self.logger.info(f"Cooldown: {self.cooldown}s")
         self.logger.info(f"Model: {self.model}")
+        self.logger.info(f"Max tokens: {self.max_tokens}")
+        self.logger.info(f"Temperature: {self.temp}")
         self.logger.info("=" * 70)
 
         batch_num = 0
@@ -296,6 +303,18 @@ def main():
         default=85.0,
         help='Maximum memory usage percent before pausing (default: 85.0)'
     )
+    parser.add_argument(
+        '--max-tokens',
+        type=int,
+        default=500,
+        help='Maximum tokens to generate per image (default: 500)'
+    )
+    parser.add_argument(
+        '--temp',
+        type=float,
+        default=0.0,
+        help='Temperature for generation (default: 0.0)'
+    )
 
     args = parser.parse_args()
 
@@ -310,7 +329,9 @@ def main():
         batch_size=args.batch_size,
         cooldown=args.cooldown,
         model=args.model,
-        max_memory_percent=args.max_memory
+        max_memory_percent=args.max_memory,
+        max_tokens=args.max_tokens,
+        temp=args.temp
     )
 
     orchestrator.run()
