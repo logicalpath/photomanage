@@ -142,13 +142,12 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
 
     # Load the appropriate model
     click.echo(f"\nLoading {model} model...")
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     if model.lower() == 'smolvlm2':
         # Import here to avoid loading both models
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         from smolvlm2_helper import SmolVLM2Helper
         vlm = SmolVLM2Helper()
     else:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         from smolvlm_helper import SmolVLMHelper
         vlm = SmolVLMHelper()
 
