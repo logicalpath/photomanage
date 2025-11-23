@@ -6,7 +6,7 @@ This document outlines the migration from a YAML-based + computed column approac
 ## Current State
 
 ### Architecture
-- **Configuration**: `media_config.yaml` stores the media prefix path
+- **Configuration**: `datasette/media_config.yaml` stores the media prefix path
 - **Database Column**: `exif.prefixed_path` stores pre-computed absolute paths
 - **Maintenance Script**: `src/update_prefix_path.py` regenerates `prefixed_path` when prefix changes
 
@@ -61,7 +61,7 @@ VALUES ('media_prefix_path',
         'Absolute path prefix for media files');
 ```
 
-**Source**: Read current value from `media_config.yaml`
+**Source**: Read current value from `datasette/media_config.yaml`
 
 #### Step 1.3: Create View for Full Paths
 ```sql
@@ -180,7 +180,7 @@ After dropping `prefixed_path` column:
 ### Script: `src/migrate_to_config_table.py`
 
 **What it does**:
-1. Reads current prefix from `media_config.yaml`
+1. Reads current prefix from `datasette/media_config.yaml`
 2. Creates `photomanage_config` table
 3. Inserts configuration
 4. Creates `exif_with_fullpath` view
@@ -199,7 +199,7 @@ python src/migrate_to_config_table.py
 
 **Expected output**:
 ```
-Reading media prefix from media_config.yaml...
+Reading media prefix from datasette/media_config.yaml...
   Found: /Volumes/Eddie 4TB/MediaFiles/uuid
 
 Creating photomanage_config table...
