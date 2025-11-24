@@ -222,6 +222,9 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
                 "error": True
             })
 
+            # Track failed files to prevent duplicate entries on resume
+            append_to_progress_file(str(rel_path))
+
     # Load existing results if file exists
     all_results = []
     if os.path.exists(output_file):
@@ -230,7 +233,13 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
                 all_results = json.load(f)
             click.echo(f"Loaded {len(all_results)} existing results from {output_file}")
         except (json.JSONDecodeError, IOError) as e:
-            click.echo(f"Warning: Could not read existing results: {e}", err=True)
+            click.echo(f"Error: Could not read existing results file: {e}", err=True)
+            click.echo(f"The file may be corrupted or inaccessible: {output_file}", err=True)
+            response = input("Continue anyway? This may overwrite existing data. (y/n): ").strip().lower()
+            if response not in ('y', 'yes'):
+                click.echo("Exiting to prevent data loss. Please fix the JSON file and try again.")
+                sys.exit(1)
+            click.echo("Continuing with empty results. Previous data will be lost.")
             all_results = []
 
     # Append new results
