@@ -75,6 +75,9 @@ def find_all_files(directory: str) -> tuple[List[Path], Path]:
             if not path.name.startswith('.') and path.name.lower() not in skip_files:
                 files.append(path)
 
+    # Sort files alphabetically for predictable processing order
+    files.sort()
+
     return files, directory_path
 
 
@@ -92,8 +95,8 @@ def prompt_resume() -> bool:
 @click.option('--output-dir', default='outputs', help='Directory for output files')
 @click.option('--prompt', default='<image>Describe this image in detail',
               help='Prompt to use for image description (will auto-add <image> token if missing)')
-@click.option('--max-tokens', default=500, type=int, help='Maximum tokens to generate')
-@click.option('--temp', default=0.0, type=float, help='Temperature for generation')
+@click.option('--max-tokens', default=500, type=int, help='Maximum tokens to generate (default: 500)')
+@click.option('--temp', default=0.0, type=float, help='Temperature for generation, range 0.0-1.0 (default: 0.0)')
 def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
     """
     Generate descriptions for images in a directory using SmolVLM models.
@@ -104,10 +107,19 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    # Check for existing progress file
+    # Define output file path
+    output_file = os.path.join(output_dir, "image_analysis.json")
+
+    # Check for existing progress file and output file
     completed_files = set()
     if os.path.exists(PROGRESS_FILE):
-        if prompt_resume():
+        # Check if output file also exists (consistent state)
+        if not os.path.exists(output_file):
+            click.echo("Warning: Progress file exists but output file is missing.")
+            click.echo("This indicates an inconsistent state. Starting fresh.")
+            delete_progress_file()
+            click.echo("Deleted progress file. Starting fresh.")
+        elif prompt_resume():
             completed_files = load_progress_file()
             click.echo(f"Resuming: {len(completed_files)} files already processed")
         else:
@@ -210,23 +222,35 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
                 "error": True
             })
 
-    # Generate output filename with timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = os.path.join(output_dir, f"image_analysis_{timestamp}.json")
+    # Load existing results if file exists
+    all_results = []
+    if os.path.exists(output_file):
+        try:
+            with open(output_file, 'r', encoding='utf-8') as f:
+                all_results = json.load(f)
+            click.echo(f"Loaded {len(all_results)} existing results from {output_file}")
+        except (json.JSONDecodeError, IOError) as e:
+            click.echo(f"Warning: Could not read existing results: {e}", err=True)
+            all_results = []
 
-    # Write results to JSON file
+    # Append new results
+    all_results.extend(results)
+
+    # Write all results to JSON file
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        json.dump(all_results, f, indent=2, ensure_ascii=False)
 
-    # Count successes and errors
+    # Count successes and errors for this batch
     successful = sum(1 for r in results if not r.get('error', False))
     failed = sum(1 for r in results if r.get('error', False))
 
+    # Count cumulative totals
+    total_successful = sum(1 for r in all_results if not r.get('error', False))
+    total_failed = sum(1 for r in all_results if r.get('error', False))
+
     click.echo(f"\n✓ Analysis complete!")
-    click.echo(f"  Total processed: {len(results)} files")
-    click.echo(f"  Successful: {successful}")
-    if failed > 0:
-        click.echo(f"  Failed: {failed}", err=True)
+    click.echo(f"  This batch: {len(results)} files ({successful} successful, {failed} failed)")
+    click.echo(f"  Cumulative total: {len(all_results)} files ({total_successful} successful, {total_failed} failed)")
     click.echo(f"  Output saved to: {output_file}")
     click.echo(f"  Progress tracked in: {PROGRESS_FILE}")
 
