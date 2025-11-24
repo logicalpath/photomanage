@@ -235,6 +235,13 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
         except (json.JSONDecodeError, IOError) as e:
             click.echo(f"Error: Could not read existing results file: {e}", err=True)
             click.echo(f"The file may be corrupted or inaccessible: {output_file}", err=True)
+
+            # Auto-exit in non-interactive mode (e.g., batch processing)
+            if not sys.stdin.isatty():
+                click.echo("Running in non-interactive mode. Exiting to prevent data loss.", err=True)
+                sys.exit(1)
+
+            # In interactive mode, prompt user
             response = input("Continue anyway? This may overwrite existing data. (y/n): ").strip().lower()
             if response not in ('y', 'yes'):
                 click.echo("Exiting to prevent data loss. Please fix the JSON file and try again.")
