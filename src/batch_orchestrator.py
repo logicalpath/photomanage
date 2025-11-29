@@ -26,6 +26,9 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+# Stop flag file - checked between batches for graceful shutdown
+STOP_FLAG_FILE = ".stop_requested"
+
 
 class BatchOrchestrator:
     """Orchestrates batch processing of images with memory management."""
@@ -99,6 +102,10 @@ class BatchOrchestrator:
 
         with open(self.progress_file, 'r') as f:
             return sum(1 for line in f if line.strip())
+
+    def check_stop_requested(self) -> bool:
+        """Check if a graceful stop has been requested via flag file."""
+        return os.path.exists(STOP_FLAG_FILE)
 
     def check_memory(self) -> tuple[bool, float]:
         """
@@ -209,6 +216,11 @@ class BatchOrchestrator:
 
         try:
             while True:
+                # Check for stop request before starting new batch
+                if self.check_stop_requested():
+                    self.logger.info("Stop requested - shutting down gracefully")
+                    break
+
                 batch_num += 1
 
                 # Check how many files are left

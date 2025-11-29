@@ -31,6 +31,12 @@ from typing import Set, List
 
 # Progress tracking
 PROGRESS_FILE = "photo_descriptions_progress.txt"
+STOP_FLAG_FILE = ".stop_requested"
+
+
+def check_stop_requested() -> bool:
+    """Check if a graceful stop has been requested."""
+    return os.path.exists(STOP_FLAG_FILE)
 
 
 def load_progress_file() -> Set[str]:
@@ -52,6 +58,35 @@ def delete_progress_file():
     """Delete the progress file to start fresh."""
     if os.path.exists(PROGRESS_FILE):
         os.remove(PROGRESS_FILE)
+
+
+def flush_results_to_json(output_file: str, new_results: list) -> bool:
+    """
+    Append new results to JSON file.
+    Returns True on success, False on error.
+    """
+    if not new_results:
+        return True
+
+    # Load existing results
+    all_results = []
+    if os.path.exists(output_file):
+        try:
+            with open(output_file, 'r', encoding='utf-8') as f:
+                all_results = json.load(f)
+        except (json.JSONDecodeError, IOError) as e:
+            click.echo(f"Error reading JSON file: {e}", err=True)
+            return False
+
+    # Append new results and write
+    all_results.extend(new_results)
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(all_results, f, indent=2, ensure_ascii=False)
+        return True
+    except IOError as e:
+        click.echo(f"Error writing JSON file: {e}", err=True)
+        return False
 
 
 def find_all_files(directory: str) -> tuple[List[Path], Path]:
@@ -83,6 +118,11 @@ def find_all_files(directory: str) -> tuple[List[Path], Path]:
 
 def prompt_resume() -> bool:
     """Ask user if they want to resume from previous progress."""
+    # Auto-resume in non-interactive mode (e.g., batch processing)
+    if not sys.stdin.isatty():
+        click.echo("Progress file found. Auto-resuming in non-interactive mode.")
+        return True
+
     response = input("Progress file found. Resume from previous run? (y/n): ").strip().lower()
     return response in ('y', 'yes')
 
@@ -169,9 +209,16 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
         click.echo(f"Note: Added <image> token to prompt")
 
     # Process images and collect results
-    results = []
+    # Flush to JSON every FLUSH_INTERVAL images to prevent data loss
+    FLUSH_INTERVAL = 10
+    pending_results = []
+    total_processed = 0
+    total_successful = 0
+    total_failed = 0
+
     click.echo(f"\nProcessing images with prompt: '{prompt}'")
-    click.echo(f"Temperature: {temp}, Max tokens: {max_tokens}\n")
+    click.echo(f"Temperature: {temp}, Max tokens: {max_tokens}")
+    click.echo(f"Writing to JSON every {FLUSH_INTERVAL} images\n")
 
     for i, image_path in enumerate(files_to_process, 1):
         # Get relative path from input directory
@@ -199,7 +246,7 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
             else:
                 description_text = str(description)
 
-            results.append({
+            pending_results.append({
                 "file": f"./{rel_path}",
                 "description": description_text.strip(),
                 "model": model,
@@ -208,65 +255,56 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
             })
 
             click.echo(f"  Completed in {elapsed_time:.2f}s")
+            total_successful += 1
 
             # Save to progress file after successful processing
             append_to_progress_file(str(rel_path))
 
         except Exception as e:
             click.echo(f"  Error processing {rel_path}: {e}", err=True)
-            results.append({
+            pending_results.append({
                 "file": f"./{rel_path}",
                 "description": f"Error: {str(e)}",
                 "model": model,
                 "generation_time_seconds": None,
                 "error": True
             })
+            total_failed += 1
 
             # Track failed files to prevent duplicate entries on resume
             append_to_progress_file(str(rel_path))
 
-    # Load existing results if file exists
-    all_results = []
-    if os.path.exists(output_file):
-        try:
-            with open(output_file, 'r', encoding='utf-8') as f:
-                all_results = json.load(f)
-            click.echo(f"Loaded {len(all_results)} existing results from {output_file}")
-        except (json.JSONDecodeError, IOError) as e:
-            click.echo(f"Error: Could not read existing results file: {e}", err=True)
-            click.echo(f"The file may be corrupted or inaccessible: {output_file}", err=True)
+        total_processed += 1
 
-            # Auto-exit in non-interactive mode (e.g., batch processing)
-            if not sys.stdin.isatty():
-                click.echo("Running in non-interactive mode. Exiting to prevent data loss.", err=True)
+        # Flush to JSON every FLUSH_INTERVAL images
+        if len(pending_results) >= FLUSH_INTERVAL:
+            click.echo(f"  Saving {len(pending_results)} results to JSON...")
+            if not flush_results_to_json(output_file, pending_results):
+                click.echo("Error: Failed to write to JSON. Stopping.", err=True)
                 sys.exit(1)
+            pending_results = []
 
-            # In interactive mode, prompt user
-            response = input("Continue anyway? This may overwrite existing data. (y/n): ").strip().lower()
-            if response not in ('y', 'yes'):
-                click.echo("Exiting to prevent data loss. Please fix the JSON file and try again.")
-                sys.exit(1)
-            click.echo("Continuing with empty results. Previous data will be lost.")
-            all_results = []
+        # Check for graceful stop request
+        if check_stop_requested():
+            click.echo("\n⚠ Stop requested - finishing gracefully...")
+            if pending_results:
+                click.echo(f"  Saving {len(pending_results)} pending results to JSON...")
+                if not flush_results_to_json(output_file, pending_results):
+                    click.echo("Error: Failed to write to JSON.", err=True)
+                    sys.exit(1)
+            click.echo(f"  Stopped after {total_processed} files ({total_successful} successful, {total_failed} failed)")
+            click.echo(f"  Output saved to: {output_file}")
+            sys.exit(0)
 
-    # Append new results
-    all_results.extend(results)
-
-    # Write all results to JSON file
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, indent=2, ensure_ascii=False)
-
-    # Count successes and errors for this batch
-    successful = sum(1 for r in results if not r.get('error', False))
-    failed = sum(1 for r in results if r.get('error', False))
-
-    # Count cumulative totals
-    total_successful = sum(1 for r in all_results if not r.get('error', False))
-    total_failed = sum(1 for r in all_results if r.get('error', False))
+    # Flush any remaining results
+    if pending_results:
+        click.echo(f"  Saving final {len(pending_results)} results to JSON...")
+        if not flush_results_to_json(output_file, pending_results):
+            click.echo("Error: Failed to write to JSON.", err=True)
+            sys.exit(1)
 
     click.echo(f"\n✓ Analysis complete!")
-    click.echo(f"  This batch: {len(results)} files ({successful} successful, {failed} failed)")
-    click.echo(f"  Cumulative total: {len(all_results)} files ({total_successful} successful, {total_failed} failed)")
+    click.echo(f"  This batch: {total_processed} files ({total_successful} successful, {total_failed} failed)")
     click.echo(f"  Output saved to: {output_file}")
     click.echo(f"  Progress tracked in: {PROGRESS_FILE}")
 
