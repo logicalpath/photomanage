@@ -147,39 +147,52 @@ photomanage/
 ### Custom Configuration
 
 ```bash
-./scripts/run_batch_descriptions.sh <directory> <batch_size> <cooldown> <model>
+./scripts/run_batch_descriptions.sh [OPTIONS]
 ```
 
-**Parameters:**
-- `directory`: Path to images (default: `database/512x512`)
-- `batch_size`: Images per batch (default: `100`)
-- `cooldown`: Seconds between batches (default: `30`)
-- `model`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm`)
+**Options:**
+- `--directory PATH`: Path to images (default: `database/512x512`)
+- `--batch-size NUM`: Images per batch (default: `100`)
+- `--cooldown SECS`: Seconds between batches (default: `30`)
+- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm`)
+- `--max-tokens NUM`: Maximum tokens for model output (default: `500`)
+- `--temp VALUE`: Temperature for model generation, 0.0-1.0 (default: `0.0`)
+- `-h, --help`: Show help message
 
 **Examples:**
 
 ```bash
 # Smaller batches with longer cooldown (more conservative)
-./scripts/run_batch_descriptions.sh database/512x512 50 60
+./scripts/run_batch_descriptions.sh --batch-size 50 --cooldown 60
 
 # Larger batches with shorter cooldown (faster, more aggressive)
-./scripts/run_batch_descriptions.sh database/512x512 200 15
+./scripts/run_batch_descriptions.sh --batch-size 200 --cooldown 15
 
 # Use SmolVLM2 model
-./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm2
+./scripts/run_batch_descriptions.sh --model smolvlm2
+
+# Custom max tokens and temperature
+./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7
 
 # Different directory
-./scripts/run_batch_descriptions.sh /path/to/images 100 30
+./scripts/run_batch_descriptions.sh --directory /path/to/images
+
+# Combine multiple options (any order)
+./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200 --model smolvlm2
+
+# Show help
+./scripts/run_batch_descriptions.sh --help
 ```
 
 ### What Happens When You Start
 
 1. Validates directory exists
 2. Counts total files
-3. Starts orchestrator with `caffeinate` (prevents sleep)
-4. Saves process ID to `batch_orchestrator.pid`
-5. Begins processing batches
-6. Logs to `logs/` directory
+3. Displays configuration (directory, batch size, cooldown, model, max tokens, temperature)
+4. Starts orchestrator with `caffeinate` (prevents sleep)
+5. Saves process ID to `batch_orchestrator.pid`
+6. Begins processing batches
+7. Logs to `logs/` directory
 
 ## Monitoring Progress
 
@@ -459,12 +472,12 @@ tail -50 logs/orchestrator_console.log
 **Solutions**:
 1. **Reduce batch size**: Process fewer images per batch
    ```bash
-   ./scripts/run_batch_descriptions.sh database/512x512 50 30
+   ./scripts/run_batch_descriptions.sh --batch-size 50
    ```
 
 2. **Increase cooldown**: Give system more time to free memory
    ```bash
-   ./scripts/run_batch_descriptions.sh database/512x512 100 60
+   ./scripts/run_batch_descriptions.sh --cooldown 60
    ```
 
 3. **Close other applications**: Free up system memory
@@ -476,12 +489,12 @@ tail -50 logs/orchestrator_console.log
 **Solutions**:
 1. **Increase batch size**: Process more images per batch (reduces overhead)
    ```bash
-   ./scripts/run_batch_descriptions.sh database/512x512 200 30
+   ./scripts/run_batch_descriptions.sh --batch-size 200
    ```
 
 2. **Decrease cooldown**: Less waiting between batches
    ```bash
-   ./scripts/run_batch_descriptions.sh database/512x512 100 15
+   ./scripts/run_batch_descriptions.sh --cooldown 15
    ```
 
 3. **Check system load**: Use `python src/progress_summary.py` to see if CPU/memory are maxed out
@@ -581,18 +594,30 @@ Based on typical M3 MacBook performance with SmolVLM:
 
 ### Custom Model Parameters
 
-Edit `src/generate_descriptions.py` to modify:
+You can customize model parameters via command line:
+- **Max tokens**: Control response length (default: 500)
+  ```bash
+  ./scripts/run_batch_descriptions.sh --max-tokens 300
+  ```
+- **Temperature**: Control randomness 0.0-1.0 (default: 0.0 for deterministic)
+  ```bash
+  ./scripts/run_batch_descriptions.sh --temp 0.7
+  ```
+- **Combine multiple parameters**:
+  ```bash
+  ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7 --model smolvlm2
+  ```
+
+To modify other parameters, edit `src/generate_descriptions.py`:
 - Prompt text
-- Temperature
-- Max tokens
-- Other model parameters
+- Other model-specific settings
 
 ### Processing Different Directories
 
 The system works with any directory of images:
 
 ```bash
-./scripts/run_batch_descriptions.sh /path/to/other/images 100 30
+./scripts/run_batch_descriptions.sh --directory /path/to/other/images
 ```
 
 ### Multiple Simultaneous Runs

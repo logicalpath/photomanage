@@ -6,22 +6,89 @@
 # system from sleeping. The process runs in the background and logs to a file.
 #
 # Usage:
-#   ./scripts/run_batch_descriptions.sh [directory] [batch_size] [cooldown] [model] [max_tokens] [temp]
+#   ./scripts/run_batch_descriptions.sh [OPTIONS]
+#
+# Options:
+#   --directory PATH      Path to images (default: database/512x512)
+#   --batch-size NUM      Images per batch (default: 100)
+#   --cooldown SECS       Seconds between batches (default: 30)
+#   --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm)
+#   --max-tokens NUM      Maximum tokens for output (default: 500)
+#   --temp VALUE          Temperature 0.0-1.0 (default: 0.0)
+#   -h, --help            Show this help message
 #
 # Examples:
 #   ./scripts/run_batch_descriptions.sh
-#   ./scripts/run_batch_descriptions.sh database/512x512 50 60
-#   ./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm2
-#   ./scripts/run_batch_descriptions.sh database/512x512 100 30 smolvlm 300 0.7
+#   ./scripts/run_batch_descriptions.sh --batch-size 50 --cooldown 60
+#   ./scripts/run_batch_descriptions.sh --model smolvlm2
+#   ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7
+#   ./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200
 #
 
 # Default values
-DIRECTORY="${1:-database/512x512}"
-BATCH_SIZE="${2:-100}"
-COOLDOWN="${3:-30}"
-MODEL="${4:-smolvlm}"
-MAX_TOKENS="${5:-500}"
-TEMP="${6:-0.0}"
+DIRECTORY="database/512x512"
+BATCH_SIZE="100"
+COOLDOWN="30"
+MODEL="smolvlm"
+MAX_TOKENS="500"
+TEMP="0.0"
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --directory)
+            DIRECTORY="$2"
+            shift 2
+            ;;
+        --batch-size)
+            BATCH_SIZE="$2"
+            shift 2
+            ;;
+        --cooldown)
+            COOLDOWN="$2"
+            shift 2
+            ;;
+        --model)
+            MODEL="$2"
+            shift 2
+            ;;
+        --max-tokens)
+            MAX_TOKENS="$2"
+            shift 2
+            ;;
+        --temp)
+            TEMP="$2"
+            shift 2
+            ;;
+        -h|--help)
+            echo "Start Batch Image Description Processing"
+            echo ""
+            echo "Usage: ./scripts/run_batch_descriptions.sh [OPTIONS]"
+            echo ""
+            echo "Options:"
+            echo "  --directory PATH      Path to images (default: database/512x512)"
+            echo "  --batch-size NUM      Images per batch (default: 100)"
+            echo "  --cooldown SECS       Seconds between batches (default: 30)"
+            echo "  --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm)"
+            echo "  --max-tokens NUM      Maximum tokens for output (default: 500)"
+            echo "  --temp VALUE          Temperature 0.0-1.0 (default: 0.0)"
+            echo "  -h, --help            Show this help message"
+            echo ""
+            echo "Examples:"
+            echo "  ./scripts/run_batch_descriptions.sh"
+            echo "  ./scripts/run_batch_descriptions.sh --batch-size 50 --cooldown 60"
+            echo "  ./scripts/run_batch_descriptions.sh --model smolvlm2"
+            echo "  ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7"
+            echo "  ./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200"
+            exit 0
+            ;;
+        *)
+            echo "❌ Error: Unknown option: $1"
+            echo "Use --help for usage information"
+            exit 1
+            ;;
+    esac
+done
 
 # PID file location
 PID_FILE="batch_orchestrator.pid"

@@ -2,14 +2,23 @@
 #
 # Stop Batch Image Description Processing
 #
-# This script safely stops the batch orchestrator. The current batch will
-# complete before stopping, ensuring no corruption of the progress file.
+# This script safely stops the batch orchestrator using a flag file approach.
+# The current image will complete, results will be saved, then the process exits.
 #
 # Usage:
 #   ./scripts/stop_batch_descriptions.sh
 #
 
 PID_FILE="batch_orchestrator.pid"
+STOP_FLAG=".stop_requested"
+
+# Cleanup function to remove stop flag
+cleanup() {
+    rm -f "$STOP_FLAG"
+}
+
+# Always clean up the stop flag on exit
+trap cleanup EXIT
 
 # Check if PID file exists
 if [ ! -f "$PID_FILE" ]; then
@@ -30,30 +39,31 @@ fi
 
 echo "Stopping batch orchestrator (PID: $PID)..."
 echo ""
-echo "Sending interrupt signal..."
-echo "The current batch will complete before stopping."
+
+# Create stop flag file - the Python script checks for this between images
+echo "Creating stop flag..."
+touch "$STOP_FLAG"
+
+# Also send SIGINT to orchestrator so it doesn't start new batches
+echo "Signaling orchestrator to stop..."
+kill -INT "$PID" 2>/dev/null
+
+echo ""
+echo "Waiting for current image to complete and save..."
+echo "(This should take less than 30 seconds)"
 echo ""
 
-# Send SIGINT (same as Ctrl+C) for graceful shutdown
-kill -INT "$PID"
-
-# Wait for process to stop (up to 60 seconds)
+# Wait for process to stop (up to 5 minutes, but should be much faster)
 WAIT_TIME=0
-MAX_WAIT=60
+MAX_WAIT=300
 
 while ps -p "$PID" > /dev/null 2>&1; do
     if [ $WAIT_TIME -ge $MAX_WAIT ]; then
         echo ""
-        echo "⚠️  Process did not stop gracefully within ${MAX_WAIT}s"
-        echo "Sending TERM signal..."
-        kill -TERM "$PID"
-        sleep 5
-
-        if ps -p "$PID" > /dev/null 2>&1; then
-            echo "⚠️  Process still running. Forcing stop..."
-            kill -9 "$PID"
-            sleep 2
-        fi
+        echo "⚠️  Process did not stop within ${MAX_WAIT}s"
+        echo "Forcing stop..."
+        kill -9 "$PID" 2>/dev/null
+        sleep 2
         break
     fi
 
@@ -67,12 +77,16 @@ echo ""
 # Verify process stopped
 if ! ps -p "$PID" > /dev/null 2>&1; then
     echo "✅ Batch orchestrator stopped successfully"
-    rm "$PID_FILE"
+    rm -f "$PID_FILE"
 
     # Show final progress
     echo ""
     echo "Checking final progress..."
     python src/check_progress.py 2>/dev/null || echo "Unable to check progress"
+
+    # Check for any missing descriptions
+    echo ""
+    python scripts/find_missing_descriptions.py 2>/dev/null || true
 else
     echo "❌ Error: Unable to stop process"
     exit 1
