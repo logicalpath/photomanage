@@ -44,7 +44,6 @@ def load_json_file() -> list:
 def find_files_by_extension(directory: Path, extension: str) -> list:
     """Find all files with given extension in directory."""
     ext_upper = extension.upper().lstrip('.')
-    ext_lower = extension.lower().lstrip('.')
 
     files = []
     for f in directory.rglob('*'):

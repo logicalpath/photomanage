@@ -60,7 +60,7 @@ def analyze_times(data: list, extensions: list = None) -> dict:
 
     for r in data:
         if r.get('generation_time_seconds') and not r.get('error'):
-            ext = r['file'].rsplit('.', 1)[-1].upper()
+            ext = Path(r['file']).suffix.upper().lstrip('.') if Path(r['file']).suffix else '(none)'
             if extensions is None or ext in extensions:
                 t = r['generation_time_seconds']
                 model = r.get('model', 'unknown')

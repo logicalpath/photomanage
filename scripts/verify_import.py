@@ -56,16 +56,7 @@ def count_json_by_extension(json_path: Path) -> tuple[Counter, int]:
 
 def count_database_by_extension(db_path: Path, table: str) -> Counter:
     """Count records by extension in database."""
-    # Query to extract extension and count
-    query = f'''
-        SELECT
-            UPPER(SUBSTR(file, INSTR(file, '.') + LENGTH(file) - LENGTH(RTRIM(file, REPLACE(file, '.', ''))) + 1)) as ext,
-            COUNT(*) as count
-        FROM "{table}"
-        GROUP BY ext
-    '''
-
-    # Simpler approach: get all files and count in Python
+    # Get all files and count in Python (simpler than complex SQL)
     result = subprocess.run(
         ['sqlite-utils', 'query', str(db_path), f'SELECT file FROM "{table}"'],
         capture_output=True, text=True

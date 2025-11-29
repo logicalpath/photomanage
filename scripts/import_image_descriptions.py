@@ -2,7 +2,7 @@
 """
 Import image descriptions from JSON to SQLite database.
 
-Uses sqlite-utils upsert to safely update/insert records.
+Filters to new records and uses sqlite-utils insert to add them.
 Can be run multiple times as new data arrives.
 
 Usage:
@@ -49,6 +49,7 @@ def get_existing_files(db_path: Path, table_name: str) -> set:
             data = json.loads(result.stdout)
             return {row['file'] for row in data}
     except Exception:
+        # Table may not exist yet; return empty set to insert all records
         pass
     return set()
 

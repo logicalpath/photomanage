@@ -44,7 +44,16 @@ echo ""
 echo "Creating stop flag..."
 touch "$STOP_FLAG"
 
-# Also send SIGINT to orchestrator so it doesn't start new batches
+# Verify PID belongs to our orchestrator before sending signals
+PROC_CMD=$(ps -p "$PID" -o args= 2>/dev/null)
+if [[ "$PROC_CMD" != *"batch_orchestrator"* ]]; then
+    echo "❌ Error: PID $PID does not match batch orchestrator process"
+    echo "   Found: $PROC_CMD"
+    rm -f "$PID_FILE"
+    exit 1
+fi
+
+# Send SIGINT to orchestrator so it doesn't start new batches
 echo "Signaling orchestrator to stop..."
 kill -INT "$PID" 2>/dev/null
 
@@ -62,7 +71,15 @@ while ps -p "$PID" > /dev/null 2>&1; do
         echo ""
         echo "⚠️  Process did not stop within ${MAX_WAIT}s"
         echo "Forcing stop..."
-        kill -9 "$PID" 2>/dev/null
+        # Re-verify PID before SIGKILL
+        PROC_CMD=$(ps -p "$PID" -o args= 2>/dev/null)
+        if [[ "$PROC_CMD" == *"batch_orchestrator"* ]]; then
+            kill -TERM "$PID" 2>/dev/null
+            sleep 5
+            kill -9 "$PID" 2>/dev/null
+        else
+            echo "⚠️  Process changed, skipping forced kill"
+        fi
         sleep 2
         break
     fi
