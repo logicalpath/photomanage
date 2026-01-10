@@ -32,14 +32,17 @@ uv run datasette -p 8001 mediameta.db
 ## Managing Dependencies
 
 ```bash
-# Add a package
-uv add package-name
+# Add a package (use --no-sync to avoid build error, then sync)
+uv add --no-sync package-name
+uv sync --no-install-project
 
 # Add a specific version
-uv add "package-name==1.2.3"
+uv add --no-sync "package-name==1.2.3"
+uv sync --no-install-project
 
 # Remove a package
-uv remove package-name
+uv remove --no-sync package-name
+uv sync --no-install-project
 
 # Update all packages
 uv lock --upgrade
@@ -67,7 +70,7 @@ uv sync --no-install-project
 | pipenv | uv |
 |--------|-----|
 | `pipenv shell` | `source .venv/bin/activate` |
-| `pipenv install pkg` | `uv add pkg` |
+| `pipenv install pkg` | `uv add --no-sync pkg && uv sync --no-install-project` |
 | `pipenv install` | `uv sync --no-install-project` |
 | `pipenv run cmd` | `uv run cmd` |
 | `pipenv --rm` | `rm -rf .venv` |
