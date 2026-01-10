@@ -2,7 +2,7 @@
 name = "photomanage"
 version = "0.1.0"
 description = "Photo management system with Datasette"
-requires-python = "==3.12.5"
+requires-python = ">=3.12.5,<3.13"
 dependencies = [
     "anthropic",
     "b2",
