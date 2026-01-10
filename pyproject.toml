@@ -1,0 +1,38 @@
+[project]
+name = "photomanage"
+version = "0.1.0"
+description = "Photo management system with Datasette"
+requires-python = "==3.12.5"
+dependencies = [
+    "anthropic",
+    "b2",
+    "black",
+    "datasette==1.0a21",
+    "datasette-media",
+    "datasette-render-images",
+    "datasets",
+    "fastapi",
+    "huggingface-hub",
+    "mlx",
+    "mlx-lm",
+    "mlx-vlm",
+    "numpy",
+    "openai",
+    "opencv-python",
+    "pandas",
+    "pillow",
+    "pyheif",
+    "python-dotenv",
+    "rawpy",
+    "requests",
+    "safetensors",
+    "sqlite-utils",
+    "torch",
+    "torchvision",
+    "transformers",
+    "uvicorn",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

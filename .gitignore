@@ -1,6 +1,7 @@
 .DS_Store
 .vscode
 .claude/
+.venv/
 __pycache__/
 photos/*
 *.log

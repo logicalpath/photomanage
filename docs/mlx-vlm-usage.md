@@ -42,13 +42,13 @@ mlx-vlm = "*"
 
 ### Installation
 
-Dependencies are managed via Pipenv:
+Dependencies are managed via uv:
 
 ```bash
-pipenv install
+uv sync --no-install-project
 ```
 
-Alternatively, you can use `uv` for running scripts with dependencies:
+You can also use `uv run` for running scripts with dependencies:
 
 ```bash
 uv run --with mlx-vlm --with torch python -m mlx_vlm.generate [options]
