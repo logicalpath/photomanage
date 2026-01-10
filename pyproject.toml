@@ -10,6 +10,7 @@ dependencies = [
     "datasette==1.0a21",
     "datasette-media",
     "datasette-render-images",
+    "datasette-template-sql>=1.0.2",
     "datasets",
     "fastapi",
     "huggingface-hub",
