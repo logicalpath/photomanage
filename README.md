@@ -122,8 +122,8 @@ Photos in datasette:
 
 ### Required Plugins
 
-pipenv install datasette-media
-pipenv install datasette-render-images
+uv add datasette-media
+uv add datasette-render-images
 
 ### Load the images
 
@@ -162,12 +162,17 @@ This links thumbnails to their EXIF metadata creation dates.
 
 ### Start Datasette
 
+From the `database/` directory:
+
 ```bash
+cd database
 datasette -p 8001 --root --load-extension=spatialite \
-    --template-dir datasette/templates \
-    -c datasette/datasette.yaml \
-    database/mediameta.db
+    --template-dir ../datasette/templates \
+    -c ../datasette/datasette.yaml \
+    mediameta.db
 ```
+
+**Note:** Templates are in `datasette/templates/`, not `database/templates/`.
 
 ### Plugins
 
@@ -388,10 +393,11 @@ python -c "import sqlite3; print(sqlite3.sqlite_version)"
 python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extension(True))"
 ```
 
-**Recreate Pipenv environment:**
+**Recreate uv environment:**
 
 ```bash
-pipenv --rm
-pipenv install
-pipenv shell
+rm -rf .venv
+uv venv --python 3.12.5
+uv sync --no-install-project
+source .venv/bin/activate
 ```

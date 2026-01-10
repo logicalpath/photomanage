@@ -50,14 +50,14 @@ run_batch_descriptions.sh
 Before running the batch processor, ensure all dependencies are installed:
 
 ```bash
-# Activate the pipenv environment
-pipenv shell
+# Activate the uv environment
+source .venv/bin/activate
 
 # Install/update dependencies (includes psutil and click)
-pipenv install
+uv sync --no-install-project
 ```
 
-**Note**: The batch processing system requires `psutil` for system monitoring and `click` for command-line interfaces. These are included in the Pipfile.
+**Note**: The batch processing system requires `psutil` for system monitoring and `click` for command-line interfaces. These are included in pyproject.toml.
 
 ## Quick Start
 
@@ -546,9 +546,9 @@ tail -50 logs/orchestrator_console.log
 
 ### Software
 
-- **Python**: 3.12+
-- **Pipenv**: For virtual environment
-- **Dependencies**: Installed via `pipenv install`
+- **Python**: 3.12.5
+- **uv**: For virtual environment and dependency management
+- **Dependencies**: Installed via `uv sync --no-install-project`
 - **macOS**: Tested on macOS (should work on Linux with minor modifications)
 
 ### Time Estimates

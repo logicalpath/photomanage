@@ -1,5 +1,10 @@
 # Fixing Python SQLite Extensions with Pyenv and Pipenv
 
+> **Note (January 2025):** This project has migrated from pipenv to uv. This document is preserved for historical reference. The equivalent uv commands are:
+> - `pipenv shell` → `source .venv/bin/activate`
+> - `pipenv install` → `uv sync --no-install-project`
+> - `pipenv --rm` → `rm -rf .venv`
+
 ## Problem Summary
 Datasette was unable to load the spatialite extension due to Python not being compiled with SQLite extension support.
 
