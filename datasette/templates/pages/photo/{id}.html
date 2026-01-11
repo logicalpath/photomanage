@@ -66,11 +66,11 @@
             color: #e0e0e0;
         }
         .error {
-            background-color: #3d1a1a;
-            color: #ff6b6b;
+            background-color: #1a2a3d;
+            color: #6b9fff;
             padding: 20px;
             border-radius: 4px;
-            border-left: 4px solid #ff6b6b;
+            border-left: 4px solid #6b9fff;
         }
     </style>
 </head>
@@ -88,7 +88,11 @@
             </div>
 
             <div class="photo-container">
+                {% if photo.full_path|file_exists %}
                 <img src="/-/media/photo/{{ id }}" alt="{{ photo.FileName }}">
+                {% else %}
+                <p class="error">File not available - drive "{{ photo.full_path.split('/')[2] }}" is not connected.</p>
+                {% endif %}
             </div>
 
             <div class="photo-info">
