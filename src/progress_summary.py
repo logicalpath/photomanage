@@ -46,6 +46,10 @@ def analyze_outputs():
     total_failed = 0
     total_time = 0.0
     generation_times = []
+    prompt_tps_readings = []
+    generation_tps_readings = []
+    prompt_token_counts = []
+    generation_token_counts = []
     errors_by_type = defaultdict(int)
 
     for output_file in output_files:
@@ -73,8 +77,33 @@ def analyze_outputs():
                         total_time += gen_time
                         generation_times.append(gen_time)
 
+                    # Collect GPU throughput metrics
+                    if item.get('prompt_tps'):
+                        prompt_tps_readings.append(item['prompt_tps'])
+                    if item.get('generation_tps'):
+                        generation_tps_readings.append(item['generation_tps'])
+                    if item.get('prompt_tokens'):
+                        prompt_token_counts.append(item['prompt_tokens'])
+                    if item.get('generation_tokens'):
+                        generation_token_counts.append(item['generation_tokens'])
+
         except Exception as e:
             print(f"Warning: Could not read {output_file}: {e}")
+
+    # Build GPU throughput stats
+    gpu_stats = {}
+    if prompt_tps_readings:
+        gpu_stats['prompt_tps_avg'] = sum(prompt_tps_readings) / len(prompt_tps_readings)
+        gpu_stats['prompt_tps_min'] = min(prompt_tps_readings)
+        gpu_stats['prompt_tps_max'] = max(prompt_tps_readings)
+    if generation_tps_readings:
+        gpu_stats['generation_tps_avg'] = sum(generation_tps_readings) / len(generation_tps_readings)
+        gpu_stats['generation_tps_min'] = min(generation_tps_readings)
+        gpu_stats['generation_tps_max'] = max(generation_tps_readings)
+    if prompt_token_counts:
+        gpu_stats['prompt_tokens_avg'] = sum(prompt_token_counts) / len(prompt_token_counts)
+    if generation_token_counts:
+        gpu_stats['generation_tokens_avg'] = sum(generation_token_counts) / len(generation_token_counts)
 
     if not generation_times:
         # No successful generations with timing, but return failure stats
@@ -87,7 +116,8 @@ def analyze_outputs():
             'median_time': None,
             'min_time': None,
             'max_time': None,
-            'errors_by_type': dict(errors_by_type)
+            'errors_by_type': dict(errors_by_type),
+            'gpu': gpu_stats if gpu_stats else None
         }
 
     # Calculate statistics
@@ -110,7 +140,8 @@ def analyze_outputs():
         'median_time': median_time,
         'min_time': min_time,
         'max_time': max_time,
-        'errors_by_type': dict(errors_by_type)
+        'errors_by_type': dict(errors_by_type),
+        'gpu': gpu_stats if gpu_stats else None
     }
 
 
@@ -136,11 +167,13 @@ def analyze_logs(all_logs=False):
     batch_count = 0
     memory_readings = []
     cpu_readings = []
+    gpu_tps_readings = []
     errors = []
 
     # Regex patterns
     memory_pattern = re.compile(r'Memory: ([\d.]+)%')
     cpu_pattern = re.compile(r'CPU: ([\d.]+)%')
+    gpu_tps_pattern = re.compile(r'GPU Throughput - Batch avg: ([\d.]+) tokens/sec')
     batch_failed_pattern = re.compile(r'Batch (\d+) failed with error code (\d+)')
 
     for log_file in logs_to_analyze:
@@ -162,6 +195,11 @@ def analyze_logs(all_logs=False):
                 cpu_match = cpu_pattern.search(line)
                 if cpu_match:
                     cpu_readings.append(float(cpu_match.group(1)))
+
+                # Extract GPU throughput
+                gpu_match = gpu_tps_pattern.search(line)
+                if gpu_match:
+                    gpu_tps_readings.append(float(gpu_match.group(1)))
 
                 # Collect errors: combine "Batch N failed" with the error detail
                 batch_match = batch_failed_pattern.search(line)
@@ -204,6 +242,13 @@ def analyze_logs(all_logs=False):
         result['cpu'] = {
             'avg': sum(cpu_readings) / len(cpu_readings),
             'max': max(cpu_readings)
+        }
+
+    if gpu_tps_readings:
+        result['gpu_tps'] = {
+            'avg': sum(gpu_tps_readings) / len(gpu_tps_readings),
+            'min': min(gpu_tps_readings),
+            'max': max(gpu_tps_readings)
         }
 
     return result
@@ -258,6 +303,20 @@ def main():
             print("\nGeneration time per image:")
             print("  Timing data unavailable.")
 
+        if output_stats.get('gpu'):
+            gpu = output_stats['gpu']
+            print(f"\nGPU throughput (MLX):")
+            if 'generation_tps_avg' in gpu:
+                print(f"  Generation:         {gpu['generation_tps_avg']:.1f} tokens/sec avg "
+                      f"({gpu['generation_tps_min']:.1f} - {gpu['generation_tps_max']:.1f})")
+            if 'prompt_tps_avg' in gpu:
+                print(f"  Prompt processing:  {gpu['prompt_tps_avg']:.1f} tokens/sec avg "
+                      f"({gpu['prompt_tps_min']:.1f} - {gpu['prompt_tps_max']:.1f})")
+            if 'prompt_tokens_avg' in gpu or 'generation_tokens_avg' in gpu:
+                prompt_avg = gpu.get('prompt_tokens_avg', 0)
+                gen_avg = gpu.get('generation_tokens_avg', 0)
+                print(f"  Tokens per image:   {prompt_avg:.0f} prompt + {gen_avg:.0f} generation")
+
         if output_stats['errors_by_type']:
             print(f"\nError breakdown:")
             for error_type, count in output_stats['errors_by_type'].items():
@@ -289,6 +348,12 @@ def main():
             print(f"\nCPU usage:")
             print(f"  Average:            {cpu['avg']:.1f}%")
             print(f"  Max:                {cpu['max']:.1f}%")
+
+        if 'gpu_tps' in log_stats:
+            gpu = log_stats['gpu_tps']
+            print(f"\nGPU throughput (per-batch avg):")
+            print(f"  Average:            {gpu['avg']:.1f} tokens/sec")
+            print(f"  Range:              {gpu['min']:.1f} - {gpu['max']:.1f} tokens/sec")
 
         if log_stats['recent_errors']:
             print(f"\nRecent errors ({len(log_stats['recent_errors'])}):")

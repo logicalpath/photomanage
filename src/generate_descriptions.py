@@ -233,21 +233,28 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
 
             elapsed_time = time.time() - start_time
 
-            # Extract text from GenerationResult if needed
-            if hasattr(description, 'text'):
-                description_text = description.text
-            else:
-                description_text = str(description)
-
-            pending_results.append({
+            # Extract text and throughput metrics from GenerationResult
+            result_entry = {
                 "file": f"./{rel_path}",
-                "description": description_text.strip(),
                 "model": "smolvlm2",
                 "generation_time_seconds": round(elapsed_time, 2),
                 "error": False
-            })
+            }
 
-            click.echo(f"  Completed in {elapsed_time:.2f}s")
+            if hasattr(description, 'text'):
+                result_entry["description"] = description.text.strip()
+                result_entry["prompt_tokens"] = getattr(description, 'prompt_tokens', None)
+                result_entry["generation_tokens"] = getattr(description, 'generation_tokens', None)
+                result_entry["prompt_tps"] = round(getattr(description, 'prompt_tps', 0), 2) or None
+                result_entry["generation_tps"] = round(getattr(description, 'generation_tps', 0), 2) or None
+            else:
+                result_entry["description"] = str(description).strip()
+
+            pending_results.append(result_entry)
+
+            gen_tps = result_entry.get("generation_tps")
+            tps_info = f", {gen_tps:.1f} tokens/s" if gen_tps else ""
+            click.echo(f"  Completed in {elapsed_time:.2f}s{tps_info}")
             total_successful += 1
 
             # Save to progress file after successful processing
