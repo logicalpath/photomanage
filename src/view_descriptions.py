@@ -5,6 +5,7 @@ import html
 import json
 import mimetypes
 import sqlite3
+import sys
 import urllib.parse
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
@@ -19,13 +20,14 @@ def load_photo_dates() -> dict[str, str]:
     """Load DateTimeOriginal from the exif table, keyed by SourceFile path."""
     if not MEDIAMETA_DB.is_file():
         return {}
-    conn = sqlite3.connect(str(MEDIAMETA_DB))
-    rows = conn.execute("SELECT SourceFile, DateTimeOriginal FROM exif WHERE DateTimeOriginal != ''").fetchall()
-    conn.close()
+    with sqlite3.connect(str(MEDIAMETA_DB)) as conn:
+        rows = conn.execute(
+            "SELECT SourceFile, DateTimeOriginal FROM exif WHERE DateTimeOriginal != ''"
+        ).fetchall()
     return {path: date for path, date in rows}
 
 
-def build_html(entries: list[dict], dates: dict[str, str]) -> str:
+def build_html(entries: list[dict], dates: dict[str, str]) -> tuple[str, int]:
     cards = []
     for entry in entries:
         if entry.get("error"):
@@ -35,7 +37,7 @@ def build_html(entries: list[dict], dates: dict[str, str]) -> str:
         gen_time = entry.get("generation_time_seconds", 0)
         raw_date = dates.get(file_path, "")
         photo_date = html.escape(raw_date.replace("T", " ")) if raw_date else "unknown date"
-        img_src = f"/images/{file_path.removeprefix('./')}"
+        img_src = html.escape(f"/images/{urllib.parse.quote(file_path.removeprefix('./'))}")
         cards.append(
             f"""<div class="card">
   <img src="{img_src}" alt="{desc}" loading="lazy">
@@ -46,7 +48,7 @@ def build_html(entries: list[dict], dates: dict[str, str]) -> str:
 </div>"""
         )
 
-    return f"""<!DOCTYPE html>
+    page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -71,6 +73,7 @@ def build_html(entries: list[dict], dates: dict[str, str]) -> str:
 </div>
 </body>
 </html>"""
+    return page, len(cards)
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -91,8 +94,8 @@ class Handler(SimpleHTTPRequestHandler):
 
         if path.startswith("/images/"):
             rel = path.removeprefix("/images/")
-            file_path = IMAGE_ROOT / rel
-            if file_path.is_file():
+            file_path = (IMAGE_ROOT / rel).resolve()
+            if file_path.is_relative_to(IMAGE_ROOT.resolve()) and file_path.is_file():
                 ctype, _ = mimetypes.guess_type(str(file_path))
                 data = file_path.read_bytes()
                 self.send_response(200)
@@ -113,12 +116,16 @@ def main():
     parser.add_argument("--port", type=int, default=8080, help="Port to serve on (default: 8080)")
     args = parser.parse_args()
 
+    if not JSON_PATH.is_file():
+        print(f"Error: {JSON_PATH} not found", file=sys.stderr)
+        sys.exit(1)
+
     entries = json.loads(JSON_PATH.read_text())
     dates = load_photo_dates()
-    Handler.html_content = build_html(entries, dates)
+    Handler.html_content, image_count = build_html(entries, dates)
 
     server = HTTPServer(("localhost", args.port), Handler)
-    print(f"Serving {len(entries)} images at http://localhost:{args.port}")
+    print(f"Serving {image_count} images at http://localhost:{args.port}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
