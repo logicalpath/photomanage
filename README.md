@@ -346,7 +346,7 @@ See documentation for system architecture details:
 
 ## AI Image Descriptions
 
-Generate natural-language descriptions of photos using SmolVLM on Apple Silicon. Descriptions are stored in the `image_description` table in `database/mediameta.db`.
+Generate natural-language descriptions of photos using SmolVLM2 on Apple Silicon. Descriptions are stored in the `image_description` table in `database/mediameta.db`.
 
 See [docs/mlx-vlm-usage.md](docs/mlx-vlm-usage.md) for installation, usage, and batch processing details.
 
