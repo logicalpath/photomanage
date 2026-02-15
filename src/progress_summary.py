@@ -242,7 +242,7 @@ def main():
         print(f"Total in outputs:     {output_stats['total_processed']:,}")
         print(f"Successful:           {output_stats['total_successful']:,}")
         print(f"Failed:               {output_stats['total_failed']}")
-        print(f"Success rate:         {output_stats['success_rate']:.1f}%")
+        print(f"Success rate:         {output_stats['success_rate']:.2f}%")
 
         if (
             output_stats['avg_time'] is not None and
