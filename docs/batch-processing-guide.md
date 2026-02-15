@@ -609,7 +609,7 @@ You can customize model parameters via command line:
   ```
 - **Combine multiple parameters**:
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7 --model smolvlm
+  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7 --model smolvlm2
   ```
 
 ### Processing Different Directories
