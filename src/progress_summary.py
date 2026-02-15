@@ -29,7 +29,7 @@ def get_output_files():
     if not outputs_dir.exists():
         return []
 
-    return sorted(outputs_dir.glob("image_analysis_*.json"))
+    return sorted(outputs_dir.glob("image_analysis*.json"))
 
 
 def analyze_outputs():
@@ -272,7 +272,7 @@ def main():
 
     outputs_dir = Path("outputs")
     if outputs_dir.exists():
-        output_files = list(outputs_dir.glob("image_analysis_*.json"))
+        output_files = list(outputs_dir.glob("image_analysis*.json"))
         print(f"Output files:         {len(output_files)} files in outputs/")
 
     log_dir = Path("logs")
