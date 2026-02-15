@@ -2,46 +2,66 @@ import struct
 import sqlite3
 import math
 import os
+import re
+import threading
 
 from datasette import hookimpl
 from datasette.utils.asgi import Response
 
 _model = None
 _embeddings_cache = None
+_lock = threading.Lock()
 
-EMBEDDINGS_DB_PATH = os.path.join(os.path.dirname(__file__), "../../database/embeddings.db")
-MEDIAMETA_DB_PATH = os.path.join(os.path.dirname(__file__), "../../database/mediameta.db")
+# Allow database paths to be configured via environment variables, with
+# sensible defaults based on the current file location.
+_default_database_dir = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..", "database")
+)
+EMBEDDINGS_DB_PATH = os.getenv(
+    "EMBEDDINGS_DB_PATH",
+    os.path.join(_default_database_dir, "embeddings.db"),
+)
+MEDIAMETA_DB_PATH = os.getenv(
+    "MEDIAMETA_DB_PATH",
+    os.path.join(_default_database_dir, "mediameta.db"),
+)
+
+_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_MAX_QUERY_LENGTH = 500
 
 
 def _get_model():
     global _model
-    if _model is None:
-        from sentence_transformers import SentenceTransformer
+    with _lock:
+        if _model is None:
+            from sentence_transformers import SentenceTransformer
 
-        _model = SentenceTransformer("all-MiniLM-L6-v2")
+            _model = SentenceTransformer("all-MiniLM-L6-v2")
     return _model
 
 
 def _load_embeddings():
     global _embeddings_cache
-    if _embeddings_cache is not None:
-        return _embeddings_cache
+    with _lock:
+        if _embeddings_cache is not None:
+            return _embeddings_cache
 
-    db_path = os.path.normpath(EMBEDDINGS_DB_PATH)
-    conn = sqlite3.connect(db_path)
-    rows = conn.execute(
-        "SELECT id, embedding, content FROM embeddings WHERE collection_id = 1"
-    ).fetchall()
-    conn.close()
+        try:
+            with sqlite3.connect(EMBEDDINGS_DB_PATH) as conn:
+                rows = conn.execute(
+                    "SELECT id, embedding, content FROM embeddings WHERE collection_id = 1"
+                ).fetchall()
+        except sqlite3.Error as e:
+            raise RuntimeError(f"Failed to load embeddings: {e}")
 
-    embeddings_cache = []
-    for row_id, embedding_blob, content in rows:
-        num_floats = len(embedding_blob) // 4
-        vector = struct.unpack(f"{num_floats}f", embedding_blob)
-        norm = math.sqrt(sum(x * x for x in vector))
-        embeddings_cache.append((row_id, vector, norm, content))
+        embeddings_cache = []
+        for row_id, embedding_blob, content in rows:
+            num_floats = len(embedding_blob) // 4
+            vector = struct.unpack(f"{num_floats}f", embedding_blob)
+            norm = math.sqrt(sum(x * x for x in vector))
+            embeddings_cache.append((row_id, vector, norm, content))
 
-    _embeddings_cache = embeddings_cache
+        _embeddings_cache = embeddings_cache
     return _embeddings_cache
 
 
@@ -56,6 +76,11 @@ async def search_handler(request, datasette):
     q = request.args.get("q", "").strip()
     if not q:
         return Response.json({"error": "Missing 'q' parameter"}, status=400)
+    if len(q) > _MAX_QUERY_LENGTH:
+        return Response.json(
+            {"error": f"Query too long (max {_MAX_QUERY_LENGTH} characters)"},
+            status=400,
+        )
 
     try:
         n = int(request.args.get("n", "20"))
@@ -66,31 +91,47 @@ async def search_handler(request, datasette):
     start_date = request.args.get("start_date", "").strip()
     end_date = request.args.get("end_date", "").strip()
 
+    # Validate date format
+    if start_date and not _DATE_RE.match(start_date):
+        start_date = ""
+    if end_date and not _DATE_RE.match(end_date):
+        end_date = ""
+
     # If date filters are provided, build a map of SourceFile -> CreateDate
     # so we can restrict search results to the date range
     date_map = {}
     date_filter_ids = None
     if start_date or end_date:
-        meta_path = os.path.normpath(MEDIAMETA_DB_PATH)
-        conn = sqlite3.connect(meta_path)
-        sql = "SELECT SourceFile, CreateDate FROM exif WHERE CreateDate IS NOT NULL"
-        params = []
-        if start_date:
-            sql += " AND CreateDate >= ?"
-            params.append(start_date)
-        if end_date:
-            sql += " AND (CreateDate <= ? || ' 23:59:59' OR CreateDate LIKE ? || '%')"
-            params.extend([end_date, end_date])
-        rows = conn.execute(sql, params).fetchall()
-        conn.close()
+        try:
+            with sqlite3.connect(MEDIAMETA_DB_PATH) as conn:
+                sql = "SELECT SourceFile, CreateDate FROM exif WHERE CreateDate IS NOT NULL"
+                params = []
+                if start_date:
+                    sql += " AND CreateDate >= ?"
+                    params.append(start_date)
+                if end_date:
+                    sql += " AND (CreateDate <= ? || ' 23:59:59' OR CreateDate LIKE ? || '%')"
+                    params.extend([end_date, end_date])
+                rows = conn.execute(sql, params).fetchall()
+        except sqlite3.Error:
+            return Response.json(
+                {"error": "Unable to perform search. Please try again later."},
+                status=500,
+            )
         date_map = {row[0]: row[1] for row in rows}
         date_filter_ids = set(date_map.keys())
 
-    model = _get_model()
+    try:
+        model = _get_model()
+        all_embeddings = _load_embeddings()
+    except RuntimeError:
+        return Response.json(
+            {"error": "Unable to perform search. Please try again later."},
+            status=500,
+        )
+
     query_embedding = model.encode(q).tolist()
     query_norm = math.sqrt(sum(x * x for x in query_embedding))
-
-    all_embeddings = _load_embeddings()
 
     scores = []
     for row_id, vector, norm, content in all_embeddings:
@@ -107,15 +148,16 @@ async def search_handler(request, datasette):
     if date_filter_ids is None:
         source_files = [row_id for _, row_id, _ in top_scores]
         if source_files:
-            meta_path = os.path.normpath(MEDIAMETA_DB_PATH)
-            conn = sqlite3.connect(meta_path)
-            placeholders = ",".join("?" for _ in source_files)
-            rows = conn.execute(
-                f"SELECT SourceFile, CreateDate FROM exif WHERE SourceFile IN ({placeholders})",
-                source_files,
-            ).fetchall()
-            conn.close()
-            date_map = {row[0]: row[1] for row in rows}
+            try:
+                with sqlite3.connect(MEDIAMETA_DB_PATH) as conn:
+                    placeholders = ",".join("?" for _ in source_files)
+                    rows = conn.execute(
+                        f"SELECT SourceFile, CreateDate FROM exif WHERE SourceFile IN ({placeholders})",
+                        source_files,
+                    ).fetchall()
+                date_map = {row[0]: row[1] for row in rows}
+            except sqlite3.Error:
+                pass
 
     results = []
     for score, row_id, content in top_scores:

@@ -309,7 +309,6 @@
                     <input type="date" id="end_date" name="end_date" value="{{ request.args.get('end_date', '') }}">
                 </div>
                 <button type="submit" id="filterBtn">Filter</button>
-                <button type="button" id="searchBtn" style="display:none;">Search</button>
                 <a href="/gallery" class="reset-link">Reset</a>
             </form>
         </div>
@@ -416,7 +415,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="modalTitle"></h3>
-                <button class="modal-close" id="modalClose">&times;</button>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
             </div>
             <div class="modal-body">
                 <img class="modal-image" id="modalImage" src="" alt="">
@@ -456,6 +455,7 @@
             const filename = extractFilename(result.id);
             document.getElementById('modalTitle').textContent = filename;
             document.getElementById('modalImage').src = thumbUrl(result.id);
+            document.getElementById('modalImage').alt = filename;
             document.getElementById('modalScore').textContent = 'Similarity: ' + (result.score * 100).toFixed(1) + '%';
             var dateEl = document.getElementById('modalDate');
             if (result.date) {
@@ -525,18 +525,39 @@
                         var preview = (result.content || '').substring(0, 120);
                         if ((result.content || '').length > 120) preview += '...';
 
-                        var dateHtml = result.date ? '<div class="photo-date">' + result.date.substring(0, 10) + '</div>' : '';
+                        var img = document.createElement('img');
+                        img.src = thumbUrl(result.id);
+                        img.alt = filename;
+                        img.className = 'photo-thumbnail';
+                        img.loading = 'lazy';
+                        card.appendChild(img);
 
-                        card.innerHTML =
-                            '<img src="' + thumbUrl(result.id) + '"' +
-                            ' alt="' + filename + '"' +
-                            ' class="photo-thumbnail" loading="lazy">' +
-                            '<div class="photo-info">' +
-                            '<div class="photo-filename">' + filename + '</div>' +
-                            dateHtml +
-                            '<div class="photo-score">Score: ' + (result.score * 100).toFixed(1) + '%</div>' +
-                            '<div class="photo-description-preview">' + preview + '</div>' +
-                            '</div>';
+                        var info = document.createElement('div');
+                        info.className = 'photo-info';
+
+                        var filenameDiv = document.createElement('div');
+                        filenameDiv.className = 'photo-filename';
+                        filenameDiv.textContent = filename;
+                        info.appendChild(filenameDiv);
+
+                        if (result.date) {
+                            var dateDiv = document.createElement('div');
+                            dateDiv.className = 'photo-date';
+                            dateDiv.textContent = result.date.substring(0, 10);
+                            info.appendChild(dateDiv);
+                        }
+
+                        var scoreDiv = document.createElement('div');
+                        scoreDiv.className = 'photo-score';
+                        scoreDiv.textContent = 'Score: ' + (result.score * 100).toFixed(1) + '%';
+                        info.appendChild(scoreDiv);
+
+                        var previewDiv = document.createElement('div');
+                        previewDiv.className = 'photo-description-preview';
+                        previewDiv.textContent = preview;
+                        info.appendChild(previewDiv);
+
+                        card.appendChild(info);
 
                         card.addEventListener('click', function() {
                             showModal(result);
@@ -547,7 +568,7 @@
                 })
                 .catch(function(err) {
                     searchLoading.style.display = 'none';
-                    searchInfo.textContent = 'Search failed: ' + err.message;
+                    searchInfo.textContent = 'Unable to perform search. Please try again later.';
                 });
         }
 
