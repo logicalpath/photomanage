@@ -67,13 +67,13 @@ This processes images from `database/512x512` with default settings (100 images 
 
 ```bash
 # Quick status check
-python src/check_progress.py
+uv run python src/check_progress.py
 
 # Auto-refreshing dashboard (updates every 30s)
-watch -n 30 'python src/check_progress.py'
+watch -n 30 'uv run python src/check_progress.py'
 
 # Detailed statistics
-python src/progress_summary.py
+uv run python src/progress_summary.py
 
 # Live log tail
 tail -f logs/orchestrator_console.log
@@ -193,7 +193,7 @@ photomanage/
 ### Quick Status Check
 
 ```bash
-python src/check_progress.py
+uv run python src/check_progress.py
 ```
 
 **Output:**
@@ -219,7 +219,7 @@ View live: tail -f logs/batch_orchestrator_20251123_143022.log
 Uses the `watch` command to refresh status every 30 seconds:
 
 ```bash
-watch -n 30 'python src/check_progress.py'
+watch -n 30 'uv run python src/check_progress.py'
 ```
 
 Press `Ctrl+C` to exit the watch view.
@@ -227,7 +227,7 @@ Press `Ctrl+C` to exit the watch view.
 ### Detailed Statistics
 
 ```bash
-python src/progress_summary.py
+uv run python src/progress_summary.py
 ```
 
 **Output:**
@@ -366,7 +366,7 @@ The `caffeinate -i` command in the start script tells macOS:
 After closing the lid:
 1. Wait a few minutes
 2. Open lid or SSH from another device
-3. Check progress: `python src/check_progress.py`
+3. Check progress: `uv run python src/check_progress.py`
 4. Verify recent timestamp shows it kept running
 
 ### Alternative: External Display
@@ -491,7 +491,7 @@ tail -50 logs/orchestrator_console.log
    ./scripts/run_batch_descriptions.sh --cooldown 15
    ```
 
-3. **Check system load**: Use `python src/progress_summary.py` to see if CPU/memory are maxed out
+3. **Check system load**: Use `uv run python src/progress_summary.py` to see if CPU/memory are maxed out
 
 ### Laptop Went to Sleep
 
@@ -578,7 +578,7 @@ Based on typical M3 MacBook performance with SmolVLM2:
 
 4. **Keep laptop plugged in**: Essential for lid-closed operation
 
-5. **Check progress daily**: Quick check with `python src/check_progress.py`
+5. **Check progress daily**: Quick check with `uv run python src/check_progress.py`
 
 6. **Don't worry about stopping**: It's completely safe to stop and resume
 
@@ -628,7 +628,7 @@ You can SSH into your Mac from another device to check progress:
 ```bash
 ssh user@your-mac.local
 cd /path/to/photomanage
-python src/check_progress.py
+uv run python src/check_progress.py
 ```
 
 ## Support
@@ -636,6 +636,6 @@ python src/check_progress.py
 If you encounter issues not covered here:
 
 1. Check the detailed logs in `logs/` directory
-2. Review the progress summary: `python src/progress_summary.py`
+2. Review the progress summary: `uv run python src/progress_summary.py`
 3. Look for patterns in errors
 4. Consider adjusting batch size and cooldown parameters
