@@ -331,7 +331,7 @@ This creates indexes on:
 - `exif.FileName` - For photo lookups (100-1000x faster)
 - `thumbImages.path` - For JOIN operations
 - `exif.CreateDate` - For date-based queries
-- `ai_description.file` - For AI description JOINs
+- `image_description.file` - For image description JOINs
 
 **Performance impact**: Photo lookups improve from O(n) full table scans to O(log n) index seeks.
 
@@ -391,6 +391,5 @@ python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extensi
 ```bash
 rm -rf .venv
 uv venv --python 3.12.5
-uv sync --no-install-project
-source .venv/bin/activate
+uv sync
 ```

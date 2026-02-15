@@ -48,13 +48,13 @@ ORDER BY exif.CreateDate ASC
 **Location**: `datasette.yaml:41-44`
 ```sql
 INNER JOIN thumbImages ON (
-  ai_description.file = thumbImages.path OR
-  replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path) OR
-  lower(ai_description.file) = lower(thumbImages.path)
+  image_description.file = thumbImages.path OR
+  replace(lower(image_description.file), '.jpg', '.jpeg') = lower(thumbImages.path) OR
+  lower(image_description.file) = lower(thumbImages.path)
 )
 ```
 **Issue**: Complex OR conditions on unindexed columns
-**Solution**: Index on `ai_description.file` (helps with first condition)
+**Solution**: Index on `image_description.file` (helps with first condition)
 
 ## Recommended Indexes
 
@@ -63,7 +63,7 @@ INNER JOIN thumbImages ON (
 | idx_exif_filename | exif | FileName | CRITICAL | Media plugin photo lookups |
 | idx_thumbimages_path | thumbImages | path | CRITICAL | JOIN target, FK relationship |
 | idx_exif_createdate | exif | CreateDate | HIGH | Date filtering and sorting |
-| idx_ai_description_file | ai_description | file | MEDIUM | AI description JOINs |
+| idx_image_description_file | image_description | file | MEDIUM | AI description JOINs |
 
 ## Implementation
 
@@ -86,7 +86,7 @@ CREATE INDEX idx_thumbimages_path ON thumbImages(path);
 CREATE INDEX idx_exif_createdate ON exif(CreateDate);
 
 -- MEDIUM priority indexes
-CREATE INDEX idx_ai_description_file ON ai_description(file);
+CREATE INDEX idx_image_description_file ON image_description(file);
 ```
 
 ## Expected Performance Improvements

@@ -106,7 +106,7 @@ INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
 
 ### AI Description Matching
 ```sql
-replace(lower(ai_description.file), '.jpg', '.jpeg') = lower(thumbImages.path)
+replace(lower(image_description.file), '.jpg', '.jpeg') = lower(thumbImages.path)
 -- Multiple normalizations required
 ```
 
