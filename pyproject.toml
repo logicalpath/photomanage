@@ -7,7 +7,7 @@ dependencies = [
     "anthropic",
     "b2",
     "black",
-    "datasette==1.0a21",
+    "datasette==1.0a24",
     "datasette-media",
     "datasette-render-images",
     "datasette-template-sql>=1.0.2",
@@ -33,6 +33,9 @@ dependencies = [
     "transformers",
     "uvicorn",
 ]
+
+[tool.hatch.build]
+include = ["src/**"]
 
 [build-system]
 requires = ["hatchling"]
