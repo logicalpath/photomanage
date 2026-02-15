@@ -40,7 +40,8 @@
             font-size: 14px;
             color: #999;
         }
-        .form-group input[type="date"] {
+        .form-group input[type="date"],
+        .form-group input[type="text"] {
             padding: 8px 12px;
             background-color: #2a2a2a;
             border: 1px solid #444;
@@ -48,9 +49,13 @@
             color: #e0e0e0;
             font-size: 14px;
         }
-        .form-group input[type="date"]:focus {
+        .form-group input[type="date"]:focus,
+        .form-group input[type="text"]:focus {
             outline: none;
             border-color: #4a9eff;
+        }
+        .form-group input[type="text"] {
+            width: 250px;
         }
         button {
             padding: 8px 20px;
@@ -64,6 +69,10 @@
         }
         button:hover {
             background-color: #3a8eef;
+        }
+        button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
         }
         .reset-link {
             padding: 8px 20px;
@@ -122,6 +131,20 @@
             font-size: 12px;
             color: #999;
         }
+        .photo-score {
+            font-size: 12px;
+            color: #4a9eff;
+            margin-top: 4px;
+        }
+        .photo-description-preview {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
         .no-results {
             text-align: center;
             padding: 60px 20px;
@@ -161,6 +184,110 @@
             color: #999;
             font-size: 14px;
         }
+        .search-loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        /* Modal overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .modal-overlay.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+        .modal-content {
+            background-color: #252525;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #333;
+        }
+        .modal-header h3 {
+            margin: 0;
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .modal-close:hover {
+            color: #fff;
+        }
+        .modal-body {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+        .modal-image {
+            flex-shrink: 0;
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #1a1a1a;
+        }
+        .modal-details {
+            flex: 1;
+            min-width: 0;
+        }
+        .modal-score {
+            font-size: 14px;
+            color: #4a9eff;
+            margin-bottom: 12px;
+        }
+        .modal-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+            white-space: pre-wrap;
+        }
+        .modal-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: #4a9eff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .modal-link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 700px) {
+            .modal-body {
+                flex-direction: column;
+            }
+            .modal-image {
+                width: 100%;
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -168,7 +295,11 @@
         <div class="header">
             <h1>Photo Gallery</h1>
 
-            <form class="filter-form" method="get">
+            <form class="filter-form" method="get" id="filterForm">
+                <div class="form-group">
+                    <label for="search_query">Semantic Search</label>
+                    <input type="text" id="search_query" name="q" placeholder="e.g. kids playing soccer" value="{{ request.args.get('q', '') }}">
+                </div>
                 <div class="form-group">
                     <label for="start_date">Start Date</label>
                     <input type="date" id="start_date" name="start_date" value="{{ request.args.get('start_date', '') }}">
@@ -177,11 +308,18 @@
                     <label for="end_date">End Date</label>
                     <input type="date" id="end_date" name="end_date" value="{{ request.args.get('end_date', '') }}">
                 </div>
-                <button type="submit">Filter</button>
+                <button type="submit" id="filterBtn">Filter</button>
                 <a href="/gallery" class="reset-link">Reset</a>
             </form>
         </div>
 
+        <div id="searchResults" style="display: none;">
+            <div class="search-loading" id="searchLoading">Loading search results...</div>
+            <div class="gallery-info" id="searchInfo"></div>
+            <div class="gallery-grid" id="searchGrid"></div>
+        </div>
+
+        <div id="galleryContent">
         {# Query photos based on date filter with pagination #}
         {% set start_date = request.args.get('start_date', '') %}
         {% set end_date = request.args.get('end_date', '') %}
@@ -269,6 +407,196 @@
                 <p>Try adjusting your date range or <a href="/gallery" style="color: #4a9eff;">reset the filter</a></p>
             </div>
         {% endif %}
+        </div>
     </div>
+
+    <!-- Modal for search result detail -->
+    <div class="modal-overlay" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image" id="modalImage" src="" alt="">
+                <div class="modal-details">
+                    <div class="modal-score" id="modalScore"></div>
+                    <div class="photo-date" id="modalDate" style="margin-bottom: 12px;"></div>
+                    <div class="modal-description" id="modalDescription"></div>
+                    <a class="modal-link" id="modalLink" href="#" target="_blank">View photo page →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const searchInput = document.getElementById('search_query');
+        const filterForm = document.getElementById('filterForm');
+        const searchResults = document.getElementById('searchResults');
+        const searchLoading = document.getElementById('searchLoading');
+        const searchInfo = document.getElementById('searchInfo');
+        const searchGrid = document.getElementById('searchGrid');
+        const galleryContent = document.getElementById('galleryContent');
+        const modal = document.getElementById('resultModal');
+        const modalClose = document.getElementById('modalClose');
+
+        function extractFilename(filePath) {
+            // filePath is like "./0/abc123.JPG" — extract just the filename
+            return filePath.split('/').pop();
+        }
+
+        function thumbUrl(filePath) {
+            // filePath is like "./0/abc123.JPG" — strip leading "./"
+            return '/-/media/thumb/' + filePath.replace(/^\.\//, '');
+        }
+
+        function showModal(result) {
+            const filename = extractFilename(result.id);
+            document.getElementById('modalTitle').textContent = filename;
+            document.getElementById('modalImage').src = thumbUrl(result.id);
+            document.getElementById('modalImage').alt = filename;
+            document.getElementById('modalScore').textContent = 'Similarity: ' + (result.score * 100).toFixed(1) + '%';
+            var dateEl = document.getElementById('modalDate');
+            if (result.date) {
+                dateEl.textContent = result.date.substring(0, 10);
+                dateEl.style.display = '';
+            } else {
+                dateEl.style.display = 'none';
+            }
+            document.getElementById('modalDescription').textContent = result.content || 'No description available.';
+            document.getElementById('modalLink').href = '/photo/' + encodeURIComponent(filename);
+            modal.classList.add('active');
+        }
+
+        modalClose.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });
+
+        function performSearch(query) {
+            if (!query.trim()) {
+                searchResults.style.display = 'none';
+                galleryContent.style.display = '';
+                return;
+            }
+
+            galleryContent.style.display = 'none';
+            searchResults.style.display = '';
+            searchLoading.style.display = '';
+            searchGrid.innerHTML = '';
+            searchInfo.textContent = '';
+
+            var searchUrl = '/search?q=' + encodeURIComponent(query) + '&n=50';
+            var startVal = document.getElementById('start_date').value;
+            var endVal = document.getElementById('end_date').value;
+            if (startVal) searchUrl += '&start_date=' + encodeURIComponent(startVal);
+            if (endVal) searchUrl += '&end_date=' + encodeURIComponent(endVal);
+
+            fetch(searchUrl)
+                .then(function(r) { return r.json(); })
+                .then(function(results) {
+                    searchLoading.style.display = 'none';
+
+                    if (results.error) {
+                        searchInfo.textContent = 'Error: ' + results.error;
+                        return;
+                    }
+
+                    searchInfo.textContent = 'Found ' + results.length + ' result(s) for "' + query + '"';
+
+                    results.forEach(function(result) {
+                        var card = document.createElement('div');
+                        card.className = 'photo-card';
+                        card.style.cursor = 'pointer';
+
+                        var filename = extractFilename(result.id);
+                        var preview = (result.content || '').substring(0, 120);
+                        if ((result.content || '').length > 120) preview += '...';
+
+                        var img = document.createElement('img');
+                        img.src = thumbUrl(result.id);
+                        img.alt = filename;
+                        img.className = 'photo-thumbnail';
+                        img.loading = 'lazy';
+                        card.appendChild(img);
+
+                        var info = document.createElement('div');
+                        info.className = 'photo-info';
+
+                        var filenameDiv = document.createElement('div');
+                        filenameDiv.className = 'photo-filename';
+                        filenameDiv.textContent = filename;
+                        info.appendChild(filenameDiv);
+
+                        if (result.date) {
+                            var dateDiv = document.createElement('div');
+                            dateDiv.className = 'photo-date';
+                            dateDiv.textContent = result.date.substring(0, 10);
+                            info.appendChild(dateDiv);
+                        }
+
+                        var scoreDiv = document.createElement('div');
+                        scoreDiv.className = 'photo-score';
+                        scoreDiv.textContent = 'Score: ' + (result.score * 100).toFixed(1) + '%';
+                        info.appendChild(scoreDiv);
+
+                        var previewDiv = document.createElement('div');
+                        previewDiv.className = 'photo-description-preview';
+                        previewDiv.textContent = preview;
+                        info.appendChild(previewDiv);
+
+                        card.appendChild(info);
+
+                        card.addEventListener('click', function() {
+                            showModal(result);
+                        });
+
+                        searchGrid.appendChild(card);
+                    });
+                })
+                .catch(function(err) {
+                    searchLoading.style.display = 'none';
+                    searchInfo.textContent = 'Unable to perform search. Please try again later.';
+                });
+        }
+
+        filterForm.addEventListener('submit', function(e) {
+            var query = searchInput.value.trim();
+            if (query) {
+                e.preventDefault();
+                performSearch(query);
+                // Update URL without reload
+                var url = new URL(window.location);
+                url.searchParams.set('q', query);
+                var sd = document.getElementById('start_date').value;
+                var ed = document.getElementById('end_date').value;
+                if (sd) url.searchParams.set('start_date', sd); else url.searchParams.delete('start_date');
+                if (ed) url.searchParams.set('end_date', ed); else url.searchParams.delete('end_date');
+                url.searchParams.delete('page');
+                history.pushState({}, '', url);
+            }
+            // If no search query, let the form submit normally for date filtering
+        });
+
+        // On page load, check if there's a search query in the URL
+        var initialQuery = new URLSearchParams(window.location.search).get('q');
+        if (initialQuery) {
+            searchInput.value = initialQuery;
+            performSearch(initialQuery);
+        }
+    })();
+    </script>
 </body>
 </html>

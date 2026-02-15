@@ -1,5 +1,8 @@
 # photomanage
-Scripts and ideas to manage tons and tons of images and movies. The code was/is developted using ai coding agents. I started with chatgpt 4.0, then Claude with various models and now with Claude Code and Claude Sonnet 4.5 (as of Nov 23, 2025). 
+
+Photomanage is a repo for managing personal photos. Currently, this is for managing a static set of photos and videos. There are about 33,000 files totaling 141 Gigabytes. The database maps exif data to all the files. A table of thumbprints exists for about 31,800 files (only 15 images failed to produce thumbprints). There are about 1,100 video files.
+
+The full image files and video files live in an external drive.
 
 
 ## Find media in apple photos library
@@ -166,7 +169,7 @@ From the `database/` directory:
 
 ```bash
 cd database
-uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db
+uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings.db
 ```
 
 **Note:** Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
@@ -266,6 +269,7 @@ http://127.0.0.1:8001/gallery
 ```
 
 Features:
+- Semantic search — type a natural-language query (e.g., "kids playing soccer") to find photos by meaning
 - Filter by date range (start date and/or end date)
 - Click thumbnails to view full photo with metadata
 - Pagination (100 photos per page with Previous/Next navigation)
@@ -340,16 +344,17 @@ See documentation for system architecture details:
 - [docs/sourcefile-consistency-analysis.md](docs/sourcefile-consistency-analysis.md) - Path architecture
 - [docs/database-indexes.md](docs/database-indexes.md) - Index optimization
 
-## Extensions and Embeddings
+## AI Image Descriptions
 
-Adding sqlite-vec for embeddings
+Generate natural-language descriptions of photos using SmolVLM on Apple Silicon. Descriptions are stored in the `image_description` table in `database/mediameta.db`.
 
-For Datasette:
-`datasette install datasette-sqlite-vec`
+See [docs/mlx-vlm-usage.md](docs/mlx-vlm-usage.md) for installation, usage, and batch processing details.
 
-For sqlite-utils:
-`sqlite-utils install sqlite-utils-sqlite-vec`
+## Semantic Search (Embeddings)
 
+Search your photo collection by meaning using embeddings generated from the AI descriptions. Uses Simon Willison's `llm` tool with local sentence-transformer models.
+
+See [docs/embedding-search.md](docs/embedding-search.md) for the full runbook.
 
 ## Create duptime table
 
@@ -358,15 +363,6 @@ Find thumbnails where the CreateDate is within the same second.
 `CREATE TABLE duptime AS SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size FROM exif INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path WHERE exif.CreateDate IS NOT NULL AND exif.CreateDate <> '' AND exif.CreateDate IN (SELECT CreateDate FROM exif WHERE CreateDate IS NOT NULL AND exif.CreateDate <> '' GROUP BY CreateDate HAVING COUNT(*) > 1) ORDER BY exif.CreateDate;`
 
 ## Troubleshooting
-
-### Set Pipenv to Use Pyenv Python
-
-```bash
-export PIPENV_PYTHON="$HOME/.pyenv/shims/python"
-
-# Make it permanent
-echo 'export PIPENV_PYTHON="$HOME/.pyenv/shims/python"' >> ~/.zshrc
-```
 
 ### Check Python Compilation Flags
 

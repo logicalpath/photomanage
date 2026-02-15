@@ -226,10 +226,22 @@ uv run datasette -p 8001 --root \
 
 This makes the embeddings table browsable at `http://127.0.0.1:8001/embeddings/embeddings`.
 
-For embedding-powered search in the Datasette web UI, install [datasette-llm-embed](https://github.com/simonw/datasette-llm-embed):
+### Gallery Semantic Search
+
+The gallery page at `/gallery` includes a semantic search box. Type a natural-language query (e.g., "kids playing soccer", "beach sunset") and click Filter. The search:
+
+1. Calls the `/search?q=<query>&n=50` JSON endpoint (provided by `datasette/plugins/semantic_search.py`)
+2. Loads the `all-MiniLM-L6-v2` sentence-transformers model on first request (~90MB memory)
+3. Reads all embeddings from `database/embeddings.db` into memory
+4. Encodes the query text and computes cosine similarity against all stored vectors
+5. Returns the top N results ranked by similarity score
+
+Results appear as thumbnail cards with similarity scores and description previews. Click a card to see the full AI description and a link to the photo detail page. Clear the search box and click Filter to return to the normal date-filtered gallery.
+
+The `/search` endpoint also works as a standalone JSON API:
 
 ```bash
-datasette install datasette-llm-embed
+curl 'http://127.0.0.1:8001/search?q=beach+sunset&n=5'
 ```
 
 Because `embeddings.db` and `mediameta.db` are served together, you can write cross-database SQL in Datasette's query editor to join search results back to the source descriptions or EXIF data.

@@ -27,6 +27,7 @@ dependencies = [
     "rawpy",
     "requests",
     "safetensors",
+    "sentence-transformers",
     "sqlite-utils",
     "torch",
     "torchvision",
