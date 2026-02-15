@@ -375,7 +375,7 @@ wheels = [
 
 [[package]]
 name = "datasette"
-version = "1.0a21"
+version = "1.0a24"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -397,9 +397,9 @@ dependencies = [
     { name = "sqlite-utils" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/08/6c/99a408c07f903b87a3e91520e19f8a74f7ee11bb57d038a07270ef49e6eb/datasette-1.0a21.tar.gz", hash = "sha256:550ef1f63fba86363ff7d469843f82f2f9b87a7ffd6e34947a04555bfa8be095", size = 434319 }
+sdist = { url = "https://files.pythonhosted.org/packages/d7/f5/1a69379f87d70b2d36fbb607d723660516a92ea3d785da75b3f5e9073c87/datasette-1.0a24.tar.gz", hash = "sha256:ba184115b8c663f35d36ad5b05f94c8386cec791d4290d040479c3cd6cf9d74b", size = 457164 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a2/27/bb183fcf75109181d5591838a63635084556af41059fa4de8dcca056f61f/datasette-1.0a21-py3-none-any.whl", hash = "sha256:12cd8a13453544d8a00c84e6226654f1294c9514a58e37e8beaeabca6a7079ef", size = 344183 },
+    { url = "https://files.pythonhosted.org/packages/66/c1/543d1b39016d2c9642c7072c07e006d33e6e1fae810d0e2af9f4d3795436/datasette-1.0a24-py3-none-any.whl", hash = "sha256:996f3d3dc226c60fd5fc4bce31ac6d9420165b75a314f40a7c2fc1cda8dfe19a", size = 360206 },
 ]
 
 [[package]]
@@ -1299,7 +1299,7 @@ requires-dist = [
     { name = "b2" },
     { name = "black" },
     { name = "datasets" },
-    { name = "datasette", specifier = "==1.0a21" },
+    { name = "datasette", specifier = "==1.0a24" },
     { name = "datasette-media" },
     { name = "datasette-render-images" },
     { name = "datasette-template-sql", specifier = ">=1.0.2" },
