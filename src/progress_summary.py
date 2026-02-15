@@ -10,9 +10,11 @@ Shows comprehensive statistics including:
 - Recent errors
 
 Usage:
-    python src/progress_summary.py
+    python src/progress_summary.py          # current session only
+    python src/progress_summary.py --all    # all sessions
 """
 
+import argparse
 import json
 import os
 import re
@@ -112,8 +114,12 @@ def analyze_outputs():
     }
 
 
-def analyze_logs():
-    """Analyze log files for batch statistics and memory usage."""
+def analyze_logs(all_logs=False):
+    """Analyze log files for batch statistics and memory usage.
+
+    Args:
+        all_logs: If True, analyze all log files. Otherwise only the most recent.
+    """
     log_dir = Path("logs")
     if not log_dir.exists():
         return None
@@ -121,6 +127,11 @@ def analyze_logs():
     log_files = sorted(log_dir.glob("batch_orchestrator_*.log"))
     if not log_files:
         return None
+
+    if all_logs:
+        logs_to_analyze = log_files
+    else:
+        logs_to_analyze = [log_files[-1]]
 
     batch_count = 0
     memory_readings = []
@@ -130,37 +141,54 @@ def analyze_logs():
     # Regex patterns
     memory_pattern = re.compile(r'Memory: ([\d.]+)%')
     cpu_pattern = re.compile(r'CPU: ([\d.]+)%')
-    error_pattern = re.compile(r'ERROR.*?- (.*)')
+    batch_failed_pattern = re.compile(r'Batch (\d+) failed with error code (\d+)')
 
-    for log_file in log_files:
+    for log_file in logs_to_analyze:
         try:
             with open(log_file, 'r') as f:
-                for line in f:
-                    # Count batches
-                    if 'Starting batch' in line:
-                        batch_count += 1
+                lines = f.readlines()
 
-                    # Extract memory usage
-                    mem_match = memory_pattern.search(line)
-                    if mem_match:
-                        memory_readings.append(float(mem_match.group(1)))
+            for i, line in enumerate(lines):
+                # Count batches
+                if 'Starting batch' in line:
+                    batch_count += 1
 
-                    # Extract CPU usage
-                    cpu_match = cpu_pattern.search(line)
-                    if cpu_match:
-                        cpu_readings.append(float(cpu_match.group(1)))
+                # Extract memory usage
+                mem_match = memory_pattern.search(line)
+                if mem_match:
+                    memory_readings.append(float(mem_match.group(1)))
 
-                    # Collect errors
-                    if 'ERROR' in line:
-                        error_match = error_pattern.search(line)
-                        if error_match:
-                            errors.append(error_match.group(1).strip())
+                # Extract CPU usage
+                cpu_match = cpu_pattern.search(line)
+                if cpu_match:
+                    cpu_readings.append(float(cpu_match.group(1)))
+
+                # Collect errors: combine "Batch N failed" with the error detail
+                batch_match = batch_failed_pattern.search(line)
+                if batch_match:
+                    batch_num = batch_match.group(1)
+                    error_code = batch_match.group(2)
+                    # Look ahead for the error detail (skip "Error output:" line)
+                    detail = ""
+                    for j in range(i + 1, min(i + 3, len(lines))):
+                        next_line = lines[j].strip()
+                        if 'Error output' in next_line:
+                            continue
+                        if next_line and 'BatchOrchestrator' not in next_line:
+                            detail = next_line
+                            break
+                    if detail:
+                        errors.append(f"Batch {batch_num} (exit {error_code}): {detail}")
+                    else:
+                        errors.append(f"Batch {batch_num} (exit {error_code})")
 
         except Exception as e:
             print(f"Warning: Could not read {log_file}: {e}")
 
+    log_label = f"{len(logs_to_analyze)} log files" if all_logs else logs_to_analyze[0].name
     result = {
         'batch_count': batch_count,
+        'log_file': log_label,
         'recent_errors': errors[-10:] if errors else []  # Last 10 errors
     }
 
@@ -191,6 +219,11 @@ def get_progress_count():
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Progress summary for image description generation")
+    parser.add_argument("--all", action="store_true",
+                        help="Analyze all log files instead of just the current session")
+    args = parser.parse_args()
+
     print("\n" + "=" * 70)
     print("DETAILED PROGRESS SUMMARY")
     print("=" * 70)
@@ -234,11 +267,13 @@ def main():
 
     # Log file analysis
     print("\n" + "-" * 70)
-    print("LOG FILE ANALYSIS")
+    scope = "all sessions" if args.all else "current session"
+    print(f"LOG FILE ANALYSIS ({scope})")
     print("-" * 70)
 
-    log_stats = analyze_logs()
+    log_stats = analyze_logs(all_logs=args.all)
     if log_stats:
+        print(f"Log file:             {log_stats['log_file']}")
         print(f"Total batches run:    {log_stats['batch_count']}")
 
         if 'memory' in log_stats:
