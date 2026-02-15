@@ -154,8 +154,8 @@ photomanage/
 - `--directory PATH`: Path to images (default: `database/512x512`)
 - `--batch-size NUM`: Images per batch (default: `100`)
 - `--cooldown SECS`: Seconds between batches (default: `30`)
-- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm`)
-- `--max-tokens NUM`: Maximum tokens for model output (default: `500`)
+- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm2`)
+- `--max-tokens NUM`: Maximum tokens for model output (default: `100`)
 - `--temp VALUE`: Temperature for model generation, 0.0-1.0 (default: `0.0`)
 - `-h, --help`: Show help message
 
@@ -595,22 +595,22 @@ Based on typical M3 MacBook performance with SmolVLM:
 ### Custom Model Parameters
 
 You can customize model parameters via command line:
-- **Max tokens**: Control response length (default: 500)
+- **Max tokens**: Control response length (default: 100)
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 300
+  ./scripts/run_batch_descriptions.sh --max-tokens 200
   ```
 - **Temperature**: Control randomness 0.0-1.0 (default: 0.0 for deterministic)
   ```bash
   ./scripts/run_batch_descriptions.sh --temp 0.7
   ```
+- **Prompt**: Customize the description prompt
+  ```bash
+  ./scripts/run_batch_descriptions.sh --prompt "<image>List the key subjects in this image."
+  ```
 - **Combine multiple parameters**:
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7 --model smolvlm2
+  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7 --model smolvlm
   ```
-
-To modify other parameters, edit `src/generate_descriptions.py`:
-- Prompt text
-- Other model-specific settings
 
 ### Processing Different Directories
 
