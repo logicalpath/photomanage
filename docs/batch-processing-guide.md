@@ -47,17 +47,11 @@ run_batch_descriptions.sh
 
 ## Installation
 
-Before running the batch processor, ensure all dependencies are installed:
-
 ```bash
-# Activate the uv environment
-source .venv/bin/activate
-
-# Install/update dependencies (includes psutil and click)
-uv sync --no-install-project
+uv sync
 ```
 
-**Note**: The batch processing system requires `psutil` for system monitoring and `click` for command-line interfaces. These are included in pyproject.toml.
+All dependencies (including `psutil`, `click`, `mlx-vlm`, `num2words`) are declared in `pyproject.toml`.
 
 ## Quick Start
 
@@ -542,18 +536,18 @@ tail -50 logs/orchestrator_console.log
 - **Memory**: 16GB+ recommended (works with 8GB but use smaller batch sizes)
 - **Disk Space**: ~150MB for logs and outputs (images must already be on disk)
 - **CPU**: Any modern processor (M-series Macs are fast)
-- **GPU**: Optional (SmolVLM can use GPU if available)
+- **GPU**: Not required (MLX uses Apple Silicon unified memory)
 
 ### Software
 
 - **Python**: 3.12.5
 - **uv**: For virtual environment and dependency management
-- **Dependencies**: Installed via `uv sync --no-install-project`
+- **Dependencies**: Installed via `uv sync`
 - **macOS**: Tested on macOS (should work on Linux with minor modifications)
 
 ### Time Estimates
 
-Based on typical M3 MacBook performance with SmolVLM:
+Based on typical M3 MacBook performance with SmolVLM2:
 
 - **Processing rate**: 300-400 images/hour
 - **31,841 images**: ~80-105 hours (3-4 days)
