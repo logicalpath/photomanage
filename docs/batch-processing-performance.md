@@ -4,7 +4,7 @@ Analysis date: 2025-11-25
 
 ## Overview
 
-Performance data collected during batch image description generation using SmolVLM models.
+Performance data collected during batch image description generation using SmolVLM2.
 
 ## Dataset
 
@@ -54,12 +54,10 @@ The high standard deviation (~100s) indicates extreme variability. Even a handfu
 - System resource contention
 - Memory pressure during processing
 
-## Models
+## Model
 
-Data collected primarily from `smolvlm` model. Comparison with `smolvlm2` pending additional data collection.
+Data collected using the `smolvlm2` model.
 
 ## Future Analysis
 
-- Compare processing times between smolvlm and smolvlm2
 - Identify characteristics of outlier images
-- Analyze description quality differences between models
