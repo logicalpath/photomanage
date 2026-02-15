@@ -34,8 +34,8 @@ dependencies = [
     "uvicorn",
 ]
 
-[tool.hatch.build.targets.wheel]
-packages = ["src"]
+[tool.hatch.build]
+include = ["src/**"]
 
 [build-system]
 requires = ["hatchling"]
