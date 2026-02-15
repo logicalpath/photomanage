@@ -331,7 +331,7 @@ This creates indexes on:
 - `exif.FileName` - For photo lookups (100-1000x faster)
 - `thumbImages.path` - For JOIN operations
 - `exif.CreateDate` - For date-based queries
-- `ai_description.file` - For AI description JOINs
+- `image_description.file` - For image description JOINs
 
 **Performance impact**: Photo lookups improve from O(n) full table scans to O(log n) index seeks.
 
@@ -346,7 +346,7 @@ See documentation for system architecture details:
 
 ## AI Image Descriptions
 
-Generate natural-language descriptions of photos using SmolVLM on Apple Silicon. Descriptions are stored in the `image_description` table in `database/mediameta.db`.
+Generate natural-language descriptions of photos using SmolVLM2 on Apple Silicon. Descriptions are stored in the `image_description` table in `database/mediameta.db`.
 
 See [docs/mlx-vlm-usage.md](docs/mlx-vlm-usage.md) for installation, usage, and batch processing details.
 
@@ -391,6 +391,5 @@ python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extensi
 ```bash
 rm -rf .venv
 uv venv --python 3.12.5
-uv sync --no-install-project
-source .venv/bin/activate
+uv sync
 ```

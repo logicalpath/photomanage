@@ -20,7 +20,7 @@ SQLite database located at `database/mediameta.db` containing metadata for media
   - ~32,969 records
   - Stores all possible EXIF fields from various sources with namespace prefixes
 
-- **ai_description** - AI-generated descriptions for files
+- **image_description** - AI-generated descriptions for files
   - file and description columns
 
 ### Utility Tables
@@ -77,7 +77,7 @@ Multiple tables share the `SourceFile` column as a common key:
 - Updating `photomanage_config.media_prefix_path` automatically updates all full_path values in the view
 
 ### Other Relationships
-- **ai_description.file** - Relates to file paths for AI descriptions
+- **image_description.file** - Relates to file paths for AI descriptions
 - **mappings** - Connects old and new filenames for rename tracking
 - **videorez.File** - References video files for resolution data
 - **duptime/dups2008** - Track duplicate files by dates and filenames

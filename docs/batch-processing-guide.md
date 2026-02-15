@@ -47,17 +47,11 @@ run_batch_descriptions.sh
 
 ## Installation
 
-Before running the batch processor, ensure all dependencies are installed:
-
 ```bash
-# Activate the uv environment
-source .venv/bin/activate
-
-# Install/update dependencies (includes psutil and click)
-uv sync --no-install-project
+uv sync
 ```
 
-**Note**: The batch processing system requires `psutil` for system monitoring and `click` for command-line interfaces. These are included in pyproject.toml.
+All dependencies (including `psutil`, `click`, `mlx-vlm`, `num2words`) are declared in `pyproject.toml`.
 
 ## Quick Start
 
@@ -73,13 +67,13 @@ This processes images from `database/512x512` with default settings (100 images 
 
 ```bash
 # Quick status check
-python src/check_progress.py
+uv run python src/check_progress.py
 
 # Auto-refreshing dashboard (updates every 30s)
-watch -n 30 'python src/check_progress.py'
+watch -n 30 'uv run python src/check_progress.py'
 
 # Detailed statistics
-python src/progress_summary.py
+uv run python src/progress_summary.py
 
 # Live log tail
 tail -f logs/orchestrator_console.log
@@ -154,8 +148,8 @@ photomanage/
 - `--directory PATH`: Path to images (default: `database/512x512`)
 - `--batch-size NUM`: Images per batch (default: `100`)
 - `--cooldown SECS`: Seconds between batches (default: `30`)
-- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm`)
-- `--max-tokens NUM`: Maximum tokens for model output (default: `500`)
+- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm2`)
+- `--max-tokens NUM`: Maximum tokens for model output (default: `100`)
 - `--temp VALUE`: Temperature for model generation, 0.0-1.0 (default: `0.0`)
 - `-h, --help`: Show help message
 
@@ -199,7 +193,7 @@ photomanage/
 ### Quick Status Check
 
 ```bash
-python src/check_progress.py
+uv run python src/check_progress.py
 ```
 
 **Output:**
@@ -225,7 +219,7 @@ View live: tail -f logs/batch_orchestrator_20251123_143022.log
 Uses the `watch` command to refresh status every 30 seconds:
 
 ```bash
-watch -n 30 'python src/check_progress.py'
+watch -n 30 'uv run python src/check_progress.py'
 ```
 
 Press `Ctrl+C` to exit the watch view.
@@ -233,7 +227,7 @@ Press `Ctrl+C` to exit the watch view.
 ### Detailed Statistics
 
 ```bash
-python src/progress_summary.py
+uv run python src/progress_summary.py
 ```
 
 **Output:**
@@ -372,7 +366,7 @@ The `caffeinate -i` command in the start script tells macOS:
 After closing the lid:
 1. Wait a few minutes
 2. Open lid or SSH from another device
-3. Check progress: `python src/check_progress.py`
+3. Check progress: `uv run python src/check_progress.py`
 4. Verify recent timestamp shows it kept running
 
 ### Alternative: External Display
@@ -497,7 +491,7 @@ tail -50 logs/orchestrator_console.log
    ./scripts/run_batch_descriptions.sh --cooldown 15
    ```
 
-3. **Check system load**: Use `python src/progress_summary.py` to see if CPU/memory are maxed out
+3. **Check system load**: Use `uv run python src/progress_summary.py` to see if CPU/memory are maxed out
 
 ### Laptop Went to Sleep
 
@@ -542,18 +536,18 @@ tail -50 logs/orchestrator_console.log
 - **Memory**: 16GB+ recommended (works with 8GB but use smaller batch sizes)
 - **Disk Space**: ~150MB for logs and outputs (images must already be on disk)
 - **CPU**: Any modern processor (M-series Macs are fast)
-- **GPU**: Optional (SmolVLM can use GPU if available)
+- **GPU**: Not required (MLX uses Apple Silicon unified memory)
 
 ### Software
 
 - **Python**: 3.12.5
 - **uv**: For virtual environment and dependency management
-- **Dependencies**: Installed via `uv sync --no-install-project`
+- **Dependencies**: Installed via `uv sync`
 - **macOS**: Tested on macOS (should work on Linux with minor modifications)
 
 ### Time Estimates
 
-Based on typical M3 MacBook performance with SmolVLM:
+Based on typical M3 MacBook performance with SmolVLM2:
 
 - **Processing rate**: 300-400 images/hour
 - **31,841 images**: ~80-105 hours (3-4 days)
@@ -584,7 +578,7 @@ Based on typical M3 MacBook performance with SmolVLM:
 
 4. **Keep laptop plugged in**: Essential for lid-closed operation
 
-5. **Check progress daily**: Quick check with `python src/check_progress.py`
+5. **Check progress daily**: Quick check with `uv run python src/check_progress.py`
 
 6. **Don't worry about stopping**: It's completely safe to stop and resume
 
@@ -595,22 +589,22 @@ Based on typical M3 MacBook performance with SmolVLM:
 ### Custom Model Parameters
 
 You can customize model parameters via command line:
-- **Max tokens**: Control response length (default: 500)
+- **Max tokens**: Control response length (default: 100)
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 300
+  ./scripts/run_batch_descriptions.sh --max-tokens 200
   ```
 - **Temperature**: Control randomness 0.0-1.0 (default: 0.0 for deterministic)
   ```bash
   ./scripts/run_batch_descriptions.sh --temp 0.7
   ```
+- **Prompt**: Customize the description prompt
+  ```bash
+  ./scripts/run_batch_descriptions.sh --prompt "<image>List the key subjects in this image."
+  ```
 - **Combine multiple parameters**:
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7 --model smolvlm2
+  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7 --model smolvlm2
   ```
-
-To modify other parameters, edit `src/generate_descriptions.py`:
-- Prompt text
-- Other model-specific settings
 
 ### Processing Different Directories
 
@@ -634,7 +628,7 @@ You can SSH into your Mac from another device to check progress:
 ```bash
 ssh user@your-mac.local
 cd /path/to/photomanage
-python src/check_progress.py
+uv run python src/check_progress.py
 ```
 
 ## Support
@@ -642,6 +636,6 @@ python src/check_progress.py
 If you encounter issues not covered here:
 
 1. Check the detailed logs in `logs/` directory
-2. Review the progress summary: `python src/progress_summary.py`
+2. Review the progress summary: `uv run python src/progress_summary.py`
 3. Look for patterns in errors
 4. Consider adjusting batch size and cooldown parameters

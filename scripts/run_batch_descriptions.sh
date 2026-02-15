@@ -12,8 +12,8 @@
 #   --directory PATH      Path to images (default: database/512x512)
 #   --batch-size NUM      Images per batch (default: 100)
 #   --cooldown SECS       Seconds between batches (default: 30)
-#   --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm)
-#   --max-tokens NUM      Maximum tokens for output (default: 500)
+#   --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm2)
+#   --max-tokens NUM      Maximum tokens for output (default: 100)
 #   --temp VALUE          Temperature 0.0-1.0 (default: 0.0)
 #   -h, --help            Show this help message
 #
@@ -29,8 +29,8 @@
 DIRECTORY="database/512x512"
 BATCH_SIZE="100"
 COOLDOWN="30"
-MODEL="smolvlm"
-MAX_TOKENS="500"
+MODEL="smolvlm2"
+MAX_TOKENS="100"
 TEMP="0.0"
 
 # Parse command line arguments
@@ -69,8 +69,8 @@ while [[ $# -gt 0 ]]; do
             echo "  --directory PATH      Path to images (default: database/512x512)"
             echo "  --batch-size NUM      Images per batch (default: 100)"
             echo "  --cooldown SECS       Seconds between batches (default: 30)"
-            echo "  --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm)"
-            echo "  --max-tokens NUM      Maximum tokens for output (default: 500)"
+            echo "  --model NAME          Model to use: smolvlm or smolvlm2 (default: smolvlm2)"
+            echo "  --max-tokens NUM      Maximum tokens for output (default: 100)"
             echo "  --temp VALUE          Temperature 0.0-1.0 (default: 0.0)"
             echo "  -h, --help            Show this help message"
             echo ""
@@ -137,7 +137,7 @@ echo ""
 # caffeinate prevents sleep even with lid closed (when plugged in)
 # nohup ensures it continues after shell exits
 echo "Starting orchestrator..."
-nohup caffeinate -i python3 src/batch_orchestrator.py \
+nohup caffeinate -i uv run python src/batch_orchestrator.py \
     "$DIRECTORY" \
     --batch-size "$BATCH_SIZE" \
     --cooldown "$COOLDOWN" \
@@ -161,12 +161,12 @@ if ps -p "$ORCHESTRATOR_PID" > /dev/null 2>&1; then
     echo "Console log:    logs/orchestrator_console.log"
     echo ""
     echo "Monitor progress:"
-    echo "  python src/check_progress.py"
-    echo "  python src/progress_summary.py"
+    echo "  uv run python src/check_progress.py"
+    echo "  uv run python src/progress_summary.py"
     echo "  tail -f logs/orchestrator_console.log"
     echo ""
     echo "Watch dashboard (auto-refresh every 30s):"
-    echo "  watch -n 30 'python src/check_progress.py'"
+    echo "  watch -n 30 'uv run python src/check_progress.py'"
     echo ""
     echo "Stop processing:"
     echo "  ./scripts/stop_batch_descriptions.sh"

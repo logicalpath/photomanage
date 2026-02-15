@@ -34,9 +34,10 @@ class BatchOrchestrator:
     """Orchestrates batch processing of images with memory management."""
 
     def __init__(self, directory: str, batch_size: int = 100,
-                 cooldown: int = 30, model: str = 'smolvlm',
+                 cooldown: int = 30, model: str = 'smolvlm2',
                  max_memory_percent: float = 85.0,
-                 max_tokens: int = 500, temp: float = 0.0):
+                 max_tokens: int = 100, temp: float = 0.0,
+                 prompt: str = '<image>Briefly describe this image in one or two sentences.'):
         self.directory = Path(directory)
         self.batch_size = batch_size
         self.cooldown = cooldown
@@ -44,6 +45,7 @@ class BatchOrchestrator:
         self.max_memory_percent = max_memory_percent
         self.max_tokens = max_tokens
         self.temp = temp
+        self.prompt = prompt
         self.progress_file = "photo_descriptions_progress.txt"
 
         # Set up logging
@@ -167,7 +169,8 @@ class BatchOrchestrator:
             str(self.batch_size),
             "--model", self.model,
             "--max-tokens", str(self.max_tokens),
-            "--temp", str(self.temp)
+            "--temp", str(self.temp),
+            "--prompt", self.prompt
         ]
 
         self.logger.info(f"Running: {' '.join(cmd)}")
@@ -207,6 +210,7 @@ class BatchOrchestrator:
         self.logger.info(f"Model: {self.model}")
         self.logger.info(f"Max tokens: {self.max_tokens}")
         self.logger.info(f"Temperature: {self.temp}")
+        self.logger.info(f"Prompt: {self.prompt}")
         self.logger.info("=" * 70)
 
         batch_num = 0
@@ -306,8 +310,8 @@ def main():
     parser.add_argument(
         '--model',
         choices=['smolvlm', 'smolvlm2'],
-        default='smolvlm',
-        help='Model to use for descriptions (default: smolvlm)'
+        default='smolvlm2',
+        help='Model to use for descriptions (default: smolvlm2)'
     )
     parser.add_argument(
         '--max-memory',
@@ -318,14 +322,19 @@ def main():
     parser.add_argument(
         '--max-tokens',
         type=int,
-        default=500,
-        help='Maximum tokens to generate per image (default: 500)'
+        default=100,
+        help='Maximum tokens to generate per image (default: 100)'
     )
     parser.add_argument(
         '--temp',
         type=float,
         default=0.0,
         help='Temperature for generation (default: 0.0)'
+    )
+    parser.add_argument(
+        '--prompt',
+        default='<image>Briefly describe this image in one or two sentences.',
+        help='Prompt for image description (default: brief one-sentence description)'
     )
 
     args = parser.parse_args()
@@ -343,7 +352,8 @@ def main():
         model=args.model,
         max_memory_percent=args.max_memory,
         max_tokens=args.max_tokens,
-        temp=args.temp
+        temp=args.temp,
+        prompt=args.prompt
     )
 
     orchestrator.run()
