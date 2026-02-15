@@ -5,6 +5,7 @@ description = "Photo management system with Datasette"
 requires-python = ">=3.12.5,<3.13"
 dependencies = [
     "anthropic",
+    "click",
     "b2",
     "black",
     "datasette==1.0a24",
@@ -17,11 +18,13 @@ dependencies = [
     "mlx",
     "mlx-lm",
     "mlx-vlm",
+    "num2words",
     "numpy",
     "openai",
     "opencv-python",
     "pandas",
     "pillow",
+    "psutil",
     "pyheif",
     "python-dotenv",
     "rawpy",

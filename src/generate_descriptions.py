@@ -131,11 +131,11 @@ def prompt_resume() -> bool:
 @click.argument('directory', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument('num_files', type=int)
 @click.option('--model', type=click.Choice(['smolvlm', 'smolvlm2'], case_sensitive=False),
-              default='smolvlm', help='Model to use (default: smolvlm)')
+              default='smolvlm2', help='Model to use (default: smolvlm2)')
 @click.option('--output-dir', default='outputs', help='Directory for output files')
-@click.option('--prompt', default='<image>Describe this image in detail',
+@click.option('--prompt', default='<image>Briefly describe this image in one or two sentences.',
               help='Prompt to use for image description (will auto-add <image> token if missing)')
-@click.option('--max-tokens', default=500, type=int, help='Maximum tokens to generate (default: 500)')
+@click.option('--max-tokens', default=100, type=int, help='Maximum tokens to generate (default: 100)')
 @click.option('--temp', default=0.0, type=float, help='Temperature for generation, range 0.0-1.0 (default: 0.0)')
 def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
     """
