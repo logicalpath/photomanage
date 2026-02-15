@@ -148,7 +148,6 @@ photomanage/
 - `--directory PATH`: Path to images (default: `database/512x512`)
 - `--batch-size NUM`: Images per batch (default: `100`)
 - `--cooldown SECS`: Seconds between batches (default: `30`)
-- `--model NAME`: Model to use - `smolvlm` or `smolvlm2` (default: `smolvlm2`)
 - `--max-tokens NUM`: Maximum tokens for model output (default: `100`)
 - `--temp VALUE`: Temperature for model generation, 0.0-1.0 (default: `0.0`)
 - `-h, --help`: Show help message
@@ -162,9 +161,6 @@ photomanage/
 # Larger batches with shorter cooldown (faster, more aggressive)
 ./scripts/run_batch_descriptions.sh --batch-size 200 --cooldown 15
 
-# Use SmolVLM2 model
-./scripts/run_batch_descriptions.sh --model smolvlm2
-
 # Custom max tokens and temperature
 ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7
 
@@ -172,7 +168,7 @@ photomanage/
 ./scripts/run_batch_descriptions.sh --directory /path/to/images
 
 # Combine multiple options (any order)
-./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200 --model smolvlm2
+./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200
 
 # Show help
 ./scripts/run_batch_descriptions.sh --help
@@ -182,7 +178,7 @@ photomanage/
 
 1. Validates directory exists
 2. Counts total files
-3. Displays configuration (directory, batch size, cooldown, model, max tokens, temperature)
+3. Displays configuration (directory, batch size, cooldown, max tokens, temperature)
 4. Starts orchestrator with `caffeinate` (prevents sleep)
 5. Saves process ID to `batch_orchestrator.pid`
 6. Begins processing batches
@@ -296,7 +292,7 @@ tail -f logs/orchestrator_console.log
 2025-11-23 14:32:15 - Progress: 5,400 / 31,841 (17.0%) - 26,441 remaining
 2025-11-23 14:32:15 - Starting batch 55
 2025-11-23 14:32:15 - System Stats - Memory: 48.3% used (15.2GB / 32.0GB), CPU: 82.1%
-2025-11-23 14:32:15 - Running: python src/generate_descriptions.py database/512x512 100 --model smolvlm
+2025-11-23 14:32:15 - Running: python src/generate_descriptions.py database/512x512 100 --max-tokens 100
 2025-11-23 14:45:28 - Batch 55 completed successfully
 2025-11-23 14:45:28 - Cooldown: waiting 30s before next batch...
 ```
@@ -603,7 +599,7 @@ You can customize model parameters via command line:
   ```
 - **Combine multiple parameters**:
   ```bash
-  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7 --model smolvlm2
+  ./scripts/run_batch_descriptions.sh --max-tokens 200 --temp 0.7
   ```
 
 ### Processing Different Directories

@@ -34,14 +34,13 @@ class BatchOrchestrator:
     """Orchestrates batch processing of images with memory management."""
 
     def __init__(self, directory: str, batch_size: int = 100,
-                 cooldown: int = 30, model: str = 'smolvlm2',
+                 cooldown: int = 30,
                  max_memory_percent: float = 85.0,
                  max_tokens: int = 100, temp: float = 0.0,
                  prompt: str = '<image>Briefly describe this image in one or two sentences.'):
         self.directory = Path(directory)
         self.batch_size = batch_size
         self.cooldown = cooldown
-        self.model = model
         self.max_memory_percent = max_memory_percent
         self.max_tokens = max_tokens
         self.temp = temp
@@ -167,7 +166,6 @@ class BatchOrchestrator:
             "src/generate_descriptions.py",
             str(self.directory),
             str(self.batch_size),
-            "--model", self.model,
             "--max-tokens", str(self.max_tokens),
             "--temp", str(self.temp),
             "--prompt", self.prompt
@@ -207,7 +205,7 @@ class BatchOrchestrator:
         self.logger.info(f"Total files: {self.total_files}")
         self.logger.info(f"Batch size: {self.batch_size}")
         self.logger.info(f"Cooldown: {self.cooldown}s")
-        self.logger.info(f"Model: {self.model}")
+        self.logger.info(f"Model: smolvlm2")
         self.logger.info(f"Max tokens: {self.max_tokens}")
         self.logger.info(f"Temperature: {self.temp}")
         self.logger.info(f"Prompt: {self.prompt}")
@@ -308,12 +306,6 @@ def main():
         help='Seconds to wait between batches (default: 30)'
     )
     parser.add_argument(
-        '--model',
-        choices=['smolvlm', 'smolvlm2'],
-        default='smolvlm2',
-        help='Model to use for descriptions (default: smolvlm2)'
-    )
-    parser.add_argument(
         '--max-memory',
         type=float,
         default=85.0,
@@ -349,7 +341,6 @@ def main():
         directory=args.directory,
         batch_size=args.batch_size,
         cooldown=args.cooldown,
-        model=args.model,
         max_memory_percent=args.max_memory,
         max_tokens=args.max_tokens,
         temp=args.temp,

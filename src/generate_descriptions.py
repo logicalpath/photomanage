@@ -7,17 +7,17 @@
 # ///
 
 """
-Generate photo descriptions using SmolVLM or SmolVLM2 models.
+Generate photo descriptions using SmolVLM2.
 
-This script uses the SmolVLMHelper or SmolVLM2Helper classes to generate
-descriptions for images in a directory. It supports progress tracking to
-allow resuming from where you left off.
+This script uses the SmolVLM2Helper class to generate descriptions for images
+in a directory. It supports progress tracking to allow resuming from where
+you left off.
 
 Usage:
-    python src/generate_descriptions.py <directory> <num_files> [--model smolvlm|smolvlm2]
+    python src/generate_descriptions.py <directory> <num_files>
 
 Example:
-    python src/generate_descriptions.py ~/Photos 100 --model smolvlm2
+    python src/generate_descriptions.py ~/Photos 100
 """
 
 import click
@@ -130,16 +130,14 @@ def prompt_resume() -> bool:
 @click.command()
 @click.argument('directory', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument('num_files', type=int)
-@click.option('--model', type=click.Choice(['smolvlm', 'smolvlm2'], case_sensitive=False),
-              default='smolvlm2', help='Model to use (default: smolvlm2)')
 @click.option('--output-dir', default='outputs', help='Directory for output files')
 @click.option('--prompt', default='<image>Briefly describe this image in one or two sentences.',
               help='Prompt to use for image description (will auto-add <image> token if missing)')
 @click.option('--max-tokens', default=100, type=int, help='Maximum tokens to generate (default: 100)')
 @click.option('--temp', default=0.0, type=float, help='Temperature for generation, range 0.0-1.0 (default: 0.0)')
-def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
+def main(directory, num_files, output_dir, prompt, max_tokens, temp):
     """
-    Generate descriptions for images in a directory using SmolVLM models.
+    Generate descriptions for images in a directory using SmolVLM2.
 
     DIRECTORY: Path to directory containing images
     NUM_FILES: Number of images to process in this run
@@ -192,16 +190,11 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
     files_to_process = files_to_process[:num_files]
     click.echo(f"Processing {len(files_to_process)} files in this run")
 
-    # Load the appropriate model
-    click.echo(f"\nLoading {model} model...")
+    # Load the model
+    click.echo("\nLoading SmolVLM2 model...")
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    if model.lower() == 'smolvlm2':
-        # Import here to avoid loading both models
-        from smolvlm2_helper import SmolVLM2Helper
-        vlm = SmolVLM2Helper()
-    else:
-        from smolvlm_helper import SmolVLMHelper
-        vlm = SmolVLMHelper()
+    from smolvlm2_helper import SmolVLM2Helper
+    vlm = SmolVLM2Helper()
 
     # Ensure prompt has <image> token
     if '<image>' not in prompt:
@@ -249,7 +242,7 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
             pending_results.append({
                 "file": f"./{rel_path}",
                 "description": description_text.strip(),
-                "model": model,
+                "model": "smolvlm2",
                 "generation_time_seconds": round(elapsed_time, 2),
                 "error": False
             })
@@ -265,7 +258,7 @@ def main(directory, num_files, model, output_dir, prompt, max_tokens, temp):
             pending_results.append({
                 "file": f"./{rel_path}",
                 "description": f"Error: {str(e)}",
-                "model": model,
+                "model": "smolvlm2",
                 "generation_time_seconds": None,
                 "error": True
             })

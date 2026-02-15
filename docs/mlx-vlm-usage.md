@@ -44,7 +44,6 @@ python scripts/import_image_descriptions.py
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `--model` | `smolvlm2` | Model to use (`smolvlm` also available) |
 | `--max-tokens` | `100` | Maximum output tokens per image |
 | `--prompt` | `Briefly describe this image in one or two sentences.` | Description prompt |
 | `--temp` | `0.0` | Temperature (0.0 = deterministic) |
