@@ -27,18 +27,20 @@ mlx-vlm is actively used in this project for image description and vision-langua
 
 ### Package Configuration
 
-The project uses Pipenv for dependency management. mlx-vlm is explicitly listed in `Pipfile`:
+The project uses uv for dependency management. mlx-vlm is listed in `pyproject.toml`:
 
 ```toml
-[packages]
-mlx-vlm = "*"
+dependencies = [
+    "mlx-vlm",
+    ...
+]
 ```
 
 ### Related Dependencies
 
 - `mlx.core` - MLX framework for Apple Silicon
 - `torch` and `torchvision` - PyTorch dependencies
-- Python 3.x via `/opt/homebrew/bin/python3`
+- Python 3.12.5 via pyenv
 
 ### Installation
 
@@ -723,7 +725,7 @@ for file in outputs/image_analysis_*.json; do
 done
 ```
 
-**Note:** `sqlite-utils` is included in the project's Pipfile dependencies.
+**Note:** `sqlite-utils` is included in the project's pyproject.toml dependencies.
 
 ### Querying AI Descriptions
 
@@ -826,10 +828,10 @@ SmolVLM is specifically optimized for Apple Silicon through the MLX framework:
 | Aspect | Details |
 |--------|---------|
 | **Status** | Actively used in production |
-| **Package Manager** | Pipenv |
+| **Package Manager** | uv |
 | **Framework** | MLX (Apple Silicon optimized) |
-| **Primary Model** | SmolVLM-Instruct-bf16 |
-| **Recommended API** | `SmolVLMHelper` class |
+| **Primary Model** | SmolVLM2-2.2B-Instruct-mlx |
+| **Recommended API** | `SmolVLM2Helper` class |
 | **Image Formats** | JPG, JPEG, NEF, ARW, PNG |
 | **Output Formats** | JSON, TXT, Console |
 | **Use Cases** | Photo cataloging, image analysis, metadata enhancement |
