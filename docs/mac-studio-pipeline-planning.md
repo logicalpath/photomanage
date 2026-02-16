@@ -91,13 +91,13 @@ CLIP creates embeddings directly from image pixels (no text description needed).
 
 ### Models ranked
 
-| Model | Size | Embedding dim | ImageNet accuracy | Notes |
-|---|---|---|---|---|
-| SigLIP 2 (Google, Feb 2025) | 400M-1B | 768-1152 | 85.0% | Best overall, newest |
-| DFN ViT-H (OpenCLIP) | ~1B | 1024 | 84.4% | Very strong |
-| SigLIP (Google) | ~400M | 768 | 82.0% | Good balance |
-| CLIP ViT-L/14 (OpenAI) | 428M | 768 | 75.5% | Solid, well-supported |
-| CLIP ViT-B/32 (on disk) | 88M | 512 | 63.2% | Fast but weakest |
+| Model | Size | Embedding dim | ImageNet accuracy | Open source | Notes |
+|---|---|---|---|---|---|
+| SigLIP 2 (Google, Feb 2025) | 400M-1B | 768-1152 | 85.0% | Yes (Apache 2.0) | Best overall, newest |
+| DFN ViT-H (OpenCLIP) | ~1B | 1024 | 84.4% | Yes (MIT) | Very strong |
+| SigLIP (Google) | ~400M | 768 | 82.0% | Yes (Apache 2.0) | Good balance |
+| CLIP ViT-L/14 (OpenAI) | 428M | 768 | 75.5% | Yes (MIT) | Solid, well-supported |
+| CLIP ViT-B/32 (on disk) | 88M | 512 | 63.2% | Yes (MIT) | Fast but weakest |
 
 ### Recommendation
 
