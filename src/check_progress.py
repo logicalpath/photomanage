@@ -140,10 +140,14 @@ def estimate_avg_time_per_image() -> float | None:
     if not outputs_dir.exists():
         return None
 
-    # Get most recent output file
+    # Get most recent output file (check both batch files and main file)
     output_files = sorted(outputs_dir.glob("image_analysis_*.json"), reverse=True)
     if not output_files:
-        return None
+        main_file = outputs_dir / "image_analysis.json"
+        if main_file.exists():
+            output_files = [main_file]
+        else:
+            return None
 
     try:
         with open(output_files[0], 'r') as f:
