@@ -20,6 +20,7 @@ import argparse
 import logging
 import os
 import psutil
+import re
 import subprocess
 import sys
 import time
@@ -184,6 +185,18 @@ class BatchOrchestrator:
             )
 
             self.logger.info(f"Batch {batch_num} completed successfully")
+
+            # Parse GPU throughput from subprocess output
+            tps_values = re.findall(r'([\d.]+) tokens/s', result.stdout)
+            if tps_values:
+                tps_floats = [float(v) for v in tps_values]
+                avg_tps = sum(tps_floats) / len(tps_floats)
+                self.logger.info(
+                    f"GPU Throughput - Batch avg: {avg_tps:.1f} tokens/sec "
+                    f"(range: {min(tps_floats):.1f} - {max(tps_floats):.1f}, "
+                    f"n={len(tps_floats)})"
+                )
+
             self.logger.debug(f"Output: {result.stdout}")
 
             return True

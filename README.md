@@ -169,7 +169,7 @@ From the `database/` directory:
 
 ```bash
 cd database
-uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings.db
+uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
 ```
 
 **Note:** Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.

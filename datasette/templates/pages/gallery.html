@@ -498,7 +498,7 @@
             searchGrid.innerHTML = '';
             searchInfo.textContent = '';
 
-            var searchUrl = '/search?q=' + encodeURIComponent(query) + '&n=50';
+            var searchUrl = '/search?q=' + encodeURIComponent(query) + '&n=200';
             var startVal = document.getElementById('start_date').value;
             var endVal = document.getElementById('end_date').value;
             if (startVal) searchUrl += '&start_date=' + encodeURIComponent(startVal);

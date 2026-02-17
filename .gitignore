@@ -11,6 +11,7 @@ previews/*
 TODO
 *.pickle
 *.out
+*.pid
 
 # Secrets
 .env
