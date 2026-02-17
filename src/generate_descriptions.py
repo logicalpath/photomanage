@@ -245,8 +245,10 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
                 result_entry["description"] = description.text.strip()
                 result_entry["prompt_tokens"] = getattr(description, 'prompt_tokens', None)
                 result_entry["generation_tokens"] = getattr(description, 'generation_tokens', None)
-                result_entry["prompt_tps"] = round(getattr(description, 'prompt_tps', 0), 2) or None
-                result_entry["generation_tps"] = round(getattr(description, 'generation_tps', 0), 2) or None
+                prompt_tps = round(getattr(description, 'prompt_tps', 0), 2)
+                result_entry["prompt_tps"] = None if prompt_tps == 0 else prompt_tps
+                generation_tps = round(getattr(description, 'generation_tps', 0), 2)
+                result_entry["generation_tps"] = None if generation_tps == 0 else generation_tps
             else:
                 result_entry["description"] = str(description).strip()
 
