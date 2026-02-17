@@ -62,10 +62,14 @@ def insert_records(db_path: Path, table_name: str, records: list) -> tuple[bool,
     if not records:
         return True, "No new records to insert"
 
+    # Only keep core columns, drop any extra fields
+    core_columns = {'file', 'description', 'model', 'generation_time_seconds', 'error'}
+    cleaned = [{k: v for k, v in r.items() if k in core_columns} for r in records]
+
     # Pass records via stdin as JSON
     result = subprocess.run(
         ['sqlite-utils', 'insert', str(db_path), table_name, '-', '--pk', 'file'],
-        input=json.dumps(records),
+        input=json.dumps(cleaned),
         capture_output=True, text=True
     )
 
