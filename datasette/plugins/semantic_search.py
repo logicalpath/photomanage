@@ -19,7 +19,7 @@ _default_database_dir = os.path.abspath(
 )
 EMBEDDINGS_DB_PATH = os.getenv(
     "EMBEDDINGS_DB_PATH",
-    os.path.join(_default_database_dir, "embeddings.db"),
+    os.path.join(_default_database_dir, "embeddings-vlm2.db"),
 )
 MEDIAMETA_DB_PATH = os.getenv(
     "MEDIAMETA_DB_PATH",
