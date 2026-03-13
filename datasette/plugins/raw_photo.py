@@ -1,10 +1,13 @@
 import asyncio
 import io
+import logging
 import sqlite3
 import os
 
 from datasette import hookimpl
 from datasette.utils.asgi import Response
+
+logger = logging.getLogger(__name__)
 
 _default_database_dir = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", "database")
@@ -45,7 +48,8 @@ async def raw_photo_handler(request, datasette):
                 (filename,),
             ).fetchone()
     except sqlite3.Error as e:
-        return Response(f"Database error: {e}", status=500, content_type="text/plain")
+        logger.error("Database error looking up %s: %s", filename, e)
+        return Response("Internal server error", status=500, content_type="text/plain")
 
     if not row:
         return Response("Photo not found", status=404, content_type="text/plain")
@@ -55,12 +59,11 @@ async def raw_photo_handler(request, datasette):
         return Response("File not on disk", status=404, content_type="text/plain")
 
     try:
-        loop = asyncio.get_event_loop()
+        loop = asyncio.get_running_loop()
         jpeg_bytes = await loop.run_in_executor(None, _convert_raw_to_jpeg, full_path)
     except Exception as e:
-        return Response(
-            f"Conversion failed: {e}", status=500, content_type="text/plain"
-        )
+        logger.error("RAW conversion failed for %s: %s", full_path, e)
+        return Response("Conversion failed", status=500, content_type="text/plain")
 
     return Response(
         jpeg_bytes,

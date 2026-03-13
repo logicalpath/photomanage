@@ -388,7 +388,7 @@
             <div class="gallery-grid">
                 {% for photo in display_photos %}
                 <div class="photo-card">
-                    <a href="/photo/{{ photo.FileName }}?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}{% if page > 1 %}page={{ page }}{% endif %}">
+                    <a href="/photo/{{ photo.FileName|urlencode }}?{% if start_date %}start_date={{ start_date|urlencode }}&{% endif %}{% if end_date %}end_date={{ end_date|urlencode }}&{% endif %}{% if page > 1 %}page={{ page }}{% endif %}">
                         <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}"
                              alt="{{ photo.FileName }}"
                              class="photo-thumbnail"
@@ -418,26 +418,30 @@
                     <a href="#" class="disabled">← Prev</a>
                 {% endif %}
 
-                {# Build visible page numbers: first, last, and window around current #}
-                {% set visible = [] %}
-                {% for p in range(1, total_pages + 1) %}
-                    {% if p == 1 or p == total_pages or (p >= page - 2 and p <= page + 2) %}
-                        {% if visible.append(p) %}{% endif %}
-                    {% endif %}
-                {% endfor %}
+                {# Compute window bounds directly — O(1), no full-range iteration #}
+                {% set w_start = page - 2 if page - 2 > 1 else 1 %}
+                {% set w_end = page + 2 if page + 2 < total_pages else total_pages %}
 
-                {% set prev_p = namespace(val=0) %}
-                {% for p in visible %}
-                    {% if prev_p.val and p - prev_p.val > 1 %}
-                        <span class="page-ellipsis">…</span>
-                    {% endif %}
+                {# Page 1 if outside window #}
+                {% if w_start > 1 %}
+                    <a href="{{ base_url }}page=1">1</a>
+                {% endif %}
+                {% if w_start > 2 %}<span class="page-ellipsis">…</span>{% endif %}
+
+                {# Window around current page #}
+                {% for p in range(w_start, w_end + 1) %}
                     {% if p == page %}
                         <span class="page-current">{{ p }}</span>
                     {% else %}
                         <a href="{{ base_url }}page={{ p }}">{{ p }}</a>
                     {% endif %}
-                    {% set prev_p.val = p %}
                 {% endfor %}
+
+                {# Last page if outside window #}
+                {% if w_end < total_pages - 1 %}<span class="page-ellipsis">…</span>{% endif %}
+                {% if w_end < total_pages %}
+                    <a href="{{ base_url }}page={{ total_pages }}">{{ total_pages }}</a>
+                {% endif %}
 
                 {% if has_more %}
                     <a href="{{ base_url }}page={{ page + 1 }}">Next →</a>
@@ -510,7 +514,8 @@
             }
             document.getElementById('modalDescription').textContent = result.content || 'No description available.';
             var backParams = [];
-            if (query) backParams.push('q=' + encodeURIComponent(query));
+            var currentQuery = searchInput.value.trim();
+            if (currentQuery) backParams.push('q=' + encodeURIComponent(currentQuery));
             var sd = document.getElementById('start_date').value;
             var ed = document.getElementById('end_date').value;
             if (sd) backParams.push('start_date=' + encodeURIComponent(sd));
