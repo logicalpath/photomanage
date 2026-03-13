@@ -180,9 +180,18 @@
             cursor: not-allowed;
             pointer-events: none;
         }
-        .pagination .page-info {
-            color: #999;
+        .pagination .page-current {
+            padding: 10px 14px;
+            background-color: #1a5cbb;
+            color: white;
+            border-radius: 4px;
             font-size: 14px;
+            font-weight: bold;
+        }
+        .pagination .page-ellipsis {
+            color: #666;
+            font-size: 14px;
+            padding: 0 4px;
         }
         .search-loading {
             text-align: center;
@@ -328,11 +337,10 @@
         {% set offset = (page - 1) * per_page %}
 
         {% if start_date and end_date %}
-            {# Use parameterized query to prevent SQL injection #}
-            {# Use LIKE for end date to include all times on that day #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%') ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"start": start_date, "end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {# When start_date is set, sort ASC so user sees photos from the start of their range #}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%') ORDER BY e.CreateDate ASC LIMIT :limit OFFSET :offset", {"start": start_date, "end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif start_date %}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"start": start_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start ORDER BY e.CreateDate ASC LIMIT :limit OFFSET :offset", {"start": start_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif end_date %}
             {# Use LIKE to include all times on the end date #}
             {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%' ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
@@ -341,13 +349,31 @@
             {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% endif %}
 
+        {# Get total count for pagination #}
+        {% if start_date and end_date %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%')", {"start": start_date, "end": end_date}, database="mediameta") %}
+        {% elif start_date %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start", {"start": start_date}, database="mediameta") %}
+        {% elif end_date %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%'", {"end": end_date}, database="mediameta") %}
+        {% else %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL", {}, database="mediameta") %}
+        {% endif %}
+        {% set total_count = count_row[0].n %}
+        {% set total_pages = ((total_count - 1) // per_page) + 1 %}
+
         {# Check if there are more results #}
         {% set has_more = photos|length > per_page %}
         {% set display_photos = photos[:per_page] %}
 
+        {# Build base URL for pagination links #}
+        {% set base_url = '/gallery?' %}
+        {% if start_date %}{% set base_url = base_url ~ 'start_date=' ~ start_date ~ '&' %}{% endif %}
+        {% if end_date %}{% set base_url = base_url ~ 'end_date=' ~ end_date ~ '&' %}{% endif %}
+
         {% if display_photos %}
             <div class="gallery-info">
-                Showing {{ display_photos|length }} photo(s)
+                Showing {{ offset + 1 }}–{{ offset + display_photos|length }} of {{ total_count }} photo(s)
                 {% if start_date and end_date %}
                     from {{ start_date }} to {{ end_date }}
                 {% elif start_date %}
@@ -357,13 +383,12 @@
                 {% else %}
                     (most recent)
                 {% endif %}
-                - Page {{ page }}
             </div>
 
             <div class="gallery-grid">
                 {% for photo in display_photos %}
                 <div class="photo-card">
-                    <a href="/photo/{{ photo.FileName }}">
+                    <a href="/photo/{{ photo.FileName }}?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}{% if page > 1 %}page={{ page }}{% endif %}">
                         <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}"
                              alt="{{ photo.FileName }}"
                              class="photo-thumbnail"
@@ -388,15 +413,34 @@
             {# Pagination controls #}
             <div class="pagination">
                 {% if page > 1 %}
-                    <a href="/gallery?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}page={{ page - 1 }}">← Previous</a>
+                    <a href="{{ base_url }}page={{ page - 1 }}">← Prev</a>
                 {% else %}
-                    <a href="#" class="disabled">← Previous</a>
+                    <a href="#" class="disabled">← Prev</a>
                 {% endif %}
 
-                <span class="page-info">Page {{ page }}</span>
+                {# Build visible page numbers: first, last, and window around current #}
+                {% set visible = [] %}
+                {% for p in range(1, total_pages + 1) %}
+                    {% if p == 1 or p == total_pages or (p >= page - 2 and p <= page + 2) %}
+                        {% if visible.append(p) %}{% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% set prev_p = namespace(val=0) %}
+                {% for p in visible %}
+                    {% if prev_p.val and p - prev_p.val > 1 %}
+                        <span class="page-ellipsis">…</span>
+                    {% endif %}
+                    {% if p == page %}
+                        <span class="page-current">{{ p }}</span>
+                    {% else %}
+                        <a href="{{ base_url }}page={{ p }}">{{ p }}</a>
+                    {% endif %}
+                    {% set prev_p.val = p %}
+                {% endfor %}
 
                 {% if has_more %}
-                    <a href="/gallery?{% if start_date %}start_date={{ start_date }}&{% endif %}{% if end_date %}end_date={{ end_date }}&{% endif %}page={{ page + 1 }}">Next →</a>
+                    <a href="{{ base_url }}page={{ page + 1 }}">Next →</a>
                 {% else %}
                     <a href="#" class="disabled">Next →</a>
                 {% endif %}
@@ -465,7 +509,15 @@
                 dateEl.style.display = 'none';
             }
             document.getElementById('modalDescription').textContent = result.content || 'No description available.';
-            document.getElementById('modalLink').href = '/photo/' + encodeURIComponent(filename);
+            var backParams = [];
+            if (query) backParams.push('q=' + encodeURIComponent(query));
+            var sd = document.getElementById('start_date').value;
+            var ed = document.getElementById('end_date').value;
+            if (sd) backParams.push('start_date=' + encodeURIComponent(sd));
+            if (ed) backParams.push('end_date=' + encodeURIComponent(ed));
+            var photoUrl = '/photo/' + encodeURIComponent(filename);
+            if (backParams.length) photoUrl += '?' + backParams.join('&');
+            document.getElementById('modalLink').href = photoUrl;
             modal.classList.add('active');
         }
 
