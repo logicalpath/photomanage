@@ -5,165 +5,71 @@ Photomanage is a repo for managing personal photos. Currently, this is for manag
 The full image files and video files live in an external drive.
 
 
-## Find media in apple photos library
+## First-time Setup
 
-``` scripts/find_media_photolibrary.sh folder```
+### System dependencies
 
-This shell script searches for media files in directories with ".photoslibrary" in their name. It searches for media files within the "originals" subdirectory of each matching directory. The script defines a list of file extensions to search for, and uses this list to search for files with matching extensions. The script outputs the file paths of the matching files to a CSV file, along with their directory and file size. If a file does not match the desired extensions, its path is output to a separate exclusions file.
+`pyheif` requires `libheif`. Install it with Homebrew before running `uv sync`:
 
-## Find media in a directory
-
-**Note:** `find_media.sh` script is not currently in the repository. Use `scripts/find_media_folders.sh` instead.
-
-This shell script searches for media files in a specified directory and its subdirectories. It extracts the folder name from the specified directory path, creates an output file, an exclusions file, and a JSON file with the folder name. It then defines a list of file extensions to search for, and uses this list to search for files with matching extensions in the specified directory and its subdirectories. The script outputs the file paths of the matching files to the output file, and any excluded files to the exclusions file.
-
-
-## Sort the exclusions file
-
-Find potential media types missed:
-
-```cat exclusions.csv | awk -F '.' '{print $NF}' | sort | uniq```
-
-
-## Get EXIF Data (Date & GPS)
-
-**Note:** `getExifData.py` script is not currently in the repository. Use `scripts/getFoldersExif.sh` or `scripts/getAllExif.sh` instead.
-
-
-Sort the output file by size:
-`sort -t',' -k3 -n -r Movies-output.csv -o sorted_movies.csv`
-
-### Download files with the CLI
-
-`b2 authorize-account`
-
-`b2 download-file-by-name b2-snapshots-xxxxxxxxx Aperture2016.zip ~/Downloads/Aperture2016.zip`
-
-### Count files recursively excluding hidden files
-
-` find . -type f ! -path '*/.*' | wc -l`
-
-___
-
-## Rename filenames to a uuid, move to a new directory and record this in a database
-
-### Rename files in each directoey
-`python src/rename-files.py <directory>`
-
-### Move the files to a new directory
-`scripts/move_uuid_dest.sh <source> <destination`
-
-### From the original media root dir, get a list of mappings of old to new name
-
-`find . -name 'mapping.csv' > mappings.txt`
-
-### Load the mappings into a sqlite db table
-`scripts/loadmap.sh mappings.txt`
-
-### Get a list of the new filenames
-Run from the root of the new filenames dir: `uuid`
-
-`find . -type f ! -path '*/._*' > newfilenames.txt`
-
-Get list with filesize:
-`find . -type f ! -path '*/._*' -exec ls -l {} + | awk '{print $9, $5}' > <filename>.txt`
-
-### parse the filennames into a csv file of Directory, File name
-`python src/parse-newfiles.py newfilenames.txt filenames.csv`
-
-### Parse the awk file into csv
-` python ./src/parse_awk.py ./awkthumb.txt`
-
-### Load the filenames into a sqlite db table
-`sqlite-utils insert mediameta.db filenames ./filenames.csv --csv -d`
-
-## Get the exif data from the media files (script calls  exiftool)
-
-```
-√ database > scripts/getFoldersExif.sh ../uuid
-./getFoldersExif.sh: line 3: Check: command not found
-Searching ../uuid for media files...
-The extracted folder name is: uuid
-Exif file: uuid-exif.csv
-Full Directory = ../uuid
-exif_file = uuid-exif.csv
-10452 image files read
-10452 image files read
- 7487 image files read
-```
-
-Note the total number of files read is 28,391
-
-### Load the exif data into a sqlite db table
-`sqlite-utils insert mediameta.db exif ./uuid-exif.csv --csv -d`
-
-### Convert dates
-` cat ../src/date_to_iso.py| sqlite-utils convert mediameta.db exif CreateDate -`
-
-### Extract image dimensions
-
-First, add ImageWidth and ImageHeight columns to the exif table:
 ```bash
-sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageWidth INTEGER;"
-sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageHeight INTEGER;"
+brew install libheif
 ```
 
-Extract dimensions using exiftool:
+Datasette uses the SpatiaLite SQLite extension. Install it:
+
 ```bash
-cd database
-../scripts/getImageDimensions.sh "/Volumes/Eddie 4TB/MediaFiles/uuid"
+brew install spatialite-tools
 ```
 
-Import the dimension data into the database:
+### Create the Python environment
+
 ```bash
-python ../scripts/update_image_dimensions.py image-dimensions.csv mediameta.db
+uv sync
 ```
 
----
+This creates a `.venv` and installs all dependencies.
 
-Photos in datasette:
+**If you need to rebuild from scratch** (e.g. environment is broken):
 
-### Required Plugins
-
-uv add datasette-media
-uv add datasette-render-images
-
-### Load the images
-
-sqlite-utils insert-files media.db /Volumes/Eddie\ 4TB/MediaFiles/ThumbFiles/0/*.jpg
-
-### Generate and load thumbnails (Modern approach - November 2025)
-
-**Generate auto-oriented 512x512 thumbnails:**
 ```bash
-scripts/create_thumbs_oriented.sh /Volumes/Eddie\ 4TB/MediaFiles/uuid database/512x512 512x512>
+rm -rf .venv
+uv sync
 ```
 
-This creates thumbnails with:
-- Auto-orientation based on EXIF data (fixes sideways images)
-- 512x512 max dimensions (prevents upsampling with `>` flag)
-- Preserved original file extensions
+### Environment variables
 
-**Load thumbnails into database:**
+Copy `.env.example` to `.env` and fill in any required values (API keys, paths, etc.):
+
 ```bash
-python3 scripts/load_thumbnails_to_db.py
+cp .env.example .env
 ```
 
-This script:
-- Clears existing thumbnails from `thumbImages` table
-- Loads all files from `database/512x512/` directory
-- Transforms paths from `database/512x512/0/file.jpg` to `./0/file.jpg`
-- Inserts BLOB content, file size, and path
+### SQLite with loadable extensions (if needed)
 
-**Populate CreateDate column:**
-After loading thumbnails, populate the `CreateDate` column from the `exif` table:
+If `--load-extension=spatialite` fails, Python may have been compiled without loadable extension support. Rebuild it:
+
 ```bash
-sqlite3 database/mediameta.db "UPDATE thumbImages SET CreateDate = (SELECT CreateDate FROM exif WHERE exif.SourceFile = thumbImages.path)"
+PYTHON_CONFIGURE_OPTS="--enable-loadable-sqlite-extensions" \
+LDFLAGS="-L/opt/homebrew/opt/sqlite/lib" \
+CPPFLAGS="-I/opt/homebrew/opt/sqlite/include" \
+pyenv install 3.12.5 --force
 ```
 
-This links thumbnails to their EXIF metadata creation dates.
+Verify:
 
-### Start Datasette
+```bash
+python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extension(True))"
+```
+
+Then recreate the uv environment:
+
+```bash
+rm -rf .venv
+uv sync
+```
+
+
+## Start Datasette
 
 From the `database/` directory:
 
@@ -172,94 +78,10 @@ cd database
 uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
 ```
 
-**Note:** Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
-
-### Plugins
-
-`datasette install datasette-cluster-map`
-
-`datasette install datasette-checkbox`
-
-**Note:** The following plugins are not currently installed:
-- `datasette-write-ui`
-- `datasette-enrichments`
-- `datasette-enrichments-opencage`
+Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
 
 
-## Notes re GPS and Maps
-
-**Important:** The `datasette-enrichments-opencage` plugin (if installed) automatically looks for columns named `GPSLatitude` and `GPSLongitude` to perform reverse geocoding.
-
-**Current Configuration:**
-- `datasette-cluster-map` is configured to use `GPSLatitude` and `GPSLongitude` columns
-- `datasette-enrichments-opencage` is NOT currently installed (config removed from datasette.yaml)
-- The `exif` table has ~33K photos with GPS data
-
-**Options to avoid unintended opencage API calls (if plugin were installed):**
-
-1. Rename columns in the exif table from `GPSLatitude` & `GPSLongitude` to `latitude` & `longitude`
-2. Keep current column names but configure datasette-cluster-map to use different column names:
-   ```yaml
-   plugins:
-     datasette-cluster-map:
-       latitude_column: xlat
-       longitude_column: xlng
-   ```
-
-
-## Display full images from disk
-
-```yaml
-plugins:
-  datasette-media:
-      photo:
-        sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
-```
-
-The system uses a database-native configuration approach:
-- **Configuration Table**: `photomanage_config` stores the media prefix path
-- **Dynamic View**: `exif_with_fullpath` computes full paths on-demand
-- **Source Data**: `exif` table contains only source data (no computed paths)
-
-### Managing the Media Prefix Path
-
-The media file location prefix is stored in the `photomanage_config` database table. When media files are moved to a new location, simply update the configuration:
-
-```sql
-UPDATE photomanage_config
-SET value = '/new/path/to/media'
-WHERE key = 'media_prefix_path';
-```
-
-The `exif_with_fullpath` view will automatically use the new prefix - no migration script needed!
-
-#### View the Current Configuration
-
-```sql
-SELECT * FROM photomanage_config;
-```
-
-#### How It Works
-
-The `exif_with_fullpath` view dynamically computes full paths by combining:
-- The prefix from `photomanage_config` table
-- The relative path from `exif.SourceFile`
-
-Example:
-```
-SourceFile:  ./0/example.jpg
-Config:      /Volumes/Eddie 4TB/MediaFiles/uuid
-Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
-```
-
-**Benefits:**
-- Paths always accurate (never stale)
-- No maintenance scripts needed
-- Simple configuration updates
-- SQL-accessible configuration
-
-
-#### Viewing Images
+## Viewing Images
 
 **Photo Gallery (Thumbnail Carousel)**
 
@@ -288,40 +110,105 @@ View a single photo with full metadata at:
 http://127.0.0.1:8001/photo/<FileName>
 ```
 
-Example:
-```
-http://127.0.0.1:8001/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
-```
-
 **Direct Media Access**
 
-Access images using the datasette-media plugin URL format:
 ```
 http://127.0.0.1:8001/-/media/photo/<FileName>
 ```
 
-Example:
-```
-http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg
+What happens:
+1. The `photo` part matches the config key in `datasette.yaml`
+2. The filename becomes the `:key` parameter
+3. Datasette runs a SQL query against `exif_with_fullpath`
+4. `datasette-media` serves the image from disk
+
+
+## Display full images from disk
+
+```yaml
+plugins:
+  datasette-media:
+      photo:
+        sql: "select full_path as filepath from exif_with_fullpath where FileName=:key"
 ```
 
-**What happens:**
-1. You access: `http://127.0.0.1:8001/-/media/photo/00126662-8f53-4042-a3e0-a291170a004e.jpg`
-2. The `photo` part matches the config key in `datasette.yaml`
-3. The filename `00126662-8f53-4042-a3e0-a291170a004e.jpg` becomes the `:key` parameter
-4. Datasette runs:
-   ```sql
-   SELECT full_path as filepath
-   FROM exif_with_fullpath
-   WHERE FileName='00126662-8f53-4042-a3e0-a291170a004e.jpg'
+The system uses a database-native configuration approach:
+- **Configuration Table**: `photomanage_config` stores the media prefix path
+- **Dynamic View**: `exif_with_fullpath` computes full paths on-demand
+- **Source Data**: `exif` table contains only source data (no computed paths)
+
+### Managing the Media Prefix Path
+
+The media file location prefix is stored in the `photomanage_config` database table. When media files are moved to a new location, simply update the configuration:
+
+```sql
+UPDATE photomanage_config
+SET value = '/new/path/to/media'
+WHERE key = 'media_prefix_path';
+```
+
+The `exif_with_fullpath` view will automatically use the new prefix — no migration needed.
+
+View the current configuration:
+
+```sql
+SELECT * FROM photomanage_config;
+```
+
+Example path resolution:
+```
+SourceFile:  ./0/example.jpg
+Config:      /Volumes/Eddie 4TB/MediaFiles/uuid
+Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
+```
+
+
+## Plugins
+
+### Required
+
+```bash
+uv add datasette-media
+uv add datasette-render-images
+```
+
+### Optional
+
+```bash
+datasette install datasette-cluster-map
+datasette install datasette-checkbox
+```
+
+Not currently installed:
+- `datasette-write-ui`
+- `datasette-enrichments`
+- `datasette-enrichments-opencage`
+
+
+## Notes re GPS and Maps
+
+**Important:** The `datasette-enrichments-opencage` plugin (if installed) automatically looks for columns named `GPSLatitude` and `GPSLongitude` to perform reverse geocoding.
+
+**Current Configuration:**
+- `datasette-cluster-map` is configured to use `GPSLatitude` and `GPSLongitude` columns
+- `datasette-enrichments-opencage` is NOT currently installed (config removed from datasette.yaml)
+- The `exif` table has ~33K photos with GPS data
+
+**Options to avoid unintended opencage API calls (if plugin were installed):**
+
+1. Rename columns in the exif table from `GPSLatitude` & `GPSLongitude` to `latitude` & `longitude`
+2. Keep current column names but configure datasette-cluster-map to use different column names:
+   ```yaml
+   plugins:
+     datasette-cluster-map:
+       latitude_column: xlat
+       longitude_column: xlng
    ```
-5. Returns the full path, and datasette-media serves the image
+
 
 ## Database Optimization
 
 ### Creating Performance Indexes
-
-The database uses indexes on frequently queried columns for optimal performance:
 
 ```bash
 python src/create_indexes.py
@@ -333,16 +220,14 @@ This creates indexes on:
 - `exif.CreateDate` - For date-based queries
 - `image_description.file` - For image description JOINs
 
-**Performance impact**: Photo lookups improve from O(n) full table scans to O(log n) index seeks.
-
-See [docs/database-indexes.md](docs/database-indexes.md) for detailed analysis and recommendations.
+See [docs/database-indexes.md](docs/database-indexes.md) for detailed analysis.
 
 ### Database Architecture
 
-See documentation for system architecture details:
 - [docs/config-table-migration.md](docs/config-table-migration.md) - Configuration management
 - [docs/sourcefile-consistency-analysis.md](docs/sourcefile-consistency-analysis.md) - Path architecture
 - [docs/database-indexes.md](docs/database-indexes.md) - Index optimization
+
 
 ## AI Image Descriptions
 
@@ -350,17 +235,13 @@ Generate natural-language descriptions of photos using SmolVLM2 on Apple Silicon
 
 See [docs/mlx-vlm-usage.md](docs/mlx-vlm-usage.md) for installation, usage, and batch processing details.
 
+
 ## Semantic Search (Embeddings)
 
 Search your photo collection by meaning using embeddings generated from the AI descriptions. Uses Simon Willison's `llm` tool with local sentence-transformer models.
 
 See [docs/embedding-search.md](docs/embedding-search.md) for the full runbook.
 
-## Create duptime table
-
-Find thumbnails where the CreateDate is within the same second.
-
-`CREATE TABLE duptime AS SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size FROM exif INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path WHERE exif.CreateDate IS NOT NULL AND exif.CreateDate <> '' AND exif.CreateDate IN (SELECT CreateDate FROM exif WHERE CreateDate IS NOT NULL AND exif.CreateDate <> '' GROUP BY CreateDate HAVING COUNT(*) > 1) ORDER BY exif.CreateDate;`
 
 ## Troubleshooting
 
@@ -370,26 +251,146 @@ Find thumbnails where the CreateDate is within the same second.
 python -c "import sysconfig; print(sysconfig.get_config_var('CONFIG_ARGS'))"
 ```
 
-### Rebuild Python with SQLite Extensions Support
+### Yanked numpy warning
 
+`uv` may warn that `numpy==2.4.0` is yanked. This is a known upstream issue and does not affect functionality.
+
+
+---
+
+## Data Ingestion (reference)
+
+The sections below document the one-time data ingestion pipeline. They are reference material for understanding how the database was built.
+
+### Generate and load thumbnails
+
+**Generate auto-oriented 512x512 thumbnails:**
 ```bash
-PYTHON_CONFIGURE_OPTS="--enable-loadable-sqlite-extensions" \
-LDFLAGS="-L/opt/homebrew/opt/sqlite/lib" \
-CPPFLAGS="-I/opt/homebrew/opt/sqlite/include" \
-pyenv install 3.12.5 --force
+scripts/create_thumbs_oriented.sh /Volumes/Eddie\ 4TB/MediaFiles/uuid database/512x512 512x512
 ```
 
-**Verify the fix:**
+This creates thumbnails with:
+- Auto-orientation based on EXIF data (fixes sideways images)
+- 512x512 max dimensions (prevents upsampling with `>` flag)
+- Preserved original file extensions
 
+**Load thumbnails into database:**
 ```bash
-python -c "import sqlite3; print(sqlite3.sqlite_version)"
-python -c "import sqlite3; print(sqlite3.connect(':memory:').enable_load_extension(True))"
+python3 scripts/load_thumbnails_to_db.py
 ```
 
-**Recreate uv environment:**
+This script:
+- Clears existing thumbnails from `thumbImages` table
+- Loads all files from `database/512x512/` directory
+- Transforms paths from `database/512x512/0/file.jpg` to `./0/file.jpg`
+- Inserts BLOB content, file size, and path
+
+**Populate CreateDate column:**
+```bash
+sqlite3 database/mediameta.db "UPDATE thumbImages SET CreateDate = (SELECT CreateDate FROM exif WHERE exif.SourceFile = thumbImages.path)"
+```
+
+### Get EXIF Data
+
+**Note:** Use `scripts/getFoldersExif.sh` or `scripts/getAllExif.sh`.
 
 ```bash
-rm -rf .venv
-uv venv --python 3.12.5
-uv sync
+scripts/getFoldersExif.sh ../uuid
+```
+
+Load exif data into the database:
+```bash
+sqlite-utils insert mediameta.db exif ./uuid-exif.csv --csv -d
+```
+
+Convert dates:
+```bash
+cat ../src/date_to_iso.py | sqlite-utils convert mediameta.db exif CreateDate -
+```
+
+### Extract image dimensions
+
+```bash
+sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageWidth INTEGER;"
+sqlite3 mediameta.db "ALTER TABLE exif ADD COLUMN ImageHeight INTEGER;"
+cd database
+../scripts/getImageDimensions.sh "/Volumes/Eddie 4TB/MediaFiles/uuid"
+python ../scripts/update_image_dimensions.py image-dimensions.csv mediameta.db
+```
+
+### Rename files to UUID and load into database
+
+```bash
+python src/rename-files.py <directory>
+scripts/move_uuid_dest.sh <source> <destination>
+find . -name 'mapping.csv' > mappings.txt
+scripts/loadmap.sh mappings.txt
+find . -type f ! -path '*/._*' > newfilenames.txt
+python src/parse-newfiles.py newfilenames.txt filenames.csv
+sqlite-utils insert mediameta.db filenames ./filenames.csv --csv -d
+```
+
+### Download files with B2 CLI
+
+```bash
+b2 authorize-account
+b2 download-file-by-name b2-snapshots-xxxxxxxxx Aperture2016.zip ~/Downloads/Aperture2016.zip
+```
+
+### Create duptime table
+
+Find thumbnails where the CreateDate is within the same second:
+
+```sql
+CREATE TABLE duptime AS
+SELECT thumbImages.content, exif.CreateDate, exif.FileName, thumbImages.size
+FROM exif
+INNER JOIN thumbImages ON exif.SourceFile = thumbImages.path
+WHERE exif.CreateDate IS NOT NULL
+  AND exif.CreateDate <> ''
+  AND exif.CreateDate IN (
+    SELECT CreateDate FROM exif
+    WHERE CreateDate IS NOT NULL AND exif.CreateDate <> ''
+    GROUP BY CreateDate HAVING COUNT(*) > 1
+  )
+ORDER BY exif.CreateDate;
+```
+
+
+---
+
+## Find media (reference)
+
+### Find media in Apple Photos library
+
+```bash
+scripts/find_media_photolibrary.sh <folder>
+```
+
+Searches directories with `.photoslibrary` in their name, looking inside the `originals` subdirectory. Outputs matching file paths to a CSV file and excluded files to a separate exclusions file.
+
+### Find media in a directory
+
+**Note:** Use `scripts/find_media_folders.sh`.
+
+Searches a specified directory recursively for media files, outputting matches to a CSV and exclusions to a separate file.
+
+### Sort the exclusions file
+
+Find potential media types missed:
+
+```bash
+cat exclusions.csv | awk -F '.' '{print $NF}' | sort | uniq
+```
+
+### Sort output by size
+
+```bash
+sort -t',' -k3 -n -r Movies-output.csv -o sorted_movies.csv
+```
+
+### Count files recursively (excluding hidden files)
+
+```bash
+find . -type f ! -path '*/.*' | wc -l
 ```
