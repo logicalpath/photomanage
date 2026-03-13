@@ -91,15 +91,34 @@
 
             <div class="photo-header">
                 <h1>{{ photo.FileName }}</h1>
+                {% set back_q = request.args.get('q', '') %}
+                {% set back_start = request.args.get('start_date', '') %}
+                {% set back_end = request.args.get('end_date', '') %}
+                {% set back_page = request.args.get('page', '') %}
+                {% set back_url = '/gallery?' %}
+                {% if back_q %}{% set back_url = back_url ~ 'q=' ~ back_q|urlencode ~ '&' %}{% endif %}
+                {% if back_start %}{% set back_url = back_url ~ 'start_date=' ~ back_start|urlencode ~ '&' %}{% endif %}
+                {% if back_end %}{% set back_url = back_url ~ 'end_date=' ~ back_end|urlencode ~ '&' %}{% endif %}
+                {% if back_page %}{% set back_url = back_url ~ 'page=' ~ back_page|urlencode %}{% endif %}
+                <a href="{{ back_url }}">← Back to gallery</a>
+                &nbsp;&nbsp;
                 <a href="/mediameta/exif_with_fullpath?FileName={{ id }}">View in database</a>
             </div>
 
             <div class="photo-container">
+                {% set ext = id.split('.')|last|lower %}
+                {% set raw_formats = ['nef', 'cr2', 'cr3', 'arw', 'dng', 'raf', 'orf', 'rw2', 'pef', 'srw'] %}
+                {% set is_raw = ext in raw_formats %}
                 {% if photo.full_path|file_exists %}
-                <img src="/-/media/photo/{{ id }}" alt="{{ photo.FileName }}">
+                    {% if is_raw %}
+                        <img src="/raw-photo/{{ id|urlencode }}" alt="{{ photo.FileName }}">
+                        <p class="info" style="margin-top: 12px;">RAW file ({{ ext|upper }}) — converted to JPEG for display.</p>
+                    {% else %}
+                        <img src="/-/media/photo/{{ id|urlencode }}" alt="{{ photo.FileName }}">
+                    {% endif %}
                 {% else %}
-                {% set path_parts = photo.full_path.split('/') %}
-                <p class="info">File not available - drive "{{ path_parts[2] if path_parts|length > 2 else 'external storage' }}" is not connected.</p>
+                    {% set path_parts = photo.full_path.split('/') %}
+                    <p class="info">File not available - drive "{{ path_parts[2] if path_parts|length > 2 else 'external storage' }}" is not connected.</p>
                 {% endif %}
             </div>
 
