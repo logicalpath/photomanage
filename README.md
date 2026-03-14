@@ -38,10 +38,18 @@ uv sync
 
 ### Environment variables
 
-Copy `.env.example` to `.env` and fill in any required values (API keys, paths, etc.):
+No environment variables are required for a standard setup. Two optional variables let you override default database paths:
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `MEDIAMETA_DB_PATH` | `database/mediameta.db` | Path to media metadata database |
+| `EMBEDDINGS_DB_PATH` | `database/embeddings-vlm2.db` | Path to embeddings database |
+
+These are not loaded automatically — export them in your shell before running datasette:
 
 ```bash
-cp .env.example .env
+export MEDIAMETA_DB_PATH=/custom/path/mediameta.db
+export EMBEDDINGS_DB_PATH=/custom/path/embeddings-vlm2.db
 ```
 
 ### SQLite with loadable extensions (if needed)
@@ -75,8 +83,10 @@ From the `database/` directory:
 
 ```bash
 cd database
-uv run datasette -p 8001 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
+uv run datasette -p 8001 --host 0.0.0.0 --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
 ```
+
+`--host 0.0.0.0` binds to all network interfaces so datasette is reachable by hostname or IP from other machines on the network (e.g. `http://eddies-mac-studio.local:8001`). This exposes the instance — including all media and metadata — to anyone on the LAN. Omit `--host 0.0.0.0` to restrict access to localhost only.
 
 Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
 
@@ -87,7 +97,7 @@ Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
 
 Browse photos with a responsive thumbnail grid at:
 ```
-http://127.0.0.1:8001/gallery
+http://<hostname>:8001/gallery
 ```
 
 Features:
@@ -100,20 +110,20 @@ Features:
 
 Example with date filter:
 ```
-http://127.0.0.1:8001/gallery?start_date=2016-01-01&end_date=2016-12-31
+http://<hostname>:8001/gallery?start_date=2016-01-01&end_date=2016-12-31
 ```
 
 **Individual Photo Page**
 
 View a single photo with full metadata at:
 ```
-http://127.0.0.1:8001/photo/<FileName>
+http://<hostname>:8001/photo/<FileName>
 ```
 
 **Direct Media Access**
 
 ```
-http://127.0.0.1:8001/-/media/photo/<FileName>
+http://<hostname>:8001/-/media/photo/<FileName>
 ```
 
 What happens:
