@@ -68,9 +68,3 @@ databases:
       Number of .nef files:
         sql: SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
 
-# Permissions block
-
-allow:
-  id:
-    - eddie
-    - root

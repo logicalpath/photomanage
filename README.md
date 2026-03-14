@@ -83,7 +83,7 @@ From the `database/` directory:
 
 ```bash
 cd database
-uv run datasette -p 8001 --host 0.0.0.0 --root --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
+uv run datasette -p 8001 --host 0.0.0.0 --load-extension=spatialite --template-dir ../datasette/templates --plugins-dir=../datasette/plugins -c ../datasette/datasette.yaml mediameta.db embeddings-vlm2.db
 ```
 
 `--host 0.0.0.0` binds to all network interfaces so datasette is reachable by hostname or IP from other machines on the network (e.g. `http://eddies-mac-studio.local:8001`). Omit it to restrict access to localhost only.
