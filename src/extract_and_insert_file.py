@@ -58,5 +58,5 @@ def extract_and_add_filenames():
         print("Database connection closed.")
 
 
-# Run the function
-extract_and_add_filenames()
+if __name__ == "__main__":
+    extract_and_add_filenames()

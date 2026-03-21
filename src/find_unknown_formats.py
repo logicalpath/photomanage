@@ -32,15 +32,18 @@ def correct_date(datetime_string):
             # Set a default valid date and time
             return "1970:01:01 00:00:00"
 
-        # Check if the year is a valid integer
-        if not isinstance(year, int):
+        # Convert to integers for validation
+        year, month, day = int(year), int(month), int(day)
+
+        # Check if the year is valid
+        if year == 0:
             return False
         # Check if the month is a valid integer between 1 and 12
-        if not isinstance(month, int) or month < 1 or month > 12:
+        if month < 1 or month > 12:
             return False
         # Check if the day is a valid integer between 1 and the maximum days in the month
         max_days = calendar.monthrange(year, month)[1]
-        if not isinstance(day, int) or day < 1 or day > max_days:
+        if day < 1 or day > max_days:
             # Set the day to "01" if it is not valid
             corrected_date = f"{year}:{month}:01"
             corrected_datetime = f"{corrected_date} {time_string}"
@@ -113,4 +116,4 @@ if __name__ == "__main__":
         else:
             file.write("No invalid date entries found.")
 
-print(f"Results written to {output_file}.")
+    print(f"Results written to {output_file}.")

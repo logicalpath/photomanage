@@ -39,5 +39,5 @@ def extract_filenames():
         conn.close()
 
 
-# Run the function
-extract_filenames()
+if __name__ == "__main__":
+    extract_filenames()

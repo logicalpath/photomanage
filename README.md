@@ -178,9 +178,20 @@ Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
 ### Required
 
 ```bash
+uv add datasette-auth-passwords
 uv add datasette-checkbox
 uv add datasette-media
 uv add datasette-render-images
+```
+
+`datasette-auth-passwords` requires a hashed password in the `DATASETTE_EDDIE_PASSWORD_HASH` environment variable (use single quotes — the hash contains `$`):
+
+```bash
+# Generate a hash
+uv run datasette hash-password
+
+# Set the env var (single quotes required)
+export DATASETTE_EDDIE_PASSWORD_HASH='pbkdf2_sha256$...'
 ```
 
 ### Optional
