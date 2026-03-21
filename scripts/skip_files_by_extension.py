@@ -28,7 +28,7 @@ def load_progress_file() -> set:
     path = Path(PROGRESS_FILE)
     if not path.exists():
         return set()
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         return set(line.strip() for line in f if line.strip())
 
 
@@ -37,17 +37,17 @@ def load_json_file() -> list:
     path = Path(JSON_FILE)
     if not path.exists():
         return []
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         return json.load(f)
 
 
 def find_files_by_extension(directory: Path, extension: str) -> list:
     """Find all files with given extension in directory."""
-    ext_upper = extension.upper().lstrip('.')
+    ext_upper = extension.upper().lstrip(".")
 
     files = []
-    for f in directory.rglob('*'):
-        if f.is_file() and f.suffix.upper().lstrip('.') == ext_upper:
+    for f in directory.rglob("*"):
+        if f.is_file() and f.suffix.upper().lstrip(".") == ext_upper:
             files.append(f)
 
     return sorted(files)
@@ -101,22 +101,24 @@ def skip_files(directory: str, extension: str, dry_run: bool = False) -> int:
     # Create placeholder records
     new_records = []
     for rel_path in unprocessed:
-        new_records.append({
-            "file": f"./{rel_path}",
-            "description": SKIP_DESCRIPTION,
-            "model": SKIP_MODEL,
-            "generation_time_seconds": 0.00,
-            "error": False
-        })
+        new_records.append(
+            {
+                "file": f"./{rel_path}",
+                "description": SKIP_DESCRIPTION,
+                "model": SKIP_MODEL,
+                "generation_time_seconds": 0.00,
+                "error": False,
+            }
+        )
 
     # Append to JSON
     json_data.extend(new_records)
-    with open(JSON_FILE, 'w', encoding='utf-8') as f:
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(json_data, f, indent=2, ensure_ascii=False)
     print(f"Added {len(new_records):,} placeholder records to JSON")
 
     # Append to progress file
-    with open(PROGRESS_FILE, 'a') as f:
+    with open(PROGRESS_FILE, "a") as f:
         for rel_path in unprocessed:
             f.write(f"{rel_path}\n")
     print(f"Added {len(unprocessed):,} entries to progress file")
@@ -131,7 +133,7 @@ def undo_skip(extension: str, dry_run: bool = False) -> int:
 
     Returns count of files unskipped.
     """
-    ext_upper = extension.upper().lstrip('.')
+    ext_upper = extension.upper().lstrip(".")
 
     # Load JSON and find skipped entries
     json_data = load_json_file()
@@ -139,11 +141,11 @@ def undo_skip(extension: str, dry_run: bool = False) -> int:
     kept = []
 
     for record in json_data:
-        file_path = record.get('file', '')
+        file_path = record.get("file", "")
         is_skipped = (
-            record.get('description') == SKIP_DESCRIPTION and
-            record.get('model') == SKIP_MODEL and
-            file_path.upper().endswith(f'.{ext_upper}')
+            record.get("description") == SKIP_DESCRIPTION
+            and record.get("model") == SKIP_MODEL
+            and file_path.upper().endswith(f".{ext_upper}")
         )
         if is_skipped:
             skipped.append(file_path)
@@ -161,17 +163,17 @@ def undo_skip(extension: str, dry_run: bool = False) -> int:
         return len(skipped)
 
     # Update JSON
-    with open(JSON_FILE, 'w', encoding='utf-8') as f:
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
         json.dump(kept, f, indent=2, ensure_ascii=False)
     print(f"Removed {len(skipped):,} placeholder records from JSON")
 
     # Update progress file
     progress = load_progress_file()
     # Remove the skipped files from progress
-    skipped_rel_paths = set(p.lstrip('./') for p in skipped)
+    skipped_rel_paths = set(p.lstrip("./") for p in skipped)
     remaining = progress - skipped_rel_paths
 
-    with open(PROGRESS_FILE, 'w') as f:
+    with open(PROGRESS_FILE, "w") as f:
         for rel_path in sorted(remaining):
             f.write(f"{rel_path}\n")
     print(f"Removed {len(skipped_rel_paths):,} entries from progress file")
@@ -182,27 +184,21 @@ def undo_skip(extension: str, dry_run: bool = False) -> int:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Skip files by extension - add placeholder entries'
+        description="Skip files by extension - add placeholder entries"
     )
     parser.add_argument(
-        '--ext',
-        required=True,
-        help='File extension to skip (e.g., NEF, HEIC)'
+        "--ext", required=True, help="File extension to skip (e.g., NEF, HEIC)"
     )
     parser.add_argument(
-        '--directory',
-        default='database/512x512',
-        help='Source directory (default: database/512x512)'
+        "--directory",
+        default="database/512x512",
+        help="Source directory (default: database/512x512)",
     )
     parser.add_argument(
-        '--dry-run',
-        action='store_true',
-        help='Preview without making changes'
+        "--dry-run", action="store_true", help="Preview without making changes"
     )
     parser.add_argument(
-        '--undo',
-        action='store_true',
-        help='Remove placeholder entries (undo skip)'
+        "--undo", action="store_true", help="Remove placeholder entries (undo skip)"
     )
 
     args = parser.parse_args()
@@ -213,5 +209,5 @@ def main():
         skip_files(args.directory, args.ext, args.dry_run)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

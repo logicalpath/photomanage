@@ -20,7 +20,7 @@ def load_progress_file(path: Path) -> set:
     """Load processed files from progress file."""
     if not path.exists():
         return set()
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         return set(line.strip() for line in f if line.strip())
 
 
@@ -28,34 +28,33 @@ def load_json_files(path: Path) -> set:
     """Load file paths from JSON output."""
     if not path.exists():
         return set()
-    with open(path, 'r') as f:
+    with open(path, "r") as f:
         data = json.load(f)
     # Strip leading './' to match progress file format
-    return set(r['file'].lstrip('./') for r in data)
+    return set(r["file"].lstrip("./") for r in data)
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Find files missing descriptions due to interrupted batches'
+        description="Find files missing descriptions due to interrupted batches"
     )
     parser.add_argument(
-        '--progress-file',
-        default='photo_descriptions_progress.txt',
-        help='Path to progress file (default: photo_descriptions_progress.txt)'
+        "--progress-file",
+        default="photo_descriptions_progress.txt",
+        help="Path to progress file (default: photo_descriptions_progress.txt)",
     )
     parser.add_argument(
-        '--json-file',
-        default='outputs/image_analysis.json',
-        help='Path to JSON output (default: outputs/image_analysis.json)'
+        "--json-file",
+        default="outputs/image_analysis.json",
+        help="Path to JSON output (default: outputs/image_analysis.json)",
     )
     parser.add_argument(
-        '--fix',
-        action='store_true',
-        help='Remove missing files from progress file so they get reprocessed'
+        "--fix",
+        action="store_true",
+        help="Remove missing files from progress file so they get reprocessed",
     )
     parser.add_argument(
-        '--output',
-        help='Write missing files to this file (one per line)'
+        "--output", help="Write missing files to this file (one per line)"
     )
 
     args = parser.parse_args()
@@ -88,7 +87,7 @@ def main():
         print("\nNo missing descriptions. All synced!")
         sys.exit(0)
 
-    print(f"\nMissing files:")
+    print("\nMissing files:")
     for f in sorted(missing)[:20]:
         print(f"  {f}")
     if len(missing) > 20:
@@ -97,7 +96,7 @@ def main():
     # Write to output file if requested
     if args.output:
         output_path = Path(args.output)
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             for file in sorted(missing):
                 f.write(f"{file}\n")
         print(f"\nMissing files written to: {output_path}")
@@ -106,14 +105,14 @@ def main():
     if args.fix:
         print(f"\nRemoving {len(missing)} entries from progress file...")
         remaining = progress_files - missing
-        with open(progress_path, 'w') as f:
+        with open(progress_path, "w") as f:
             for file in sorted(remaining):
                 f.write(f"{file}\n")
         print(f"Progress file updated: {len(remaining)} entries")
         print("These files will be reprocessed on next batch run.")
     else:
-        print(f"\nTo fix, run: python scripts/find_missing_descriptions.py --fix")
+        print("\nTo fix, run: python scripts/find_missing_descriptions.py --fix")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

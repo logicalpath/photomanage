@@ -1,4 +1,3 @@
-import mlx.core as mx
 from mlx_vlm import load, generate
 from mlx_vlm.prompt_utils import apply_chat_template
 from mlx_vlm.utils import load_config
@@ -12,7 +11,9 @@ config = load_config(model_path)
 
 # Prepare input
 # image = ["http://images.cocodataset.org/val2017/000000039769.jpg"]
-image = ["/Users/eddiedickey/workspace/photomanage/database/224x224/9/98fb4fe9-14bd-488b-9553-0cfe810b5808.jpg"]
+image = [
+    "/Users/eddiedickey/workspace/photomanage/database/224x224/9/98fb4fe9-14bd-488b-9553-0cfe810b5808.jpg"
+]
 prompt = "Describe this image in detail."
 
 # Apply chat template
@@ -31,7 +32,9 @@ print(output)
 
 # Prepare input
 # image = ["http://images.cocodataset.org/val2017/000000039769.jpg"]
-image = ["/Users/eddiedickey/workspace/photomanage/database/224x224/9/981e54b7-d109-47da-b5ab-36a4be95d314.jpg"]
+image = [
+    "/Users/eddiedickey/workspace/photomanage/database/224x224/9/981e54b7-d109-47da-b5ab-36a4be95d314.jpg"
+]
 prompt = "Describe this image in detail."
 
 # Apply chat template

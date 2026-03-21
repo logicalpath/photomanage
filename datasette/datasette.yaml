@@ -4,8 +4,19 @@ settings:
   sql_time_limit_ms: 60000
   max_returned_rows: 50000
 
+# Permissions
+permissions:
+  update-row:
+    id: eddie
+
 # top-level plugin configuration
 plugins:
+  datasette-auth-passwords:
+    # Key format: <username>_password_hash
+    # Generate hash with: uv run datasette hash-password
+    # Set env var: export DATASETTE_EDDIE_PASSWORD_HASH='<hash>'  (use single quotes — hash contains $)
+    eddie_password_hash:
+      $env: DATASETTE_EDDIE_PASSWORD_HASH
   datasette-render-images:
     size_limit: 1000000
   datasette-media:
@@ -67,4 +78,3 @@ databases:
         sql: SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
       Number of .nef files:
         sql: SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
-

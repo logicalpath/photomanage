@@ -1,10 +1,9 @@
 import os
-import mlx.core as mx
 from mlx_vlm import load, generate
 from mlx_vlm.prompt_utils import apply_chat_template
 from mlx_vlm.utils import load_config
-from typing import List, Union, Dict, Any, Optional
-from PIL import Image
+from typing import List, Union, Dict, Optional
+
 
 class SmolVLM2Helper:
     """
@@ -34,12 +33,14 @@ class SmolVLM2Helper:
         self.config = load_config(model_path)
         print("SmolVLM2 model loaded successfully!")
 
-    def describe_image(self,
-                       image_path: Union[str, List[str]],
-                       prompt: str = "Describe this image in detail.",
-                       temp: float = 0.0,
-                       max_tokens: int = 100,
-                       verbose: bool = False) -> str:
+    def describe_image(
+        self,
+        image_path: Union[str, List[str]],
+        prompt: str = "Describe this image in detail.",
+        temp: float = 0.0,
+        max_tokens: int = 100,
+        verbose: bool = False,
+    ) -> str:
         """
         Generate a description for one or more images.
 
@@ -67,30 +68,24 @@ class SmolVLM2Helper:
 
         # Apply chat template with generation parameters
         formatted_prompt = apply_chat_template(
-            self.processor,
-            self.config,
-            prompt,
-            temp=temp,
-            max_tokens=max_tokens
+            self.processor, self.config, prompt, temp=temp, max_tokens=max_tokens
         )
 
         # Generate output - NOTE ORDER: formatted_prompt comes before image
         output = generate(
-            self.model,
-            self.processor,
-            formatted_prompt,
-            image_paths,
-            verbose=verbose
+            self.model, self.processor, formatted_prompt, image_paths, verbose=verbose
         )
 
         return output
 
-    def describe_video(self,
-                       video_path: str,
-                       prompt: str = "Describe what happens in this video.",
-                       temp: float = 0.0,
-                       max_tokens: int = 200,
-                       verbose: bool = False) -> str:
+    def describe_video(
+        self,
+        video_path: str,
+        prompt: str = "Describe what happens in this video.",
+        temp: float = 0.0,
+        max_tokens: int = 200,
+        verbose: bool = False,
+    ) -> str:
         """
         Generate a description for a video file.
 
@@ -112,11 +107,7 @@ class SmolVLM2Helper:
         try:
             # Format prompt
             formatted_prompt = apply_chat_template(
-                self.processor,
-                self.config,
-                prompt,
-                temp=temp,
-                max_tokens=max_tokens
+                self.processor, self.config, prompt, temp=temp, max_tokens=max_tokens
             )
 
             # Generate output for video
@@ -126,7 +117,7 @@ class SmolVLM2Helper:
                 self.processor,
                 formatted_prompt,
                 [video_path],
-                verbose=verbose
+                verbose=verbose,
             )
 
             return output
@@ -138,13 +129,15 @@ class SmolVLM2Helper:
         except Exception as e:
             return f"Error processing video: {str(e)}"
 
-    def batch_describe_images(self,
-                             directory: str,
-                             prompt: str = "Describe this image in detail.",
-                             temp: float = 0.0,
-                             max_tokens: int = 100,
-                             file_types: List[str] = ['.jpg', '.jpeg', '.png', '.arw', '.nef'],
-                             max_images: Optional[int] = None) -> Dict[str, str]:
+    def batch_describe_images(
+        self,
+        directory: str,
+        prompt: str = "Describe this image in detail.",
+        temp: float = 0.0,
+        max_tokens: int = 100,
+        file_types: List[str] = [".jpg", ".jpeg", ".png", ".arw", ".nef"],
+        max_images: Optional[int] = None,
+    ) -> Dict[str, str]:
         """
         Process all images in a directory and return descriptions.
 
@@ -175,14 +168,11 @@ class SmolVLM2Helper:
         total_images = len(image_files)
         for idx, image_path in enumerate(image_files):
             filename = os.path.basename(image_path)
-            print(f"Processing image {idx+1}/{total_images}: {filename}")
+            print(f"Processing image {idx + 1}/{total_images}: {filename}")
 
             try:
                 description = self.describe_image(
-                    image_path,
-                    prompt=prompt,
-                    temp=temp,
-                    max_tokens=max_tokens
+                    image_path, prompt=prompt, temp=temp, max_tokens=max_tokens
                 )
                 results[filename] = description
             except Exception as e:
@@ -191,13 +181,15 @@ class SmolVLM2Helper:
 
         return results
 
-    def batch_describe_videos(self,
-                             directory: str,
-                             prompt: str = "Describe what happens in this video.",
-                             temp: float = 0.0,
-                             max_tokens: int = 200,
-                             file_types: List[str] = ['.mp4', '.mov', '.avi', '.mkv'],
-                             max_videos: Optional[int] = None) -> Dict[str, str]:
+    def batch_describe_videos(
+        self,
+        directory: str,
+        prompt: str = "Describe what happens in this video.",
+        temp: float = 0.0,
+        max_tokens: int = 200,
+        file_types: List[str] = [".mp4", ".mov", ".avi", ".mkv"],
+        max_videos: Optional[int] = None,
+    ) -> Dict[str, str]:
         """
         Process all videos in a directory and return descriptions.
 
@@ -230,14 +222,11 @@ class SmolVLM2Helper:
         total_videos = len(video_files)
         for idx, video_path in enumerate(video_files):
             filename = os.path.basename(video_path)
-            print(f"Processing video {idx+1}/{total_videos}: {filename}")
+            print(f"Processing video {idx + 1}/{total_videos}: {filename}")
 
             try:
                 description = self.describe_video(
-                    video_path,
-                    prompt=prompt,
-                    temp=temp,
-                    max_tokens=max_tokens
+                    video_path, prompt=prompt, temp=temp, max_tokens=max_tokens
                 )
                 results[filename] = description
             except Exception as e:
@@ -245,6 +234,7 @@ class SmolVLM2Helper:
                 results[filename] = f"Error: {str(e)}"
 
         return results
+
 
 # Example usage
 if __name__ == "__main__":

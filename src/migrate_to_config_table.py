@@ -42,10 +42,10 @@ def read_media_config():
         sys.exit(1)
 
     try:
-        with open(CONFIG_PATH, 'r') as f:
+        with open(CONFIG_PATH, "r") as f:
             config = yaml.safe_load(f)
 
-        media_prefix = config.get('media_prefix_path')
+        media_prefix = config.get("media_prefix_path")
         if not media_prefix:
             print("  ✗ Error: media_prefix_path not found in config")
             sys.exit(1)
@@ -81,9 +81,7 @@ def insert_configuration(cursor, media_prefix):
     cursor.execute(
         """INSERT OR REPLACE INTO photomanage_config (key, value, description, updated_at)
            VALUES (?, ?, ?, CURRENT_TIMESTAMP)""",
-        ('media_prefix_path',
-         media_prefix,
-         'Absolute path prefix for media files')
+        ("media_prefix_path", media_prefix, "Absolute path prefix for media files"),
     )
     print(f"  ✓ Upserted media_prefix_path: {media_prefix}")
 
@@ -138,7 +136,7 @@ def verify_migration(cursor):
     all_match = True
     for i, (source_file, old_path, new_path, matches) in enumerate(rows):
         if i == 0:  # Show first example
-            print(f"  Sample comparison:")
+            print("  Sample comparison:")
             print(f"    SourceFile:     {source_file}")
             print(f"    prefixed_path:  {old_path}")
             print(f"    full_path:      {new_path}")

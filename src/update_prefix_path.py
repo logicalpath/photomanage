@@ -21,7 +21,7 @@ def load_config(config_path="datasette/media_config.yaml"):
         print(f"Error: Configuration file '{config_path}' not found")
         sys.exit(1)
 
-    with open(config_path, 'r') as f:
+    with open(config_path, "r") as f:
         config = yaml.safe_load(f)
 
     return config
@@ -68,8 +68,8 @@ def main():
     # Load configuration
     config = load_config()
 
-    media_prefix_path = config.get('media_prefix_path')
-    database_path = config.get('database_path')
+    media_prefix_path = config.get("media_prefix_path")
+    database_path = config.get("database_path")
 
     if not media_prefix_path:
         print("Error: 'media_prefix_path' not found in configuration")
@@ -83,7 +83,7 @@ def main():
         print(f"Error: Database file '{database_path}' not found")
         sys.exit(1)
 
-    print(f"Configuration loaded:")
+    print("Configuration loaded:")
     print(f"  Media prefix path: {media_prefix_path}")
     print(f"  Database path: {database_path}\n")
 

@@ -1,11 +1,9 @@
 from datetime import datetime
 
-def convert(value):
 
+def convert(value):
     date_format = "%Y:%m:%d %H:%M:%S"
     date_format_with_offset = f"{date_format}%z"
-    date_format_ymd = "%Y:%m:%d"
-
 
     if not value.strip():
         # Handle the empty date string case

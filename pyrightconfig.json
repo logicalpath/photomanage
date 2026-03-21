@@ -1,0 +1,11 @@
+{
+  "typeCheckingMode": "basic",
+  "exclude": [
+    ".venv",
+    "**/__pycache__",
+    "src/SmolVLM.py",
+    "src/SmolVLMExampleAlpa.py",
+    "src/run_mlx_vlm.py",
+    "src/smolvlm2_helper.py"
+  ]
+}
