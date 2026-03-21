@@ -13,8 +13,10 @@ permissions:
 plugins:
   datasette-auth-passwords:
     # Key format: <username>_password_hash
-    # Generate with: uv run datasette hash-password
-    eddie_password_hash: "pbkdf2_sha256$480000$e283be433cc19496fa89608f0f5aafc2$ohQLpaANnNVPJ5ktbUW7vk6p05lg0UW5rj/hydTfB1Y="
+    # Generate hash with: uv run datasette hash-password
+    # Set env var: export DATASETTE_EDDIE_PASSWORD_HASH='<hash>'  (use single quotes — hash contains $)
+    eddie_password_hash:
+      $env: DATASETTE_EDDIE_PASSWORD_HASH
   datasette-render-images:
     size_limit: 1000000
   datasette-media:
