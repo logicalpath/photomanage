@@ -10,6 +10,7 @@ import csv
 import sqlite3
 from pathlib import Path
 
+
 def update_dimensions(csv_file, db_file):
     """Update ImageWidth and ImageHeight in the exif table"""
 
@@ -30,16 +31,16 @@ def update_dimensions(csv_file, db_file):
     skip_count = 0
 
     try:
-        with open(csv_file, 'r', encoding='utf-8') as f:
+        with open(csv_file, "r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
 
             for row in reader:
-                filename = row.get('FileName')
-                width = row.get('ImageWidth')
-                height = row.get('ImageHeight')
+                filename = row.get("FileName")
+                width = row.get("ImageWidth")
+                height = row.get("ImageHeight")
 
                 # Skip rows without dimension data
-                if not width or not height or width == '-' or height == '-':
+                if not width or not height or width == "-" or height == "-":
                     skip_count += 1
                     continue
 
@@ -51,11 +52,14 @@ def update_dimensions(csv_file, db_file):
                     continue
 
                 # Update the exif table
-                cursor.execute("""
+                cursor.execute(
+                    """
                     UPDATE exif
                     SET ImageWidth = ?, ImageHeight = ?
                     WHERE FileName = ?
-                """, (width, height, filename))
+                """,
+                    (width, height, filename),
+                )
 
                 if cursor.rowcount > 0:
                     update_count += 1
@@ -71,7 +75,8 @@ def update_dimensions(csv_file, db_file):
     finally:
         conn.close()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python update_image_dimensions.py <csv-file> <database-file>")
         sys.exit(1)

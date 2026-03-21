@@ -25,7 +25,6 @@ import json
 import os
 import sys
 import time
-from datetime import datetime
 from pathlib import Path
 from typing import Set, List
 
@@ -44,13 +43,13 @@ def load_progress_file() -> Set[str]:
     if not os.path.exists(PROGRESS_FILE):
         return set()
 
-    with open(PROGRESS_FILE, 'r') as f:
+    with open(PROGRESS_FILE, "r") as f:
         return set(line.strip() for line in f if line.strip())
 
 
 def append_to_progress_file(file_path: str):
     """Append a processed file path to the progress file."""
-    with open(PROGRESS_FILE, 'a') as f:
+    with open(PROGRESS_FILE, "a") as f:
         f.write(f"{file_path}\n")
 
 
@@ -72,7 +71,7 @@ def flush_results_to_json(output_file: str, new_results: list) -> bool:
     all_results = []
     if os.path.exists(output_file):
         try:
-            with open(output_file, 'r', encoding='utf-8') as f:
+            with open(output_file, "r", encoding="utf-8") as f:
                 all_results = json.load(f)
         except (json.JSONDecodeError, IOError) as e:
             click.echo(f"Error reading JSON file: {e}", err=True)
@@ -81,7 +80,7 @@ def flush_results_to_json(output_file: str, new_results: list) -> bool:
     # Append new results and write
     all_results.extend(new_results)
     try:
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(all_results, f, indent=2, ensure_ascii=False)
         return True
     except IOError as e:
@@ -102,12 +101,12 @@ def find_all_files(directory: str) -> tuple[List[Path], Path]:
     directory_path = Path(directory).resolve()
 
     # Files to skip
-    skip_files = {'.ds_store', 'thumbs.db', '.gitignore', '.gitkeep'}
+    skip_files = {".ds_store", "thumbs.db", ".gitignore", ".gitkeep"}
 
-    for path in directory_path.rglob('*'):
+    for path in directory_path.rglob("*"):
         if path.is_file():
             # Skip hidden files and known non-image files
-            if not path.name.startswith('.') and path.name.lower() not in skip_files:
+            if not path.name.startswith(".") and path.name.lower() not in skip_files:
                 files.append(path)
 
     # Sort files alphabetically for predictable processing order
@@ -123,18 +122,35 @@ def prompt_resume() -> bool:
         click.echo("Progress file found. Auto-resuming in non-interactive mode.")
         return True
 
-    response = input("Progress file found. Resume from previous run? (y/n): ").strip().lower()
-    return response in ('y', 'yes')
+    response = (
+        input("Progress file found. Resume from previous run? (y/n): ").strip().lower()
+    )
+    return response in ("y", "yes")
 
 
 @click.command()
-@click.argument('directory', type=click.Path(exists=True, file_okay=False, dir_okay=True))
-@click.argument('num_files', type=int)
-@click.option('--output-dir', default='outputs', help='Directory for output files')
-@click.option('--prompt', default='<image>Briefly describe this image in one or two sentences.',
-              help='Prompt to use for image description (will auto-add <image> token if missing)')
-@click.option('--max-tokens', default=100, type=int, help='Maximum tokens to generate (default: 100)')
-@click.option('--temp', default=0.0, type=float, help='Temperature for generation, range 0.0-1.0 (default: 0.0)')
+@click.argument(
+    "directory", type=click.Path(exists=True, file_okay=False, dir_okay=True)
+)
+@click.argument("num_files", type=int)
+@click.option("--output-dir", default="outputs", help="Directory for output files")
+@click.option(
+    "--prompt",
+    default="<image>Briefly describe this image in one or two sentences.",
+    help="Prompt to use for image description (will auto-add <image> token if missing)",
+)
+@click.option(
+    "--max-tokens",
+    default=100,
+    type=int,
+    help="Maximum tokens to generate (default: 100)",
+)
+@click.option(
+    "--temp",
+    default=0.0,
+    type=float,
+    help="Temperature for generation, range 0.0-1.0 (default: 0.0)",
+)
 def main(directory, num_files, output_dir, prompt, max_tokens, temp):
     """
     Generate descriptions for images in a directory using SmolVLM2.
@@ -176,8 +192,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
 
     # Filter out already completed files
     files_to_process = [
-        f for f in all_files
-        if str(f.relative_to(base_path)) not in completed_files
+        f for f in all_files if str(f.relative_to(base_path)) not in completed_files
     ]
 
     if not files_to_process:
@@ -194,12 +209,13 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
     click.echo("\nLoading SmolVLM2 model...")
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     from smolvlm2_helper import SmolVLM2Helper
+
     vlm = SmolVLM2Helper()
 
     # Ensure prompt has <image> token
-    if '<image>' not in prompt:
+    if "<image>" not in prompt:
         prompt = f"<image>{prompt}"
-        click.echo(f"Note: Added <image> token to prompt")
+        click.echo("Note: Added <image> token to prompt")
 
     # Process images and collect results
     # Flush to JSON every FLUSH_INTERVAL images to prevent data loss
@@ -228,7 +244,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
                 prompt=prompt,
                 temp=temp,
                 max_tokens=max_tokens,
-                verbose=False
+                verbose=False,
             )
 
             elapsed_time = time.time() - start_time
@@ -238,17 +254,23 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
                 "file": f"./{rel_path}",
                 "model": "smolvlm2",
                 "generation_time_seconds": round(elapsed_time, 2),
-                "error": False
+                "error": False,
             }
 
-            if hasattr(description, 'text'):
+            if hasattr(description, "text"):
                 result_entry["description"] = description.text.strip()
-                result_entry["prompt_tokens"] = getattr(description, 'prompt_tokens', None)
-                result_entry["generation_tokens"] = getattr(description, 'generation_tokens', None)
-                prompt_tps = round(getattr(description, 'prompt_tps', 0), 2)
+                result_entry["prompt_tokens"] = getattr(
+                    description, "prompt_tokens", None
+                )
+                result_entry["generation_tokens"] = getattr(
+                    description, "generation_tokens", None
+                )
+                prompt_tps = round(getattr(description, "prompt_tps", 0), 2)
                 result_entry["prompt_tps"] = None if prompt_tps == 0 else prompt_tps
-                generation_tps = round(getattr(description, 'generation_tps', 0), 2)
-                result_entry["generation_tps"] = None if generation_tps == 0 else generation_tps
+                generation_tps = round(getattr(description, "generation_tps", 0), 2)
+                result_entry["generation_tps"] = (
+                    None if generation_tps == 0 else generation_tps
+                )
             else:
                 result_entry["description"] = str(description).strip()
 
@@ -264,13 +286,15 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
 
         except Exception as e:
             click.echo(f"  Error processing {rel_path}: {e}", err=True)
-            pending_results.append({
-                "file": f"./{rel_path}",
-                "description": f"Error: {str(e)}",
-                "model": "smolvlm2",
-                "generation_time_seconds": None,
-                "error": True
-            })
+            pending_results.append(
+                {
+                    "file": f"./{rel_path}",
+                    "description": f"Error: {str(e)}",
+                    "model": "smolvlm2",
+                    "generation_time_seconds": None,
+                    "error": True,
+                }
+            )
             total_failed += 1
 
             # Track failed files to prevent duplicate entries on resume
@@ -290,11 +314,15 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
         if check_stop_requested():
             click.echo("\n⚠ Stop requested - finishing gracefully...")
             if pending_results:
-                click.echo(f"  Saving {len(pending_results)} pending results to JSON...")
+                click.echo(
+                    f"  Saving {len(pending_results)} pending results to JSON..."
+                )
                 if not flush_results_to_json(output_file, pending_results):
                     click.echo("Error: Failed to write to JSON.", err=True)
                     sys.exit(1)
-            click.echo(f"  Stopped after {total_processed} files ({total_successful} successful, {total_failed} failed)")
+            click.echo(
+                f"  Stopped after {total_processed} files ({total_successful} successful, {total_failed} failed)"
+            )
             click.echo(f"  Output saved to: {output_file}")
             sys.exit(0)
 
@@ -305,8 +333,10 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
             click.echo("Error: Failed to write to JSON.", err=True)
             sys.exit(1)
 
-    click.echo(f"\n✓ Analysis complete!")
-    click.echo(f"  This batch: {total_processed} files ({total_successful} successful, {total_failed} failed)")
+    click.echo("\n✓ Analysis complete!")
+    click.echo(
+        f"  This batch: {total_processed} files ({total_successful} successful, {total_failed} failed)"
+    )
     click.echo(f"  Output saved to: {output_file}")
     click.echo(f"  Progress tracked in: {PROGRESS_FILE}")
 

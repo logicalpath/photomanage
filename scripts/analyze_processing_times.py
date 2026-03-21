@@ -22,7 +22,7 @@ from pathlib import Path
 
 def load_json(json_path: Path) -> list:
     """Load JSON data."""
-    with open(json_path, 'r') as f:
+    with open(json_path, "r") as f:
         return json.load(f)
 
 
@@ -59,20 +59,24 @@ def analyze_times(data: list, extensions: list = None) -> dict:
     by_ext = defaultdict(lambda: defaultdict(list))
 
     for r in data:
-        if r.get('generation_time_seconds') and not r.get('error'):
-            ext = Path(r['file']).suffix.upper().lstrip('.') if Path(r['file']).suffix else '(none)'
+        if r.get("generation_time_seconds") and not r.get("error"):
+            ext = (
+                Path(r["file"]).suffix.upper().lstrip(".")
+                if Path(r["file"]).suffix
+                else "(none)"
+            )
             if extensions is None or ext in extensions:
-                t = r['generation_time_seconds']
-                model = r.get('model', 'unknown')
+                t = r["generation_time_seconds"]
+                model = r.get("model", "unknown")
                 by_ext[ext][model].append(t)
-                by_ext[ext]['_all'].append(t)
+                by_ext[ext]["_all"].append(t)
 
     return by_ext
 
 
 def print_stats(times: list, label: str, indent: int = 0):
     """Print statistics for a list of times."""
-    prefix = ' ' * indent
+    prefix = " " * indent
     if not times:
         print(f"{prefix}{label}: No data")
         return
@@ -91,49 +95,49 @@ def print_stats(times: list, label: str, indent: int = 0):
 
 def print_table(by_ext: dict):
     """Print a summary table."""
-    print(f"\n{'Extension':<10} {'Model':<12} {'Count':>7} {'Median':>9} {'Avg':>9} {'StdDev':>9}")
+    print(
+        f"\n{'Extension':<10} {'Model':<12} {'Count':>7} {'Median':>9} {'Avg':>9} {'StdDev':>9}"
+    )
     print("-" * 60)
 
     for ext in sorted(by_ext.keys()):
         models = by_ext[ext]
         # Overall for this extension
-        all_times = models['_all']
+        all_times = models["_all"]
         if all_times:
             avg = sum(all_times) / len(all_times)
-            print(f"{ext:<10} {'(all)':<12} {len(all_times):>7,} {median(all_times):>8.2f}s {avg:>8.2f}s {std_dev(all_times):>8.2f}s")
+            print(
+                f"{ext:<10} {'(all)':<12} {len(all_times):>7,} {median(all_times):>8.2f}s {avg:>8.2f}s {std_dev(all_times):>8.2f}s"
+            )
 
         # By model
-        for model in sorted(m for m in models.keys() if m != '_all'):
+        for model in sorted(m for m in models.keys() if m != "_all"):
             times = models[model]
             if times:
                 avg = sum(times) / len(times)
-                print(f"{'':<10} {model:<12} {len(times):>7,} {median(times):>8.2f}s {avg:>8.2f}s {std_dev(times):>8.2f}s")
+                print(
+                    f"{'':<10} {model:<12} {len(times):>7,} {median(times):>8.2f}s {avg:>8.2f}s {std_dev(times):>8.2f}s"
+                )
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Analyze image processing times by file type and model'
+        description="Analyze image processing times by file type and model"
     )
     parser.add_argument(
-        '--json-file',
-        default='outputs/image_analysis.json',
-        help='Path to JSON file (default: outputs/image_analysis.json)'
+        "--json-file",
+        default="outputs/image_analysis.json",
+        help="Path to JSON file (default: outputs/image_analysis.json)",
     )
     parser.add_argument(
-        '--ext',
-        action='append',
-        dest='extensions',
-        help='File extension to analyze (can specify multiple, e.g., --ext NEF --ext JPG)'
+        "--ext",
+        action="append",
+        dest="extensions",
+        help="File extension to analyze (can specify multiple, e.g., --ext NEF --ext JPG)",
     )
+    parser.add_argument("--all", action="store_true", help="Show all extensions")
     parser.add_argument(
-        '--all',
-        action='store_true',
-        help='Show all extensions'
-    )
-    parser.add_argument(
-        '--detailed',
-        action='store_true',
-        help='Show detailed output instead of table'
+        "--detailed", action="store_true", help="Show detailed output instead of table"
     )
 
     args = parser.parse_args()
@@ -150,11 +154,13 @@ def main():
     # Normalize extensions
     extensions = None
     if args.extensions:
-        extensions = [e.upper().lstrip('.') for e in args.extensions]
+        extensions = [e.upper().lstrip(".") for e in args.extensions]
     elif not args.all:
         # Default to NEF if no extension specified
-        extensions = ['NEF']
-        print("(Defaulting to NEF files. Use --all for all extensions or --ext to specify)")
+        extensions = ["NEF"]
+        print(
+            "(Defaulting to NEF files. Use --all for all extensions or --ext to specify)"
+        )
 
     # Analyze
     by_ext = analyze_times(data, extensions)
@@ -174,15 +180,15 @@ def main():
             print("-" * 40)
 
             models = by_ext[ext]
-            print_stats(models['_all'], "Overall", indent=2)
+            print_stats(models["_all"], "Overall", indent=2)
 
             print()
-            for model in sorted(m for m in models.keys() if m != '_all'):
+            for model in sorted(m for m in models.keys() if m != "_all"):
                 print_stats(models[model], model, indent=2)
                 print()
     else:
         print_table(by_ext)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -1,9 +1,10 @@
 import sqlite3
 import re
 
+
 def extract_filenames():
     # Connect to the SQLite database
-    conn = sqlite3.connect('mediameta.db')  # Replace with your actual database name
+    conn = sqlite3.connect("mediameta.db")  # Replace with your actual database name
     cursor = conn.cursor()
 
     # Query to select the File column from the thumberrs table
@@ -11,18 +12,18 @@ def extract_filenames():
 
     try:
         cursor.execute(query)
-        
+
         # Fetch all rows
         rows = cursor.fetchall()
 
         for row in rows:
             file_path = row[0]
-            
+
             # Check if the file path contains "/Volumes"
             if "/Volumes" in file_path:
                 # Use regex to find the filename after 'uuid'
-                match = re.search(r'/uuid/.*?([^/]+\.[^/:]+)', file_path)
-                
+                match = re.search(r"/uuid/.*?([^/]+\.[^/:]+)", file_path)
+
                 if match:
                     filename = match.group(1)
                     print(f"Extracted filename: {filename}")
@@ -36,6 +37,7 @@ def extract_filenames():
 
     finally:
         conn.close()
+
 
 # Run the function
 extract_filenames()

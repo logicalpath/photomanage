@@ -1,7 +1,7 @@
 from datetime import datetime
 
-def convert(value):
 
+def convert(value):
     date_format = "%Y:%m:%d %H:%M:%S"
 
     if not value.strip():

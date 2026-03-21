@@ -1,6 +1,7 @@
 # error_processing.py
 import subprocess
 
+
 def get_file_info(input_path, error_message):
     """
     Runs the 'file' command on the input path and appends its output to the error message.
@@ -18,6 +19,7 @@ def get_file_info(input_path, error_message):
         return f"{error_message}\nFile type info: {file_type_info}"
     except subprocess.CalledProcessError as e:
         return f"{error_message}\nFailed to obtain file type info: {e}"
+
 
 def log_error(message, log_file="thumb-errors.txt"):
     """

@@ -2,6 +2,7 @@ import sqlite3
 import pickle
 import sys
 
+
 def check_columns_in_database(pickle_file_path, database_name, table_name):
     """
     Reads column information from a pickle file and checks if the specified columns in the database
@@ -15,17 +16,18 @@ def check_columns_in_database(pickle_file_path, database_name, table_name):
     Prints:
     - Columns that contain no data (all values are blanks or nulls).
     """
-    with open(pickle_file_path, 'rb') as file:
+    with open(pickle_file_path, "rb") as file:
         columns_info = pickle.load(file)
-    
+
     conn = sqlite3.connect(database_name)
     cursor = conn.cursor()
 
     column_results = {}
-    counts = {}
-    
+
     for column_details in columns_info:
-        column_name = column_details[1]  # Assuming the column name is in the second position
+        column_name = column_details[
+            1
+        ]  # Assuming the column name is in the second position
         query = f"""SELECT EXISTS(SELECT 1 FROM "{table_name}" WHERE TRIM("{column_name}") != '' OR "{column_name}" IS NOT NULL LIMIT 1)"""
         try:
             cursor.execute(query)
@@ -33,8 +35,8 @@ def check_columns_in_database(pickle_file_path, database_name, table_name):
             column_results[column_name] = exists_non_empty_or_non_null == 0
         except sqlite3.OperationalError as e:
             print(f"Error in query for column '{column_name}': {e}")
-            column_results[column_name] = 'Error'
-    
+            column_results[column_name] = "Error"
+
     conn.close()
 
     # Filter and print columns that contain no data
@@ -59,16 +61,18 @@ def count_non_blank_rows_in_database(pickle_file_path, database_name, table_name
     Prints:
     - Count of non-null and non-blank rows for each column.
     """
-    with open(pickle_file_path, 'rb') as file:
+    with open(pickle_file_path, "rb") as file:
         columns_info = pickle.load(file)
-    
+
     conn = sqlite3.connect(database_name)
     cursor = conn.cursor()
 
     counts = {}
-    
+
     for column_details in columns_info:
-        column_name = column_details[1]  # Assuming the column name is in the second position
+        column_name = column_details[
+            1
+        ]  # Assuming the column name is in the second position
         query = f"""SELECT COUNT(*) FROM "{table_name}" WHERE TRIM("{column_name}") != '' AND "{column_name}" IS NOT NULL"""
         try:
             cursor.execute(query)
@@ -77,22 +81,22 @@ def count_non_blank_rows_in_database(pickle_file_path, database_name, table_name
             counts[column_name] = count
         except sqlite3.OperationalError as e:
             print(f"Error in query for column '{column_name}': {e}")
-            counts[column_name] = 'Error'
-    
+            counts[column_name] = "Error"
+
     conn.close()
 
     # Print count of non-null and non-blank rows for each column
     if counts:
         # open a csv file to write the results
-        with open('non_blank_rows.csv', 'w') as file:
+        with open("non_blank_rows.csv", "w") as file:
             file.write("Column,Count\n")
         print("Count of non-null and non-blank rows for each column:")
         for column, count in counts.items():
             if count > 0:
                 print(f"- {column}: {count}")
-                with open('non_blank_rows.csv', 'a') as file:
+                with open("non_blank_rows.csv", "a") as file:
                     file.write(f"{column},{count}\n")
-                
+
     else:
         print("No columns found or an error occurred.")
 
@@ -100,7 +104,9 @@ def count_non_blank_rows_in_database(pickle_file_path, database_name, table_name
 if __name__ == "__main__":
     # Check if the correct number of command-line arguments are provided
     if len(sys.argv) != 4:
-        print("Usage: python script_name.py <pickle_file_path> <database_name> <table_name>")
+        print(
+            "Usage: python script_name.py <pickle_file_path> <database_name> <table_name>"
+        )
         sys.exit(1)
 
     # Extract the file path, database name, and table name from the command-line arguments

@@ -36,8 +36,12 @@ def build_html(entries: list[dict], dates: dict[str, str]) -> tuple[str, int]:
         desc = html.escape(entry.get("description", ""))
         gen_time = entry.get("generation_time_seconds", 0)
         raw_date = dates.get(file_path, "")
-        photo_date = html.escape(raw_date.replace("T", " ")) if raw_date else "unknown date"
-        img_src = html.escape(f"/images/{urllib.parse.quote(file_path.removeprefix('./'))}")
+        photo_date = (
+            html.escape(raw_date.replace("T", " ")) if raw_date else "unknown date"
+        )
+        img_src = html.escape(
+            f"/images/{urllib.parse.quote(file_path.removeprefix('./'))}"
+        )
         cards.append(
             f"""<div class="card">
   <img src="{img_src}" alt="{desc}" loading="lazy">
@@ -113,7 +117,9 @@ class Handler(SimpleHTTPRequestHandler):
 
 def main():
     parser = argparse.ArgumentParser(description="View image descriptions in a browser")
-    parser.add_argument("--port", type=int, default=8080, help="Port to serve on (default: 8080)")
+    parser.add_argument(
+        "--port", type=int, default=8080, help="Port to serve on (default: 8080)"
+    )
     args = parser.parse_args()
 
     if not JSON_PATH.is_file():

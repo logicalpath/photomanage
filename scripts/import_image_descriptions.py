@@ -24,7 +24,7 @@ def load_json(json_path: Path) -> tuple[list, str]:
     Returns (data, error_message)
     """
     try:
-        with open(json_path, 'r', encoding='utf-8') as f:
+        with open(json_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
         if not isinstance(data, list):
@@ -41,13 +41,13 @@ def get_existing_files(db_path: Path, table_name: str) -> set:
     """Get set of file values already in the database."""
     try:
         result = subprocess.run(
-            ['sqlite-utils', 'query', str(db_path),
-             f'SELECT file FROM "{table_name}"'],
-            capture_output=True, text=True
+            ["sqlite-utils", "query", str(db_path), f'SELECT file FROM "{table_name}"'],
+            capture_output=True,
+            text=True,
         )
         if result.returncode == 0:
             data = json.loads(result.stdout)
-            return {row['file'] for row in data}
+            return {row["file"] for row in data}
     except Exception:
         # Table may not exist yet; return empty set to insert all records
         pass
@@ -63,14 +63,15 @@ def insert_records(db_path: Path, table_name: str, records: list) -> tuple[bool,
         return True, "No new records to insert"
 
     # Only keep core columns, drop any extra fields
-    core_columns = {'file', 'description', 'model', 'generation_time_seconds', 'error'}
+    core_columns = {"file", "description", "model", "generation_time_seconds", "error"}
     cleaned = [{k: v for k, v in r.items() if k in core_columns} for r in records]
 
     # Pass records via stdin as JSON
     result = subprocess.run(
-        ['sqlite-utils', 'insert', str(db_path), table_name, '-', '--pk', 'file'],
+        ["sqlite-utils", "insert", str(db_path), table_name, "-", "--pk", "file"],
         input=json.dumps(cleaned),
-        capture_output=True, text=True
+        capture_output=True,
+        text=True,
     )
 
     if result.returncode == 0:
@@ -81,27 +82,25 @@ def insert_records(db_path: Path, table_name: str, records: list) -> tuple[bool,
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Import image descriptions from JSON to SQLite'
+        description="Import image descriptions from JSON to SQLite"
     )
     parser.add_argument(
-        '--json-file',
-        default='outputs/image_analysis.json',
-        help='Path to JSON file (default: outputs/image_analysis.json)'
+        "--json-file",
+        default="outputs/image_analysis.json",
+        help="Path to JSON file (default: outputs/image_analysis.json)",
     )
     parser.add_argument(
-        '--database',
-        default='database/mediameta.db',
-        help='Path to SQLite database (default: database/mediameta.db)'
+        "--database",
+        default="database/mediameta.db",
+        help="Path to SQLite database (default: database/mediameta.db)",
     )
     parser.add_argument(
-        '--table',
-        default='image_description',
-        help='Table name (default: image_description)'
+        "--table",
+        default="image_description",
+        help="Table name (default: image_description)",
     )
     parser.add_argument(
-        '--dry-run',
-        action='store_true',
-        help='Validate JSON without importing'
+        "--dry-run", action="store_true", help="Validate JSON without importing"
     )
 
     args = parser.parse_args()
@@ -131,12 +130,12 @@ def main():
     print(f"JSON valid: {len(all_records)} records found")
 
     # Get existing files from database
-    print(f"Checking existing records in database...")
+    print("Checking existing records in database...")
     existing_files = get_existing_files(db_path, table_name)
     print(f"Table '{table_name}' current rows: {len(existing_files)}")
 
     # Filter to only new records
-    new_records = [r for r in all_records if r.get('file') not in existing_files]
+    new_records = [r for r in all_records if r.get("file") not in existing_files]
     print(f"New records to insert: {len(new_records)}")
 
     if args.dry_run:
@@ -160,11 +159,11 @@ def main():
         print(f"Error: {message}")
         sys.exit(1)
 
-    print(f"Done!")
+    print("Done!")
     print(f"  Records in JSON: {len(all_records)}")
     print(f"  Previously imported: {len(existing_files)}")
     print(f"  New rows added: {len(new_records)}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

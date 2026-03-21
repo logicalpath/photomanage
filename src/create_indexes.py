@@ -26,7 +26,7 @@ def validate_sql_identifier(identifier, identifier_type="identifier"):
     SQLite identifiers must start with a letter or underscore,
     followed by letters, numbers, or underscores.
     """
-    if not re.match(r'^[a-zA-Z_][a-zA-Z0-9_]*$', identifier):
+    if not re.match(r"^[a-zA-Z_][a-zA-Z0-9_]*$", identifier):
         raise ValueError(f"Invalid {identifier_type}: {identifier}")
     return identifier
 
@@ -44,13 +44,10 @@ def create_indexes(db_path):
     indexes = [
         # CRITICAL: FileName lookup for media plugin
         ("idx_exif_filename", "exif", "FileName"),
-
         # CRITICAL: thumbImages path for JOINs (FK target)
         ("idx_thumbimages_path", "thumbImages", "path"),
-
         # HIGH: CreateDate for date-based queries and sorting
         ("idx_exif_createdate", "exif", "CreateDate"),
-
         # MEDIUM: AI description file for JOINs
         ("idx_ai_description_file", "ai_description", "file"),
     ]
@@ -68,7 +65,7 @@ def create_indexes(db_path):
             # Check if index already exists
             cursor.execute(
                 "SELECT name FROM sqlite_master WHERE type='index' AND name=?",
-                (index_name,)
+                (index_name,),
             )
             if cursor.fetchone():
                 print(f"✓ Index {index_name} already exists")
@@ -103,6 +100,7 @@ def create_indexes(db_path):
     conn.close()
     print()
     print("Index creation complete!")
+
 
 if __name__ == "__main__":
     create_indexes(DATABASE_PATH)

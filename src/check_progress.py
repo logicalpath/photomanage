@@ -25,12 +25,12 @@ PROGRESS_FILE = "photo_descriptions_progress.txt"
 def count_files_in_directory(directory: str) -> int:
     """Count total files in directory (excluding hidden files)."""
     count = 0
-    skip_files = {'.ds_store', 'thumbs.db', '.gitignore', '.gitkeep'}
+    skip_files = {".ds_store", "thumbs.db", ".gitignore", ".gitkeep"}
     directory_path = Path(directory)
 
-    for path in directory_path.rglob('*'):
+    for path in directory_path.rglob("*"):
         if path.is_file():
-            if not path.name.startswith('.') and path.name.lower() not in skip_files:
+            if not path.name.startswith(".") and path.name.lower() not in skip_files:
                 count += 1
     return count
 
@@ -39,31 +39,31 @@ def get_progress_info():
     """Get information from progress file."""
     if not os.path.exists(PROGRESS_FILE):
         return {
-            'completed_count': 0,
-            'last_file': None,
-            'last_modified': None,
-            'files': []
+            "completed_count": 0,
+            "last_file": None,
+            "last_modified": None,
+            "files": [],
         }
 
-    with open(PROGRESS_FILE, 'r') as f:
+    with open(PROGRESS_FILE, "r") as f:
         files = [line.strip() for line in f if line.strip()]
 
     if not files:
         return {
-            'completed_count': 0,
-            'last_file': None,
-            'last_modified': None,
-            'files': []
+            "completed_count": 0,
+            "last_file": None,
+            "last_modified": None,
+            "files": [],
         }
 
     # Get file modification time
     last_modified = datetime.fromtimestamp(os.path.getmtime(PROGRESS_FILE))
 
     return {
-        'completed_count': len(files),
-        'last_file': files[-1] if files else None,
-        'last_modified': last_modified,
-        'files': files
+        "completed_count": len(files),
+        "last_file": files[-1] if files else None,
+        "last_modified": last_modified,
+        "files": files,
     }
 
 
@@ -83,9 +83,9 @@ def get_recent_errors():
     # Check most recent log for errors
     recent_log = log_files[0]
     try:
-        with open(recent_log, 'r') as f:
+        with open(recent_log, "r") as f:
             for line in f:
-                if 'ERROR' in line or 'failed' in line.lower():
+                if "ERROR" in line or "failed" in line.lower():
                     error_count += 1
     except Exception:
         # Ignore errors reading log files (e.g., file not found, permission issues)
@@ -94,7 +94,9 @@ def get_recent_errors():
     return error_count
 
 
-def estimate_time_remaining(completed: int, total: int, last_modified: datetime) -> tuple[float | None, float | None, bool]:
+def estimate_time_remaining(
+    completed: int, total: int, last_modified: datetime
+) -> tuple[float | None, float | None, bool]:
     """
     Estimate time remaining based on recent progress.
 
@@ -150,7 +152,7 @@ def estimate_avg_time_per_image() -> float | None:
             return None
 
     try:
-        with open(output_files[0], 'r') as f:
+        with open(output_files[0], "r") as f:
             data = json.load(f)
 
         if not data:
@@ -158,9 +160,9 @@ def estimate_avg_time_per_image() -> float | None:
 
         # Calculate average from generation_time_seconds
         times = [
-            item['generation_time_seconds']
+            item["generation_time_seconds"]
             for item in data
-            if item.get('generation_time_seconds') is not None
+            if item.get("generation_time_seconds") is not None
         ]
 
         if times:
@@ -189,10 +191,10 @@ def format_timedelta(hours: float) -> str:
 def main():
     parser = argparse.ArgumentParser(description="Check image description progress")
     parser.add_argument(
-        'directory',
-        nargs='?',
-        default='database/512x512',
-        help='Directory containing images (default: database/512x512)'
+        "directory",
+        nargs="?",
+        default="database/512x512",
+        help="Directory containing images (default: database/512x512)",
     )
     args = parser.parse_args()
 
@@ -206,7 +208,7 @@ def main():
 
     # Get progress info
     progress = get_progress_info()
-    completed = progress['completed_count']
+    completed = progress["completed_count"]
     remaining = total_files - completed
     percent = (completed / total_files * 100) if total_files > 0 else 0
 
@@ -224,8 +226,8 @@ def main():
     print(f"Progress:   [{bar}]")
 
     # Time estimates
-    if progress['last_modified']:
-        time_since = datetime.now() - progress['last_modified']
+    if progress["last_modified"]:
+        time_since = datetime.now() - progress["last_modified"]
         minutes_since = int(time_since.total_seconds() / 60)
 
         if minutes_since < 60:
@@ -235,7 +237,7 @@ def main():
             print(f"Last update: {hours_since:.1f} hours ago")
 
         hours_remaining, rate, is_stale = estimate_time_remaining(
-            completed, total_files, progress['last_modified']
+            completed, total_files, progress["last_modified"]
         )
 
         if is_stale:
@@ -249,7 +251,7 @@ def main():
         print("Status:     Not started")
 
     # Last file processed
-    if progress['last_file']:
+    if progress["last_file"]:
         print(f"Last file:  {progress['last_file']}")
 
     # Check for errors

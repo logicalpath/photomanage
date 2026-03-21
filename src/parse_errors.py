@@ -3,11 +3,12 @@ import csv
 import os
 import sys
 
+
 def parse_errors_to_csv(input_file_path, output_folder):
     # Regular expression patterns to match file paths and file type info
     file_path_pattern = r"Error creating thumbnail for (.*)"
     file_type_info_pattern = r"File type info: (.*): (.*)"
-    
+
     # Ensure output directory exists
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -24,7 +25,7 @@ def parse_errors_to_csv(input_file_path, output_folder):
     file_infos = []
 
     # Read the input file and extract required information
-    with open(input_file_path, 'r') as file:
+    with open(input_file_path, "r") as file:
         for line in file:
             file_path_match = re.search(file_path_pattern, line)
             file_type_info_match = re.search(file_type_info_pattern, line)
@@ -35,22 +36,23 @@ def parse_errors_to_csv(input_file_path, output_folder):
                 file_infos.append(file_type_info_match.group(2))
 
     # Write the extracted information to a CSV file
-    with open(output_file_path, 'w', newline='') as csvfile:
-        fieldnames = ['File', 'File type Info']
+    with open(output_file_path, "w", newline="") as csvfile:
+        fieldnames = ["File", "File type Info"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
         for file, info in zip(files, file_infos):
-            writer.writerow({'File': file, 'File type Info': info})
+            writer.writerow({"File": file, "File type Info": info})
 
     print(f"CSV file has been created at {output_file_path}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: script.py <input_file_path> <output_folder>")
         sys.exit(1)
-    
+
     input_file_path = sys.argv[1]
     output_folder = sys.argv[2]
-    
+
     parse_errors_to_csv(input_file_path, output_folder)

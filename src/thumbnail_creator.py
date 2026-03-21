@@ -22,4 +22,3 @@ def create_thumbnail(input_image_path, output_image_path, size=(256, 256)):
         error_message = f"Error creating thumbnail for {input_image_path}: {e}"
         detailed_error_message = get_file_info(input_image_path, error_message)
         log_error(detailed_error_message)
-        

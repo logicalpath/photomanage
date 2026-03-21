@@ -25,7 +25,7 @@ SKIP_MODEL = "skipped"
 
 def get_extension(file_path: str) -> str:
     """Extract and normalize file extension."""
-    ext = Path(file_path).suffix.upper().lstrip('.')
+    ext = Path(file_path).suffix.upper().lstrip(".")
     return ext if ext else "(none)"
 
 
@@ -35,7 +35,7 @@ def count_json_by_extension(json_path: Path) -> tuple[Counter, int]:
     Excludes skipped records.
     Returns (counter, skipped_count)
     """
-    with open(json_path, 'r', encoding='utf-8') as f:
+    with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
 
     counter = Counter()
@@ -43,12 +43,14 @@ def count_json_by_extension(json_path: Path) -> tuple[Counter, int]:
 
     for record in data:
         # Skip placeholder records
-        if (record.get('description') == SKIP_DESCRIPTION and
-                record.get('model') == SKIP_MODEL):
+        if (
+            record.get("description") == SKIP_DESCRIPTION
+            and record.get("model") == SKIP_MODEL
+        ):
             skipped += 1
             continue
 
-        ext = get_extension(record.get('file', ''))
+        ext = get_extension(record.get("file", ""))
         counter[ext] += 1
 
     return counter, skipped
@@ -58,8 +60,9 @@ def count_database_by_extension(db_path: Path, table: str) -> Counter:
     """Count records by extension in database."""
     # Get all files and count in Python (simpler than complex SQL)
     result = subprocess.run(
-        ['sqlite-utils', 'query', str(db_path), f'SELECT file FROM "{table}"'],
-        capture_output=True, text=True
+        ["sqlite-utils", "query", str(db_path), f'SELECT file FROM "{table}"'],
+        capture_output=True,
+        text=True,
     )
 
     if result.returncode != 0:
@@ -70,7 +73,7 @@ def count_database_by_extension(db_path: Path, table: str) -> Counter:
     counter = Counter()
 
     for row in data:
-        ext = get_extension(row.get('file', ''))
+        ext = get_extension(row.get("file", ""))
         counter[ext] += 1
 
     return counter
@@ -78,22 +81,22 @@ def count_database_by_extension(db_path: Path, table: str) -> Counter:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Verify image descriptions import to database'
+        description="Verify image descriptions import to database"
     )
     parser.add_argument(
-        '--json-file',
-        default='outputs/image_analysis.json',
-        help='Path to JSON file (default: outputs/image_analysis.json)'
+        "--json-file",
+        default="outputs/image_analysis.json",
+        help="Path to JSON file (default: outputs/image_analysis.json)",
     )
     parser.add_argument(
-        '--database',
-        default='database/mediameta.db',
-        help='Path to SQLite database (default: database/mediameta.db)'
+        "--database",
+        default="database/mediameta.db",
+        help="Path to SQLite database (default: database/mediameta.db)",
     )
     parser.add_argument(
-        '--table',
-        default='image_description',
-        help='Table name (default: image_description)'
+        "--table",
+        default="image_description",
+        help="Table name (default: image_description)",
     )
 
     args = parser.parse_args()
@@ -147,7 +150,9 @@ def main():
     print(f"{'TOTAL':<10} | {json_total:>8,} | {db_total:>8,} |")
 
     if skipped_count > 0:
-        print(f"\nNote: {skipped_count:,} 'Skipped for now' records excluded from JSON count")
+        print(
+            f"\nNote: {skipped_count:,} 'Skipped for now' records excluded from JSON count"
+        )
 
     # Summary
     print()
@@ -160,5 +165,5 @@ def main():
         return 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())

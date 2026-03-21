@@ -16,23 +16,23 @@ def get_table_columns(database_name, table_name):
     """
     # Connect to the specified SQLite database
     conn = sqlite3.connect(database_name)
-    
+
     # Create a cursor object
     cursor = conn.cursor()
-    
+
     # Retrieve the list of all columns in the specified table
     cursor.execute(f"PRAGMA table_info('{table_name}')")
     columns = cursor.fetchall()
     # find the nuber of rows in the table
-    cursor.execute(f"SELECT count(*) FROM '{table_name}'")  
+    cursor.execute(f"SELECT count(*) FROM '{table_name}'")
     rows = cursor.fetchall()
     print(f"Number of rows in the table: {rows[0][0]}")
-    
-    
+
     # Close the connection
     conn.close()
-    
+
     return columns
+
 
 if __name__ == "__main__":
     # Check if the correct number of command-line arguments are provided
@@ -52,6 +52,5 @@ if __name__ == "__main__":
         print(col)
 
     # Assuming `columns` is your tuple
-    with open('columns.pickle', 'wb') as file:
+    with open("columns.pickle", "wb") as file:
         pickle.dump(columns, file)
-
