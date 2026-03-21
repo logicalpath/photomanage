@@ -178,6 +178,7 @@ Result:      /Volumes/Eddie 4TB/MediaFiles/uuid/0/example.jpg
 ### Required
 
 ```bash
+uv add datasette-checkbox
 uv add datasette-media
 uv add datasette-render-images
 ```
@@ -186,7 +187,6 @@ uv add datasette-render-images
 
 ```bash
 datasette install datasette-cluster-map
-datasette install datasette-checkbox
 ```
 
 Not currently installed:

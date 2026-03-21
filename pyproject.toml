@@ -9,6 +9,8 @@ dependencies = [
     "b2",
     "black",
     "datasette==1.0a24",
+    "datasette-auth-passwords",
+    "datasette-checkbox",
     "datasette-media",
     "datasette-render-images",
     "datasette-template-sql>=1.0.2",
@@ -48,5 +50,6 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "pre-commit>=4.5.1",
     "ruff>=0.15.6",
 ]
