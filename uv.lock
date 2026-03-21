@@ -1396,6 +1396,7 @@ dependencies = [
 [package.dev-dependencies]
 dev = [
     { name = "pre-commit" },
+    { name = "pyright" },
     { name = "ruff" },
 ]
 
@@ -1441,6 +1442,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "pre-commit", specifier = ">=4.5.1" },
+    { name = "pyright", specifier = ">=1.1.408" },
     { name = "ruff", specifier = ">=0.15.6" },
 ]
 
@@ -1671,6 +1673,19 @@ sdist = { url = "https://files.pythonhosted.org/packages/ec/11/d63f215d8c9c41640
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fc/49/07d1c047e52fd4de1474759e202b2fd7ac99e945db0ce149af2f85be7625/pyheif-0.8.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ac5ec62a90c4f9f96125aaebd6ac994b95895ace4427ecf34752951e1d34be96", size = 5382780 },
     { url = "https://files.pythonhosted.org/packages/87/c4/1d0e82766657b3839993ffe411807a08623ff9affd7275533afea3cb377e/pyheif-0.8.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f98f4b1d37705418d77ef42a8ebf95b510bb3e0a9a2d9f0824f6eeb751c9e7f6", size = 5282045 },
+]
+
+[[package]]
+name = "pyright"
+version = "1.1.408"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "nodeenv" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/74/b2/5db700e52554b8f025faa9c3c624c59f1f6c8841ba81ab97641b54322f16/pyright-1.1.408.tar.gz", hash = "sha256:f28f2321f96852fa50b5829ea492f6adb0e6954568d1caa3f3af3a5f555eb684", size = 4400578 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/82/a2c93e32800940d9573fb28c346772a14778b84ba7524e691b324620ab89/pyright-1.1.408-py3-none-any.whl", hash = "sha256:090b32865f4fdb1e0e6cd82bf5618480d48eecd2eb2e70f960982a3d9a4c17c1", size = 6399144 },
 ]
 
 [[package]]

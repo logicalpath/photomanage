@@ -19,7 +19,7 @@ def main():
         sys.exit("Error: B2_APPLICATION_KEY_ID and B2_APPLICATION_KEY must be set.")
 
     info = InMemoryAccountInfo()  # noqa: F405
-    b2_api = B2Api(info)  # noqa: F405
+    b2_api = B2Api(info)  # noqa: F405  # type: ignore[arg-type]
     b2_api.authorize_account("production", application_key_id, application_key)
 
     bucket_name = "b2-snapshots-b00f0a6e6ad7"

@@ -44,7 +44,7 @@ def std_dev(lst: list) -> float:
     return math.sqrt(variance)
 
 
-def analyze_times(data: list, extensions: list = None) -> dict:
+def analyze_times(data: list, extensions: list | None = None) -> dict:
     """
     Analyze processing times by extension and model.
 

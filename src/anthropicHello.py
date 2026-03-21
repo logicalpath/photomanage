@@ -18,7 +18,7 @@ def isEnglish(text):
         ],
     )
 
-    answer = message.content[0].text
+    answer = message.content[0].text  # type: ignore[union-attr]
     return answer
 
 

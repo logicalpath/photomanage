@@ -258,7 +258,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
             }
 
             if hasattr(description, "text"):
-                result_entry["description"] = description.text.strip()
+                result_entry["description"] = description.text.strip()  # type: ignore[union-attr]
                 result_entry["prompt_tokens"] = getattr(
                     description, "prompt_tokens", None
                 )
