@@ -43,6 +43,8 @@ class BatchOrchestrator:
         max_tokens: int = 100,
         temp: float = 0.0,
         prompt: str = "<image>Briefly describe this image in one or two sentences.",
+        progress_file: str = "photo_descriptions_progress.txt",
+        output_dir: str = "outputs",
     ):
         self.directory = Path(directory)
         self.batch_size = batch_size
@@ -51,7 +53,8 @@ class BatchOrchestrator:
         self.max_tokens = max_tokens
         self.temp = temp
         self.prompt = prompt
-        self.progress_file = "photo_descriptions_progress.txt"
+        self.progress_file = progress_file
+        self.output_dir = output_dir
 
         # Set up logging
         self.setup_logging()
@@ -181,6 +184,10 @@ class BatchOrchestrator:
             str(self.temp),
             "--prompt",
             self.prompt,
+            "--progress-file",
+            self.progress_file,
+            "--output-dir",
+            self.output_dir,
         ]
 
         self.logger.info(f"Running: {' '.join(cmd)}")
@@ -350,6 +357,16 @@ def main():
         default="<image>Briefly describe this image in one or two sentences.",
         help="Prompt for image description (default: brief one-sentence description)",
     )
+    parser.add_argument(
+        "--progress-file",
+        default="photo_descriptions_progress.txt",
+        help="Progress tracking file (default: photo_descriptions_progress.txt)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="outputs",
+        help="Directory for output files (default: outputs)",
+    )
 
     args = parser.parse_args()
 
@@ -367,6 +384,8 @@ def main():
         max_tokens=args.max_tokens,
         temp=args.temp,
         prompt=args.prompt,
+        progress_file=args.progress_file,
+        output_dir=args.output_dir,
     )
 
     orchestrator.run()
