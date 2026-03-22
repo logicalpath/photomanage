@@ -39,6 +39,7 @@ dependencies = [
     "transformers",
     "uvicorn",
     "pydantic>=2.12.5",
+    "datasette-cluster-map>=0.18.2",
 ]
 
 [tool.hatch.build]

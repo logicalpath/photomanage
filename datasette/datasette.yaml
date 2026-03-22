@@ -29,6 +29,11 @@ plugins:
   datasette-cluster-map:
     latitude_column: GPSLatitude
     longitude_column: GPSLongitude
+    tile_layer: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+    tile_layer_options:
+      attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+      subdomains: "abcd"
+      maxZoom: 19
 
 # Database and table-level configuration
 databases:
@@ -44,9 +49,9 @@ databases:
           ORDER BY exif.CreateDate ASC;
       Show Time Matches all dates:
         sql: SELECT
-          thumbImages.content,
           exif.CreateDate,
           exif.FileName,
+          exif.SourceFile,
           thumbImages.size
           FROM
           exif
@@ -61,7 +66,7 @@ databases:
           exif
           WHERE
           CreateDate IS NOT NULL
-          AND exif.CreateDate <> ''
+          AND CreateDate <> ''
           GROUP BY
           CreateDate
           HAVING
@@ -78,3 +83,18 @@ databases:
         sql: SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
       Number of .nef files:
         sql: SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
+      Photo Map:
+        sql: >-
+          SELECT
+            e.GPSLatitude,
+            e.GPSLongitude,
+            json_object(
+              'image', '/-/media/thumb/' || replace(t.path, './', ''),
+              'title', e.FileName,
+              'description', e.CreateDate,
+              'link', '/photo/' || e.FileName
+            ) AS popup
+          FROM exif e
+          INNER JOIN thumbImages t ON e.SourceFile = t.path
+          WHERE e.GPSLatitude IS NOT NULL AND e.GPSLatitude != ''
+          AND e.GPSLongitude IS NOT NULL AND e.GPSLongitude != ''
