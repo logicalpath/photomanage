@@ -19,7 +19,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 
-PROGRESS_FILE = "photo_descriptions_progress.txt"
+DEFAULT_PROGRESS_FILE = "photo_descriptions_progress.txt"
 
 
 def count_files_in_directory(directory: str) -> int:
@@ -35,9 +35,9 @@ def count_files_in_directory(directory: str) -> int:
     return count
 
 
-def get_progress_info():
+def get_progress_info(progress_file: str):
     """Get information from progress file."""
-    if not os.path.exists(PROGRESS_FILE):
+    if not os.path.exists(progress_file):
         return {
             "completed_count": 0,
             "last_file": None,
@@ -45,7 +45,7 @@ def get_progress_info():
             "files": [],
         }
 
-    with open(PROGRESS_FILE, "r") as f:
+    with open(progress_file, "r") as f:
         files = [line.strip() for line in f if line.strip()]
 
     if not files:
@@ -57,7 +57,7 @@ def get_progress_info():
         }
 
     # Get file modification time
-    last_modified = datetime.fromtimestamp(os.path.getmtime(PROGRESS_FILE))
+    last_modified = datetime.fromtimestamp(os.path.getmtime(progress_file))
 
     return {
         "completed_count": len(files),
@@ -95,7 +95,7 @@ def get_recent_errors():
 
 
 def estimate_time_remaining(
-    completed: int, total: int, last_modified: datetime
+    completed: int, total: int, last_modified: datetime, output_dir: str = "outputs"
 ) -> tuple[float | None, float | None, bool]:
     """
     Estimate time remaining based on recent progress.
@@ -115,7 +115,7 @@ def estimate_time_remaining(
 
     # For a better estimate, assume average processing time
     # Check outputs directory for recent timing data
-    avg_time_per_image = estimate_avg_time_per_image()
+    avg_time_per_image = estimate_avg_time_per_image(output_dir)
 
     if avg_time_per_image:
         remaining = total - completed
@@ -131,14 +131,14 @@ def estimate_time_remaining(
     return hours_remaining, rate_per_hour, False
 
 
-def estimate_avg_time_per_image() -> float | None:
+def estimate_avg_time_per_image(output_dir: str = "outputs") -> float | None:
     """
     Estimate average time per image from recent output files.
 
     Returns:
         Average seconds per image, or None if unable to estimate
     """
-    outputs_dir = Path("outputs")
+    outputs_dir = Path(output_dir)
     if not outputs_dir.exists():
         return None
 
@@ -196,6 +196,16 @@ def main():
         default="database/512x512",
         help="Directory containing images (default: database/512x512)",
     )
+    parser.add_argument(
+        "--progress-file",
+        default=DEFAULT_PROGRESS_FILE,
+        help=f"Progress tracking file (default: {DEFAULT_PROGRESS_FILE})",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default="outputs",
+        help="Output directory for timing estimates (default: outputs)",
+    )
     args = parser.parse_args()
 
     # Get total file count
@@ -207,7 +217,7 @@ def main():
     total_files = count_files_in_directory(args.directory)
 
     # Get progress info
-    progress = get_progress_info()
+    progress = get_progress_info(args.progress_file)
     completed = progress["completed_count"]
     remaining = total_files - completed
     percent = (completed / total_files * 100) if total_files > 0 else 0
@@ -237,7 +247,7 @@ def main():
             print(f"Last update: {hours_since:.1f} hours ago")
 
         hours_remaining, rate, is_stale = estimate_time_remaining(
-            completed, total_files, progress["last_modified"]
+            completed, total_files, progress["last_modified"], args.output_dir
         )
 
         if is_stale:
