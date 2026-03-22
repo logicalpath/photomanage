@@ -83,16 +83,23 @@ databases:
         sql: SELECT format("%,d", SUM(FileSize)) AS TotalSize FROM Filenames;
       Number of .nef files:
         sql: SELECT COUNT(*) AS NEFCount FROM filenames WHERE LOWER(FileName) LIKE '%.nef';
+      Photos with GPS:
+        sql: >-
+          SELECT FileName, SourceFile, GPSLatitude, GPSLongitude, CreateDate
+          FROM exif
+          WHERE GPSLatitude IS NOT NULL AND GPSLatitude != ''
+          AND GPSLongitude IS NOT NULL AND GPSLongitude != ''
+          ORDER BY CreateDate DESC
       Photo Map:
         sql: >-
           SELECT
             e.GPSLatitude,
             e.GPSLongitude,
             json_object(
-              'image', '/-/media/thumb/' || replace(t.path, './', ''),
+              'image', replace(t.path, './', ''),
               'title', e.FileName,
               'description', e.CreateDate,
-              'link', '/photo/' || e.FileName
+              'link', e.FileName
             ) AS popup
           FROM exif e
           INNER JOIN thumbImages t ON e.SourceFile = t.path

@@ -88,7 +88,7 @@
             WHERE e.GPSLatitude IS NOT NULL AND e.GPSLatitude != ''
             AND e.GPSLongitude IS NOT NULL AND e.GPSLongitude != ''`;
 
-        fetch('/mediameta.json?sql=' + encodeURIComponent(sql) + '&_shape=array&_size=max')
+        fetch('/mediameta.json?sql=' + encodeURIComponent(sql) + '&_shape=array&_size=10000')
             .then(function(r) { return r.json(); })
             .then(function(rows) {
                 document.getElementById('loading').style.display = 'none';
@@ -98,19 +98,43 @@
                     const lng = parseFloat(row.GPSLongitude);
                     if (isNaN(lat) || isNaN(lng)) return;
 
-                    const thumbUrl = '/-/media/thumb/' + row.SourceFile.replace('./', '');
+                    const sourcePath = row.SourceFile ? row.SourceFile.replace(/^\.\//, '') : '';
+                    const thumbUrl = '/-/media/thumb/' + encodeURI(sourcePath);
                     const dateStr = row.CreateDate ? row.CreateDate.substring(0, 10) : '';
                     const photoUrl = '/photo/' + encodeURIComponent(row.FileName);
 
-                    const popup = '<a href="' + photoUrl + '">'
-                        + '<img class="popup-thumb" src="' + thumbUrl + '" alt="' + row.FileName + '" loading="lazy">'
-                        + '</a>'
-                        + '<div class="popup-title">' + row.FileName + '</div>'
-                        + (dateStr ? '<div class="popup-date">' + dateStr + '</div>' : '')
-                        + '<a class="popup-link" href="' + photoUrl + '">View photo →</a>';
+                    const popupDiv = document.createElement('div');
+
+                    const thumbLink = document.createElement('a');
+                    thumbLink.href = photoUrl;
+                    const thumbImg = document.createElement('img');
+                    thumbImg.className = 'popup-thumb';
+                    thumbImg.src = thumbUrl;
+                    thumbImg.alt = row.FileName || '';
+                    thumbImg.loading = 'lazy';
+                    thumbLink.appendChild(thumbImg);
+                    popupDiv.appendChild(thumbLink);
+
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = 'popup-title';
+                    titleDiv.textContent = row.FileName || '';
+                    popupDiv.appendChild(titleDiv);
+
+                    if (dateStr) {
+                        const dateDiv = document.createElement('div');
+                        dateDiv.className = 'popup-date';
+                        dateDiv.textContent = dateStr;
+                        popupDiv.appendChild(dateDiv);
+                    }
+
+                    const viewLink = document.createElement('a');
+                    viewLink.className = 'popup-link';
+                    viewLink.href = photoUrl;
+                    viewLink.textContent = 'View photo \u2192';
+                    popupDiv.appendChild(viewLink);
 
                     L.marker([lat, lng])
-                        .bindPopup(popup, { maxWidth: 220 })
+                        .bindPopup(popupDiv, { maxWidth: 220 })
                         .addTo(markers);
                 });
 
