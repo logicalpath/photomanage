@@ -442,6 +442,31 @@ wheels = [
 ]
 
 [[package]]
+name = "datasette-cluster-map"
+version = "0.18.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "datasette" },
+    { name = "datasette-leaflet" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/e6/73/82fbe3d6f3202a724dc686550c4e1ea373e601f29d0add0df03383d6819a/datasette_cluster_map-0.18.2.tar.gz", hash = "sha256:6ae34faf0f2e3198cbfdc06faaf65ac43a4e3be02d916e4d69dd5e25abcc8b28", size = 38463 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/57/55/e62144a08b469f7467525171e89c868a684db3026b80d6130592024ed816/datasette_cluster_map-0.18.2-py3-none-any.whl", hash = "sha256:8074cdd42a7c1c4e95d52a3c5b0029eb7e5fe978498855d1ec804adadfd2b041", size = 35054 },
+]
+
+[[package]]
+name = "datasette-leaflet"
+version = "0.2.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "datasette" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/88/6e/444b1ded1cd8f71cd86f4461c06ee88be2bb0682b0d54aa942c323f91411/datasette-leaflet-0.2.2.tar.gz", hash = "sha256:8fd4e634304be392ae6f7de770d4f22b95a37caecd676a35faeb6200da9423bc", size = 113285 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d0/df/61e8a7d601a2c4992f7e9f38a6b983a9f9b873fbeebe4248090eea4b5d87/datasette_leaflet-0.2.2-py3-none-any.whl", hash = "sha256:fd88c25666e7680b25b4c6e5546bd02c9f5836bbc0fee61042dbb6b93d4139f0", size = 112532 },
+]
+
+[[package]]
 name = "datasette-media"
 version = "0.5.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1364,6 +1389,7 @@ dependencies = [
     { name = "datasette" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
+    { name = "datasette-cluster-map" },
     { name = "datasette-media" },
     { name = "datasette-render-images" },
     { name = "datasette-template-sql" },
@@ -1410,6 +1436,7 @@ requires-dist = [
     { name = "datasette", specifier = "==1.0a24" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
+    { name = "datasette-cluster-map", specifier = ">=0.18.2" },
     { name = "datasette-media" },
     { name = "datasette-render-images" },
     { name = "datasette-template-sql", specifier = ">=1.0.2" },
