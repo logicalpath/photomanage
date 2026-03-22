@@ -197,6 +197,11 @@ def main():
         help="Directory containing images (default: database/512x512)",
     )
     parser.add_argument(
+        "--v2",
+        action="store_true",
+        help="Shorthand for --progress-file photo_descriptions_v2_progress.txt --output-dir outputs/v2",
+    )
+    parser.add_argument(
         "--progress-file",
         default=DEFAULT_PROGRESS_FILE,
         help=f"Progress tracking file (default: {DEFAULT_PROGRESS_FILE})",
@@ -207,6 +212,12 @@ def main():
         help="Output directory for timing estimates (default: outputs)",
     )
     args = parser.parse_args()
+
+    if args.v2:
+        if args.progress_file == DEFAULT_PROGRESS_FILE:
+            args.progress_file = "photo_descriptions_v2_progress.txt"
+        if args.output_dir == "outputs":
+            args.output_dir = "outputs/v2"
 
     # Get total file count
     if not os.path.isdir(args.directory):
