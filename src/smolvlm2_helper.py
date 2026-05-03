@@ -66,14 +66,15 @@ class SmolVLM2Helper:
         else:
             image_paths = image_path
 
-        # Apply chat template with generation parameters
+        # Apply chat template
         formatted_prompt = apply_chat_template(
-            self.processor, self.config, prompt, temp=temp, max_tokens=max_tokens
+            self.processor, self.config, prompt
         )
 
         # Generate output - NOTE ORDER: formatted_prompt comes before image
         output = generate(
-            self.model, self.processor, formatted_prompt, image_paths, verbose=verbose
+            self.model, self.processor, formatted_prompt, image_paths,
+            temp=temp, max_tokens=max_tokens, verbose=verbose
         )
 
         return output
@@ -107,7 +108,7 @@ class SmolVLM2Helper:
         try:
             # Format prompt
             formatted_prompt = apply_chat_template(
-                self.processor, self.config, prompt, temp=temp, max_tokens=max_tokens
+                self.processor, self.config, prompt
             )
 
             # Generate output for video
@@ -117,6 +118,8 @@ class SmolVLM2Helper:
                 self.processor,
                 formatted_prompt,
                 [video_path],
+                temp=temp,
+                max_tokens=max_tokens,
                 verbose=verbose,
             )
 
