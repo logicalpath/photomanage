@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Set, List
 
 # Progress tracking
-PROGRESS_FILE = "photo_descriptions_progress.txt"
+DEFAULT_PROGRESS_FILE = "photo_descriptions_progress.txt"
 STOP_FLAG_FILE = ".stop_requested"
 
 
@@ -38,25 +38,25 @@ def check_stop_requested() -> bool:
     return os.path.exists(STOP_FLAG_FILE)
 
 
-def load_progress_file() -> Set[str]:
+def load_progress_file(progress_file: str) -> Set[str]:
     """Load the set of already processed files from the progress file."""
-    if not os.path.exists(PROGRESS_FILE):
+    if not os.path.exists(progress_file):
         return set()
 
-    with open(PROGRESS_FILE, "r") as f:
+    with open(progress_file, "r") as f:
         return set(line.strip() for line in f if line.strip())
 
 
-def append_to_progress_file(file_path: str):
+def append_to_progress_file(file_path: str, progress_file: str):
     """Append a processed file path to the progress file."""
-    with open(PROGRESS_FILE, "a") as f:
+    with open(progress_file, "a") as f:
         f.write(f"{file_path}\n")
 
 
-def delete_progress_file():
+def delete_progress_file(progress_file: str):
     """Delete the progress file to start fresh."""
-    if os.path.exists(PROGRESS_FILE):
-        os.remove(PROGRESS_FILE)
+    if os.path.exists(progress_file):
+        os.remove(progress_file)
 
 
 def flush_results_to_json(output_file: str, new_results: list) -> bool:
@@ -135,6 +135,11 @@ def prompt_resume() -> bool:
 @click.argument("num_files", type=int)
 @click.option("--output-dir", default="outputs", help="Directory for output files")
 @click.option(
+    "--progress-file",
+    default=DEFAULT_PROGRESS_FILE,
+    help=f"Progress tracking file (default: {DEFAULT_PROGRESS_FILE})",
+)
+@click.option(
     "--prompt",
     default="<image>Briefly describe this image in one or two sentences.",
     help="Prompt to use for image description (will auto-add <image> token if missing)",
@@ -151,7 +156,7 @@ def prompt_resume() -> bool:
     type=float,
     help="Temperature for generation, range 0.0-1.0 (default: 0.0)",
 )
-def main(directory, num_files, output_dir, prompt, max_tokens, temp):
+def main(directory, num_files, output_dir, progress_file, prompt, max_tokens, temp):
     """
     Generate descriptions for images in a directory using SmolVLM2.
 
@@ -166,18 +171,18 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
 
     # Check for existing progress file and output file
     completed_files = set()
-    if os.path.exists(PROGRESS_FILE):
+    if os.path.exists(progress_file):
         # Check if output file also exists (consistent state)
         if not os.path.exists(output_file):
             click.echo("Warning: Progress file exists but output file is missing.")
             click.echo("This indicates an inconsistent state. Starting fresh.")
-            delete_progress_file()
+            delete_progress_file(progress_file)
             click.echo("Deleted progress file. Starting fresh.")
         elif prompt_resume():
-            completed_files = load_progress_file()
+            completed_files = load_progress_file(progress_file)
             click.echo(f"Resuming: {len(completed_files)} files already processed")
         else:
-            delete_progress_file()
+            delete_progress_file(progress_file)
             click.echo("Starting fresh")
 
     # Find all files in directory
@@ -282,7 +287,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
             total_successful += 1
 
             # Save to progress file after successful processing
-            append_to_progress_file(str(rel_path))
+            append_to_progress_file(str(rel_path), progress_file)
 
         except Exception as e:
             click.echo(f"  Error processing {rel_path}: {e}", err=True)
@@ -298,7 +303,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
             total_failed += 1
 
             # Track failed files to prevent duplicate entries on resume
-            append_to_progress_file(str(rel_path))
+            append_to_progress_file(str(rel_path), progress_file)
 
         total_processed += 1
 
@@ -338,7 +343,7 @@ def main(directory, num_files, output_dir, prompt, max_tokens, temp):
         f"  This batch: {total_processed} files ({total_successful} successful, {total_failed} failed)"
     )
     click.echo(f"  Output saved to: {output_file}")
-    click.echo(f"  Progress tracked in: {PROGRESS_FILE}")
+    click.echo(f"  Progress tracked in: {progress_file}")
 
 
 if __name__ == "__main__":

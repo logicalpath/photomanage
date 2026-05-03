@@ -14,6 +14,9 @@
 #   --cooldown SECS       Seconds between batches (default: 30)
 #   --max-tokens NUM      Maximum tokens for output (default: 100)
 #   --temp VALUE          Temperature 0.0-1.0 (default: 0.0)
+#   --prompt TEXT         Prompt for image description
+#   --progress-file FILE  Progress tracking file (default: photo_descriptions_progress.txt)
+#   --output-dir PATH     Output directory (default: outputs)
 #   -h, --help            Show this help message
 #
 # Examples:
@@ -21,6 +24,7 @@
 #   ./scripts/run_batch_descriptions.sh --batch-size 50 --cooldown 60
 #   ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7
 #   ./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200
+#   ./scripts/run_batch_descriptions.sh --prompt "Describe in detail." --progress-file v2.txt --output-dir outputs/v2
 #
 
 # Default values
@@ -29,6 +33,9 @@ BATCH_SIZE="100"
 COOLDOWN="30"
 MAX_TOKENS="100"
 TEMP="0.0"
+PROMPT=""
+PROGRESS_FILE="photo_descriptions_progress.txt"
+OUTPUT_DIR="outputs"
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -53,6 +60,18 @@ while [[ $# -gt 0 ]]; do
             TEMP="$2"
             shift 2
             ;;
+        --prompt)
+            PROMPT="$2"
+            shift 2
+            ;;
+        --progress-file)
+            PROGRESS_FILE="$2"
+            shift 2
+            ;;
+        --output-dir)
+            OUTPUT_DIR="$2"
+            shift 2
+            ;;
         -h|--help)
             echo "Start Batch Image Description Processing"
             echo ""
@@ -64,6 +83,9 @@ while [[ $# -gt 0 ]]; do
             echo "  --cooldown SECS       Seconds between batches (default: 30)"
             echo "  --max-tokens NUM      Maximum tokens for output (default: 100)"
             echo "  --temp VALUE          Temperature 0.0-1.0 (default: 0.0)"
+            echo "  --prompt TEXT         Prompt for image description"
+            echo "  --progress-file FILE  Progress tracking file (default: photo_descriptions_progress.txt)"
+            echo "  --output-dir PATH     Output directory (default: outputs)"
             echo "  -h, --help            Show this help message"
             echo ""
             echo "Examples:"
@@ -71,6 +93,7 @@ while [[ $# -gt 0 ]]; do
             echo "  ./scripts/run_batch_descriptions.sh --batch-size 50 --cooldown 60"
             echo "  ./scripts/run_batch_descriptions.sh --max-tokens 300 --temp 0.7"
             echo "  ./scripts/run_batch_descriptions.sh --directory /path/to/images --batch-size 200"
+            echo "  ./scripts/run_batch_descriptions.sh --prompt \"Describe in detail.\" --progress-file v2.txt --output-dir outputs/v2"
             exit 0
             ;;
         *)
@@ -115,6 +138,11 @@ echo "Batch size:     $BATCH_SIZE images per batch"
 echo "Cooldown:       ${COOLDOWN}s between batches"
 echo "Max tokens:     $MAX_TOKENS"
 echo "Temperature:    $TEMP"
+echo "Progress file:  $PROGRESS_FILE"
+echo "Output dir:     $OUTPUT_DIR"
+if [ -n "$PROMPT" ]; then
+    echo "Prompt:         $PROMPT"
+fi
 echo ""
 
 # Count files
@@ -127,12 +155,21 @@ echo ""
 # caffeinate prevents sleep even with lid closed (when plugged in)
 # nohup ensures it continues after shell exits
 echo "Starting orchestrator..."
+ORCHESTRATOR_ARGS=(
+    "$DIRECTORY"
+    --batch-size "$BATCH_SIZE"
+    --cooldown "$COOLDOWN"
+    --max-tokens "$MAX_TOKENS"
+    --temp "$TEMP"
+    --progress-file "$PROGRESS_FILE"
+    --output-dir "$OUTPUT_DIR"
+)
+if [ -n "$PROMPT" ]; then
+    ORCHESTRATOR_ARGS+=(--prompt "$PROMPT")
+fi
+
 nohup caffeinate -i uv run python src/batch_orchestrator.py \
-    "$DIRECTORY" \
-    --batch-size "$BATCH_SIZE" \
-    --cooldown "$COOLDOWN" \
-    --max-tokens "$MAX_TOKENS" \
-    --temp "$TEMP" \
+    "${ORCHESTRATOR_ARGS[@]}" \
     > logs/orchestrator_console.log 2>&1 &
 
 # Save the PID
