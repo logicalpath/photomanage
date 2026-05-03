@@ -46,6 +46,7 @@ def main():
     print(f"Total entries:     {len(data):,}")
     print(f"Truncated entries: {len(truncated):,} (generation_tokens == {args.max_tokens})")
 
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w") as f:
         yaml.dump(truncated, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 

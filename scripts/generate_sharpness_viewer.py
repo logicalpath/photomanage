@@ -15,6 +15,7 @@ Usage:
 
 import argparse
 import json
+import os
 from pathlib import Path
 
 
@@ -24,11 +25,11 @@ DEFAULT_OUTPUT = "outputs/v2/sharpness_viewer.html"
 DEFAULT_MAX_IMAGES = 500
 
 
-def file_path_to_thumb(file_entry: str, thumb_dir: str) -> str:
-    """Convert ./0/filename.ext to a relative path from the output file location."""
+def file_path_to_thumb(file_entry: str, thumb_dir: str, output_file: str) -> str:
+    """Convert ./0/filename.ext to a path relative to the output HTML file."""
     p = Path(file_entry)
-    # outputs/v2/sharpness_viewer.html -> ../../database/512x512/0/filename.ext
-    return f"../../{thumb_dir}/{p.parts[-2]}/{p.name}"
+    thumb_path = Path(thumb_dir) / p.parts[-2] / p.name
+    return os.path.relpath(thumb_path, start=Path(output_file).parent)
 
 
 def main():
@@ -42,8 +43,13 @@ def main():
     with open(args.json_file) as f:
         scores = json.load(f)
 
-    scores.sort(key=lambda x: x["sharpness"] or 0)
+    scores = [s for s in scores if s.get("sharpness") is not None]
+    scores.sort(key=lambda x: x["sharpness"])
     subset = scores[:args.max_images]
+
+    if not subset:
+        print("No scored images found — nothing to write.")
+        return
 
     min_score = subset[0]["sharpness"]
     max_score = subset[-1]["sharpness"]
@@ -51,7 +57,7 @@ def main():
     cards = []
     for entry in subset:
         score = entry["sharpness"]
-        thumb = file_path_to_thumb(entry["file"], args.thumb_dir)
+        thumb = file_path_to_thumb(entry["file"], args.thumb_dir, args.output)
         filename = Path(entry["file"]).name
         cards.append(f'''
         <div class="card" data-score="{score:.1f}">

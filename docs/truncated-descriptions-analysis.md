@@ -63,7 +63,7 @@ Canon DSLRs produce well-composed photos with clear subjects that the model desc
 
 ### The Canon photos
 
-The 1,685 Canon photos from July 22, 2017 were taken by the **wedding photographer, Fabián Aguirre** (Canon EOS 5D Mark III + EOS 7D). These are tagged in the `image_labels` table with `label = 'wedding_photographer'`, `value = 'Fabián Aguirre'`.
+The 1,685 Canon photos from July 22, 2017 were taken by the wedding photographer (Canon EOS 5D Mark III + EOS 7D). These are tagged in the `image_labels` table with `label = 'wedding_photographer'`.
 
 ## ISO Is the Strongest Sharpness Predictor
 

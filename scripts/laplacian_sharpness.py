@@ -66,6 +66,7 @@ def main():
 
     results.sort(key=lambda x: (x["sharpness"] is None, x["sharpness"] or 0))
 
+    Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     with open(args.output, "w") as f:
         json.dump(results, f, indent=2)
 
@@ -74,9 +75,12 @@ def main():
     print(f"Scored:  {scored:,} / {len(results):,}")
     if missing:
         print(f"Missing: {missing:,} thumbnails not found")
-    print(f"Min:     {min(scores):.1f}")
-    print(f"Median:  {float(np.median(scores)):.1f}")
-    print(f"Max:     {max(scores):.1f}")
+    if scores:
+        print(f"Min:     {min(scores):.1f}")
+        print(f"Median:  {float(np.median(scores)):.1f}")
+        print(f"Max:     {max(scores):.1f}")
+    else:
+        print("No thumbnails found — all missing.")
     print(f"Written: {args.output}")
 
 

@@ -35,6 +35,13 @@ def parse_iso(val) -> int | None:
         return None
 
 
+def parse_fnumber(val) -> float | None:
+    try:
+        return float(val)
+    except Exception:
+        return None
+
+
 def print_table(title, buckets, data, key_fn):
     print(f"\n--- {title} ---")
     print(f"  {'Bucket':<30} {'n':>6}  {'Median':>8}  {'Mean':>8}")
@@ -67,7 +74,7 @@ def main():
         data.append((
             sharpness,
             parse_exposure(exposure),
-            fnumber,
+            parse_fnumber(fnumber),
             parse_iso(iso),
         ))
 

@@ -13,6 +13,7 @@ Usage:
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -55,7 +56,7 @@ def normalize_source_file(path: str, source_dir: str) -> str:
     src = Path(source_dir)
     try:
         rel = p.relative_to(src)
-        return "./" + str(rel)
+        return "./" + rel.as_posix()
     except ValueError:
         return path
 
@@ -64,7 +65,11 @@ def main():
     parser = argparse.ArgumentParser(description="Import camera EXIF data into mediameta.db")
     parser.add_argument("--json-file", type=Path, default=DEFAULT_JSON, help=f"Input JSON file (default: {DEFAULT_JSON})")
     parser.add_argument("--db", type=Path, default=DEFAULT_DB, help=f"SQLite database (default: {DEFAULT_DB})")
-    parser.add_argument("--source-dir", default="/Volumes/Eddie 4TB/MediaFiles/uuid", help="Source media root (used to normalize SourceFile paths)")
+    parser.add_argument(
+        "--source-dir",
+        default=os.environ.get("MEDIA_SOURCE_DIR", "/Volumes/Eddie 4TB/MediaFiles/uuid"),
+        help="Source media root for SourceFile normalization (default: $MEDIA_SOURCE_DIR or /Volumes/Eddie 4TB/MediaFiles/uuid)",
+    )
     parser.add_argument("--dry-run", action="store_true", help="Parse and report without writing to database")
     args = parser.parse_args()
 
