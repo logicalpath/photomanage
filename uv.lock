@@ -385,11 +385,10 @@ wheels = [
 
 [[package]]
 name = "datasette"
-version = "1.0a24"
+version = "1.0a31"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
-    { name = "asgi-csrf" },
     { name = "asgiref" },
     { name = "asyncinject" },
     { name = "click" },
@@ -397,7 +396,6 @@ dependencies = [
     { name = "httpx" },
     { name = "hupper" },
     { name = "itsdangerous" },
-    { name = "janus" },
     { name = "jinja2" },
     { name = "mergedeep" },
     { name = "pip" },
@@ -407,9 +405,9 @@ dependencies = [
     { name = "sqlite-utils" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d7/f5/1a69379f87d70b2d36fbb607d723660516a92ea3d785da75b3f5e9073c87/datasette-1.0a24.tar.gz", hash = "sha256:ba184115b8c663f35d36ad5b05f94c8386cec791d4290d040479c3cd6cf9d74b", size = 457164 }
+sdist = { url = "https://files.pythonhosted.org/packages/d1/56/19a5f3dd93b22a3e28223aa185c0ee83bce71942cab2e010fe8827e59024/datasette-1.0a31.tar.gz", hash = "sha256:d9bae67295b0ba19388f5f2495a2d882f0dc73fb22c203579c1069516bb6c62e", size = 566865 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/66/c1/543d1b39016d2c9642c7072c07e006d33e6e1fae810d0e2af9f4d3795436/datasette-1.0a24-py3-none-any.whl", hash = "sha256:996f3d3dc226c60fd5fc4bce31ac6d9420165b75a314f40a7c2fc1cda8dfe19a", size = 360206 },
+    { url = "https://files.pythonhosted.org/packages/3c/bb/850ff69c42230e12cd889f857018969a1140fb58e554c313303302f6f771/datasette-1.0a31-py3-none-any.whl", hash = "sha256:4cf8f7042cafe11fdeb1ee6bf8b488115cae47db04cd1af1bdab8ce7b0321d5f", size = 435392 },
 ]
 
 [[package]]
@@ -1316,7 +1314,7 @@ requires-dist = [
     { name = "black" },
     { name = "click" },
     { name = "datasets" },
-    { name = "datasette", specifier = "==1.0a24" },
+    { name = "datasette", specifier = "==1.0a31" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
     { name = "datasette-cluster-map", specifier = ">=0.18.2" },
