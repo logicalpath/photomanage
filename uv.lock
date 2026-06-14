@@ -144,19 +144,6 @@ wheels = [
 ]
 
 [[package]]
-name = "asgi-csrf"
-version = "0.11"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "itsdangerous" },
-    { name = "python-multipart" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0a/59/2b54a274b9c9cbe1c0edbe5d324925ffd88a31567fb50dc2138e0160bdef/asgi_csrf-0.11.tar.gz", hash = "sha256:e19a4f87d5af3feabde04c57921ee15510c3bfb0565627df9cb20bcb303282c2", size = 14044 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/82/1c/5d954baaf144852a4762368b37c06202b277378ea412acc5565f69acc9e9/asgi_csrf-0.11-py3-none-any.whl", hash = "sha256:03ac140115f39d4295288a9adf74fdc6ae607f6ef44abee8466520458207242b", size = 11704 },
-]
-
-[[package]]
 name = "asgiref"
 version = "3.11.1"
 source = { registry = "https://pypi.org/simple" }
@@ -167,11 +154,11 @@ wheels = [
 
 [[package]]
 name = "asyncinject"
-version = "0.6.1"
+version = "0.7"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6f/4e/62c1c1f4a63ac3b6d251b170be57dc8d463b93d23da95de70bea51615b25/asyncinject-0.6.1.tar.gz", hash = "sha256:7f9a08e7bbbc45d901ee620351f486a140ef8ca6bf4c1ef6e1e28309a0a5e5b8", size = 13445 }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/84/7a254c2310196485a2de46d69ae751274368c245d4dd85a8ef5535b70a25/asyncinject-0.7.tar.gz", hash = "sha256:f732c9dff942c9e48dbb78a08a59fc1b978d86d0aef32beff52ef51d3446794c", size = 13817 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/46/a669bc58f829dd0b873ad570c22342cd8d34ef17a8e203e320efa3df7c5d/asyncinject-0.6.1-py3-none-any.whl", hash = "sha256:3723128f8016b55a700cf89839624ef1b3b42c0c24a94b3be921326087aa2cc7", size = 12392 },
+    { url = "https://files.pythonhosted.org/packages/5c/a8/afb954cb15db033678cd2daf4c3cc86aef69cb7710244a59e2247c6316da/asyncinject-0.7-py3-none-any.whl", hash = "sha256:201a4ad53188ced6b2dd35d2c5a9099658b223e7577ba04c1accd90208b961ce", size = 12556 },
 ]
 
 [[package]]
@@ -385,7 +372,7 @@ wheels = [
 
 [[package]]
 name = "datasette"
-version = "1.0a31"
+version = "1.0a33"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -405,9 +392,9 @@ dependencies = [
     { name = "sqlite-utils" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d1/56/19a5f3dd93b22a3e28223aa185c0ee83bce71942cab2e010fe8827e59024/datasette-1.0a31.tar.gz", hash = "sha256:d9bae67295b0ba19388f5f2495a2d882f0dc73fb22c203579c1069516bb6c62e", size = 566865 }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/d0/f0300d643482b794cc2a19fb02277a9af759da8a56fcf6303a7f18fc9bf3/datasette-1.0a33.tar.gz", hash = "sha256:0d1d55d447b1d95e0f80c5548dd29642b27d4381f771b931066d868adec81089", size = 582838 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3c/bb/850ff69c42230e12cd889f857018969a1140fb58e554c313303302f6f771/datasette-1.0a31-py3-none-any.whl", hash = "sha256:4cf8f7042cafe11fdeb1ee6bf8b488115cae47db04cd1af1bdab8ce7b0321d5f", size = 435392 },
+    { url = "https://files.pythonhosted.org/packages/4f/b5/1d61dc88b233f15d9c7497d07ad1c69d711517340df906b6db85826bdbe9/datasette-1.0a33-py3-none-any.whl", hash = "sha256:e8bdd8e95122ed6a7652ccaf683a57372ddb0cd413a4120623f8a4fc3c698f0f", size = 447145 },
 ]
 
 [[package]]
@@ -719,15 +706,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/9c/cb/8ac0172223afbccb63986cc25049b154ecfb5e85932587206f42317be31d/itsdangerous-2.2.0.tar.gz", hash = "sha256:e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173", size = 54410 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl", hash = "sha256:c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef", size = 16234 },
-]
-
-[[package]]
-name = "janus"
-version = "2.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d8/7f/69884b6618be4baf6ebcacc716ee8680a842428a19f403db6d1c0bb990aa/janus-2.0.0.tar.gz", hash = "sha256:0970f38e0e725400496c834a368a67ee551dc3b5ad0a257e132f5b46f2e77770", size = 22910 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/68/34/65604740edcb20e1bda6a890348ed7d282e7dd23aa00401cbe36fd0edbd9/janus-2.0.0-py3-none-any.whl", hash = "sha256:7e6449d34eab04cd016befbd7d8c0d8acaaaab67cb59e076a69149f9031745f9", size = 12161 },
 ]
 
 [[package]]
@@ -1314,7 +1292,7 @@ requires-dist = [
     { name = "black" },
     { name = "click" },
     { name = "datasets" },
-    { name = "datasette", specifier = "==1.0a31" },
+    { name = "datasette", specifier = "==1.0a33" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
     { name = "datasette-cluster-map", specifier = ">=0.18.2" },
@@ -1610,15 +1588,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/82/ed/0301aeeac3e5353ef3d94b6ec08bbcabd04a72018415dcb29e588514bba8/python_dotenv-1.2.2.tar.gz", hash = "sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3", size = 50135 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl", hash = "sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a", size = 22101 },
-]
-
-[[package]]
-name = "python-multipart"
-version = "0.0.22"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/94/01/979e98d542a70714b0cb2b6728ed0b7c46792b695e3eaec3e20711271ca3/python_multipart-0.0.22.tar.gz", hash = "sha256:7340bef99a7e0032613f56dc36027b959fd3b30a787ed62d310e951f7c3a3a58", size = 37612 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1b/d0/397f9626e711ff749a95d96b7af99b9c566a9bb5129b8e4c10fc4d100304/python_multipart-0.0.22-py3-none-any.whl", hash = "sha256:2b2cd894c83d21bf49d702499531c7bafd057d730c201782048f7945d82de155", size = 24579 },
 ]
 
 [[package]]
