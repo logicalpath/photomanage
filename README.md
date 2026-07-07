@@ -93,6 +93,25 @@ Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
 
 ## Viewing Images
 
+**Standalone Photo Viewer**
+
+Browse any folder of photos in the browser:
+
+```bash
+python3 photo_viewer.py /path/to/folder
+```
+
+Opens a local HTTP server and launches a browser window. Navigate with **← →** arrow keys or the Prev/Next buttons. Ctrl+C in the terminal to quit.
+
+Requires Pillow (`pip3 install Pillow`). Supports JPEG, PNG, GIF, TIFF, BMP.
+
+Example — view a folder from an Aperture library:
+```bash
+python3 photo_viewer.py "/Volumes/Nevada/Aperture/20th Century.aplibrary/Masters/1999/Claire"
+```
+
+---
+
 **Photo Gallery (Thumbnail Carousel)**
 
 Browse photos with a responsive thumbnail grid at:
