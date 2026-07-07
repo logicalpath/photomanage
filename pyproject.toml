@@ -8,7 +8,7 @@ dependencies = [
     "click",
     "b2",
     "black",
-    "datasette==1.0a33",
+    "datasette==1.0a36",
     "datasette-auth-passwords",
     "datasette-checkbox",
     "datasette-media",

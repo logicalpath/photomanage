@@ -372,7 +372,7 @@ wheels = [
 
 [[package]]
 name = "datasette"
-version = "1.0a33"
+version = "1.0a36"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -387,14 +387,15 @@ dependencies = [
     { name = "mergedeep" },
     { name = "pip" },
     { name = "pluggy" },
+    { name = "pydantic" },
     { name = "pyyaml" },
     { name = "setuptools" },
     { name = "sqlite-utils" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4b/d0/f0300d643482b794cc2a19fb02277a9af759da8a56fcf6303a7f18fc9bf3/datasette-1.0a33.tar.gz", hash = "sha256:0d1d55d447b1d95e0f80c5548dd29642b27d4381f771b931066d868adec81089", size = 582838 }
+sdist = { url = "https://files.pythonhosted.org/packages/09/d7/23593eb2f6444fe616276cca0fdfa0a0638a5911698922885f792078c941/datasette-1.0a36.tar.gz", hash = "sha256:3d731b3e32e7d1f3ebd0c33c836643c837d7bffdad05c79d9fdf720b6556f709", size = 708494 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4f/b5/1d61dc88b233f15d9c7497d07ad1c69d711517340df906b6db85826bdbe9/datasette-1.0a33-py3-none-any.whl", hash = "sha256:e8bdd8e95122ed6a7652ccaf683a57372ddb0cd413a4120623f8a4fc3c698f0f", size = 447145 },
+    { url = "https://files.pythonhosted.org/packages/fe/31/b62c86e42169e9f8d2fe6644d936ea26b0ab3d07eb84703b37d4f4e58c9e/datasette-1.0a36-py3-none-any.whl", hash = "sha256:76c791fd07b4ad01d870640544d1ef1121f7604c26d9662fcfe0ca6cb14198b5", size = 535852 },
 ]
 
 [[package]]
@@ -1292,7 +1293,7 @@ requires-dist = [
     { name = "black" },
     { name = "click" },
     { name = "datasets" },
-    { name = "datasette", specifier = "==1.0a33" },
+    { name = "datasette", specifier = "==1.0a36" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
     { name = "datasette-cluster-map", specifier = ">=0.18.2" },
@@ -1867,7 +1868,7 @@ wheels = [
 
 [[package]]
 name = "sqlite-utils"
-version = "3.39"
+version = "4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -1878,9 +1879,9 @@ dependencies = [
     { name = "sqlite-fts4" },
     { name = "tabulate" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b3/e3/6b1106349e2576c18409b27bd3b16f193b1cf38220d98ad22aa454c5e075/sqlite_utils-3.39.tar.gz", hash = "sha256:bfa2eac29b3e3eb5c9647283797527febcf4efd4a9bbb31d979a14a11ef9dbcd", size = 215324 }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/8e/0e2fa87b197b3d0f8dd57856c07da77fa0c7130aaa894ee9d330c715f37c/sqlite_utils-4.0.tar.gz", hash = "sha256:cea711807c2bbc18829ed642ae19a23a80e853f4136c4d2a28078a6117ad9426", size = 280394 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/51/33/7e01d2f6b8c778529dfae9045c4f46b33ba145c3d401fa95b07f599e7403/sqlite_utils-3.39-py3-none-any.whl", hash = "sha256:349c099c0cd60d4ee9139a24d5c9cb64af3906c3e90832fcbbd74da49333374d", size = 68451 },
+    { url = "https://files.pythonhosted.org/packages/66/90/d2581a0be7810aac892858fd9cd06355af0a2a47fdcf386d40a4e8f050a3/sqlite_utils-4.0-py3-none-any.whl", hash = "sha256:7a57e16e75d82811375e67707ad9f6428c75bb3a382a77ed924db7627aef465b", size = 87529 },
 ]
 
 [[package]]
