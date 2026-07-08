@@ -144,19 +144,6 @@ wheels = [
 ]
 
 [[package]]
-name = "asgi-csrf"
-version = "0.11"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "itsdangerous" },
-    { name = "python-multipart" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/0a/59/2b54a274b9c9cbe1c0edbe5d324925ffd88a31567fb50dc2138e0160bdef/asgi_csrf-0.11.tar.gz", hash = "sha256:e19a4f87d5af3feabde04c57921ee15510c3bfb0565627df9cb20bcb303282c2", size = 14044 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/82/1c/5d954baaf144852a4762368b37c06202b277378ea412acc5565f69acc9e9/asgi_csrf-0.11-py3-none-any.whl", hash = "sha256:03ac140115f39d4295288a9adf74fdc6ae607f6ef44abee8466520458207242b", size = 11704 },
-]
-
-[[package]]
 name = "asgiref"
 version = "3.11.1"
 source = { registry = "https://pypi.org/simple" }
@@ -167,11 +154,11 @@ wheels = [
 
 [[package]]
 name = "asyncinject"
-version = "0.6.1"
+version = "0.7"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6f/4e/62c1c1f4a63ac3b6d251b170be57dc8d463b93d23da95de70bea51615b25/asyncinject-0.6.1.tar.gz", hash = "sha256:7f9a08e7bbbc45d901ee620351f486a140ef8ca6bf4c1ef6e1e28309a0a5e5b8", size = 13445 }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/84/7a254c2310196485a2de46d69ae751274368c245d4dd85a8ef5535b70a25/asyncinject-0.7.tar.gz", hash = "sha256:f732c9dff942c9e48dbb78a08a59fc1b978d86d0aef32beff52ef51d3446794c", size = 13817 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/92/46/a669bc58f829dd0b873ad570c22342cd8d34ef17a8e203e320efa3df7c5d/asyncinject-0.6.1-py3-none-any.whl", hash = "sha256:3723128f8016b55a700cf89839624ef1b3b42c0c24a94b3be921326087aa2cc7", size = 12392 },
+    { url = "https://files.pythonhosted.org/packages/5c/a8/afb954cb15db033678cd2daf4c3cc86aef69cb7710244a59e2247c6316da/asyncinject-0.7-py3-none-any.whl", hash = "sha256:201a4ad53188ced6b2dd35d2c5a9099658b223e7577ba04c1accd90208b961ce", size = 12556 },
 ]
 
 [[package]]
@@ -385,11 +372,10 @@ wheels = [
 
 [[package]]
 name = "datasette"
-version = "1.0a24"
+version = "1.0a36"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
-    { name = "asgi-csrf" },
     { name = "asgiref" },
     { name = "asyncinject" },
     { name = "click" },
@@ -397,19 +383,19 @@ dependencies = [
     { name = "httpx" },
     { name = "hupper" },
     { name = "itsdangerous" },
-    { name = "janus" },
     { name = "jinja2" },
     { name = "mergedeep" },
     { name = "pip" },
     { name = "pluggy" },
+    { name = "pydantic" },
     { name = "pyyaml" },
     { name = "setuptools" },
     { name = "sqlite-utils" },
     { name = "uvicorn" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d7/f5/1a69379f87d70b2d36fbb607d723660516a92ea3d785da75b3f5e9073c87/datasette-1.0a24.tar.gz", hash = "sha256:ba184115b8c663f35d36ad5b05f94c8386cec791d4290d040479c3cd6cf9d74b", size = 457164 }
+sdist = { url = "https://files.pythonhosted.org/packages/09/d7/23593eb2f6444fe616276cca0fdfa0a0638a5911698922885f792078c941/datasette-1.0a36.tar.gz", hash = "sha256:3d731b3e32e7d1f3ebd0c33c836643c837d7bffdad05c79d9fdf720b6556f709", size = 708494 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/66/c1/543d1b39016d2c9642c7072c07e006d33e6e1fae810d0e2af9f4d3795436/datasette-1.0a24-py3-none-any.whl", hash = "sha256:996f3d3dc226c60fd5fc4bce31ac6d9420165b75a314f40a7c2fc1cda8dfe19a", size = 360206 },
+    { url = "https://files.pythonhosted.org/packages/fe/31/b62c86e42169e9f8d2fe6644d936ea26b0ab3d07eb84703b37d4f4e58c9e/datasette-1.0a36-py3-none-any.whl", hash = "sha256:76c791fd07b4ad01d870640544d1ef1121f7604c26d9662fcfe0ca6cb14198b5", size = 535852 },
 ]
 
 [[package]]
@@ -721,15 +707,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/9c/cb/8ac0172223afbccb63986cc25049b154ecfb5e85932587206f42317be31d/itsdangerous-2.2.0.tar.gz", hash = "sha256:e0050c0b7da1eea53ffaf149c0cfbb5c6e2e2b69c4bef22c81fa6eb73e5f6173", size = 54410 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl", hash = "sha256:c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef", size = 16234 },
-]
-
-[[package]]
-name = "janus"
-version = "2.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/d8/7f/69884b6618be4baf6ebcacc716ee8680a842428a19f403db6d1c0bb990aa/janus-2.0.0.tar.gz", hash = "sha256:0970f38e0e725400496c834a368a67ee551dc3b5ad0a257e132f5b46f2e77770", size = 22910 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/68/34/65604740edcb20e1bda6a890348ed7d282e7dd23aa00401cbe36fd0edbd9/janus-2.0.0-py3-none-any.whl", hash = "sha256:7e6449d34eab04cd016befbd7d8c0d8acaaaab67cb59e076a69149f9031745f9", size = 12161 },
 ]
 
 [[package]]
@@ -1316,7 +1293,7 @@ requires-dist = [
     { name = "black" },
     { name = "click" },
     { name = "datasets" },
-    { name = "datasette", specifier = "==1.0a24" },
+    { name = "datasette", specifier = "==1.0a36" },
     { name = "datasette-auth-passwords" },
     { name = "datasette-checkbox" },
     { name = "datasette-cluster-map", specifier = ">=0.18.2" },
@@ -1615,15 +1592,6 @@ wheels = [
 ]
 
 [[package]]
-name = "python-multipart"
-version = "0.0.22"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/94/01/979e98d542a70714b0cb2b6728ed0b7c46792b695e3eaec3e20711271ca3/python_multipart-0.0.22.tar.gz", hash = "sha256:7340bef99a7e0032613f56dc36027b959fd3b30a787ed62d310e951f7c3a3a58", size = 37612 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1b/d0/397f9626e711ff749a95d96b7af99b9c566a9bb5129b8e4c10fc4d100304/python_multipart-0.0.22-py3-none-any.whl", hash = "sha256:2b2cd894c83d21bf49d702499531c7bafd057d730c201782048f7945d82de155", size = 24579 },
-]
-
-[[package]]
 name = "pytokens"
 version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1900,7 +1868,7 @@ wheels = [
 
 [[package]]
 name = "sqlite-utils"
-version = "3.39"
+version = "4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -1911,9 +1879,9 @@ dependencies = [
     { name = "sqlite-fts4" },
     { name = "tabulate" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b3/e3/6b1106349e2576c18409b27bd3b16f193b1cf38220d98ad22aa454c5e075/sqlite_utils-3.39.tar.gz", hash = "sha256:bfa2eac29b3e3eb5c9647283797527febcf4efd4a9bbb31d979a14a11ef9dbcd", size = 215324 }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/8e/0e2fa87b197b3d0f8dd57856c07da77fa0c7130aaa894ee9d330c715f37c/sqlite_utils-4.0.tar.gz", hash = "sha256:cea711807c2bbc18829ed642ae19a23a80e853f4136c4d2a28078a6117ad9426", size = 280394 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/51/33/7e01d2f6b8c778529dfae9045c4f46b33ba145c3d401fa95b07f599e7403/sqlite_utils-3.39-py3-none-any.whl", hash = "sha256:349c099c0cd60d4ee9139a24d5c9cb64af3906c3e90832fcbbd74da49333374d", size = 68451 },
+    { url = "https://files.pythonhosted.org/packages/66/90/d2581a0be7810aac892858fd9cd06355af0a2a47fdcf386d40a4e8f050a3/sqlite_utils-4.0-py3-none-any.whl", hash = "sha256:7a57e16e75d82811375e67707ad9f6428c75bb3a382a77ed924db7627aef465b", size = 87529 },
 ]
 
 [[package]]
