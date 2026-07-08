@@ -82,8 +82,8 @@
 
         const markers = new MarkerClusterGroup();
 
-        const sql = `SELECT e.GPSLatitude, e.GPSLongitude, e.FileName, e.SourceFile, e.CreateDate
-            FROM exif e
+        const sql = `SELECT e.GPSLatitude, e.GPSLongitude, e.FileName, e.SourceFile, e.effective_date
+            FROM exif_with_effective_date e
             INNER JOIN thumbImages t ON e.SourceFile = t.path
             WHERE e.GPSLatitude IS NOT NULL AND e.GPSLatitude != ''
             AND e.GPSLongitude IS NOT NULL AND e.GPSLongitude != ''`;
@@ -100,7 +100,7 @@
 
                     const sourcePath = row.SourceFile ? row.SourceFile.replace(/^\.\//, '') : '';
                     const thumbUrl = '/-/media/thumb/' + encodeURI(sourcePath);
-                    const dateStr = row.CreateDate ? row.CreateDate.substring(0, 10) : '';
+                    const dateStr = row.effective_date ? row.effective_date.substring(0, 10) : '';
                     const photoUrl = '/photo/' + encodeURIComponent(row.FileName);
 
                     const popupDiv = document.createElement('div');
