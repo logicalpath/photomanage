@@ -346,26 +346,26 @@
 
         {% if start_date and end_date %}
             {# When start_date is set, sort ASC so user sees photos from the start of their range #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%') ORDER BY e.CreateDate ASC LIMIT :limit OFFSET :offset", {"start": start_date, "end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.effective_date, e.SourceFile FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date >= :start AND (e.effective_date <= :end || ' 23:59:59' OR e.effective_date LIKE :end || '%') ORDER BY e.effective_date ASC LIMIT :limit OFFSET :offset", {"start": start_date, "end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif start_date %}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start ORDER BY e.CreateDate ASC LIMIT :limit OFFSET :offset", {"start": start_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.effective_date, e.SourceFile FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date >= :start ORDER BY e.effective_date ASC LIMIT :limit OFFSET :offset", {"start": start_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% elif end_date %}
             {# Use LIKE to include all times on the end date #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%' ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.effective_date, e.SourceFile FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date <= :end || ' 23:59:59' OR e.effective_date LIKE :end || '%' ORDER BY e.effective_date DESC LIMIT :limit OFFSET :offset", {"end": end_date, "limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% else %}
             {# Show most recent 100 photos by default #}
-            {% set photos = sql("SELECT e.FileName, e.CreateDate, e.SourceFile FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL ORDER BY e.CreateDate DESC LIMIT :limit OFFSET :offset", {"limit": per_page + 1, "offset": offset}, database="mediameta") %}
+            {% set photos = sql("SELECT e.FileName, e.effective_date, e.SourceFile FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date IS NOT NULL ORDER BY e.effective_date DESC LIMIT :limit OFFSET :offset", {"limit": per_page + 1, "offset": offset}, database="mediameta") %}
         {% endif %}
 
         {# Get total count for pagination #}
         {% if start_date and end_date %}
-            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start AND (e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%')", {"start": start_date, "end": end_date}, database="mediameta") %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date >= :start AND (e.effective_date <= :end || ' 23:59:59' OR e.effective_date LIKE :end || '%')", {"start": start_date, "end": end_date}, database="mediameta") %}
         {% elif start_date %}
-            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate >= :start", {"start": start_date}, database="mediameta") %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date >= :start", {"start": start_date}, database="mediameta") %}
         {% elif end_date %}
-            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate <= :end || ' 23:59:59' OR e.CreateDate LIKE :end || '%'", {"end": end_date}, database="mediameta") %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date <= :end || ' 23:59:59' OR e.effective_date LIKE :end || '%'", {"end": end_date}, database="mediameta") %}
         {% else %}
-            {% set count_row = sql("SELECT COUNT(*) as n FROM exif e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.CreateDate IS NOT NULL", {}, database="mediameta") %}
+            {% set count_row = sql("SELECT COUNT(*) as n FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date IS NOT NULL", {}, database="mediameta") %}
         {% endif %}
         {% set total_count = count_row[0].n %}
         {% set total_pages = ((total_count - 1) // per_page) + 1 %}
@@ -403,12 +403,12 @@
                              loading="lazy">
                         <div class="photo-info">
                             <div class="photo-filename">{{ photo.FileName }}</div>
-                            {% if photo.CreateDate %}
+                            {% if photo.effective_date %}
                             <div class="photo-date">
-                                {% if photo.CreateDate|length >= 10 %}
-                                    {{ photo.CreateDate[:10] }}
+                                {% if photo.effective_date|length >= 10 %}
+                                    {{ photo.effective_date[:10] }}
                                 {% else %}
-                                    {{ photo.CreateDate }}
+                                    {{ photo.effective_date }}
                                 {% endif %}
                             </div>
                             {% endif %}

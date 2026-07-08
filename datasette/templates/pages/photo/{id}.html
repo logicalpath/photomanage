@@ -128,9 +128,9 @@
                     <div class="info-label">Filename:</div>
                     <div class="info-value">{{ photo.FileName }}</div>
 
-                    {% if photo.CreateDate %}
-                    <div class="info-label">Date Created:</div>
-                    <div class="info-value">{{ photo.CreateDate }}</div>
+                    {% if photo.effective_date %}
+                    <div class="info-label">Date:</div>
+                    <div class="info-value">{{ photo.effective_date }}{% if photo.associated_date and photo.effective_date == photo.associated_date %} <span style="color:#888;font-size:0.85em">({{ photo.associated_date_source }})</span>{% endif %}</div>
                     {% endif %}
 
                     {% if photo.ImageWidth and photo.ImageHeight %}

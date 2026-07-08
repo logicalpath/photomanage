@@ -97,20 +97,20 @@ async def search_handler(request, datasette):
     if end_date and not _DATE_RE.match(end_date):
         end_date = ""
 
-    # If date filters are provided, build a map of SourceFile -> CreateDate
+    # If date filters are provided, build a map of SourceFile -> effective_date
     # so we can restrict search results to the date range
     date_map = {}
     date_filter_ids = None
     if start_date or end_date:
         try:
             with sqlite3.connect(MEDIAMETA_DB_PATH) as conn:
-                sql = "SELECT SourceFile, CreateDate FROM exif WHERE CreateDate IS NOT NULL"
+                sql = "SELECT SourceFile, effective_date FROM exif_with_effective_date WHERE effective_date IS NOT NULL"
                 params = []
                 if start_date:
-                    sql += " AND CreateDate >= ?"
+                    sql += " AND effective_date >= ?"
                     params.append(start_date)
                 if end_date:
-                    sql += " AND (CreateDate <= ? || ' 23:59:59' OR CreateDate LIKE ? || '%')"
+                    sql += " AND (effective_date <= ? || ' 23:59:59' OR effective_date LIKE ? || '%')"
                     params.extend([end_date, end_date])
                 rows = conn.execute(sql, params).fetchall()
         except sqlite3.Error:
@@ -152,7 +152,7 @@ async def search_handler(request, datasette):
                 with sqlite3.connect(MEDIAMETA_DB_PATH) as conn:
                     placeholders = ",".join("?" for _ in source_files)
                     rows = conn.execute(
-                        f"SELECT SourceFile, CreateDate FROM exif WHERE SourceFile IN ({placeholders})",
+                        f"SELECT SourceFile, effective_date FROM exif_with_effective_date WHERE SourceFile IN ({placeholders})",
                         source_files,
                     ).fetchall()
                 date_map = {row[0]: row[1] for row in rows}
