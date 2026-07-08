@@ -87,13 +87,17 @@ python3 scripts/associate_dates_from_filesystem.py /path/to/originals --dry-run
 
 # Write to database
 python3 scripts/associate_dates_from_filesystem.py /path/to/originals
+
+# Overwrite existing date_associations rows for this folder, including manual entries
+python3 scripts/associate_dates_from_filesystem.py /path/to/originals --force
 ```
 
 The script:
 1. Lists image files in the folder
 2. Looks up each filename in `mappings` (`Old Name` → `New Name`) to get the UUID
 3. Looks up the UUID in `exif` to confirm it exists and has no `CreateDate`
-4. Inserts a `date_associations` row with `source = 'filesystem'` and the original path in `note`
+4. Skips files that already have a `date_associations` row unless `--force` is passed, so re-running the script never silently clobbers a manually-entered date
+5. Inserts a `date_associations` row with `source = 'filesystem'` and the original path in `note`
 
 Files with no mapping entry (e.g. filenames containing `&` or `(`) are reported but skipped.
 

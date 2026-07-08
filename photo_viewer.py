@@ -4,6 +4,7 @@
 import http.server
 import json
 import os
+import shutil
 import sys
 import threading
 import webbrowser
@@ -12,6 +13,16 @@ from urllib.parse import unquote
 
 
 SUPPORTED = {'.jpg', '.jpeg', '.png', '.gif', '.tiff', '.tif', '.bmp'}
+
+MIME_TYPES = {
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.png': 'image/png',
+    '.gif': 'image/gif',
+    '.tiff': 'image/tiff',
+    '.tif': 'image/tiff',
+    '.bmp': 'image/bmp',
+}
 
 HTML = """<!DOCTYPE html>
 <html lang="en">
@@ -85,6 +96,7 @@ def load_photos(folder):
 
 class Handler(http.server.BaseHTTPRequestHandler):
     photos = []
+    allowed_paths = set()
 
     def log_message(self, *_):
         pass  # silence request logs
@@ -100,19 +112,19 @@ class Handler(http.server.BaseHTTPRequestHandler):
         elif self.path.startswith('/img?path='):
             raw = self.path[len('/img?path='):]
             path = unquote(raw)
+            if path not in self.allowed_paths:
+                self.send_error(403, "Forbidden")
+                return
             try:
-                with open(path, 'rb') as f:
-                    data = f.read()
                 ext = Path(path).suffix.lower()
-                mime = 'image/jpeg' if ext in ('.jpg', '.jpeg') else \
-                       'image/png' if ext == '.png' else \
-                       'image/gif' if ext == '.gif' else 'image/jpeg'
-                self.send_response(200)
-                self.send_header('Content-Type', mime)
-                self.send_header('Content-Length', str(len(data)))
-                self.end_headers()
-                self.wfile.write(data)
-            except Exception as e:
+                mime = MIME_TYPES.get(ext, 'application/octet-stream')
+                with open(path, 'rb') as f:
+                    self.send_response(200)
+                    self.send_header('Content-Type', mime)
+                    self.send_header('Content-Length', str(os.path.getsize(path)))
+                    self.end_headers()
+                    shutil.copyfileobj(f, self.wfile)
+            except OSError as e:
                 self.send_error(404, str(e))
         else:
             self.send_error(404)
@@ -128,6 +140,7 @@ def main():
     print(f"Found {len(photos)} photos in {folder}")
 
     Handler.photos = photos
+    Handler.allowed_paths = {p['path'] for p in photos}
 
     server = http.server.HTTPServer(('127.0.0.1', 0), Handler)
     port = server.server_address[1]

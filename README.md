@@ -103,7 +103,7 @@ python3 photo_viewer.py /path/to/folder
 
 Opens a local HTTP server and launches a browser window. Navigate with **← →** arrow keys or the Prev/Next buttons. Ctrl+C in the terminal to quit.
 
-Requires Pillow (`pip3 install Pillow`). Supports JPEG, PNG, GIF, TIFF, BMP.
+No dependencies beyond the Python standard library. Supports JPEG, PNG, GIF, TIFF, BMP.
 
 Example — view a folder from an Aperture library:
 ```bash

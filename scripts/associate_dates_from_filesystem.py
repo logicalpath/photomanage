@@ -4,13 +4,14 @@ Populate date_associations for image files whose originals still exist on disk,
 using the filesystem mtime as the date source.
 
 Usage:
-    python3 scripts/associate_dates_from_filesystem.py <folder> [--dry-run]
+    python3 scripts/associate_dates_from_filesystem.py <folder> [--dry-run] [--force]
 
 The script:
   1. Lists image files in <folder>
   2. Looks up each filename in the mappings table to find its UUID
   3. Checks that the UUID exists in exif with no CreateDate
-  4. Inserts a date_associations row using the original file's mtime
+  4. Skips files that already have a date_associations row, unless --force is given
+  5. Inserts a date_associations row using the original file's mtime
 """
 
 import argparse
@@ -28,6 +29,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("folder", help="Folder containing original image files")
     parser.add_argument("--dry-run", action="store_true", help="Print what would be inserted without writing")
+    parser.add_argument("--force", action="store_true", help="Overwrite existing date_associations rows (including manual entries)")
     args = parser.parse_args()
 
     folder = Path(args.folder)
@@ -43,7 +45,7 @@ def main():
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    inserted = skipped_no_mapping = skipped_has_date = skipped_not_in_exif = 0
+    inserted = skipped_no_mapping = skipped_has_date = skipped_not_in_exif = skipped_already_associated = 0
 
     for p in files:
         cur.execute('SELECT "New Name" FROM mappings WHERE "Old Name" = ?', (p.name,))
@@ -68,6 +70,13 @@ def main():
             skipped_has_date += 1
             continue
 
+        cur.execute("SELECT date FROM date_associations WHERE SourceFile = ?", (source_file,))
+        existing = cur.fetchone()
+        if existing and not args.force:
+            print(f"  already associated ({existing[0]}): {p.name} -> {uuid}")
+            skipped_already_associated += 1
+            continue
+
         mtime = os.path.getmtime(p)
         date_str = datetime.fromtimestamp(mtime).strftime("%Y-%m-%d")
 
@@ -87,7 +96,8 @@ def main():
     print(f"\n{'Would insert' if args.dry_run else 'Inserted'}: {inserted}  |  "
           f"no mapping: {skipped_no_mapping}  |  "
           f"already has date: {skipped_has_date}  |  "
-          f"not in exif: {skipped_not_in_exif}")
+          f"not in exif: {skipped_not_in_exif}  |  "
+          f"already associated: {skipped_already_associated}")
 
 
 if __name__ == "__main__":
