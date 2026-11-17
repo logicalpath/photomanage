@@ -25,10 +25,26 @@ DEFAULT_DB = PROJECT_ROOT / "database" / "mediameta.db"
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Import sharpness scores into mediameta.db")
-    parser.add_argument("--json-file", type=Path, default=DEFAULT_JSON, help=f"Input JSON file (default: {DEFAULT_JSON})")
-    parser.add_argument("--db", type=Path, default=DEFAULT_DB, help=f"SQLite database (default: {DEFAULT_DB})")
-    parser.add_argument("--dry-run", action="store_true", help="Parse and report without writing to database")
+    parser = argparse.ArgumentParser(
+        description="Import sharpness scores into mediameta.db"
+    )
+    parser.add_argument(
+        "--json-file",
+        type=Path,
+        default=DEFAULT_JSON,
+        help=f"Input JSON file (default: {DEFAULT_JSON})",
+    )
+    parser.add_argument(
+        "--db",
+        type=Path,
+        default=DEFAULT_DB,
+        help=f"SQLite database (default: {DEFAULT_DB})",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Parse and report without writing to database",
+    )
     args = parser.parse_args()
 
     if not args.json_file.exists():
@@ -39,7 +55,11 @@ def main():
     with open(args.json_file) as f:
         raw = json.load(f)
 
-    records = [{"SourceFile": r["file"], "sharpness": r["sharpness"]} for r in raw if r.get("sharpness") is not None]
+    records = [
+        {"SourceFile": r["file"], "sharpness": r["sharpness"]}
+        for r in raw
+        if r.get("sharpness") is not None
+    ]
     missing = len(raw) - len(records)
 
     print(f"Records in JSON:  {len(raw):,}")
@@ -54,9 +74,10 @@ def main():
         return
 
     db = sqlite_utils.Database(args.db)
-    db["image_sharpness"].upsert_all(records, pk="SourceFile", alter=True)
+    # sqlite-utils 4.0 types these kwargs as its DEFAULT sentinel
+    db.table("image_sharpness").upsert_all(records, pk="SourceFile", alter=True)  # pyright: ignore[reportArgumentType]
 
-    count = db["image_sharpness"].count
+    count = db.table("image_sharpness").count
     print(f"image_sharpness table now has {count:,} rows")
     print("Done.")
 
