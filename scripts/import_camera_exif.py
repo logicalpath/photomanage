@@ -62,15 +62,33 @@ def normalize_source_file(path: str, source_dir: str) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Import camera EXIF data into mediameta.db")
-    parser.add_argument("--json-file", type=Path, default=DEFAULT_JSON, help=f"Input JSON file (default: {DEFAULT_JSON})")
-    parser.add_argument("--db", type=Path, default=DEFAULT_DB, help=f"SQLite database (default: {DEFAULT_DB})")
+    parser = argparse.ArgumentParser(
+        description="Import camera EXIF data into mediameta.db"
+    )
+    parser.add_argument(
+        "--json-file",
+        type=Path,
+        default=DEFAULT_JSON,
+        help=f"Input JSON file (default: {DEFAULT_JSON})",
+    )
+    parser.add_argument(
+        "--db",
+        type=Path,
+        default=DEFAULT_DB,
+        help=f"SQLite database (default: {DEFAULT_DB})",
+    )
     parser.add_argument(
         "--source-dir",
-        default=os.environ.get("MEDIA_SOURCE_DIR", "/Volumes/Eddie 4TB/MediaFiles/uuid"),
+        default=os.environ.get(
+            "MEDIA_SOURCE_DIR", "/Volumes/Eddie 4TB/MediaFiles/uuid"
+        ),
         help="Source media root for SourceFile normalization (default: $MEDIA_SOURCE_DIR or /Volumes/Eddie 4TB/MediaFiles/uuid)",
     )
-    parser.add_argument("--dry-run", action="store_true", help="Parse and report without writing to database")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Parse and report without writing to database",
+    )
     args = parser.parse_args()
 
     if not args.json_file.exists():
@@ -92,11 +110,15 @@ def main():
             if val is not None:
                 row[col] = val
         if "SourceFile" in row:
-            row["SourceFile"] = normalize_source_file(row["SourceFile"], args.source_dir)
+            row["SourceFile"] = normalize_source_file(
+                row["SourceFile"], args.source_dir
+            )
         if row:
             records.append(row)
 
-    non_empty = sum(1 for r in records if len(r) > 2)  # more than just SourceFile + FileName
+    non_empty = sum(
+        1 for r in records if len(r) > 2
+    )  # more than just SourceFile + FileName
     print(f"Records with camera data: {non_empty:,}")
 
     if args.dry_run:
@@ -106,9 +128,10 @@ def main():
         return
 
     db = sqlite_utils.Database(args.db)
-    db["exif_camera"].upsert_all(records, pk="SourceFile", alter=True)
+    # sqlite-utils 4.0 types these kwargs as its DEFAULT sentinel
+    db.table("exif_camera").upsert_all(records, pk="SourceFile", alter=True)  # pyright: ignore[reportArgumentType]
 
-    count = db["exif_camera"].count
+    count = db.table("exif_camera").count
     print(f"exif_camera table now has {count:,} rows")
     print("Done.")
 
