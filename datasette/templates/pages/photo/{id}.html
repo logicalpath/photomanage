@@ -96,11 +96,19 @@
                 {% set back_end = request.args.get('end_date', '') %}
                 {% set back_page = request.args.get('page', '') %}
                 {% set back_url = '/gallery?' %}
+                {% set back_label = 'Back to gallery' %}
+                {% if request.args.get('from') == 'nodate-query' %}
+                    {% set back_url = '/mediameta/Exif+no+date+Thumbs' %}
+                    {% set back_label = 'Back to undated photos' %}
+                {% elif request.args.get('from') == 'nodate' %}
+                    {% set back_url = '/nodate?' %}
+                    {% set back_label = 'Back to undated photos' %}
+                {% endif %}
                 {% if back_q %}{% set back_url = back_url ~ 'q=' ~ back_q|urlencode ~ '&' %}{% endif %}
                 {% if back_start %}{% set back_url = back_url ~ 'start_date=' ~ back_start|urlencode ~ '&' %}{% endif %}
                 {% if back_end %}{% set back_url = back_url ~ 'end_date=' ~ back_end|urlencode ~ '&' %}{% endif %}
                 {% if back_page %}{% set back_url = back_url ~ 'page=' ~ back_page|urlencode %}{% endif %}
-                <a href="{{ back_url }}">← Back to gallery</a>
+                <a href="{{ back_url }}">← {{ back_label }}</a>
                 &nbsp;&nbsp;
                 <a href="/mediameta/exif_with_fullpath?FileName={{ id }}">View in database</a>
             </div>

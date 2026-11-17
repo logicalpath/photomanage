@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos Without Dates</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .container { max-width: 1800px; margin: 0 auto; }
+        h1 { margin: 0 0 8px 0; font-size: 28px; }
+        .nav-link { color: #999; text-decoration: none; font-size: 13px; margin-left: 10px; }
+        .nav-link:hover { color: #e0e0e0; }
+        .info { margin: 8px 0 16px; color: #999; font-size: 14px; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+        }
+        .cell {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background-color: #252525;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .cell a { display: block; width: 100%; height: 100%; }
+        .cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .cell:hover { outline: 2px solid #4a9eff; }
+        .cell .name {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            padding: 2px 6px;
+            font-size: 11px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.15s;
+        }
+        .cell:hover .name { opacity: 1; }
+        .pagination {
+            display: flex; justify-content: center; align-items: center;
+            flex-wrap: wrap; gap: 8px;
+            margin-top: 24px; padding-top: 16px; border-top: 1px solid #333;
+        }
+        .pagination a, .pagination span {
+            padding: 8px 14px; border-radius: 4px; font-size: 14px; text-decoration: none;
+        }
+        .pagination a { background-color: #4a9eff; color: white; }
+        .pagination a:hover { background-color: #3a8eef; }
+        .pagination .current { background-color: #1a5cbb; color: white; font-weight: bold; }
+        .pagination .disabled { background-color: #2a2a2a; color: #666; }
+        .pagination .ellipsis { color: #666; padding: 8px 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Photos Without Dates <a href="/mediameta" class="nav-link">← Home</a></h1>
+
+        {% set page = request.args.get('page', '1')|int %}
+        {% if page < 1 %}{% set page = 1 %}{% endif %}
+        {% set per_page = 200 %}
+        {% set offset = (page - 1) * per_page %}
+
+        {% set count_row = sql("SELECT COUNT(*) AS n FROM exifNoDate", {}, database="mediameta") %}
+        {% set total_count = count_row[0].n %}
+        {% set total_pages = ((total_count - 1) // per_page) + 1 %}
+
+        {% set photos = sql("SELECT e.FileName, e.SourceFile, t.path AS thumb_path FROM exifNoDate e LEFT JOIN thumbImages t ON e.SourceFile = t.path ORDER BY e.rowid LIMIT :limit OFFSET :offset", {"limit": per_page, "offset": offset}, database="mediameta") %}
+
+        {% if photos %}
+        <div class="info">Showing {{ offset + 1 }}–{{ offset + photos|length }} of {{ total_count }} photo(s). Click a thumbnail to view the photo.</div>
+
+        <div class="grid">
+            {% for photo in photos %}
+            <div class="cell">
+                <a href="/photo/{{ photo.FileName|urlencode }}?from=nodate&page={{ page }}" title="{{ photo.FileName }}">
+                    {% if photo.thumb_path %}
+                    <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}" alt="{{ photo.FileName }}" loading="lazy">
+                    {% endif %}
+                    <div class="name">{{ photo.FileName }}</div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if page > 1 %}<a href="?page={{ page - 1 }}">← Prev</a>{% else %}<span class="disabled">← Prev</span>{% endif %}
+            {% for p in range(1, total_pages + 1) %}
+                {% if p == page %}
+                    <span class="current">{{ p }}</span>
+                {% elif p == 1 or p == total_pages or (p - page)|abs <= 2 %}
+                    <a href="?page={{ p }}">{{ p }}</a>
+                {% elif (p - page)|abs == 3 %}
+                    <span class="ellipsis">…</span>
+                {% endif %}
+            {% endfor %}
+            {% if page < total_pages %}<a href="?page={{ page + 1 }}">Next →</a>{% else %}<span class="disabled">Next →</span>{% endif %}
+        </div>
+        {% else %}
+        <div class="info">No photos found.</div>
+        {% endif %}
+    </div>
+</body>
+</html>

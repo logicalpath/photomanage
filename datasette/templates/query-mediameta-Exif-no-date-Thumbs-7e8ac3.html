@@ -1,0 +1,39 @@
+{% extends "default:query.html" %}
+
+{% block extra_head %}
+{{ super() }}
+<style>
+    /* Replace the one-row-per-image table with a compact thumbnail grid */
+    .table-wrapper, table.rows-and-columns { display: none; }
+    .thumb-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 8px;
+        margin-top: 16px;
+    }
+    .thumb-grid a {
+        position: relative;
+        display: block;
+        aspect-ratio: 1 / 1;
+        background: #eee;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .thumb-grid a:hover { outline: 2px solid #176; }
+    .thumb-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+{% if display_rows %}
+<div class="thumb-grid">
+    {% for row in display_rows %}
+    {% set filename = row[1].split('/')[-1] %}
+    <a href="/photo/{{ filename|urlencode }}?from=nodate-query" title="{{ filename }}">
+        <img src="/-/media/thumb/{{ row[1]|replace('./', '') }}" alt="{{ filename }}" loading="lazy">
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
