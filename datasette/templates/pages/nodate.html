@@ -66,11 +66,11 @@
         {% set per_page = 200 %}
         {% set offset = (page - 1) * per_page %}
 
-        {% set count_row = sql("SELECT COUNT(*) AS n FROM exifNoDate", {}, database="mediameta") %}
+        {% set count_row = sql("SELECT COUNT(*) AS n FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date IS NULL", {}, database="mediameta") %}
         {% set total_count = count_row[0].n %}
         {% set total_pages = ((total_count - 1) // per_page) + 1 %}
 
-        {% set photos = sql("SELECT e.FileName, e.SourceFile, t.path AS thumb_path FROM exifNoDate e LEFT JOIN thumbImages t ON e.SourceFile = t.path ORDER BY e.rowid LIMIT :limit OFFSET :offset", {"limit": per_page, "offset": offset}, database="mediameta") %}
+        {% set photos = sql("SELECT e.FileName, e.SourceFile FROM exif_with_effective_date e INNER JOIN thumbImages t ON e.SourceFile = t.path WHERE e.effective_date IS NULL ORDER BY e.SourceFile LIMIT :limit OFFSET :offset", {"limit": per_page, "offset": offset}, database="mediameta") %}
 
         {% if photos %}
         <div class="info">Showing {{ offset + 1 }}–{{ offset + photos|length }} of {{ total_count }} photo(s). Click a thumbnail to view the photo.</div>
@@ -79,9 +79,7 @@
             {% for photo in photos %}
             <div class="cell">
                 <a href="/photo/{{ photo.FileName|urlencode }}?from=nodate&page={{ page }}" title="{{ photo.FileName }}">
-                    {% if photo.thumb_path %}
                     <img src="/-/media/thumb/{{ photo.SourceFile|replace('./', '') }}" alt="{{ photo.FileName }}" loading="lazy">
-                    {% endif %}
                     <div class="name">{{ photo.FileName }}</div>
                 </a>
             </div>

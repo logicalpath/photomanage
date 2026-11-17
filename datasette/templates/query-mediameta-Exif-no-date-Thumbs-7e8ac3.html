@@ -29,9 +29,10 @@
 {% if display_rows %}
 <div class="thumb-grid">
     {% for row in display_rows %}
-    {% set filename = row[1].split('/')[-1] %}
+    {% set source = row[0]|string %}
+    {% set filename = row[1]|string %}
     <a href="/photo/{{ filename|urlencode }}?from=nodate-query" title="{{ filename }}">
-        <img src="/-/media/thumb/{{ row[1]|replace('./', '') }}" alt="{{ filename }}" loading="lazy">
+        <img src="/-/media/thumb/{{ source|replace('./', '') }}" alt="{{ filename }}" loading="lazy">
     </a>
     {% endfor %}
 </div>
