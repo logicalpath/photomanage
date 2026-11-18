@@ -90,6 +90,17 @@ uv run datasette -p 8001 --host 0.0.0.0 --load-extension=spatialite --template-d
 
 Templates are in `datasette/templates/` and plugins are in `datasette/plugins/`.
 
+## Sync databases from the Mac Studio
+
+The Mac Studio has the authoritative copies of `mediameta.db` and `embeddings-vlm2.db` (the `database/` directory is not in git). To pull them to another machine:
+
+```bash
+scripts/sync-from-studio.sh                      # all databases
+scripts/sync-from-studio.sh embeddings-vlm2.db   # just one
+```
+
+The script takes a consistent `sqlite3 .backup` snapshot on the Studio, rsyncs only the changed blocks against the local copy, then swaps the result into place. If the copy fails, the local database is left unchanged. Set `STUDIO_HOST` or `STUDIO_DB_DIR` to override the defaults (`eddies-mac-studio.local`, same repo path). Requires passwordless SSH to the Studio. Stop any local datasette first; the script refuses to replace a database that is open.
+
 
 ## Viewing Images
 
