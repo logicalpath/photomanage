@@ -66,11 +66,15 @@ for db in "${databases[@]}"; do
         echo "    Error: $local_db is open (local datasette?). Stop it and re-run the sync."
         exit 1
     fi
-    if [ -e "$local_db-wal" ]; then
-        echo "    Error: $local_db-wal exists, so the database may hold uncheckpointed changes."
-        echo "    Open and close it once with sqlite3 to checkpoint, then re-run the sync."
-        exit 1
-    fi
+    # A leftover -wal (uncheckpointed changes) or -journal (hot journal from a crashed writer)
+    # would be applied by SQLite to the new file after the swap, so let SQLite recover first.
+    for sidecar in "$local_db-wal" "$local_db-journal"; do
+        if [ -e "$sidecar" ]; then
+            echo "    Error: $sidecar exists, so SQLite may still need to recover this database."
+            echo "    Run: sqlite3 '$local_db' 'pragma quick_check' (this recovers it), then re-run the sync."
+            exit 1
+        fi
+    done
 
     echo "    Snapshotting on $studio_host..."
     ssh "$studio_host" "test -f '$studio_db_dir/$db'"
