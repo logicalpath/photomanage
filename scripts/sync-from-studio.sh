@@ -5,7 +5,10 @@
 # For each database:
 # - Take a consistent snapshot on the Studio with sqlite3 ".backup" (safe while datasette has it open)
 # - Seed a temp file with an APFS clone of the local copy, so rsync only sends changed blocks
+#   and --inplace keeps unchanged blocks shared with the live copy
 # - rsync the snapshot over the temp file, sanity-check it, then atomically swap it into place
+#
+# Stop any local datasette (or other process using the databases) before syncing.
 #
 # Configuration (environment variables):
 #   STUDIO_HOST    SSH host for the Studio (default: eddies-mac-studio.local)
@@ -34,6 +37,9 @@ local_db_dir="$repo_dir/database"
 studio_host="${STUDIO_HOST:-eddies-mac-studio.local}"
 studio_db_dir="${STUDIO_DB_DIR:-$local_db_dir}"
 
+# database/ is git-ignored, so a fresh checkout does not have it
+mkdir -p "$local_db_dir"
+
 if [ $# -gt 0 ]; then
     databases=("$@")
 else
@@ -57,21 +63,33 @@ for db in "${databases[@]}"; do
     echo "==> $db"
 
     if lsof "$local_db" >/dev/null 2>&1; then
-        echo "    Warning: $local_db is open (local datasette?). Restart it after the sync to see new data."
+        echo "    Error: $local_db is open (local datasette?). Stop it and re-run the sync."
+        exit 1
+    fi
+    if [ -e "$local_db-wal" ]; then
+        echo "    Error: $local_db-wal exists, so the database may hold uncheckpointed changes."
+        echo "    Open and close it once with sqlite3 to checkpoint, then re-run the sync."
+        exit 1
     fi
 
-    remote_snapshot="/tmp/photomanage-sync-$db"
     echo "    Snapshotting on $studio_host..."
-    ssh "$studio_host" "test -f '$studio_db_dir/$db' && sqlite3 '$studio_db_dir/$db' \".backup '$remote_snapshot'\""
+    ssh "$studio_host" "test -f '$studio_db_dir/$db'"
+    # Unique per run, so concurrent syncs from other machines don't collide
+    remote_snapshot="$(ssh "$studio_host" "mktemp /tmp/photomanage-sync-$db.XXXXXX")"
+    ssh "$studio_host" "sqlite3 '$studio_db_dir/$db' \".backup '$remote_snapshot'\""
 
-    local_tmp="$local_db.sync-tmp"
+    # Unique per run, so overlapping syncs in this checkout don't collide
+    local_tmp="$(mktemp "$local_db_dir/.$db.sync-XXXXXX")"
     if [ -f "$local_db" ]; then
-        # APFS clone: instant, no extra disk space, gives rsync a basis for delta transfer
+        # APFS clone: instant, no extra disk space, gives rsync a basis for delta transfer.
+        # clonefile() won't overwrite, so remove the placeholder mktemp created first.
+        rm -f "$local_tmp"
         cp -c "$local_db" "$local_tmp"
     fi
 
     echo "    Transferring..."
-    rsync -t --progress "$studio_host:$remote_snapshot" "$local_tmp"
+    # --inplace updates the clone directly, so unchanged blocks stay shared with the live copy
+    rsync -t --inplace --progress "$studio_host:$remote_snapshot" "$local_tmp"
 
     if ! sqlite3 "$local_tmp" "select count(*) from sqlite_master" >/dev/null; then
         echo "    Error: synced copy of $db did not open as a SQLite database; local copy left unchanged."
