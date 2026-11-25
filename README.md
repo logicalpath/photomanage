@@ -257,6 +257,26 @@ Not currently installed:
    ```
 
 
+### Place names (reverse geocoding)
+
+The photo detail page shows a place name (e.g. "Volcano, Hawaiʻi County, Hawaii, United States") next to the coordinates, read from the `geo_places` table in `mediameta.db`. Populate it with:
+
+```bash
+python3 scripts/reverse_geocode.py --dry-run   # how many locations are pending
+python3 scripts/reverse_geocode.py             # geocode them (~1 req/s)
+```
+
+Coordinates are rounded to 3 decimals (~110 m), so ~1,600 lookups cover all photos (~30 min first run). The script calls Nominatim, is resumable (already-geocoded cells are skipped), and ignores `0,0` fixes. **Run it on the Mac Studio**: `sync-from-studio.sh` overwrites the local `mediameta.db`, so a table created locally is lost on the next sync. The page is unchanged for photos without a `geo_places` row. Place data is © OpenStreetMap contributors (ODbL).
+
+For street-level detail, run the script again with `--detail`:
+
+```bash
+python3 scripts/reverse_geocode.py --detail --dry-run
+python3 scripts/reverse_geocode.py --detail
+```
+
+This geocodes at ~1 m precision (5 decimals) with Nominatim `zoom=18` into a separate `geo_places_detail` table (street, house number, nearest named feature, postcode). It takes about 85 minutes (~4,550 locations). The photo page shows it on the Location row, e.g. "Near Boca Pizzeria & Wine Bar, Salvatore Drive". Note that `--detail` sends near-exact photo coordinates to the public Nominatim server.
+
 ## Database Optimization
 
 ### Creating Performance Indexes
