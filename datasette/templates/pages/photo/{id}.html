@@ -89,8 +89,34 @@
         {% if photo_data %}
             {% set photo = photo_data[0] %}
 
+            {# Reverse-geocoded place name (geo_places is built by scripts/reverse_geocode.py) #}
+            {% set place = none %}
+            {% set place_label = '' %}
+            {% if photo.GPSLatitude and photo.GPSLongitude and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places'", database="mediameta") %}
+                {% set place_rows = sql("SELECT * FROM geo_places WHERE lat_r = round(:lat, 3) AND lon_r = round(:lon, 3)", {"lat": photo.GPSLatitude, "lon": photo.GPSLongitude}, database="mediameta") %}
+                {% if place_rows %}
+                    {% set place = place_rows[0] %}
+                    {% set parts = [place.city or place.neighbourhood, place.county, place.state, place.country] | select | list %}
+                    {% set place_label = (parts | join(', ')) if parts else (place.display_name or '') %}
+                {% endif %}
+            {% endif %}
+
+            {# Street-level detail (geo_places_detail: scripts/reverse_geocode.py --detail) #}
+            {% set street_label = '' %}
+            {% if photo.GPSLatitude and photo.GPSLongitude and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places_detail'", database="mediameta") %}
+                {% set detail_rows = sql("SELECT * FROM geo_places_detail WHERE lat_r = round(:lat, 5) AND lon_r = round(:lon, 5)", {"lat": photo.GPSLatitude, "lon": photo.GPSLongitude}, database="mediameta") %}
+                {% if detail_rows %}
+                    {% set d = detail_rows[0] %}
+                    {% set street = ((d.house_number ~ ' ') if d.house_number else '') ~ (d.road or '') %}
+                    {% set feature = d.feature_name if d.feature_name and d.feature_name != d.road else '' %}
+                    {% if feature and street %}{% set street_label = 'Near ' ~ feature ~ ', ' ~ street %}
+                    {% elif feature %}{% set street_label = 'Near ' ~ feature %}
+                    {% else %}{% set street_label = street %}{% endif %}
+                {% endif %}
+            {% endif %}
+
             <div class="photo-header">
-                <h1>{{ photo.FileName }}</h1>
+                <h1>{{ place_label or photo.FileName }}</h1>
                 {% set back_q = request.args.get('q', '') %}
                 {% set back_start = request.args.get('start_date', '') %}
                 {% set back_end = request.args.get('end_date', '') %}
@@ -149,8 +175,16 @@
                     {% if photo.GPSLatitude and photo.GPSLongitude %}
                     <div class="info-label">Location:</div>
                     <div class="info-value">
-                        {{ photo.GPSLatitude }}, {{ photo.GPSLongitude }}
+                        {% if street_label %}{{ street_label }}<br>{% endif %}
+                        {% if place_label %}{{ place_label }}<br>{% endif %}
+                        <span{% if place %} style="color:#888;font-size:0.85em"{% endif %}>{{ photo.GPSLatitude }}, {{ photo.GPSLongitude }}</span>
+                        {% if (place and (place.display_name or place.city)) or street_label %}
+                        <br><span style="color:#888;font-size:0.75em">Place data &copy; <a href="https://www.openstreetmap.org/copyright" style="color:#4a9eff">OpenStreetMap</a> contributors</span>
+                        {% endif %}
                     </div>
+                    {% else %}
+                    <div class="info-label">Location:</div>
+                    <div class="info-value" style="color:#888">{% if photo.GPSLatitude == 0 and photo.GPSLongitude == 0 %}GPS invalid (0, 0){% else %}GPS not recorded{% endif %}</div>
                     {% endif %}
 
                     {% if photo.full_path %}
