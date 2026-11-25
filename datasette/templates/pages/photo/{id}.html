@@ -88,11 +88,13 @@
 
         {% if photo_data %}
             {% set photo = photo_data[0] %}
+            {# Usable GPS: both coordinates numeric (not '' / NULL) and not the bogus 0,0 fix. A single zero (equator / prime meridian) is valid. #}
+            {% set has_gps = photo.GPSLatitude is number and photo.GPSLongitude is number and not (photo.GPSLatitude == 0 and photo.GPSLongitude == 0) %}
 
             {# Reverse-geocoded place name (geo_places is built by scripts/reverse_geocode.py) #}
             {% set place = none %}
             {% set place_label = '' %}
-            {% if photo.GPSLatitude and photo.GPSLongitude and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places'", database="mediameta") %}
+            {% if has_gps and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places'", database="mediameta") %}
                 {% set place_rows = sql("SELECT * FROM geo_places WHERE lat_r = round(:lat, 3) AND lon_r = round(:lon, 3)", {"lat": photo.GPSLatitude, "lon": photo.GPSLongitude}, database="mediameta") %}
                 {% if place_rows %}
                     {% set place = place_rows[0] %}
@@ -103,7 +105,7 @@
 
             {# Street-level detail (geo_places_detail: scripts/reverse_geocode.py --detail) #}
             {% set street_label = '' %}
-            {% if photo.GPSLatitude and photo.GPSLongitude and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places_detail'", database="mediameta") %}
+            {% if has_gps and sql("SELECT 1 FROM sqlite_master WHERE type='table' AND name='geo_places_detail'", database="mediameta") %}
                 {% set detail_rows = sql("SELECT * FROM geo_places_detail WHERE lat_r = round(:lat, 5) AND lon_r = round(:lon, 5)", {"lat": photo.GPSLatitude, "lon": photo.GPSLongitude}, database="mediameta") %}
                 {% if detail_rows %}
                     {% set d = detail_rows[0] %}
@@ -172,7 +174,7 @@
                     <div class="info-value">{{ photo.ImageWidth }} x {{ photo.ImageHeight }} pixels</div>
                     {% endif %}
 
-                    {% if photo.GPSLatitude and photo.GPSLongitude %}
+                    {% if has_gps %}
                     <div class="info-label">Location:</div>
                     <div class="info-value">
                         {% if street_label %}{{ street_label }}<br>{% endif %}

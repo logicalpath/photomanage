@@ -216,9 +216,11 @@ def main():
             wait = MIN_INTERVAL - (time.monotonic() - last_request)
             if wait > 0:
                 time.sleep(wait)
-            last_request = time.monotonic()
 
             result = fetch(lat, lon, cfg["zoom"])
+            # Stamp after fetch() returns so retries/backoff inside it count toward the
+            # interval; the next request waits MIN_INTERVAL after the *final* attempt.
+            last_request = time.monotonic()
             if result is None:
                 failed += 1
                 continue
